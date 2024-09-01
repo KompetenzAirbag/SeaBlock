@@ -33,3 +33,12 @@ bobmods.lib.tech.remove_prerequisite("explosives", "angels-sulfur-processing-2")
 bobmods.lib.tech.add_prerequisite("explosives", "basic-chemistry-2")
 
 bobmods.lib.tech.remove_prerequisite("battery", "angels-sulfur-processing-2")
+
+-- Combine Sulfur 3 and 4 and move to Blue Science
+seablock.lib.add_recipe_unlock("angels-sulfur-processing-3", "filter-lime", 1)
+seablock.lib.add_recipe_unlock("angels-sulfur-processing-3", "angels-sulfur-scrubber", 2)
+seablock.lib.add_recipe_unlock("angels-sulfur-processing-3", "filter-lime-used", 3)
+
+bobmods.lib.tech.hide("angels-sulfur-processing-4")
+bobmods.lib.tech.add_new_science_pack("angels-sulfur-processing-3", "chemical-science-pack", 1)
+bobmods.lib.tech.add_prerequisite("angels-sulfur-processing-3", "chemical-science-pack")

@@ -372,5 +372,5 @@ if mods["Clowns-Extended-Minerals"] then
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-2", 4)
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-1", 1)
   seablock.lib.add_recipe_unlock("water-washing-2", "sb-clowns-resource-1")
-  seablock.lib.add_recipe_unlock("oil-gas-extraction", "sb-clowns-resource-2")
+  seablock.lib.add_recipe_unlock("angels-oil-processing", "sb-clowns-resource-2")
 end

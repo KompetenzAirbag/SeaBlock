@@ -7,7 +7,7 @@ end
 -- No natural gas, use methane for manganese pellet smelting
 seablock.lib.substingredient("pellet-manganese-smelting", "gas-natural-1", "gas-methane")
 bobmods.lib.tech.remove_prerequisite("angels-manganese-smelting-3", "oil-gas-extraction")
-bobmods.lib.tech.add_prerequisite("angels-manganese-smelting-3", "gas-processing")
+bobmods.lib.tech.add_prerequisite("angels-manganese-smelting-3", "angels-advanced-gas-processing")
 
 -- Remove steel's prerequiste on Chemical processing 1
 bobmods.lib.tech.remove_prerequisite("steel-processing", "chemical-processing-1")
@@ -111,6 +111,108 @@ seablock.lib.hide("mining-drill", "pumpjack")
 seablock.lib.hide("storage-tank", "bob-overflow-valve")
 seablock.lib.hide("storage-tank", "bob-valve")
 seablock.lib.hide("storage-tank", "bob-topup-valve")
+
+-- Hide Oil & Gas Separator
+-- Move Methane to Blue Science
+for _, item in pairs({
+  { type = "assembling-machine", name = "gas-refinery" },
+  { type = "assembling-machine", name = "gas-refinery-2" },
+  { type = "assembling-machine", name = "gas-refinery-3" },
+  { type = "assembling-machine", name = "gas-refinery-4" },
+  { type = "assembling-machine", name = "separator" },
+  { type = "assembling-machine", name = "separator-2" },
+  { type = "assembling-machine", name = "separator-3" },
+  { type = "assembling-machine", name = "separator-4" },
+  { type = "fluid", name = "gas-chlor-methane" },
+  { type = "fluid", name = "liquid-multi-phase-oil" },
+  { type = "item", name = "gas-chlor-methane-barrel" },
+  { type = "item", name = "gas-refinery" },
+  { type = "item", name = "gas-refinery-2" },
+  { type = "item", name = "gas-refinery-3" },
+  { type = "item", name = "gas-refinery-4" },
+  { type = "item", name = "liquid-multi-phase-oil-barrel" },
+  { type = "item", name = "separator" },
+  { type = "item", name = "separator-2" },
+  { type = "item", name = "separator-3" },
+  { type = "item", name = "separator-4" },
+}) do
+  seablock.lib.hide(item.type, item.name)
+end
+
+bobmods.lib.recipe.hide("angels-chemical-void-gas-chlor-methane")
+bobmods.lib.recipe.hide("angels-chemical-void-liquid-multi-phase-oil")
+bobmods.lib.recipe.hide("empty-gas-chlor-methane-barrel")
+bobmods.lib.recipe.hide("empty-liquid-multi-phase-oil-barrel")
+bobmods.lib.recipe.hide("fill-gas-chlor-methane-barrel")
+bobmods.lib.recipe.hide("fill-liquid-multi-phase-oil-barrel")
+bobmods.lib.recipe.hide("gas-chlor-methane")
+bobmods.lib.recipe.hide("gas-fractioning-synthesis")
+bobmods.lib.recipe.hide("gas-refinery")
+bobmods.lib.recipe.hide("gas-refinery-2")
+bobmods.lib.recipe.hide("gas-refinery-3")
+bobmods.lib.recipe.hide("gas-refinery-4")
+bobmods.lib.recipe.hide("oil-separation")
+bobmods.lib.recipe.hide("separator")
+bobmods.lib.recipe.hide("separator-2")
+bobmods.lib.recipe.hide("separator-3")
+bobmods.lib.recipe.hide("separator-4")
+
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-2", "gas-refinery-small-2")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-2", "separator-2")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-4", "gas-refinery-2")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-4", "separator-3")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-5", "gas-refinery-3")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-5", "separator-4")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "gas-fractioning-synthesis")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "gas-refinery")
+bobmods.lib.tech.remove_recipe_unlock("angels-nitrogen-processing-4", "gas-refinery-4")
+bobmods.lib.tech.remove_recipe_unlock("chlorine-processing-2", "gas-chlor-methane")
+bobmods.lib.tech.remove_recipe_unlock("flammables", "solid-fuel-methane")
+bobmods.lib.tech.remove_recipe_unlock("fluid-barrel-processing", "empty-liquid-multi-phase-oil-barrel")
+bobmods.lib.tech.remove_recipe_unlock("fluid-barrel-processing", "fill-liquid-multi-phase-oil-barrel")
+bobmods.lib.tech.remove_recipe_unlock("gas-canisters", "empty-gas-chlor-methane-barrel")
+bobmods.lib.tech.remove_recipe_unlock("gas-canisters", "fill-gas-chlor-methane-barrel")
+bobmods.lib.tech.remove_recipe_unlock("gas-processing", "gas-fractioning")
+bobmods.lib.tech.remove_recipe_unlock("gas-processing", "gas-refining")
+bobmods.lib.tech.remove_recipe_unlock("steam-cracking-1", "catalyst-steam-cracking-butane")
+bobmods.lib.tech.remove_recipe_unlock("steam-cracking-1", "steam-cracking-butane")
+bobmods.lib.tech.remove_recipe_unlock("steam-cracking-1", "steam-cracking-ethane")
+bobmods.lib.tech.remove_recipe_unlock("steam-cracking-1", "steam-cracking-methane")
+bobmods.lib.tech.remove_recipe_unlock("steam-cracking-2", "steam-cracking-oil-residual")
+
+bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "gas-refinery-small-2")
+bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "gas-refining")
+bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "gas-fractioning")
+bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "solid-fuel-methane")
+bobmods.lib.tech.add_recipe_unlock("fluid-handling", "angels-storage-tank-1")
+bobmods.lib.tech.add_recipe_unlock("steam-cracking-1", "steam-cracking-oil-residual")
+bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "catalyst-steam-cracking-butane")
+bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "steam-cracking-butane")
+bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "steam-cracking-ethane")
+bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "steam-cracking-methane")
+seablock.lib.add_recipe_unlock("bio-nutrient-paste", "gas-refinery-small", 2)
+
+bobmods.lib.tech.remove_prerequisite("advanced-material-processing-2", "gas-processing")
+bobmods.lib.tech.remove_prerequisite("angels-advanced-gas-processing", "steam-cracking-2")
+bobmods.lib.tech.remove_prerequisite("angels-oil-processing", "oil-gas-extraction")
+bobmods.lib.tech.remove_prerequisite("angels-sulfur-processing-3", "gas-processing")
+bobmods.lib.tech.remove_prerequisite("bio-nutrient-paste", "gas-processing")
+bobmods.lib.tech.remove_prerequisite("bio-processing-paste", "chlorine-processing-2")
+bobmods.lib.tech.remove_prerequisite("gas-processing", "oil-gas-extraction")
+bobmods.lib.tech.remove_prerequisite("steam-cracking-1", "gas-processing")
+bobmods.lib.tech.remove_prerequisite("steam-cracking-2", "angels-advanced-chemistry-2")
+
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-2", "steam-cracking-2")
+bobmods.lib.tech.add_prerequisite("angels-advanced-gas-processing", "bio-nutrient-paste")
+bobmods.lib.tech.add_prerequisite("angels-advanced-gas-processing", "bio-refugium-puffer-1")
+bobmods.lib.tech.add_prerequisite("angels-oil-processing", "fluid-handling")
+bobmods.lib.tech.add_prerequisite("bio-processing-paste", "chlorine-processing-1")
+bobmods.lib.tech.add_prerequisite("steam-cracking-2", "angels-advanced-gas-processing")
+
+bobmods.lib.tech.hide("gas-processing")
+bobmods.lib.tech.hide("oil-gas-extraction")
+
+bobmods.lib.recipe.replace_ingredient("paste-cellulose", "gas-chlor-methane", "gas-chlorine")
 
 -- Buff Lime filtering
 seablock.lib.substingredient("filter-lime", "solid-lime", nil, 1)
@@ -371,6 +473,8 @@ bobmods.lib.tech.add_prerequisite("plastics", "automation-2")
 if mods["boblogistics"] then
   bobmods.lib.tech.add_prerequisite("bob-repair-pack-2", "military")
 end
+bobmods.lib.tech.add_prerequisite("water-treatment-2", "fluid-handling")
+bobmods.lib.tech.add_prerequisite("water-washing-2", "fluid-handling")
 
 -- Nerf early game glass. Just need a little bit for arboretums
 seablock.lib.substingredient("quartz-glass", "quartz", nil, 10)
@@ -420,10 +524,8 @@ bobmods.lib.tech.add_prerequisite("water-washing-2", "alloy-processing")
 bobmods.lib.tech.add_prerequisite("advanced-ore-refining-1", "angels-stone-smelting-1")
 bobmods.lib.tech.add_prerequisite("angels-cooling", "angels-stone-smelting-1")
 bobmods.lib.tech.add_prerequisite("angels-metallurgy-2", "angels-stone-smelting-1")
+bobmods.lib.tech.add_prerequisite("fluid-handling", "angels-stone-smelting-1")
 bobmods.lib.tech.add_prerequisite("gardens", "angels-stone-smelting-1")
-bobmods.lib.tech.add_prerequisite("oil-gas-extraction", "angels-stone-smelting-1")
-bobmods.lib.tech.add_prerequisite("water-treatment-2", "angels-stone-smelting-1")
-bobmods.lib.tech.add_prerequisite("water-washing-2", "angels-stone-smelting-1")
 
 -- Brass prerequisites
 bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-2", "zinc-processing")
@@ -463,7 +565,6 @@ bobmods.lib.tech.add_prerequisite("slag-processing-3", "angels-stone-smelting-3"
 bobmods.lib.tech.add_prerequisite("water-treatment-4", "angels-stone-smelting-3")
 
 -- Copper tungsten / tungsten carbide prerequisites
-bobmods.lib.tech.add_prerequisite("angels-nitrogen-processing-4", "tungsten-alloy-processing")
 bobmods.lib.tech.add_prerequisite("ore-processing-5", "tungsten-alloy-processing")
 
 -- Nitinol prerequisites

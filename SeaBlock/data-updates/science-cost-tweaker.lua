@@ -39,4 +39,11 @@ if mods["ScienceCostTweakerM"] then
     )
     bobmods.lib.tech.add_prerequisite("vehicle-fusion-reactor-equipment-3", "utility-science-pack")
   end
+
+  -- Move intermediates from Advanced Material Processing to Purple Science
+  bobmods.lib.tech.remove_recipe_unlock("advanced-material-processing-2", "sct-prod-baked-biopaste")
+  bobmods.lib.tech.remove_recipe_unlock("advanced-material-processing-2", "sct-prod-biosilicate")
+  bobmods.lib.tech.add_recipe_unlock("production-science-pack", "sct-prod-baked-biopaste")
+  bobmods.lib.tech.add_recipe_unlock("production-science-pack", "sct-prod-biosilicate")
+  bobmods.lib.tech.add_prerequisite("sct-production-science-pack", "angels-advanced-gas-processing")
 end

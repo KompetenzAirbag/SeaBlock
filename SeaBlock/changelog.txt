@@ -2,6 +2,12 @@
 Version: 0.5.17
 Date: ??.??.??
   Changes:
+    - Petrochem Cleanup #207
+      - Changed Blue Algae Liquefaction recipe to produce Crude Oil instead of Multi-phase Oil
+      - Change Cellulose Paste recipe to use Chlorine Gas instead of Chloromethane Gas
+      - Hid Multi-phase Oil and Chloromethane Gas
+      - Hid techs Gas Processing, Oil and Gas Extraction, and Sulfur Processing 4
+      - Hid Oil & Gas Separator and Advanced Gas Refinery
     - Added custom Better Victory Screen statistics #323
     - Handle Ore Sorting Facility 5 changes #327
       - Stop creating recipe, item, and entity in Sea Block

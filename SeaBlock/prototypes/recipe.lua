@@ -77,35 +77,21 @@ data:extend({
     -- Balance assuming blue algae is about equal to green algae in MJ value.
     -- 1 blue cellulose = 2MJ (1 green cellulose = 1MJ but converting to wood pellets doubles it.
     --   Wrong, but I'll stick with it to avoid increasing the cost of all petrochem recipes)
-    -- Now for multi phase oil MJ value:
-    -- 100 naphtha = 50MJ
-    -- 50 fuel oil = 50MJ
     -- basic oil refining is 100 crude oil -> 30 fuel oil + 50 naphtha (and other stuff i'll ignore)
-    -- 100 crude oil = 30MJ (fuel oil) + 25MJ (naphtha) = 55MJ
-    -- 100 multiphase oil = 55*70/100 = 38.5 MJ.
-    -- Let's round that up to 40MJ or 20 blue cellulose fiber.
-    -- This is being generous, haven't counted natural gas liquids and base mineral oil.
+    -- 45 crude oil = 27MJ (fuel oil) + 22.5MJ (naphtha) = 49.5MJ
+    -- Let's round that up to 50MJ for 20 blue cellulose fiber.
+    -- This is being generous, haven't counted base mineral oil.
 
     -- 100 sulfuric waste water -> 40 blue algae
     -- 40 blue algae -> 20 blue cellulose
-    -- 20 blue cellulose -> 100 multi phase oil + 60 sulfuric waste water
-    -- 100 multi phase oil -> 10 sulfuric waste water
+    -- 20 blue cellulose -> 90 crude oil + 70 sulfuric waste water
     -- 70% of sulfuric waste water is recycled
-    -- Almost forgot +20 raw gas
-    -- 20 raw gas -> 4 acid gas
-    -- 4 acid gas -> 2.4 hydrogen sulfide
-    -- 2.4 hydrogen sulfide -> 0.12 sulfur
-    -- 0.12 sulfur -> 7.2 sulfur dioxide
-    -- 7.2 sulfur dioxide -> 4.8 sulfuric acid
-    -- 4.8 sulfuric acid -> 16 slag slurry
-    -- 16 slag slurry -> 12.8 sulfuric waste water (coal filtering)
-    -- So closer to 80% sulfur return
     type = "recipe",
     name = "sb-blue-algae-liquefaction",
     icons = angelsmods.functions.create_liquid_recipe_icon({
       "blue-cellulose-fiber",
     }, { { 100, 100, 100 }, { 171, 161, 055 }, { 127, 163, 109 } }),
-    category = "petrochem-separation",
+    category = "oil-processing",
     enabled = false,
     energy_required = 5,
     ingredients = {
@@ -113,8 +99,8 @@ data:extend({
       { type = "fluid", name = "steam", amount = 100 },
     },
     results = {
-      { type = "fluid", name = "water-yellow-waste", amount = 60 },
-      { type = "fluid", name = "liquid-multi-phase-oil", amount = 100 },
+      { type = "fluid", name = "crude-oil", amount = 90 },
+      { type = "fluid", name = "water-yellow-waste", amount = 70 },
       { type = "fluid", name = "gas-carbon-dioxide", amount = 20 },
     },
     subgroup = "bio-processing-blue",
@@ -122,8 +108,8 @@ data:extend({
   },
 })
 
-bobmods.lib.tech.add_prerequisite("oil-gas-extraction", "bio-processing-blue")
-bobmods.lib.tech.add_recipe_unlock("oil-gas-extraction", "sb-blue-algae-liquefaction")
+bobmods.lib.tech.add_prerequisite("angels-oil-processing", "bio-processing-blue")
+bobmods.lib.tech.add_recipe_unlock("angels-oil-processing", "sb-blue-algae-liquefaction")
 
 -- Setup recipe bases
 

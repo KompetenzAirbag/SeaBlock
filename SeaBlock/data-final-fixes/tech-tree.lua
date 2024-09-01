@@ -14,7 +14,6 @@ seablock.lib.hide_technology("electrolysis-2")
 seablock.lib.hide_technology("chemical-processing-1")
 seablock.lib.hide_technology("chemical-processing-2")
 
-bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "solid-fuel-methane")
 bobmods.lib.tech.remove_prerequisite("circuit-network", "bio-wood-processing-2")
 bobmods.lib.tech.add_prerequisite("circuit-network", "bio-paper-1")
 bobmods.lib.tech.remove_prerequisite("rubbers", "circuit-network")
