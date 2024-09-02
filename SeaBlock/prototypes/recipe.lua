@@ -79,15 +79,13 @@ data:extend({
     category = "crafting",
     energy_required = 2,
     enabled = false,
-    ingredients =
-    {
+    ingredients = {
       { type = "item", name = "catalyst-metal-carrier", amount = 10 },
       { type = "item", name = "gold-ore", amount = 1 },
       { type = "item", name = "rutile-ore", amount = 1 },
     },
-    results =
-    {
-      {type = "item", name = "catalyst-metal-purple", amount = 10},
+    results = {
+      { type = "item", name = "catalyst-metal-purple", amount = 10 },
     },
   },
   {

@@ -80,8 +80,14 @@ bobmods.lib.recipe.replace_ingredient("gas-synthesis-methanol", "catalyst-metal-
 
 bobmods.lib.recipe.replace_ingredient("cumene-process", "catalyst-metal-blue", "catalyst-metal-yellow")
 
-bobmods.lib.recipe.add_new_ingredient("liquid-mineral-oil-catalyst", { type = "item", name = "catalyst-metal-purple", amount = 1 })
-bobmods.lib.recipe.add_result("liquid-mineral-oil-catalyst", { type = "item", name = "catalyst-metal-carrier", amount = 1 })
+bobmods.lib.recipe.add_new_ingredient(
+  "liquid-mineral-oil-catalyst",
+  { type = "item", name = "catalyst-metal-purple", amount = 1 }
+)
+bobmods.lib.recipe.add_result(
+  "liquid-mineral-oil-catalyst",
+  { type = "item", name = "catalyst-metal-carrier", amount = 1 }
+)
 
 bobmods.lib.tech.add_prerequisite("bio-plastic-2", "angels-advanced-chemistry-2")
 bobmods.lib.tech.add_prerequisite("sodium-processing-2", "angels-advanced-chemistry-3")

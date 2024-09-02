@@ -1,5 +1,4 @@
-data:extend(
-{
+data:extend({
   {
     type = "item",
     name = "catalyst-metal-purple",
@@ -7,6 +6,6 @@ data:extend(
     icon_size = 32,
     subgroup = "petrochem-catalysts",
     order = "c[catalyst-metal]-d[purple]",
-    stack_size = 200
-  }
+    stack_size = 200,
+  },
 })
