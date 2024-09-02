@@ -74,6 +74,23 @@ data:extend({
     allow_decomposition = false,
   },
   {
+    type = "recipe",
+    name = "catalyst-metal-purple",
+    category = "crafting",
+    energy_required = 2,
+    enabled = false,
+    ingredients =
+    {
+      { type = "item", name = "catalyst-metal-carrier", amount = 10 },
+      { type = "item", name = "gold-ore", amount = 1 },
+      { type = "item", name = "rutile-ore", amount = 1 },
+    },
+    results =
+    {
+      {type = "item", name = "catalyst-metal-purple", amount = 10},
+    },
+  },
+  {
     -- Balance assuming blue algae is about equal to green algae in MJ value.
     -- 1 blue cellulose = 2MJ (1 green cellulose = 1MJ but converting to wood pellets doubles it.
     --   Wrong, but I'll stick with it to avoid increasing the cost of all petrochem recipes)

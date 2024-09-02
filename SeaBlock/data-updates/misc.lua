@@ -28,14 +28,83 @@ local function movealleffects(from, to)
 end
 movealleffects("basic-chemistry-2", "basic-chemistry")
 movealleffects("basic-chemistry-3", "basic-chemistry-2")
+movealleffects("angels-advanced-chemistry-3", "angels-advanced-chemistry-2")
+movealleffects("angels-advanced-chemistry-4", "angels-advanced-chemistry-3")
+movealleffects("angels-advanced-chemistry-5", "angels-advanced-chemistry-4")
 bobmods.lib.tech.add_new_science_pack("basic-chemistry-2", "logistic-science-pack", 1)
+bobmods.lib.tech.add_new_science_pack("angels-advanced-chemistry-3", "production-science-pack", 1)
+bobmods.lib.tech.add_new_science_pack("angels-advanced-chemistry-4", "utility-science-pack", 1)
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-4", "angels-advanced-chemistry-3")
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-4", "utility-science-pack")
 seablock.lib.hide_technology("basic-chemistry-3")
--- Move gas shift recipes back
+seablock.lib.hide_technology("angels-advanced-chemistry-5")
+
+-- Move recipes back
 seablock.lib.moveeffect("water-gas-shift-1", "basic-chemistry", "basic-chemistry-2")
 seablock.lib.moveeffect("water-gas-shift-2", "basic-chemistry", "basic-chemistry-2")
 bobmods.lib.tech.add_prerequisite("angels-nickel-smelting-1", "basic-chemistry-2")
 
--- Make Basic Chemistry depend on Wood Processing 2. Required for Charcoal > Carbon Dioxide
+-- Update catalyst recipes
+bobmods.lib.tech.remove_recipe_unlock("basic-chemistry-2", "catalyst-metal-red")
+seablock.lib.hide("item", "catalyst-metal-red")
+bobmods.lib.recipe.hide("catalyst-metal-red")
+
+bobmods.lib.recipe.set_ingredients("catalyst-metal-green", {
+  { type = "item", name = "catalyst-metal-carrier", amount = 10 },
+  { type = "item", name = "copper-ore", amount = 1 },
+  { type = "item", name = "iron-ore", amount = 1 },
+})
+bobmods.lib.recipe.set_ingredients("catalyst-metal-blue", {
+  { type = "item", name = "catalyst-metal-carrier", amount = 10 },
+  { type = "item", name = "bauxite-ore", amount = 1 },
+  { type = "item", name = "silver-ore", amount = 1 },
+})
+bobmods.lib.tech.add_recipe_unlock("angels-advanced-chemistry-3", "catalyst-metal-purple")
+
+bobmods.lib.recipe.replace_ingredient("liquid-acetic-acid-catalyst", "catalyst-metal-red", "catalyst-metal-green")
+bobmods.lib.recipe.replace_ingredient("gas-ammonia", "catalyst-metal-red", "catalyst-metal-green")
+bobmods.lib.recipe.replace_ingredient("catalyst-steam-cracking-naphtha", "catalyst-metal-red", "catalyst-metal-green")
+
+bobmods.lib.recipe.replace_ingredient("gas-synthesis-methanol", "catalyst-metal-green", "catalyst-metal-blue")
+bobmods.lib.recipe.replace_ingredient("gas-acid-catalyst", "catalyst-metal-green", "catalyst-metal-blue")
+bobmods.lib.recipe.replace_ingredient("liquid-styrene-catalyst", "catalyst-metal-green", "catalyst-metal-blue")
+bobmods.lib.recipe.replace_ingredient("gas-benzene-catalyst", "catalyst-metal-green", "catalyst-metal-blue")
+bobmods.lib.recipe.replace_ingredient("liquid-propionic-acid-catalyst", "catalyst-metal-green", "catalyst-metal-blue")
+bobmods.lib.recipe.replace_ingredient("catalyst-steam-cracking-butane", "catalyst-metal-green", "catalyst-metal-blue")
+
+bobmods.lib.recipe.replace_ingredient("liquid-naphtha-catalyst", "catalyst-metal-red", "catalyst-metal-purple")
+bobmods.lib.recipe.replace_ingredient("solid-sodium-cyanide", "catalyst-metal-green", "catalyst-metal-purple")
+bobmods.lib.recipe.replace_ingredient("gas-synthesis-methanation", "catalyst-metal-blue", "catalyst-metal-purple")
+bobmods.lib.recipe.replace_ingredient("gas-hydrazine", "catalyst-metal-blue", "catalyst-metal-purple")
+bobmods.lib.recipe.replace_ingredient("gas-synthesis-methanol", "catalyst-metal-blue", "catalyst-metal-purple")
+
+bobmods.lib.recipe.replace_ingredient("cumene-process", "catalyst-metal-blue", "catalyst-metal-yellow")
+
+bobmods.lib.recipe.add_new_ingredient("liquid-mineral-oil-catalyst", { type = "item", name = "catalyst-metal-purple", amount = 1 })
+bobmods.lib.recipe.add_result("liquid-mineral-oil-catalyst", { type = "item", name = "catalyst-metal-carrier", amount = 1 })
+
+bobmods.lib.tech.add_prerequisite("bio-plastic-2", "angels-advanced-chemistry-2")
+bobmods.lib.tech.add_prerequisite("sodium-processing-2", "angels-advanced-chemistry-3")
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-1", "basic-chemistry-2")
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-3", "thermal-water-extraction-2")
+bobmods.lib.tech.remove_prerequisite("angels-advanced-chemistry-1", "ore-floatation")
+
+bobmods.lib.tech.add_new_science_pack("angels-nitrogen-processing-3", "production-science-pack", 1)
+bobmods.lib.tech.add_prerequisite("angels-nitrogen-processing-3", "angels-advanced-chemistry-3")
+bobmods.lib.tech.replace_prerequisite("resin-2", "angels-nitrogen-processing-3", "angels-advanced-chemistry-2")
+seablock.lib.moveeffect("angels-air-filter-3", "angels-nitrogen-processing-3", "angels-advanced-chemistry-2", 4)
+seablock.lib.moveeffect("gas-melamine", "angels-nitrogen-processing-3", "angels-advanced-chemistry-2")
+
+bobmods.lib.tech.add_new_science_pack("gas-synthesis", "production-science-pack", 1)
+bobmods.lib.tech.add_prerequisite("gas-synthesis", "angels-advanced-chemistry-3")
+
+seablock.lib.moveeffect("liquid-mineral-oil-catalyst", "angels-advanced-chemistry-2", "angels-advanced-chemistry-3")
+seablock.lib.moveeffect("catalyst-metal-carrier", "basic-chemistry-2", "angels-advanced-chemistry-1", 5)
+seablock.lib.moveeffect("catalyst-metal-green", "angels-advanced-chemistry-1", "angels-advanced-chemistry-1", 6)
+seablock.lib.moveeffect("catalyst-metal-blue", "angels-advanced-chemistry-2", "angels-advanced-chemistry-2", 8)
+seablock.lib.moveeffect("catalyst-metal-yellow", "angels-advanced-chemistry-4", "angels-advanced-chemistry-4", 6)
+
+-- Make Basic Chemistry depend on Wood Processing 2
 bobmods.lib.tech.add_prerequisite("basic-chemistry", "bio-wood-processing-2")
 
 -- Move Water Treatment from Electronics to Slag Processing 1. Hydro Plant no longer requires Green Circuits
@@ -85,10 +154,6 @@ if mods["bobpower"] then
   bobmods.lib.tech.replace_prerequisite("electric-pole-2", "zinc-processing", "angels-brass-smelting-1")
   bobmods.lib.tech.replace_prerequisite("electric-substation-2", "zinc-processing", "angels-brass-smelting-1")
 end
-
--- Add fluid handling as a prerequisite for Oil and gas extraction
--- Else Electric engine doesn't depend on Engine
-bobmods.lib.tech.add_prerequisite("oil-gas-extraction", "fluid-handling")
 
 -- Move recipes that shouldn't be unlocked at startup
 if mods["bobenemies"] then
@@ -159,10 +224,10 @@ bobmods.lib.recipe.hide("separator-4")
 
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-2", "gas-refinery-small-2")
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-2", "separator-2")
-bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-4", "gas-refinery-2")
-bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-4", "separator-3")
-bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-5", "gas-refinery-3")
-bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-5", "separator-4")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-3", "gas-refinery-2")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-3", "separator-3")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-4", "gas-refinery-3")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-4", "separator-4")
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "gas-fractioning-synthesis")
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "gas-refinery")
 bobmods.lib.tech.remove_recipe_unlock("angels-nitrogen-processing-4", "gas-refinery-4")
@@ -180,13 +245,13 @@ bobmods.lib.tech.remove_recipe_unlock("steam-cracking-1", "steam-cracking-ethane
 bobmods.lib.tech.remove_recipe_unlock("steam-cracking-1", "steam-cracking-methane")
 bobmods.lib.tech.remove_recipe_unlock("steam-cracking-2", "steam-cracking-oil-residual")
 
+bobmods.lib.tech.add_recipe_unlock("angels-advanced-chemistry-2", "catalyst-steam-cracking-butane")
 bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "gas-refinery-small-2")
 bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "gas-refining")
 bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "gas-fractioning")
 bobmods.lib.tech.add_recipe_unlock("angels-advanced-gas-processing", "solid-fuel-methane")
 bobmods.lib.tech.add_recipe_unlock("fluid-handling", "angels-storage-tank-1")
 bobmods.lib.tech.add_recipe_unlock("steam-cracking-1", "steam-cracking-oil-residual")
-bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "catalyst-steam-cracking-butane")
 bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "steam-cracking-butane")
 bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "steam-cracking-ethane")
 bobmods.lib.tech.add_recipe_unlock("steam-cracking-2", "steam-cracking-methane")
@@ -466,13 +531,13 @@ if data.raw.technology["electronics-machine-1"] then
   bobmods.lib.tech.add_prerequisite("electronics-machine-1", "electronics")
 end
 bobmods.lib.tech.add_prerequisite("bio-pressing-1", "bio-nutrient-paste")
-bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-3", "ore-leaching")
 
 bobmods.lib.tech.add_prerequisite("resins", "automation-2")
 bobmods.lib.tech.add_prerequisite("plastics", "automation-2")
 if mods["boblogistics"] then
   bobmods.lib.tech.add_prerequisite("bob-repair-pack-2", "military")
 end
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-1", "fluid-handling")
 bobmods.lib.tech.add_prerequisite("water-treatment-2", "fluid-handling")
 bobmods.lib.tech.add_prerequisite("water-washing-2", "fluid-handling")
 
@@ -511,6 +576,7 @@ bobmods.lib.recipe.set_result("cement-mixture-2", { "solid-cement", 4 })
 bobmods.lib.recipe.set_energy_required("cement-mixture-2", 16)
 
 -- Bronze prerequisites
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-1", "alloy-processing")
 bobmods.lib.tech.add_prerequisite("angels-cooling", "alloy-processing")
 bobmods.lib.tech.add_prerequisite("bio-nutrient-paste", "alloy-processing")
 bobmods.lib.tech.add_prerequisite("ore-floatation", "alloy-processing")
@@ -550,7 +616,7 @@ bobmods.lib.tech.add_prerequisite("slag-processing-2", "angels-stone-smelting-2"
 bobmods.lib.tech.add_prerequisite("water-treatment-3", "angels-stone-smelting-2")
 
 -- Titanium prerequisites
-bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-4", "titanium-processing")
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-3", "titanium-processing")
 bobmods.lib.tech.add_prerequisite("angels-metallurgy-4", "titanium-processing")
 bobmods.lib.tech.add_prerequisite("automation-4", "titanium-processing")
 bobmods.lib.tech.add_prerequisite("bio-refugium-biter-1", "titanium-processing")
@@ -558,7 +624,7 @@ bobmods.lib.tech.add_prerequisite("slag-processing-3", "titanium-processing")
 bobmods.lib.tech.add_prerequisite("water-treatment-4", "titanium-processing")
 
 -- Reinforced concrete brick
-bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-4", "angels-stone-smelting-3")
+bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-3", "angels-stone-smelting-3")
 bobmods.lib.tech.add_prerequisite("angels-metallurgy-4", "angels-stone-smelting-3")
 bobmods.lib.tech.add_prerequisite("bio-refugium-biter-1", "angels-stone-smelting-3")
 bobmods.lib.tech.add_prerequisite("slag-processing-3", "angels-stone-smelting-3")

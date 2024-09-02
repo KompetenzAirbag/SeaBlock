@@ -6,6 +6,7 @@ if mods["seablock-mining"] then
 end
 
 require("lib")
+require("prototypes/item")
 require("prototypes/recipe")
 require("prototypes/recipe-category")
 require("prototypes/technology")

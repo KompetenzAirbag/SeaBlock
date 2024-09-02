@@ -12,6 +12,10 @@ Date: ??.??.??
     - Handle Ore Sorting Facility 5 changes #327
       - Stop creating recipe, item, and entity in Sea Block
       - Added migration of removed Sea Block item and entity to new Angel's item and entity
+    - Metal Catalyst Recipes Review #333
+      - Changed recipes for making metal catalysts (removed red and added purple)
+      - Spread catalyst recipes more evenly out in the tech tree
+      - Changed catalyst recipes to use the appropriate catalyst for their tech tier
   Bugfixes:
     - Fixed tech steam-power missing a locale in some mod configurations #332
 ---------------------------------------------------------------------------------------------------

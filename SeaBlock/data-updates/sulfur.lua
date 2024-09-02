@@ -41,4 +41,4 @@ seablock.lib.add_recipe_unlock("angels-sulfur-processing-3", "filter-lime-used",
 
 bobmods.lib.tech.hide("angels-sulfur-processing-4")
 bobmods.lib.tech.add_new_science_pack("angels-sulfur-processing-3", "chemical-science-pack", 1)
-bobmods.lib.tech.add_prerequisite("angels-sulfur-processing-3", "chemical-science-pack")
+bobmods.lib.tech.add_prerequisite("angels-sulfur-processing-3", "angels-advanced-chemistry-2")
