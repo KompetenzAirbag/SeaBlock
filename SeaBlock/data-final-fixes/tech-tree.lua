@@ -21,3 +21,5 @@ bobmods.lib.tech.remove_prerequisite("rubbers", "circuit-network")
 -- Unhide solid fuel from hydrogen
 seablock.lib.unhide_recipe("solid-fuel-from-hydrogen")
 seablock.lib.add_recipe_unlock("flammables", "solid-fuel-from-hydrogen", 4)
+
+bobmods.lib.tech.replace_prerequisite("lithium-processing", "chlorine-processing-4", "chlorine-processing-2")
