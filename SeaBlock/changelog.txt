@@ -16,6 +16,8 @@ Date: ??.??.??
       - Changed recipes for making metal catalysts (removed red and added purple)
       - Spread catalyst recipes more evenly out in the tech tree
       - Changed catalyst recipes to use the appropriate catalyst for their tech tier
+    - Remove underused items/fluids #334
+      - Hid crushed stone. Use stone instead. Ratios will all stay the same
   Bugfixes:
     - Fixed tech steam-power missing a locale in some mod configurations #332
 ---------------------------------------------------------------------------------------------------

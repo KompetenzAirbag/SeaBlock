@@ -2,7 +2,7 @@ seablock = seablock or {}
 
 function seablock.populate_starting_items(items)
   local starting_items = {
-    ["stone"] = 65,
+    ["stone"] = 130,
     ["small-electric-pole"] = 50,
     ["small-lamp"] = 12,
     ["iron-plate"] = 1200,
