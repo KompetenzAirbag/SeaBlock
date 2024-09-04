@@ -463,6 +463,28 @@ if data.raw.inserter["steam-inserter"] then
   bobmods.lib.recipe.replace_ingredient_in_all("steam-inserter", "burner-inserter")
 end
 
+-- Hide Liquid Fuel
+if data.raw.recipe["enriched-fuel-from-liquid-fuel"] then
+  bobmods.lib.recipe.set_ingredients("enriched-fuel-from-liquid-fuel",
+    {
+      { type = "fluid", name = "liquid-fuel-oil", amount = 80 },
+      { type = "fluid", name = "gas-residual", amount = 20 },
+    }
+  )
+  data.raw.recipe["enriched-fuel-from-liquid-fuel"].icons = angelsmods.functions.create_solid_recipe_icon(
+    { "liquid-fuel-oil", "gas-residual" },
+    "enriched-fuel"
+  )
+end
+bobmods.lib.tech.remove_recipe_unlock("fluid-canister-processing", "empty-liquid-fuel-barrel")
+bobmods.lib.tech.remove_recipe_unlock("fluid-canister-processing", "fill-liquid-fuel-barrel")
+bobmods.lib.tech.remove_recipe_unlock("flammables", "liquid-fuel")
+bobmods.lib.recipe.hide("empty-liquid-fuel-barrel")
+bobmods.lib.recipe.hide("fill-liquid-fuel-barrel")
+bobmods.lib.recipe.hide("liquid-fuel")
+seablock.lib.hide("fluid", "liquid-fuel")
+seablock.lib.hide("item", "liquid-fuel-barrel")
+
 -- Swap out concrete for bricks
 
 if data.raw.recipe["burner-reactor-2"] then

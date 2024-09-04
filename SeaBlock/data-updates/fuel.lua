@@ -15,7 +15,6 @@ end
 
 -- petroleum gas/methane has same solid fuel value as naphtha.
 data.raw.fluid["liquid-fuel-oil"].fuel_value = "1MJ"
-data.raw.fluid["liquid-fuel"].fuel_value = "1MJ"
 data.raw.fluid["liquid-naphtha"].fuel_value = "0.5MJ"
 data.raw.fluid["gas-methane"].fuel_value = "0.5MJ"
 data.raw.fluid["crude-oil"].fuel_value = "0.5MJ"

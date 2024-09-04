@@ -18,6 +18,7 @@ Date: ??.??.??
       - Changed catalyst recipes to use the appropriate catalyst for their tech tier
     - Remove underused items/fluids #334
       - Hid crushed stone. Use stone instead. Ratios will all stay the same
+      - Hid liquid fuel. Enriched fuel is now made directly from fuel oil plus residual gas
   Bugfixes:
     - Fixed tech steam-power missing a locale in some mod configurations #332
 ---------------------------------------------------------------------------------------------------
