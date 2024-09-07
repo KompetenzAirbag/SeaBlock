@@ -146,3 +146,21 @@ bobmods.lib.tech.remove_recipe_unlock("zinc-processing", "bob-zinc-plate")
 if mods["cargo-ships"] then
   seablock.lib.hide_item("oil_rig")
 end
+
+-- Hide the farm environment kits
+seablock.lib.hide("item", "desert-upgrade")
+seablock.lib.hide("item", "swamp-upgrade")
+seablock.lib.hide("item", "temperate-upgrade")
+bobmods.lib.tech.remove_recipe_unlock("bio-desert-farm", "desert-upgrade")
+bobmods.lib.tech.remove_recipe_unlock("bio-swamp-farm", "swamp-upgrade")
+bobmods.lib.tech.remove_recipe_unlock("bio-temperate-farm", "temperate-upgrade")
+bobmods.lib.recipe.hide("desert-upgrade")
+bobmods.lib.recipe.hide("swamp-upgrade")
+bobmods.lib.recipe.hide("temperate-upgrade")
+
+bobmods.lib.recipe.remove_ingredient("desert-farm", "desert-upgrade")
+bobmods.lib.recipe.add_ingredient("desert-farm", { type = "item", name = "token-bio", amount = 5 })
+bobmods.lib.recipe.remove_ingredient("swamp-farm", "swamp-upgrade")
+bobmods.lib.recipe.add_ingredient("swamp-farm", { type = "item", name = "token-bio", amount = 5 })
+bobmods.lib.recipe.remove_ingredient("temperate-farm", "temperate-upgrade")
+bobmods.lib.recipe.add_ingredient("temperate-farm", { type = "item", name = "token-bio", amount = 5 })
