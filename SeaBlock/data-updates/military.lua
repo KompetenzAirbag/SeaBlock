@@ -1002,7 +1002,6 @@ if mods["bobwarfare"] then
   bobmods.lib.tech.set_science_pack_count("power-armor", 150)
   bobmods.lib.recipe.replace_ingredient("power-armor", "processing-unit", "advanced-circuit")
   bobmods.lib.tech.remove_prerequisite("power-armor", "advanced-electronics-2")
-  bobmods.lib.recipe.add_ingredient("power-armor", { type = "item", name = "modular-armor", amount = 1 })
 
   bobmods.lib.tech.remove_science_pack("power-armor-mk2", "utility-science-pack")
   bobmods.lib.tech.remove_prerequisite("power-armor-mk2", "utility-science-pack")
@@ -1010,7 +1009,6 @@ if mods["bobwarfare"] then
   bobmods.lib.tech.add_prerequisite("power-armor-mk2", "advanced-electronics-2")
   bobmods.lib.tech.set_science_pack_count("power-armor-mk2", 200)
   bobmods.lib.tech.replace_prerequisite("power-armor-mk2", "military-4", "military-3")
-  bobmods.lib.recipe.add_ingredient("power-armor-mk2", { type = "item", name = "power-armor", amount = 1 })
 
   if mods["bobtech"] then
     bobmods.lib.tech.remove_prerequisite("bob-power-armor-3", "production-science-pack")
