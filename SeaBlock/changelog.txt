@@ -19,6 +19,7 @@ Date: ??.??.??
     - Remove underused items/fluids #334
       - Hid crushed stone. Use stone instead. Ratios will all stay the same
       - Hid liquid fuel. Enriched fuel is now made directly from fuel oil plus residual gas
+    - Changed recipe icon for Slag 1 and Slag 2 #335
   Bugfixes:
     - Fixed tech steam-power missing a locale in some mod configurations #332
 ---------------------------------------------------------------------------------------------------

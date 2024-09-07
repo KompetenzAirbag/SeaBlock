@@ -120,3 +120,9 @@ for _, v in pairs({
 }) do
   seablock.lib.substresult(v, "slag", nil, 2)
 end
+
+-- Change the recipe icon for Dirt water electrolysis to show slag icon
+data.raw.recipe["dirt-water-separation"].icons = angelsmods.functions.add_number_icon_layer(
+  angelsmods.functions.get_object_icons("slag"), 1, angelsmods.petrochem.number_tint)
+data.raw.recipe["dirt-water-separation-2"].icons = angelsmods.functions.add_number_icon_layer(
+  angelsmods.functions.get_object_icons("slag"), 2, angelsmods.petrochem.number_tint)
