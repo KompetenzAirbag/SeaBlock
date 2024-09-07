@@ -6,10 +6,14 @@ seablock.lib.hide("storage-tank", "bob-valve")
 seablock.lib.hide("storage-tank", "bob-topup-valve")
 
 -- Hide Oil & Gas Separator
+-- Hide Advanced Gas Refinery
+-- Hide Electrowinning Cell
 -- Hide Chlormethane Gas
--- Hid Multi-phase oil
+-- Hide Multi-phase oil
 -- Hide gas fractioning - synthesis (only recipe available in advanced gas refinery)
 for _, item in pairs({
+  { type = "assembling-machine", name = "electro-whinning-cell" },
+  { type = "assembling-machine", name = "electro-whinning-cell-2" },
   { type = "assembling-machine", name = "gas-refinery" },
   { type = "assembling-machine", name = "gas-refinery-2" },
   { type = "assembling-machine", name = "gas-refinery-3" },
@@ -20,6 +24,8 @@ for _, item in pairs({
   { type = "assembling-machine", name = "separator-4" },
   { type = "fluid", name = "gas-chlor-methane" },
   { type = "fluid", name = "liquid-multi-phase-oil" },
+  { type = "item", name = "electro-whinning-cell" },
+  { type = "item", name = "electro-whinning-cell-2" },
   { type = "item", name = "gas-chlor-methane-barrel" },
   { type = "item", name = "gas-refinery" },
   { type = "item", name = "gas-refinery-2" },
@@ -36,6 +42,8 @@ end
 
 bobmods.lib.recipe.hide("angels-chemical-void-gas-chlor-methane")
 bobmods.lib.recipe.hide("angels-chemical-void-liquid-multi-phase-oil")
+bobmods.lib.recipe.hide("electro-whinning-cell")
+bobmods.lib.recipe.hide("electro-whinning-cell-2")
 bobmods.lib.recipe.hide("empty-gas-chlor-methane-barrel")
 bobmods.lib.recipe.hide("empty-liquid-multi-phase-oil-barrel")
 bobmods.lib.recipe.hide("fill-gas-chlor-methane-barrel")
@@ -52,6 +60,7 @@ bobmods.lib.recipe.hide("separator-2")
 bobmods.lib.recipe.hide("separator-3")
 bobmods.lib.recipe.hide("separator-4")
 
+bobmods.lib.tech.remove_recipe_unlock("advanced-ore-refining-4", "electro-whinning-cell-2")
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-2", "separator-2")
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-3", "gas-refinery-2")
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-chemistry-3", "separator-3")
@@ -65,6 +74,7 @@ bobmods.lib.tech.remove_recipe_unlock("fluid-barrel-processing", "empty-liquid-m
 bobmods.lib.tech.remove_recipe_unlock("fluid-barrel-processing", "fill-liquid-multi-phase-oil-barrel")
 bobmods.lib.tech.remove_recipe_unlock("gas-canisters", "empty-gas-chlor-methane-barrel")
 bobmods.lib.tech.remove_recipe_unlock("gas-canisters", "fill-gas-chlor-methane-barrel")
+bobmods.lib.tech.remove_recipe_unlock("ore-electro-whinning-cell", "electro-whinning-cell")
 
 bobmods.lib.recipe.replace_ingredient("paste-cellulose", "gas-chlor-methane", "gas-chlorine")
 

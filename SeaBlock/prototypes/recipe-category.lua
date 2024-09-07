@@ -11,6 +11,10 @@ data:extend({
     type = "recipe-category",
     name = "thermal-extractor",
   },
+  {
+    type = "recipe-category",
+    name = "petrochem-electrolyser-4",
+  },
 })
 
 if mods["SpaceMod"] then

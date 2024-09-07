@@ -132,3 +132,9 @@ data.raw.recipe["dirt-water-separation-2"].icons = angelsmods.functions.add_numb
   2,
   angelsmods.petrochem.number_tint
 )
+
+-- Move Ferrous & Cupric concentrate anodizing recipes from Electrowinning cell to Electrolyser 4
+table.insert(data.raw["assembling-machine"]["angels-electrolyser-4"].crafting_categories, "petrochem-electrolyser-4")
+bobmods.lib.recipe.set_category("angelsore8-anode-sludge", "petrochem-electrolyser-4")
+bobmods.lib.recipe.set_category("angelsore9-anode-sludge", "petrochem-electrolyser-4")
+bobmods.lib.tech.add_prerequisite("ore-electro-whinning-cell", "angels-advanced-chemistry-3")
