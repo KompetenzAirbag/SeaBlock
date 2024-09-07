@@ -91,16 +91,12 @@ bobmods.lib.tech.remove_recipe_unlock(seablock.final_scripted_tech, "steam-inser
 
 -- Hide Liquid Fuel
 if data.raw.recipe["enriched-fuel-from-liquid-fuel"] then
-  bobmods.lib.recipe.set_ingredients("enriched-fuel-from-liquid-fuel",
-    {
-      { type = "fluid", name = "liquid-fuel-oil", amount = 80 },
-      { type = "fluid", name = "gas-residual", amount = 20 },
-    }
-  )
-  data.raw.recipe["enriched-fuel-from-liquid-fuel"].icons = angelsmods.functions.create_solid_recipe_icon(
-    { "liquid-fuel-oil", "gas-residual" },
-    "enriched-fuel"
-  )
+  bobmods.lib.recipe.set_ingredients("enriched-fuel-from-liquid-fuel", {
+    { type = "fluid", name = "liquid-fuel-oil", amount = 80 },
+    { type = "fluid", name = "gas-residual", amount = 20 },
+  })
+  data.raw.recipe["enriched-fuel-from-liquid-fuel"].icons =
+    angelsmods.functions.create_solid_recipe_icon({ "liquid-fuel-oil", "gas-residual" }, "enriched-fuel")
 end
 bobmods.lib.tech.remove_recipe_unlock("fluid-canister-processing", "empty-liquid-fuel-barrel")
 bobmods.lib.tech.remove_recipe_unlock("fluid-canister-processing", "fill-liquid-fuel-barrel")
