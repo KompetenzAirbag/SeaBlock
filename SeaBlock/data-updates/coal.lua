@@ -34,3 +34,13 @@ data.raw.item["coal-crushed"].fuel_category = nil
 
 data.raw.recipe["coolant-used-filtration-1"].localised_name = { "recipe-name.coolant-used-filtration-1" }
 data.raw.recipe["coolant-used-filtration-2"].localised_name = { "recipe-name.coolant-used-filtration-2" }
+
+-- Move charcoal processing 3 to purple science
+-- Sodium carbonate is unusable before then
+bobmods.lib.tech.add_science_pack("angels-coal-processing-3", "chemical-science-pack", 1)
+bobmods.lib.tech.add_science_pack("angels-coal-processing-3", "production-science-pack", 1)
+bobmods.lib.tech.remove_prerequisite("sodium-processing-2", "angels-coal-processing-3")
+bobmods.lib.tech.add_prerequisite("angels-coal-processing-3", "sodium-processing-2")
+
+-- Buff the Carbon 2 recipe to make it a bit more worthwhile
+bobmods.lib.recipe.set_result("coke-purification-2", { type = "item", name = "solid-carbon", amount = 8 })
