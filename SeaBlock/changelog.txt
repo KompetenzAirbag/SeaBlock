@@ -25,6 +25,7 @@ Date: ??.??.??
     - Buffed the output of recipe Carbon 2 #336
   Bugfixes:
     - Fixed tech steam-power missing a locale in some mod configurations #332
+    - Fixed missing starting items in multiplayer games when Companion Drones mod is enabled #337
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.16
 Date: 27.02.2024

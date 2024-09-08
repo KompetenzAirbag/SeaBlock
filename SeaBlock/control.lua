@@ -230,10 +230,8 @@ script.on_event(defines.events.on_player_created, function(e)
       end
     end
   end
-end)
 
-if script.active_mods["Companion_Drones"] then
-  script.on_event(defines.events.on_player_created, function(e)
+  if script.active_mods["Companion_Drones"] then
     local s = game.surfaces["nauvis"]
     if s then
       local companions = s.find_entities_filtered({ name = "companion" })
@@ -248,5 +246,5 @@ if script.active_mods["Companion_Drones"] then
         end
       end
     end
-  end)
-end
+  end
+end)
