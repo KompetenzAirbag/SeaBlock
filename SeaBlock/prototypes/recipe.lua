@@ -59,22 +59,6 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "sb-wood-foraging",
-    localised_name = { "recipe-name.sb-wood-foraging" },
-    category = "crafting-handonly",
-    subgroup = "bio-processing-green",
-    enabled = true,
-    energy_required = 4,
-    ingredients = {},
-    results = {
-      { type = "item", name = "wood", amount = 1 },
-    },
-    order = "ab[sb-wood-foraging]",
-    allow_as_intermediate = true,
-    allow_decomposition = false,
-  },
-  {
-    type = "recipe",
     name = "catalyst-metal-purple",
     category = "crafting",
     energy_required = 2,

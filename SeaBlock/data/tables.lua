@@ -53,7 +53,6 @@ seablock.startup_recipes = {
   ["dirt-water-separation"] = true,
   ["liquifier"] = true,
   ["offshore-pump"] = true,
-  ["sb-wood-foraging"] = true,
   ["sb-water-mineralized-crystallization"] = true,
   ["slag-processing-stone"] = true,
   ["stone-pipe"] = true,
