@@ -47,7 +47,7 @@ data:extend({
     category = "crystallizing",
     subgroup = "slag-processing-1",
     order = "z[slag-processing]",
-    enabled = true,
+    enabled = false,
     energy_required = 2,
     ingredients = {
       { type = "fluid", name = "water-mineralized", amount = 200 },

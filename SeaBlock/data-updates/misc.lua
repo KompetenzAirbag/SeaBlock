@@ -48,9 +48,7 @@ for k, v in pairs(data.raw["resource"]) do
 end
 
 -- Add prerequisite for Tin and Lead
-if settings.startup["bobmods-logistics-beltoverhaul"].value then
-  bobmods.lib.tech.add_prerequisite("logistics", "ore-crushing")
-end
+--bobmods.lib.tech.add_prerequisite("logistics", "ore-crushing")
 
 -- Tidy prerequisite for Brass
 bobmods.lib.tech.remove_prerequisite("zinc-processing", "electrolysis-1")

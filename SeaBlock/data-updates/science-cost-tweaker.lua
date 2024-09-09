@@ -7,14 +7,18 @@ if mods["ScienceCostTweakerM"] then
   end
 
   -- Change tech to use lab icon from SCT
-  data.raw.tool["sb-lab-tool"].icon = "__ScienceCostTweakerM__/graphics/sct-lab-t1/icon-64.png"
-  data.raw.tool["sb-lab-tool"].icon_mipmaps = 0
+  data.raw.technology["sb-checkpoint-lab"].icon = "__ScienceCostTweakerM__/graphics/sct-lab-t1/icon-64.png"
+  data.raw.technology["sb-checkpoint-lab"].icon_size = 64
+  data.raw.technology["sb-checkpoint-lab"].icon_mipmaps = 0
 
   -- Reduce processing unit cost of S.C.T. high-tech science
   seablock.lib.substingredient("sct-htech-injector", "processing-unit", nil, 3)
 
   -- Hide empty tech (Lab 2 will have been moved to it's own tech sct-lab-lab2
   seablock.lib.hide_technology("advanced-research")
+
+  -- Hide lab / red science tech
+  seablock.lib.hide_technology("sb-startup-lab")
 
   -- Yellow science now requires Purple science
   -- Adjust any techs that needed Yellow but not Purple

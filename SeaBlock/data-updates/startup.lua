@@ -91,25 +91,10 @@ end
 
 -- unlock lab and optional components with Basic Circuit Board
 if data.raw.technology["sct-lab-t1"] then
-  bobmods.lib.tech.add_prerequisite("sct-lab-t1", "sb-startup3")
+  bobmods.lib.tech.add_prerequisite("sct-lab-t1", "sb-checkpoint-basic-circuit")
 else
   bobmods.lib.tech.add_recipe_unlock("sb-startup3", "lab")
   bobmods.lib.recipe.enabled("lab", false)
-end
-
-if data.raw.technology["sct-automation-science-pack"] then
-  bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "sct-lab-t1")
-  data.raw.technology["sct-automation-science-pack"].unit = {
-    count = 1,
-    ingredients = { { "sb-lab-tool", 1 } },
-    time = 1,
-  }
-  data.raw.technology["sct-lab-t1"].unit = {
-    count = 1,
-    ingredients = {},
-    time = 1,
-  }
-  seablock.lib.hide_technology("sb-startup4")
 end
 
 local movedrecipes = table.deepcopy(seablock.startup_recipes)
@@ -214,10 +199,40 @@ for k, v in pairs(seablock.startup_techs) do
   end
 end
 
--- Make bio-wood-processing a startup tutorial tech
-data.raw.technology["bio-wood-processing"].prerequisites = { "sb-startup1" }
-data.raw.technology["bio-wood-processing"].unit = {
-  count = 1,
-  ingredients = {},
-  time = 1,
-}
+-- Make startup tutorial techs
+for tech_name, prerequisites in pairs(seablock.scripted_techs) do
+  local tech = data.raw.technology[tech_name]
+  if tech then
+    if not seablock.checkpoint_techs[tech_name] then
+      tech.unit = {
+        count = 1,
+        ingredients = {},
+        time = 1,
+      }
+    end
+    tech.prerequisites = prerequisites
+  end
+end
+
+-- Remove prerequisites on tutorial techs
+for tech_name, tech in pairs(data.raw.technology) do
+  if not seablock.scripted_techs[tech_name] then
+    if tech.prerequisites then
+      local to_remove = {}
+      for _, prerequisite in pairs(tech.prerequisites) do
+        if seablock.scripted_techs[prerequisite] and prerequisite ~= seablock.final_scripted_tech then
+          table.insert(to_remove, prerequisite)
+        end
+      end
+      for _, prerequisite in pairs(to_remove) do
+        bobmods.lib.tech.remove_prerequisite(tech_name, prerequisite)
+      end
+      
+      if #tech.prerequisites == 0 then
+        bobmods.lib.tech.add_prerequisite(tech_name, seablock.final_scripted_tech)
+      end
+    else
+      tech.prerequisites = { seablock.final_scripted_tech }
+    end
+  end
+end

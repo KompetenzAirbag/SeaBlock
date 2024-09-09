@@ -4,8 +4,8 @@ require("starting-items")
 require("remote")
 
 function seablock.give_research(force)
-  if not force.technologies["sb-startup1"].researched then
-    force.add_research("sb-startup1")
+  if not force.technologies["sb-checkpoint-mud"].researched then
+    force.add_research("sb-checkpoint-mud")
   end
 end
 
@@ -58,13 +58,23 @@ local function init()
     end
   end
   global.unlocks = {
-    ["angels-ore3-crushed"] = { "sb-startup1", "bio-wood-processing" },
-    ["basic-circuit-board"] = { "sb-startup3", "sct-lab-t1" },
+    ["solid-mud"] = { "sb-checkpoint-mud", "automation", "logistics-0", "landfill" },
+    ["landfill-dirt-4"] = { "sb-checkpoint-landfill", "basic-chemistry", "bio-processing-brown", "bio-wood-processing" },
+    ["landfill-dry-dirt"] = { "sb-checkpoint-landfill", "basic-chemistry", "bio-processing-brown", "bio-wood-processing" },
+    ["landfill-grass-1"] = { "sb-checkpoint-landfill", "basic-chemistry", "bio-processing-brown", "bio-wood-processing" },
+    ["landfill"] = { "sb-checkpoint-landfill", "basic-chemistry", "bio-processing-brown", "bio-wood-processing" },
+    ["landfill-red-desert-1"] = { "sb-checkpoint-landfill", "basic-chemistry", "bio-processing-brown", "bio-wood-processing" },
+    ["landfill-sand-3"] = { "sb-checkpoint-landfill", "basic-chemistry", "bio-processing-brown", "bio-wood-processing" },
+    ["wood-charcoal"] = { "sb-checkpoint-charcoal", "steam-power", "slag-processing-1", "angels-sulfur-processing-1", "ore-crushing", "water-treatment" },
+    ["iron-plate"] = { "sb-checkpoint-iron-plate", "angels-composting" },
+    ["solid-soil"] = { "sb-checkpoint-soil", "bio-arboretum-1" },
+    ["wood"] = { "sb-checkpoint-wood", "bio-wood-processing-2" },
+    ["basic-circuit-board"] = { "sb-checkpoint-basic-circuit", "sct-lab-t1" },
   }
   if game.technology_prototypes["sct-automation-science-pack"] then
-    global.unlocks["lab"] = { "sct-automation-science-pack" }
+    global.unlocks["lab"] = { "sb-checkpoint-lab", "sct-automation-science-pack" }
   else
-    global.unlocks["lab"] = { "sb-startup4" }
+    global.unlocks["lab"] = { "sb-startup-lab" }
   end
 
   if remote.interfaces["freeplay"] then
@@ -168,9 +178,10 @@ script.on_configuration_changed(function(cfg)
     end
 
     if
-      force.technologies["sct-automation-science-pack"]
-      and force.technologies["sb-startup4"]
-      and force.technologies["sb-startup4"].researched
+      force.technologies["sct-lab-t1"]
+      and force.technologies["sct-automation-science-pack"]
+      and force.technologies["sb-checkpoint-lab"]
+      and force.technologies["sb-checkpoint-lab"].researched
     then
       force.technologies["sct-lab-t1"].researched = true
       force.technologies["sct-automation-science-pack"].researched = true

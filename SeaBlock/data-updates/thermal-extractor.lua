@@ -142,4 +142,3 @@ if data.raw.technology["bio-pressing-fish"] then
 else
   bobmods.lib.tech.add_prerequisite("bio-pressing-fish-1", "thermal-water-extraction")
 end
-bobmods.lib.tech.add_prerequisite("thermal-water-extraction", "bio-processing-brown")

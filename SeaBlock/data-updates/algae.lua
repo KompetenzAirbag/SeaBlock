@@ -6,8 +6,6 @@ bobmods.lib.recipe.set_category("algae-green", "bio-processing")
 
 -- Improved algae processing
 bobmods.lib.tech.remove_prerequisite("bio-processing-green", "water-treatment")
-bobmods.lib.tech.add_prerequisite("bio-processing-green", "bio-wood-processing-2")
-bobmods.lib.tech.add_prerequisite("bio-processing-green", "water-washing-1")
 data.raw.technology["bio-processing-green"].localised_name = { "technology-name.sb-bio-processing-green" }
 
 -- Move Lithia Salt to Thermal Water Extraction

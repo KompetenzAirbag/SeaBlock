@@ -30,12 +30,8 @@ else
   bobmods.lib.tech.remove_recipe_unlock("water-washing-2", "solid-mud-landfill")
 end
 
--- Make landfill a red science tech
-data.raw.technology["landfill"].prerequisites = { "water-washing-1" }
-data.raw.technology["landfill"].unit = {
-  count = 10,
-  ingredients = { { type = "item", name = "automation-science-pack", amount = 1 } },
-  time = 15,
-}
-bobmods.lib.tech.remove_prerequisite("water-washing-2", "landfill")
-bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)
+-- Remove empty tech Washing 1
+bobmods.lib.tech.remove_prerequisite("angels-stone-smelting-1", "water-washing-1")
+bobmods.lib.tech.remove_prerequisite("bio-processing-green", "water-washing-1")
+bobmods.lib.tech.remove_prerequisite("water-washing-2", "water-washing-1")
+seablock.lib.hide_technology("water-washing-1")
