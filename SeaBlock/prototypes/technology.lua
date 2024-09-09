@@ -108,7 +108,7 @@ data:extend({
     },
     unit = {
       count = 1,
-      ingredients = { },
+      ingredients = {},
       time = 1,
     },
   },

@@ -227,7 +227,7 @@ for tech_name, tech in pairs(data.raw.technology) do
       for _, prerequisite in pairs(to_remove) do
         bobmods.lib.tech.remove_prerequisite(tech_name, prerequisite)
       end
-      
+
       if #tech.prerequisites == 0 then
         bobmods.lib.tech.add_prerequisite(tech_name, seablock.final_scripted_tech)
       end
