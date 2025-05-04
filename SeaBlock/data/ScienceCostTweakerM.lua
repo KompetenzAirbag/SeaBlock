@@ -16,7 +16,7 @@ if mods["ScienceCostTweakerM"] then
       { type = "item", name = "rocket-silo", amount = 1 },
       { type = "item", name = "bob-nitinol-alloy", amount = 100 },
       { type = "item", name = "bob-express-bulk-inserter", amount = 2 },
-      { type = "item", name = "advanced-processing-unit", amount = 20 },
+      { type = "item", name = "bob-advanced-processing-unit", amount = 20 },
     })
     bobmods.lib.tech.add_prerequisite("sct-lab-lab2", "rocket-silo")
     bobmods.lib.tech.remove_prerequisite("sct-space-science-pack", "rocket-silo")

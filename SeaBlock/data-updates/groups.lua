@@ -31,7 +31,6 @@ if mods["SpaceMod"] then
     "ftl-drive",
     "fuel-cell",
     "fusion-reactor",
-    "fission-reactor",
     "habitation",
     "hull-component",
     "life-support",

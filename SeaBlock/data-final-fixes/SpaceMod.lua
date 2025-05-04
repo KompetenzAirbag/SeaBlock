@@ -22,7 +22,6 @@ if settings.startup["SpaceX-ignore-tech-multiplier"] then
       "space-casings",
       "protection-fields",
       "fusion-reactor",
-      "fission-reactor",
       "space-thrusters",
       "fuel-cells",
       "habitation",
@@ -46,7 +45,6 @@ local recipes = {
   "satellite",
   "drydock-assembly",
   "fusion-reactor",
-  "fission-reactor",
   "hull-component",
   "protection-field",
   "space-thruster",
@@ -64,7 +62,6 @@ local techs = {
   "space-casings",
   "protection-fields",
   "fusion-reactor",
-  "fission-reactor",
   "space-thrusters",
   "fuel-cells",
   "habitation",
@@ -84,9 +81,9 @@ local upgrades = {
   ["bob-construction-robot-4"] = "bob-construction-robot-5",
   -- CircuitProcessing replaces module-3 with module-4, so SpaceMod data-final-fixes
   -- doesn't find the modules it's expecting.
-  ["speed-module-4"] = "speed-module-5",
-  ["efficiency-module-4"] = "efficiency-module-5",
-  ["productivity-module-4"] = "productivity-module-5",
+  ["bob-speed-module-4"] = "bob-speed-module-5",
+  ["bob-efficiency-module-4"] = "bob-efficiency-module-5",
+  ["bob-productivity-module-4"] = "bob-productivity-module-5",
   ["bob-fission-reactor-equipment-4"] = "bob-fission-reactor-equipment-4", -- for amount adjustment
 }
 

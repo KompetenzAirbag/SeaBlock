@@ -83,7 +83,7 @@ for _, v in ipairs({
   "gas-separation",
   "oil-steam-boiler",
   "petroleum-generator",
-  "protection-field-goopless", --where does this come from
+  "protection-field-goopless", --comes from spacemod
   "pumpjack",
   "slag-processing-7",
   "slag-processing-8",
