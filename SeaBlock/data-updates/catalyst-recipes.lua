@@ -10,8 +10,8 @@ bobmods.lib.recipe.set_ingredients("catalyst-metal-green", {
 })
 bobmods.lib.recipe.set_ingredients("catalyst-metal-blue", {
   { type = "item", name = "catalyst-metal-carrier", amount = 10 },
-  { type = "item", name = "bauxite-ore", amount = 1 },
-  { type = "item", name = "silver-ore", amount = 1 },
+  { type = "item", name = "bob-bauxite-ore", amount = 1 },
+  { type = "item", name = "bob-silver-ore", amount = 1 },
 })
 bobmods.lib.tech.add_recipe_unlock("angels-advanced-chemistry-4", "catalyst-metal-purple")
 

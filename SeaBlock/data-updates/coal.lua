@@ -1,13 +1,13 @@
 -- Coal removal
 seablock.lib.substingredient("grenade", "coal", "wood-charcoal")
 seablock.lib.substingredient("explosives", "coal", "wood-charcoal")
-seablock.lib.substingredient("solid-fuel-from-hydrogen", "coal", "wood-charcoal")
+seablock.lib.substingredient("bob-solid-fuel-from-hydrogen", "coal", "wood-charcoal")
 if mods["bobenemies"] then
-  seablock.lib.substingredient("alien-poison", "coal", "wood-charcoal")
-  seablock.lib.substingredient("alien-explosive", "coal", "wood-charcoal")
+  seablock.lib.substingredient("bob-alien-poison", "coal", "wood-charcoal")
+  seablock.lib.substingredient("bob-alien-explosive", "coal", "wood-charcoal")
 end
 seablock.lib.substingredient("filter-coal", "coal", "wood-charcoal")
-seablock.lib.substingredient("carbon", "coal", "wood-charcoal")
+seablock.lib.substingredient("bob-carbon", "coal", "wood-charcoal")
 if mods["Transport_Drones"] then
   seablock.lib.substingredient("road", "coal", "wood-charcoal")
 end
@@ -23,9 +23,9 @@ angelsmods.functions.move_item("pellet-coke", "bio-processing-wood", "f[pellet-c
 angelsmods.functions.move_item("pellet-coke", "bio-processing-wood", "f[pellet-coke]", "recipe")
 
 -- Clear fuel value so these don't appear in Helmod's fuel picker
-data.raw.item["carbon"].fuel_emissions_multiplier = nil
-data.raw.item["carbon"].fuel_value = nil
-data.raw.item["carbon"].fuel_category = nil
+data.raw.item["bob-carbon"].fuel_emissions_multiplier = nil
+data.raw.item["bob-carbon"].fuel_value = nil
+data.raw.item["bob-carbon"].fuel_category = nil
 data.raw.item["coal"].fuel_emissions_multiplier = nil
 data.raw.item["coal"].fuel_value = nil
 data.raw.item["coal"].fuel_category = nil

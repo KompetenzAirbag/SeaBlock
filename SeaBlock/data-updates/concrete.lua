@@ -1,9 +1,9 @@
 -- Swap out concrete for bricks
 
-if data.raw.recipe["burner-reactor-2"] then
-  seablock.lib.substingredient("burner-reactor-2", "concrete", "concrete-brick", nil)
-  bobmods.lib.tech.remove_prerequisite("burner-reactor-2", "concrete")
-  bobmods.lib.tech.add_prerequisite("burner-reactor-2", "angels-stone-smelting-2")
+if data.raw.recipe["bob-burner-reactor-2"] then
+  seablock.lib.substingredient("bob-burner-reactor-2", "concrete", "concrete-brick", nil)
+  bobmods.lib.tech.remove_prerequisite("bob-burner-reactor-2", "concrete")
+  bobmods.lib.tech.add_prerequisite("bob-burner-reactor-2", "angels-stone-smelting-2")
 end
 seablock.lib.substingredient("centrifuge", "concrete", "concrete-brick", nil)
 if data.raw.recipe["fluid-reactor-2"] then
@@ -33,43 +33,43 @@ if item and item.place_as_tile then
   item.place_as_tile["result"] = "tile-reinforced-concrete-brick"
 end
 
-item = data.raw.tile["concrete"]
-if item then
-  item.minable["result"] = "concrete-brick"
-  item.placeable_by = { item = "concrete-brick", count = 1 }
-  item.walking_speed_modifier = 1.4
+local tile = data.raw.tile["concrete"]
+if tile then
+  tile.minable["result"] = "concrete-brick"
+  tile.placeable_by = { item = "concrete-brick", count = 1 }
+  tile.walking_speed_modifier = 1.4
 end
-item = data.raw.tile["refined-concrete"]
-if item then
-  item.minable["result"] = "reinforced-concrete-brick"
-  item.placeable_by = { item = "reinforced-concrete-brick", count = 1 }
-  item.walking_speed_modifier = 1.55
+tile = data.raw.tile["refined-concrete"]
+if tile then
+  tile.minable["result"] = "reinforced-concrete-brick"
+  tile.placeable_by = { item = "reinforced-concrete-brick", count = 1 }
+  tile.walking_speed_modifier = 1.55
 end
-item = data.raw.tile["tile-concrete-brick"]
-if item then
-  item.minable["result"] = "concrete"
-  item.placeable_by = { item = "concrete", count = 1 }
-  item.walking_speed_modifier = 1.4
+tile = data.raw.tile["tile-concrete-brick"]
+if tile then
+  tile.minable["result"] = "concrete"
+  tile.placeable_by = { item = "concrete", count = 1 }
+  tile.walking_speed_modifier = 1.4
 end
-item = data.raw.tile["tile-reinforced-concrete-brick"]
-if item then
-  item.minable["result"] = "refined-concrete"
-  item.placeable_by = { item = "refined-concrete", count = 1 }
-  item.walking_speed_modifier = 1.55
+tile = data.raw.tile["tile-reinforced-concrete-brick"]
+if tile then
+  tile.minable["result"] = "refined-concrete"
+  tile.placeable_by = { item = "refined-concrete", count = 1 }
+  tile.walking_speed_modifier = 1.55
 end
-item = data.raw.tile["hazard-concrete-left"]
-if item then
-  item.walking_speed_modifier = 1.4
+tile = data.raw.tile["hazard-concrete-left"]
+if tile then
+  tile.walking_speed_modifier = 1.4
 end
-item = data.raw.tile["hazard-concrete-right"]
-if item then
-  item.walking_speed_modifier = 1.4
+tile = data.raw.tile["hazard-concrete-right"]
+if tile then
+  tile.walking_speed_modifier = 1.4
 end
-item = data.raw.tile["refined-hazard-concrete-left"]
-if item then
-  item.walking_speed_modifier = 1.55
+tile = data.raw.tile["refined-hazard-concrete-left"]
+if tile then
+  tile.walking_speed_modifier = 1.55
 end
-item = data.raw.tile["refined-hazard-concrete-right"]
-if item then
-  item.walking_speed_modifier = 1.55
+tile = data.raw.tile["refined-hazard-concrete-right"]
+if tile then
+  tile.walking_speed_modifier = 1.55
 end

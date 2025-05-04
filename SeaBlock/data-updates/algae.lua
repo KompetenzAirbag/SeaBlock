@@ -12,7 +12,7 @@ data.raw.technology["bio-processing-green"].localised_name = { "technology-name.
 
 -- Move Lithia Salt to Thermal Water Extraction
 seablock.lib.moveeffect("algae-brown-burning", "bio-processing-green", "thermal-water-extraction", 2)
-bobmods.lib.tech.add_prerequisite("lithium-processing", "thermal-water-extraction")
+bobmods.lib.tech.add_prerequisite("bob-lithium-processing", "thermal-water-extraction")
 
 -- Change lithium crafting category
 bobmods.lib.recipe.set_category("lithium", "petrochem-electrolyser")
@@ -58,36 +58,19 @@ data.raw.recipe["wood-pellets"].energy_required = 3
 
 -- Reduce cost of Algae farm 2
 
-local buildingmulti = angelsmods.marathon.buildingmulti
-local buildingtime = angelsmods.marathon.buildingtime
-
 angelsmods.functions.RB.build({
   {
     type = "recipe",
     name = "algae-farm-2",
-    normal = {
-      energy_required = 5,
-      enabled = false,
-      ingredients = {
-        { type = "item", name = "algaefarm-2", amount = 1 },
-        { type = "item", name = "t0-plate", amount = 11 },
-        { type = "item", name = "t0-circuit", amount = 4 },
-        { type = "item", name = "t0-brick", amount = 11 },
-        { type = "item", name = "t0-pipe", amount = 18 },
-      },
-      result = "algae-farm-2",
+    energy_required = 5,
+    enabled = false,
+    ingredients = {
+      { type = "item", name = "algaefarm-2", amount = 1 },
+      { type = "item", name = "t0-plate", amount = 11 },
+      { type = "item", name = "t0-circuit", amount = 4 },
+      { type = "item", name = "t0-brick", amount = 11 },
+      { type = "item", name = "t0-pipe", amount = 18 },
     },
-    expensive = {
-      energy_required = 5 * buildingtime,
-      enabled = false,
-      ingredients = {
-        { type = "item", name = "algaefarm-2", amount = 1 },
-        { type = "item", name = "t0-plate", amount = 11 * buildingmulti },
-        { type = "item", name = "t0-circuit", amount = 4 * buildingmulti },
-        { type = "item", name = "t0-brick", amount = 11 * buildingmulti },
-        { type = "item", name = "t0-pipe", amount = 18 * buildingmulti },
-      },
-      result = "algae-farm-2",
-    },
+    results = {{type = "item", name = "algae-farm-2", amount = 1}}
   },
 })
