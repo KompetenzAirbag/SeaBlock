@@ -5,9 +5,8 @@ data:extend({
     category = "smelting",
     enabled = false,
     energy_required = 3.5,
-    ingredients = { { "wood-bricks", 1 } },
-    result = "wood-charcoal",
-    result_count = 5,
+    ingredients = { { type = "item", name = "wood-bricks", amount = 1 } },
+    results = { { type = "item", name = "wood-charcoal", amount = 5 } },
     subgroup = "bio-processing-wood",
   },
   {
@@ -19,7 +18,7 @@ data:extend({
     energy_required = 10,
     enabled = false,
     ingredients = {
-      { type = "item", name = "lithium-chloride", amount = 1 },
+      { type = "item", name = "bob-lithium-chloride", amount = 1 },
     },
     results = {
       { type = "fluid", name = "thermal-water", amount = 20 },
@@ -35,7 +34,7 @@ data:extend({
     enabled = false,
     ingredients = {
       { type = "fluid", name = "steam", amount = 100 },
-      { type = "item", name = "lithium-chloride", amount = 2 },
+      { type = "item", name = "bob-lithium-chloride", amount = 2 },
     },
     results = {
       { type = "fluid", name = "thermal-water", amount = 100 },
@@ -81,8 +80,8 @@ data:extend({
     enabled = false,
     ingredients = {
       { type = "item", name = "catalyst-metal-carrier", amount = 10 },
-      { type = "item", name = "gold-ore", amount = 1 },
-      { type = "item", name = "rutile-ore", amount = 1 },
+      { type = "item", name = "bob-gold-ore", amount = 1 },
+      { type = "item", name = "bob-rutile-ore", amount = 1 },
     },
     results = {
       { type = "item", name = "catalyst-metal-purple", amount = 10 },
@@ -150,6 +149,7 @@ for name, base_icons in pairs(slag_processing_list) do
   if recipe then
     local recipe_results
     if recipe.normal then
+      log("Warning - Recipe still using 'normal' subsection : " .. name)
       recipe_results = recipe.normal.results
     else
       recipe_results = recipe.results
