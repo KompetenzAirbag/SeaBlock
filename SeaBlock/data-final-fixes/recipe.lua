@@ -1,8 +1,8 @@
 -- Revert massive buff of insulated wire recipe
-bobmods.lib.recipe.set_energy_required("insulated-cable", 2)
-seablock.lib.substingredient("insulated-cable", "tinned-copper-cable", nil, 8)
-seablock.lib.substingredient("insulated-cable", "rubber", nil, 8)
-bobmods.lib.recipe.set_result("insulated-cable", { "insulated-cable", 8 })
+bobmods.lib.recipe.set_energy_required("bob-insulated-cable", 2)
+seablock.lib.substingredient("bob-insulated-cable", "tinned-copper-cable", nil, 8)
+seablock.lib.substingredient("bob-insulated-cable", "rubber", nil, 8)
+bobmods.lib.recipe.set_result("bob-insulated-cable", { type = "item", name = "insulated-cable", amount = 8 })
 
 -- Combine Stone and Crushed Stone
 local function replace_stone(recipe)

@@ -27,9 +27,9 @@ local function updaterecipe(recipe)
   for _, v in pairs(recipe.ingredients) do
     updateline(v)
   end
-  if recipe.result and itemrename[recipe.result] then
-    recipe.result = itemrename[recipe.result]
-  end
+  -- if recipe.result and itemrename[recipe.result] then
+  --   recipe.result = itemrename[recipe.result]
+  -- end
   for _, v in pairs(recipe.results or {}) do
     updateline(v)
   end
@@ -41,21 +41,21 @@ end
 -- Recipes to unconditionally remove
 local removerecipes = {}
 for _, v in ipairs({
-  "alien-artifact-blue-from-basic",
-  "alien-artifact-green-from-basic",
-  "alien-artifact-orange-from-basic",
-  "alien-artifact-purple-from-basic",
-  "alien-artifact-red-from-basic",
-  "alien-artifact-yellow-from-basic",
+  "bob-alien-artifact-blue",
+  "bob-alien-artifact-green",
+  "bob-alien-artifact-orange",
+  "bob-alien-artifact-purple",
+  "bob-alien-artifact-red",
+  "bob-alien-artifact-yellow",
   "angels-chemical-void-gas-natural-1",
   "angels-chemical-void-liquid-condensates",
   "angels-water-void-crystal-matrix",
-  "angels-water-void-lithia-water",
+  "angels-water-void-bob-lithia-water",
   "angelsore1-crushed-hand",
   "angelsore3-crushed-hand",
   "big-burner-generator",
   "bio-tile",
-  "bob-coal-from-wood",
+  "bob-carbon-from-wood",
   "bob-resin-wood",
   "burner-generator",
   "burner-mining-drill",
@@ -72,18 +72,18 @@ for _, v in ipairs({
   "empty-diesel-fuel-barrel",
   "empty-gas-natural-1-barrel",
   "empty-liquid-condensates-barrel",
-  "empty-lithia-water-barrel",
-  "fill-crystal-matrix-barrel",
+  "empty-bob-lithia-water-barrel",
+  "crystal-matrix-barrel",
   "fill-diesel-fuel-barrel",
-  "fill-gas-natural-1-barrel",
-  "fill-liquid-condensates-barrel",
-  "fill-lithia-water-barrel",
+  "gas-natural-1-barrel",
+  "liquid-condensates-barrel",
+  "bob-lithia-water-barrel",
   "gas-fractioning-condensates",
   "gas-phosgene",
   "gas-separation",
   "oil-steam-boiler",
   "petroleum-generator",
-  "protection-field-goopless",
+  "protection-field-goopless", --where does this come from
   "pumpjack",
   "slag-processing-7",
   "slag-processing-8",
@@ -108,7 +108,7 @@ for _, v in ipairs({
   "burner-mining-drill",
   "coal",
   "coal-crushed",
-  "diesel-fuel",
+  "diesel-fuel", --doesn't seem to exist anymore ??
   "diesel-fuel-barrel",
   "electric-mining-drill",
   "gas-natural-1",
@@ -117,8 +117,8 @@ for _, v in ipairs({
   "gas-phosgene-barrel",
   "liquid-condensates",
   "liquid-condensates-barrel",
-  "lithia-water",
-  "lithia-water-barrel",
+  "bob-lithia-water",
+  "bob-lithia-water-barrel",
   "oil-steam-boiler",
   "petroleum-generator",
   "pumpjack",
@@ -252,6 +252,16 @@ end
 
 -- Clear the list of science packs that alien lab can take
 -- This prevents YAFC warning
-if data.raw.lab["lab-alien"] then
-  data.raw.lab["lab-alien"].inputs = {}
+if data.raw.lab["bob-lab-alien"] then
+  -- data.raw.lab["bob-lab-alien"].inputs = {} -- disabled because of the following
 end
+-- TODO: We now need a dummy lab that can take all the science packs or else some techs can't load (even if hidden)
+bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "space-science-pack")
+if data.raw.tool["sct-bio-science-pack"] then
+  bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "sct-bio-science-pack")
+end
+bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "automation-science-pack")
+bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "logistic-science-pack")
+bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "chemical-science-pack")
+bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "production-science-pack")
+bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "utility-science-pack")

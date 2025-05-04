@@ -18,9 +18,9 @@ for _, v in pairs(reactors) do
 end
 
 -- Refresh circuit board icon as it may have been overwritten
-if data.raw.tool["sb-basic-circuit-board-tool"] and data.raw.item["basic-circuit-board"] then
-  seablock.lib.copy_icon(data.raw.tool["sb-basic-circuit-board-tool"], data.raw.item["basic-circuit-board"])
-end
+-- if data.raw.tool["sb-basic-circuit-board-tool"] and data.raw.item["bob-basic-circuit-board"] then
+--   seablock.lib.copy_icon(data.raw.tool["sb-basic-circuit-board-tool"], data.raw.item["bob-basic-circuit-board"])
+-- end
 
 require("data-final-fixes/logistics")
 require("data-final-fixes/icons")
@@ -29,6 +29,7 @@ require("data-final-fixes/tech-tree")
 require("data-final-fixes/unobtainable_items")
 require("data-final-fixes/mapgen")
 require("data-final-fixes/SpaceMod")
+
 
 data.raw.recipe["copper-cable"].allow_decomposition = true
 data.raw.recipe["paper-bleaching-1"].allow_decomposition = true
@@ -39,4 +40,4 @@ for _, v in pairs(data.raw.character) do
   end
 end
 
-bobmods.lib.tech.prerequisite_cleanup()
+seablock.lib.removeingredient("automation-science-pack", "bob-glass") -- For some reason it isn't removed earlier
