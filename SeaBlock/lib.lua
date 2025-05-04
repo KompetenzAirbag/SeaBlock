@@ -95,12 +95,12 @@ function seablock.lib.add_recipe_unlock(technology, recipe, insertindex)
 end
 
 function seablock.lib.iteraterecipes(recipe, func)
-  if recipe.normal then
-    func(recipe.normal)
-  end
-  if recipe.expensive then
-    func(recipe.expensive)
-  end
+  -- if recipe.normal then --TODO: remove this
+  --   func(recipe.normal)
+  -- end
+  -- if recipe.expensive then
+  --   func(recipe.expensive)
+  -- end
   if recipe.ingredients then
     func(recipe)
   end
@@ -154,6 +154,8 @@ function seablock.lib.removeingredient(name, ingredient)
       end
     end
     seablock.lib.iteraterecipes(t, doremove)
+  else
+    log("sb - removeingredient - can't find recipe : " .. name)
   end
 end
 
@@ -231,6 +233,8 @@ function seablock.lib.hide_technology(technology_name)
       technology.hidden = true
       technology.enabled = false
     end
+  else
+    log("Hide non existing tech : " .. technology_name)
   end
 end
 
@@ -246,12 +250,13 @@ end
 function seablock.lib.hide_item(item_name)
   local item = data.raw.item[item_name]
   if item then
-    if not item.flags then
-      item.flags = {}
-    end
-    if not seablock.lib.tablefind(item.flags, "hidden") then
-      table.insert(item.flags, "hidden")
-    end
+    item.hidden = true
+    -- if not item.flags then
+    --   item.flags = {}
+    -- end
+    -- if not seablock.lib.tablefind(item.flags, "hidden") then
+    --   table.insert(item.flags, "hidden")
+    -- end
   else
     item = data.raw.fluid[item_name]
     if item then
@@ -262,7 +267,7 @@ end
 
 function seablock.lib.hide(type_name, name)
   if not data.raw[type_name] then
-    log("Unknown type: " .. type_name)
+    log("seablock.lib.hide: Unknown type: " .. type_name)
   else
     local item = data.raw[type_name][name]
     if not item then
@@ -274,9 +279,10 @@ function seablock.lib.hide(type_name, name)
         if not item.flags then
           item.flags = {}
         end
-        if not seablock.lib.tablefind(item.flags, "hidden") then
-          table.insert(item.flags, "hidden")
-        end
+        -- if not seablock.lib.tablefind(item.flags, "hidden") then
+        --   table.insert(item.flags, "hidden")
+        -- end
+        item.hidden = true
 
         if type_name == "item" then
           table.insert(item.flags, "hide-from-bonus-gui")
