@@ -10,7 +10,7 @@ bobmods.lib.tech.remove_prerequisite("angels-manganese-smelting-3", "oil-gas-ext
 bobmods.lib.tech.add_prerequisite("angels-manganese-smelting-3", "angels-advanced-gas-processing")
 
 -- Remove steel's prerequiste on Chemical processing 1
-bobmods.lib.tech.remove_prerequisite("steel-processing", "chemical-processing-1")
+bobmods.lib.tech.remove_prerequisite("steel-processing", "bob-chemical-processing-1")
 
 -- Move Water Treatment from Electronics to Slag Processing 1. Hydro Plant no longer requires Green Circuits
 -- Slag Processing 1 is first source of Sulfuric Waste Water
@@ -22,10 +22,10 @@ bobmods.lib.tech.remove_prerequisite("water-washing-1", "water-treatment")
 bobmods.lib.tech.add_prerequisite("water-washing-1", "automation")
 seablock.lib.moveeffect("yellow-waste-water-purification", "water-treatment-2", "water-treatment")
 
-bobmods.lib.tech.remove_prerequisite("electronics", "chemical-processing-1")
+bobmods.lib.tech.remove_prerequisite("bob-electronics", "bob-chemical-processing-1")
 
 bobmods.lib.recipe.set_category("liquid-fish-atmosphere", "chemistry")
-seablock.lib.hide_technology("pumpjack")
+seablock.lib.hide_technology("oil-gathering")
 
 if not seablock.trigger.mining_productivity then
   for i = 1, 4, 1 do
@@ -38,14 +38,16 @@ end
 
 -- Remove resources so mining recipes don't show in FNEI
 -- Have to leave at least one resource or game will not load
-for k, v in pairs(data.raw["resource"]) do
+
+--TODO: handle this : ressource removal creates bugs
+--[[for k, v in pairs(data.raw["resource"]) do
   -- Sea-pump-resource is a virtual resource.
   -- When the offshore pump is placed, it is supposed to be replaced by the resource and a mining-drill.
   -- Removing the resource causes placement of heavy pumps to crash new maps.
   if k ~= "sea-pump-resource" then
     data.raw["resource"][k] = nil
   end
-end
+end]]
 
 -- Add prerequisite for Tin and Lead
 if settings.startup["bobmods-logistics-beltoverhaul"].value then
@@ -53,25 +55,25 @@ if settings.startup["bobmods-logistics-beltoverhaul"].value then
 end
 
 -- Tidy prerequisite for Brass
-bobmods.lib.tech.remove_prerequisite("zinc-processing", "electrolysis-1")
-bobmods.lib.tech.replace_prerequisite("battery-3", "zinc-processing", "angels-zinc-smelting-1")
+bobmods.lib.tech.remove_prerequisite("bob-zinc-processing", "bob-electrolysis-1")
+bobmods.lib.tech.replace_prerequisite("bob-battery-3", "bob-zinc-processing", "angels-zinc-smelting-1")
 if mods["bobpower"] then
-  bobmods.lib.tech.replace_prerequisite("electric-pole-2", "zinc-processing", "angels-brass-smelting-1")
-  bobmods.lib.tech.replace_prerequisite("electric-substation-2", "zinc-processing", "angels-brass-smelting-1")
+  bobmods.lib.tech.replace_prerequisite("bob-electric-pole-2", "bob-zinc-processing", "angels-brass-smelting-1")
+  bobmods.lib.tech.replace_prerequisite("bob-electric-substation-2", "bob-zinc-processing", "angels-brass-smelting-1")
 end
 
 -- Move recipes that shouldn't be unlocked at startup
 if mods["bobenemies"] then
-  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "alien-artifact-red-from-small")
-  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "alien-artifact-yellow-from-small")
-  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "alien-artifact-orange-from-small")
-  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "alien-artifact-blue-from-small")
-  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "alien-artifact-purple-from-small")
-  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "alien-artifact-green-from-small")
-  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "alien-artifact-from-small")
+  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "bob-alien-artifact-red-from-small")
+  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "bob-alien-artifact-yellow-from-small")
+  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "bob-alien-artifact-orange-from-small")
+  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "bob-alien-artifact-blue-from-small")
+  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "bob-alien-artifact-purple-from-small")
+  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "bob-alien-artifact-green-from-small")
+  seablock.lib.add_recipe_unlock("bio-processing-alien-3", "bob-alien-artifact")
 end
 
-bobmods.lib.tech.remove_prerequisite("tungsten-processing", "angels-nickel-smelting-1")
+bobmods.lib.tech.remove_prerequisite("bob-tungsten-processing", "angels-nickel-smelting-1")
 
 bobmods.lib.tech.remove_recipe_unlock("bio-arboretum-swamp-1", "solid-plastic")
 
@@ -82,7 +84,7 @@ data.raw.recipe["angels-sulfur-scrubber"].energy_required = 6
 
 -- Make Long Inserters a startup tech
 if data.raw.technology["logistics-0"] then
-  bobmods.lib.tech.replace_prerequisite("long-inserters-1", "logistics", "logistics-0")
+  bobmods.lib.tech.replace_prerequisite("bob-long-inserters-1", "logistics", "logistics-0")
 end
 
 -- Adjust for handcrafting boards
@@ -105,7 +107,7 @@ if mods["angelsaddons-storage"] then
 end
 
 -- Logistic System prerequisite of Pink Science
-if not data.raw.tool["advanced-logistic-science-pack"] then
+if not data.raw.tool["bob-advanced-logistic-science-pack"] then
   bobmods.lib.tech.add_prerequisite("logistic-system", "utility-science-pack")
 end
 
@@ -119,34 +121,34 @@ data.raw.recipe["solid-salt-dissolving"].energy_required = 5
 
 for _, v in pairs({
   "bio-processing-alien-3",
-  "gem-processing-1",
-  "gem-processing-2",
-  "gem-processing-3",
+  "bob-gem-processing-1",
+  "bob-gem-processing-2",
+  "bob-gem-processing-3",
   "geode-crystallization-1",
-  "polishing",
+  "bob-polishing",
 }) do
   if data.raw.technology[v] then
     bobmods.lib.tech.add_new_science_pack(v, "chemical-science-pack", 1)
   end
 end
 
-bobmods.lib.tech.add_prerequisite("polishing", "chemical-science-pack")
+bobmods.lib.tech.add_prerequisite("bob-polishing", "chemical-science-pack")
 bobmods.lib.tech.add_prerequisite("geode-crystallization-1", "chemical-science-pack")
 
 if mods["bobrevamp"] and not mods["bobclasses"] then
-  bobmods.lib.tech.add_new_science_pack("rtg", "production-science-pack", 1)
-  bobmods.lib.tech.add_new_science_pack("rtg", "utility-science-pack", 1)
-  bobmods.lib.tech.add_prerequisite("rtg", "utility-science-pack")
-  bobmods.lib.tech.remove_prerequisite("rtg", "angels-coal-processing-3")
-  bobmods.lib.tech.add_prerequisite("rtg", "sodium-processing-2")
+  bobmods.lib.tech.add_new_science_pack("bob-rtg", "production-science-pack", 1)
+  bobmods.lib.tech.add_new_science_pack("bob-rtg", "utility-science-pack", 1)
+  bobmods.lib.tech.add_prerequisite("bob-rtg", "utility-science-pack")
+  bobmods.lib.tech.remove_prerequisite("bob-rtg", "angels-coal-processing-3")
+  bobmods.lib.tech.add_prerequisite("bob-rtg", "sodium-processing-2")
 end
 
 -- Swap gold for platinum
-seablock.lib.substingredient("processing-electronics", "angels-wire-platinum", nil, 20)
+seablock.lib.substingredient("bob-processing-electronics", "angels-wire-platinum", nil, 20)
 if mods["bobmodules"] then
-  seablock.lib.substingredient("module-processor-board-3", "angels-wire-platinum", "angels-plate-platinum", nil)
+  seablock.lib.substingredient("bob-module-processor-board-3", "angels-wire-platinum", "angels-plate-platinum", nil)
 end
-bobmods.lib.tech.add_prerequisite("advanced-electronics-3", "angels-platinum-smelting-1")
+bobmods.lib.tech.add_prerequisite("bob-advanced-processing-unit", "angels-platinum-smelting-1")
 seablock.lib.substresult("angelsore-pure-mix2-processing", "platinum-ore", nil, 2)
 seablock.lib.substresult("angelsore9-crystal-processing", "platinum-ore", nil, 2)
 -- Swap stiratite for crotinnium so all pure ores are used
@@ -154,7 +156,8 @@ seablock.lib.substingredient("angelsore-pure-mix2-processing", "angels-ore3-pure
 
 -- Unhide rocket part to make it easier to view recipes
 if data.raw.recipe["rocket-part"] then
-  angelsmods.functions.remove_flag("rocket-part", "hidden")
+  -- angelsmods.functions.remove_flag("rocket-part", "hidden")
+  -- angelsmods.functions.unhide("rocket-part")
   local r = data.raw.recipe["rocket-part"]
 
   if r.normal then
@@ -172,33 +175,33 @@ if data.raw.recipe["rocket-part"] then
 end
 
 -- Buff bob's silicon and tungsten recipes
-seablock.lib.substingredient("silicon-carbide", "silicon-powder", nil, 10)
-seablock.lib.substingredient("silicon-carbide", "carbon", nil, 10)
-data.raw.recipe["silicon-carbide"].result_count = 20
+seablock.lib.substingredient("bob-silicon-carbide", "bob-silicon-powder", nil, 10)
+seablock.lib.substingredient("bob-silicon-carbide", "bob-carbon", nil, 10)
+data.raw.recipe["bob-silicon-carbide"].results[1].amount = 20
 
-seablock.lib.substingredient("silicon-nitride", "silicon-powder", nil, 10)
-seablock.lib.substingredient("silicon-nitride", "gas-nitrogen", nil, 130)
-data.raw.recipe["silicon-nitride"].result_count = 10
+seablock.lib.substingredient("bob-silicon-nitride", "bob-silicon-powder", nil, 10)
+seablock.lib.substingredient("bob-silicon-nitride", "gas-nitrogen", nil, 130)
+data.raw.recipe["bob-silicon-nitride"].results[1].amount = 10
 
-seablock.lib.substingredient("tungsten-carbide", "tungsten-oxide", nil, 10)
-seablock.lib.substingredient("tungsten-carbide", "carbon", nil, 10)
-seablock.lib.substresult("tungsten-carbide", "tungsten-carbide", nil, 20)
-bobmods.lib.recipe.set_energy_required("tungsten-carbide", 6)
+seablock.lib.substingredient("bob-tungsten-carbide", "bob-tungsten-oxide", nil, 10)
+seablock.lib.substingredient("bob-tungsten-carbide", "bob-carbon", nil, 10)
+seablock.lib.substresult("bob-tungsten-carbide", "bob-tungsten-carbide", nil, 20)
+bobmods.lib.recipe.set_energy_required("bob-tungsten-carbide", 6)
 
-seablock.lib.substingredient("tungsten-carbide-2", "powdered-tungsten", nil, 10)
-seablock.lib.substingredient("tungsten-carbide-2", "carbon", nil, 10)
-seablock.lib.substresult("tungsten-carbide-2", "tungsten-carbide", nil, 20)
-bobmods.lib.recipe.set_energy_required("tungsten-carbide-2", 6)
+seablock.lib.substingredient("bob-tungsten-carbide-2", "bob-powdered-tungsten", nil, 10)
+seablock.lib.substingredient("bob-tungsten-carbide-2", "bob-carbon", nil, 10)
+seablock.lib.substresult("bob-tungsten-carbide-2", "bob-tungsten-carbide", nil, 20)
+bobmods.lib.recipe.set_energy_required("bob-tungsten-carbide-2", 6)
 
-seablock.lib.substingredient("copper-tungsten-alloy", "powdered-tungsten", nil, 15)
-seablock.lib.substingredient("copper-tungsten-alloy", "copper-plate", "powder-copper", 10)
-seablock.lib.substresult("copper-tungsten-alloy", "copper-tungsten-alloy", nil, 25)
-bobmods.lib.recipe.set_energy_required("copper-tungsten-alloy", 8)
-bobmods.lib.tech.add_prerequisite("tungsten-alloy-processing", "angels-copper-smelting-2")
+seablock.lib.substingredient("bob-copper-tungsten-alloy", "bob-powdered-tungsten", nil, 15)
+seablock.lib.substingredient("bob-copper-tungsten-alloy", "copper-plate", "powder-copper", 10)
+seablock.lib.substresult("bob-copper-tungsten-alloy", "bob-copper-tungsten-alloy", nil, 25)
+bobmods.lib.recipe.set_energy_required("bob-copper-tungsten-alloy", 8)
+bobmods.lib.tech.add_prerequisite("bob-tungsten-alloy-processing", "angels-copper-smelting-2")
 
 -- Other prerequisites
-if data.raw.technology["electronics-machine-1"] then
-  bobmods.lib.tech.add_prerequisite("electronics-machine-1", "electronics")
+if data.raw.technology["bob-electronics-machine-1"] then
+  bobmods.lib.tech.add_prerequisite("bob-electronics-machine-1", "bob-electronics")
 end
 bobmods.lib.tech.add_prerequisite("bio-pressing-1", "bio-nutrient-paste")
 
@@ -212,35 +215,35 @@ bobmods.lib.tech.add_prerequisite("water-treatment-2", "fluid-handling")
 bobmods.lib.tech.add_prerequisite("water-washing-2", "fluid-handling")
 
 -- Nerf early game glass. Just need a little bit for arboretums
-seablock.lib.substingredient("quartz-glass", "quartz", nil, 10)
-seablock.lib.substresult("quartz-glass", "glass", nil, 1)
+seablock.lib.substingredient("bob-glass", "bob-quartz", nil, 10)
+seablock.lib.substresult("bob-glass", "bob-glass", nil, 1)
 
 -- Biologically active tile has been hidden so no need for the prerequisites
 bobmods.lib.tech.remove_prerequisite("bio-farm-2", "angels-glass-smelting-1")
 bobmods.lib.tech.remove_prerequisite("bio-farm-2", "angels-stone-smelting-2")
 
 -- Rebalance glass mixture recipes
-bobmods.lib.recipe.remove_ingredient("glass-mixture-1", "quartz")
-bobmods.lib.recipe.set_ingredient("glass-mixture-1", { "silicon-powder", 1 })
+bobmods.lib.recipe.remove_ingredient("glass-mixture-1", "bob-quartz")
+bobmods.lib.recipe.set_ingredient("glass-mixture-1", { type = "item", name = "bob-silicon-powder", amount = 1 })
 
-bobmods.lib.recipe.remove_ingredient("glass-mixture-2", "quartz")
-bobmods.lib.recipe.set_ingredient("glass-mixture-2", { "silicon-powder", 2 })
-bobmods.lib.recipe.set_result("glass-mixture-2", { "solid-glass-mixture", 3 })
+bobmods.lib.recipe.remove_ingredient("glass-mixture-2", "bob-quartz")
+bobmods.lib.recipe.set_ingredient("glass-mixture-2", { type = "item", name = "bob-silicon-powder", amount = 2 })
+bobmods.lib.recipe.set_result("glass-mixture-2", { type = "item", name = "solid-glass-mixture", amount = 3 })
 bobmods.lib.recipe.set_energy_required("glass-mixture-2", 6)
 
-bobmods.lib.recipe.remove_ingredient("glass-mixture-3", "quartz")
-bobmods.lib.recipe.set_ingredient("glass-mixture-3", { "silicon-powder", 1 })
-bobmods.lib.recipe.set_ingredient("glass-mixture-3", { "solid-lime", 2 })
-bobmods.lib.recipe.set_result("glass-mixture-3", { "solid-glass-mixture", 4 })
+bobmods.lib.recipe.remove_ingredient("glass-mixture-3", "bob-quartz")
+bobmods.lib.recipe.set_ingredient("glass-mixture-3", { type = "item", name = "bob-silicon-powder", amount = 1 })
+bobmods.lib.recipe.set_ingredient("glass-mixture-3", { type = "item", name = "solid-lime", amount = 2 })
+bobmods.lib.recipe.set_result("glass-mixture-3", { type = "item", name = "solid-glass-mixture", amount = 4 })
 bobmods.lib.recipe.set_energy_required("glass-mixture-3", 8)
 
 bobmods.lib.recipe.set_energy_required("glass-mixture-4", 8)
 
 -- Rebalance cement recipes
-bobmods.lib.recipe.replace_ingredient("cement-mixture-1", "quartz", "silicon-powder")
+bobmods.lib.recipe.replace_ingredient("cement-mixture-1", "bob-quartz", "bob-silicon-powder")
 
 bobmods.lib.recipe.remove_ingredient("cement-mixture-2", "iron-ore")
-bobmods.lib.recipe.replace_ingredient("cement-mixture-2", "quartz", "silicon-powder")
-bobmods.lib.recipe.set_ingredient("cement-mixture-2", { "solid-lime", 4 })
-bobmods.lib.recipe.set_result("cement-mixture-2", { "solid-cement", 4 })
+bobmods.lib.recipe.replace_ingredient("cement-mixture-2", "bob-quartz", "bob-silicon-powder")
+bobmods.lib.recipe.set_ingredient("cement-mixture-2", { type = "item", name = "solid-lime", amount = 4 })
+bobmods.lib.recipe.set_result("cement-mixture-2", { type = "item", name = "solid-cement", amount = 4 })
 bobmods.lib.recipe.set_energy_required("cement-mixture-2", 16)
