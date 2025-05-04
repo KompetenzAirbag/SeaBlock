@@ -1,9 +1,10 @@
 -- Washing plant sulfur byproduct
-local washing_fluid_box = {
+local washing_fluid_box = { --TODO: check correctness of washing plant fluid box
   production_type = "output",
   pipe_covers = pipecoverspictures(),
-  base_level = 1,
-  pipe_connections = { { position = { -3, 0 }, type = "output" } },
+  --base_level = 1,
+  volume = 100, --TODO: decide the correct value
+  pipe_connections = { { position = { -2, 0 }, flow_direction = "output", direction = defines.direction.west } },
 }
 for _, v in pairs({ "", "-2", "-3", "-4" }) do
   local washingplant = data.raw["assembling-machine"]["washing-plant" .. v]

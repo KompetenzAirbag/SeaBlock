@@ -55,20 +55,22 @@ data.raw["assembling-machine"]["thermal-extractor"] = extractor
 extractor.type = "assembling-machine"
 extractor.crafting_speed = 1
 extractor.ingredient_count = 2
-extractor.fluid_boxes = {
+extractor.fluid_boxes = { --TODO: check validity of fluid boxes
   {
     production_type = "input",
     base_area = 10,
-    base_level = -1,
+    --base_level = -1,
+    volume = 1000,
     pipe_covers = pipecoverspictures(),
-    pipe_connections = { { type = "input", position = { 5, 3 } } },
+    pipe_connections = { { flow_direction = "input", position = { 3, 4.4 }, direction = defines.direction.north } },
   },
   {
     production_type = "output",
     base_area = 10,
-    base_level = 1,
+    --base_level = 1,
+    volume = 1000,
     pipe_covers = pipecoverspictures(),
-    pipe_connections = { { type = "output", position = { -5, -3 } } },
+    pipe_connections = { { flow_direction = "output", position = { -3, 4.4 }, direction = defines.direction.south } },
   },
 }
 extractor.animation = {
@@ -81,7 +83,7 @@ extractor.crafting_categories = { "thermal-extractor" }
 extractor.fixed_recipe = "thermal-extractor-water"
 bobmods.lib.tech.add_recipe_unlock("thermal-water-extraction-2", "thermal-extractor-water")
 move_item("thermal-extractor", "water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
-bobmods.lib.recipe.add_ingredient("thermal-extractor", { "thermal-bore", 1 })
+bobmods.lib.recipe.add_ingredient("thermal-extractor", { type = "item", name = "thermal-bore", amount = 1 })
 
 local bore = data.raw["mining-drill"]["thermal-bore"]
 data.raw["mining-drill"]["thermal-bore"] = nil
@@ -89,16 +91,18 @@ data.raw["assembling-machine"]["thermal-bore"] = bore
 bore.type = "assembling-machine"
 bore.crafting_speed = 1
 bore.ingredient_count = 1
-bore.fluid_boxes = {
+bore.fluid_boxes = { --TODO: check this
   {
     production_type = "output",
     base_area = 1,
-    base_level = 1,
+    --base_level = 1,
+    volume = 500,
     pipe_covers = pipecoverspictures(),
     pipe_connections = {
       {
-        type = "output",
-        positions = { { 1, -2 }, { 2, -1 }, { -1, 2 }, { -2, 1 } },
+        flow_direction = "output",
+        positions = { { 1, -1.4 }, { 1.4, -1 }, { -1, 1.4 }, { -1.4, 1 } },
+        direction = defines.direction.north,
       },
     },
   },
@@ -118,10 +122,10 @@ end
 local function makeborelayers(d)
   return {
     layers = {
-      makesheet(bore.base_picture.sheets[1], bore.animations.north.layers[1].frame_count, d),
-      makesheet(bore.base_picture.sheets[2], bore.animations.north.layers[1].frame_count, d),
-      bore.animations.north.layers[1],
-      bore.animations.north.layers[2],
+      makesheet(bore.graphics_set.animation.layers[1], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
+      makesheet(bore.graphics_set.animation.layers[2], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
+      bore.wet_mining_graphics_set.animation.north.layers[1],
+      bore.wet_mining_graphics_set.animation.north.layers[2],
     },
   }
 end
