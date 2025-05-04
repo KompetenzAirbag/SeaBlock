@@ -1,12 +1,44 @@
 -- No resource placement
 for k, v in pairs(data.raw.resource) do
   v.autoplace = nil
+  -- if v.autoplace then
+  --   data.raw.resource[k].autoplace.default_enabled = false
+  -- end
 end
+
+-- log("HELLO")
+-- log(serpent.block(data.raw["planet"]["nauvis"].map_gen_settings))
+data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
+  tile = {
+    settings = {
+      deepwater = {},
+      water = {},
+      ["sand-4"] = {},
+      -- ["sand-5"] = {},
+    }
+  },
+  entity = {
+    settings = {
+      ["desert-garden"] = {},
+      ["temperate-garden"] = {},
+      ["swamp-garden"] = {},
+      
+      ["desert-tree"] = {},
+      ["temperate-tree"] = {},
+      ["swamp-tree"] = {},
+    }
+  }
+}
+data.raw["planet"]["nauvis"].map_gen_settings.autoplace_controls = nil
+
 
 -- No spawners
 for k, v in pairs(data.raw["unit-spawner"]) do
   v.autoplace = nil
-  v.control = nil
+  -- v.control = nil
+  if v.autoplace then
+    v.autoplace.default_enabled = false
+  end
 end
 
 -- No trees
@@ -22,13 +54,26 @@ for k, v in pairs(data.raw.tree) do
   then
     v.autoplace = nil
     seablock.lib.add_flag("tree", v.name, "not-deconstructable")
+  else
+    v.autoplace.control = nil
   end
 end
 
 -- No rocks
 for k, v in pairs(data.raw["simple-entity"]) do
   v.autoplace = nil
+  -- if v.autoplace then
+  --   v.autoplace.default_enabled = false
+  -- end
   seablock.lib.add_flag("simple-entity", v.name, "not-deconstructable")
+end
+
+for k, v in pairs(data.raw["optimized-decorative"]) do
+  v.autoplace = nil
+  -- if v.autoplace then
+  --   v.autoplace.default_enabled = false
+  -- end
+  seablock.lib.add_flag("optimized-decorative", v.name, "not-deconstructable")
 end
 
 local keepcontrols = {}
@@ -39,10 +84,13 @@ for turret_name, turret in pairs(turrets) do
   end
 end
 
+--keepcontrols["angels-fissure"] = true
+
 local controls = data.raw["autoplace-control"]
 for k, v in pairs(controls) do
   if k ~= "enemy-base" and not keepcontrols[k] then
-    controls[k] = nil
+    -- data.raw["autoplace-control"][k].hidden = true
+    data.raw["autoplace-control"][k] = nil
   end
 end
 
