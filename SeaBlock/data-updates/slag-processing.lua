@@ -9,24 +9,12 @@ for i = 1, 6 do
   recipe.localised_name = { "recipe-name.slag-processing", { "item-name.angels-ore" .. i } }
   recipe.order = "a-a [angels-ore-" .. i .. "]"
 
-  recipe.ingredients = nil
-  recipe.results = nil
-  recipe.energy_required = nil
   recipe.category = "crystallizing"
-
-  recipe.normal = {
-    energy_required = 4,
-    ingredients = { { type = "fluid", name = "mineral-sludge", amount = 25 } },
-    results = { { type = "item", name = "angels-ore" .. i, amount = 1 } },
-    enabled = false,
-  }
-
-  recipe.expensive = {
-    energy_required = 8,
-    ingredients = { { type = "fluid", name = "mineral-sludge", amount = 50 } },
-    results = { { type = "item", name = "angels-ore" .. i, amount = 1 } },
-    enabled = false,
-  }
+  recipe.energy_required = 4
+  recipe.ingredients = { { type = "fluid", name = "mineral-sludge", amount = 25 } }
+  recipe.results = { { type = "item", name = "angels-ore" .. i, amount = 1 } }
+  recipe.enabled = false
+  
 end
 
 -- Angels ores 1, 3 (Saphirite, Stiratite) available from tutorial tech 1,
@@ -45,21 +33,22 @@ seablock.lib.moveeffect("slag-processing-4", "slag-processing-2", "ore-advanced-
 seablock.lib.moveeffect("angelsore2-crushed", "ore-crushing", "ore-advanced-crushing", slag2start + 3)
 seablock.lib.moveeffect("angelsore4-crushed", "ore-crushing", "ore-advanced-crushing", slag2start + 4)
 
+
 seablock.lib.add_recipe_unlock("ore-crushing", "angelsore5-crushed", 3)
 seablock.lib.add_recipe_unlock("ore-crushing", "angelsore6-crushed", 4)
 seablock.lib.add_recipe_unlock("ore-crushing", "iron-plate")
 seablock.lib.add_recipe_unlock("ore-crushing", "copper-plate")
-seablock.lib.add_recipe_unlock("ore-crushing", "lead-plate")
-seablock.lib.add_recipe_unlock("ore-crushing", "tin-plate")
-seablock.lib.add_recipe_unlock("ore-crushing", "quartz-glass")
+seablock.lib.add_recipe_unlock("ore-crushing", "bob-lead-plate")
+seablock.lib.add_recipe_unlock("ore-crushing", "bob-tin-plate")
+seablock.lib.add_recipe_unlock("ore-crushing", "bob-glass")
 
 seablock.lib.unhide_recipe("iron-plate")
 seablock.lib.unhide_recipe("copper-plate")
-seablock.lib.unhide_recipe("lead-plate")
-seablock.lib.unhide_recipe("tin-plate")
+seablock.lib.unhide_recipe("bob-lead-plate")
+seablock.lib.unhide_recipe("bob-tin-plate")
 
 -- Hide unwanted recipes
-bobmods.lib.recipe.hide("silver-plate")
+bobmods.lib.recipe.hide("bob-silver-plate")
 bobmods.lib.tech.remove_recipe_unlock("ore-crushing", "angelsore2-crushed-processing")
 bobmods.lib.tech.remove_recipe_unlock("ore-crushing", "angelsore4-crushed-processing")
 bobmods.lib.recipe.hide("angelsore2-crushed-processing")
@@ -89,8 +78,8 @@ data.raw.technology["slag-processing-1"].unit = {
 }
 
 bobmods.lib.tech.add_prerequisite("advanced-ore-refining-2", "ore-powderizer")
-bobmods.lib.tech.add_prerequisite("advanced-ore-refining-2", "advanced-electronics")
-bobmods.lib.tech.add_prerequisite("advanced-ore-refining-4", "advanced-electronics-3")
+bobmods.lib.tech.add_prerequisite("advanced-ore-refining-2", "advanced-circuit")
+bobmods.lib.tech.add_prerequisite("advanced-ore-refining-4", "bob-advanced-processing-unit")
 bobmods.lib.tech.add_prerequisite("advanced-ore-refining-4", "angels-tungsten-smelting-1")
 
 -- Add an additional slag to the mixed sorting recipes

@@ -8,7 +8,7 @@ end
 
 -- Set prefered type for basic landfill crafting
 if settings.startup["sb-default-landfill"] and data.raw.item[settings.startup["sb-default-landfill"].value] then
-  data.raw.recipe["landfill"].result = settings.startup["sb-default-landfill"].value
+  data.raw.recipe["landfill"].results[1].name = settings.startup["sb-default-landfill"].value
 end
 
 local function BuffLandfill(recipe)
@@ -34,8 +34,9 @@ end
 data.raw.technology["landfill"].prerequisites = { "water-washing-1" }
 data.raw.technology["landfill"].unit = {
   count = 10,
-  ingredients = { { type = "item", name = "automation-science-pack", amount = 1 } },
+  ingredients = { { "automation-science-pack", 1 } },
   time = 15,
 }
+
 bobmods.lib.tech.remove_prerequisite("water-washing-2", "landfill")
 bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)

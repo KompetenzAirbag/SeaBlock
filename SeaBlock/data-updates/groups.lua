@@ -6,15 +6,15 @@ if not mods["angelsindustries"] then
     if
       v.group == "bob-resource-products"
       or v.group == "bob-fluid-products"
-      or v.group == "bob-intermediate-products"
+      -- or v.group == "bob-intermediate-products" --should not exist anymore
     then
       v.group = "intermediate-products"
     end
   end
 
-  move_item("battery", "bob-intermediates", "f-cba[battery]")
+  --move_item("battery", "intermediate-products", "f-cba[battery]") -- already correctly set in bob2.0
   move_item("iron-gear-wheel", "bob-gears", "aa[iron-gear-wheel]")
-  move_item("thorium-processing", "bob-nuclear", "l[thorium-processing]", "recipe")
+  move_item("bob-thorium-processing", "bob-nuclear", "l[thorium-processing]", "recipe")
 end
 
 if mods["SpaceMod"] then
@@ -31,6 +31,7 @@ if mods["SpaceMod"] then
     "ftl-drive",
     "fuel-cell",
     "fusion-reactor",
+    "fission-reactor",
     "habitation",
     "hull-component",
     "life-support",
@@ -46,4 +47,4 @@ if mods["Explosive Excavation"] then
   move_item("blasting-charge", "petrochem-solids-2", "a[explosives]-g", "recipe")
 end
 
-move_item("solid-fuel-from-hydrogen", "petrochem-fuel", "e[bob]-d", "recipe")
+move_item("bob-solid-fuel-from-hydrogen", "petrochem-fuel", "e[bob]-d", "recipe")
