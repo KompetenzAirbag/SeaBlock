@@ -39,5 +39,3 @@ for _, v in pairs(data.raw.character) do
     table.insert(v.crafting_categories, "crafting-handonly")
   end
 end
-
-seablock.lib.removeingredient("automation-science-pack", "bob-glass") -- For some reason it isn't removed earlier

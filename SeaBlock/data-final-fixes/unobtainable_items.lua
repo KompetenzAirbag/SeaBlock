@@ -253,15 +253,30 @@ end
 -- Clear the list of science packs that alien lab can take
 -- This prevents YAFC warning
 if data.raw.lab["bob-lab-alien"] then
-  -- data.raw.lab["bob-lab-alien"].inputs = {} -- disabled because of the following
+  data.raw.lab["bob-lab-alien"].inputs = {}
 end
--- TODO: We now need a dummy lab that can take all the science packs or else some techs can't load (even if hidden)
-bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "space-science-pack")
+
+-- We now need a dummy lab that can take all the science packs or else some techs can't load (even if hidden), (we could also use "bob-lab-alien" which is hidden in data-updates/military.lua)
+local dummyLab = table.deepcopy(data.raw.lab["lab"])
+dummyLab.name = "dummy-lab"
+dummyLab.hidden = true
+--dummyLab.hidden_in_factoriopedia = true
+bobmods.lib.safe_insert(dummyLab.inputs, "space-science-pack")
 if data.raw.tool["sct-bio-science-pack"] then
-  bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "sct-bio-science-pack")
+  bobmods.lib.safe_insert(dummyLab.inputs, "sct-bio-science-pack")
 end
-bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "automation-science-pack")
-bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "logistic-science-pack")
-bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "chemical-science-pack")
-bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "production-science-pack")
-bobmods.lib.safe_insert(data.raw.lab["bob-lab-alien"].inputs, "utility-science-pack")
+bobmods.lib.safe_insert(dummyLab.inputs, "automation-science-pack")
+bobmods.lib.safe_insert(dummyLab.inputs, "logistic-science-pack")
+bobmods.lib.safe_insert(dummyLab.inputs, "chemical-science-pack")
+bobmods.lib.safe_insert(dummyLab.inputs, "production-science-pack")
+bobmods.lib.safe_insert(dummyLab.inputs, "utility-science-pack")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-science-pack-gold")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-purple")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-blue")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-red")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-green")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-orange")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-yellow")
+bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack")
+
+data:extend({dummyLab})

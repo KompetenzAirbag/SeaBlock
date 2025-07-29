@@ -73,7 +73,7 @@ extractor.fluid_boxes = {
     pipe_connections = { { flow_direction = "output", position = { -3, 4 }, direction = defines.direction.south } },
   },
 }
-extractor.animation = {
+extractor.graphics_set.animation = { -- TODO: fix this animation
   north = makeextractorlayers(false, false),
   east = makeextractorlayers(true, true),
   south = makeextractorlayers(false, false),
@@ -121,22 +121,27 @@ local function makesheet(sheet, count, d)
   end
   return r
 end
-local function makeborelayers(d)
-  return {
-    layers = {
-      makesheet(bore.graphics_set.animation.layers[1], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
-      makesheet(bore.graphics_set.animation.layers[2], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
-      bore.wet_mining_graphics_set.animation.north.layers[1],
-      bore.wet_mining_graphics_set.animation.north.layers[2],
-    },
-  }
-end
-bore.animation = {
-  north = makeborelayers(0),
-  east = makeborelayers(1),
-  south = makeborelayers(2),
-  west = makeborelayers(3),
-}
+-- local function makeborelayers(d)
+--   return {
+--     layers = {
+--       makesheet(bore.graphics_set.animation.layers[1], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
+--       makesheet(bore.graphics_set.animation.layers[2], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
+--       bore.wet_mining_graphics_set.animation.north.layers[1],
+--       bore.wet_mining_graphics_set.animation.north.layers[2],
+--     },
+--   }
+-- end
+-- bore.animation = {
+--   north = makeborelayers(0),
+--   east = makeborelayers(1),
+--   south = makeborelayers(2),
+--   west = makeborelayers(3),
+-- }
+table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[1]) -- TODO: probably fix this graphic_set
+table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[2])
+bore.graphics_set.animation.north.layers[3].repeat_count = 40
+bore.graphics_set.animation.north.layers[4].repeat_count = 40
+
 bore.crafting_categories = { "thermal-bore" }
 bore.fixed_recipe = "thermal-bore-water"
 bobmods.lib.tech.add_recipe_unlock("thermal-water-extraction", "thermal-bore-water")

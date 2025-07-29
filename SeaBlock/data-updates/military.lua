@@ -515,12 +515,14 @@ for _, v in pairs(mil_recipes) do
 end
 
 -- Remove hidden upgrade
-data.raw["ammo-turret"]["bob-gun-turret-2"].next_upgrade = nil
-data.raw["ammo-turret"]["bob-sniper-turret-2"].next_upgrade = nil
+if mods["bobwarfare"] then
+  data.raw["ammo-turret"]["bob-gun-turret-2"].next_upgrade = nil
+  data.raw["ammo-turret"]["bob-sniper-turret-2"].next_upgrade = nil
+  data.raw["electric-turret"]["bob-plasma-turret-2"].next_upgrade = nil
+  data.raw["artillery-turret"]["bob-artillery-turret-2"].next_upgrade = nil
+  data.raw["artillery-wagon"]["bob-artillery-wagon-2"].next_upgrade = nil
+end
 data.raw["electric-turret"]["laser-turret"].next_upgrade = nil
-data.raw["electric-turret"]["bob-plasma-turret-2"].next_upgrade = nil
-data.raw["artillery-turret"]["bob-artillery-turret-2"].next_upgrade = nil
-data.raw["artillery-wagon"]["bob-artillery-wagon-2"].next_upgrade = nil
 
 
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "gas-fractioning-residual")
