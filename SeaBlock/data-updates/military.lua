@@ -29,8 +29,8 @@ local mil_items = {
   { type = "fluid", name = "bob-alien-explosive" },
   { type = "fluid", name = "bob-alien-fire" },
   { type = "fluid", name = "bob-alien-poison" },
-  { type = "fluid", name = "liquid-glycerol" },
-  { type = "fluid", name = "liquid-toluene" },
+  { type = "fluid", name = "angels-liquid-glycerol" },
+  { type = "fluid", name = "angels-liquid-toluene" },
   { type = "fluid", name = "bob-nitroglycerin" },
   { type = "gun", name = "combat-shotgun" },
   { type = "gun", name = "flamethrower" },
@@ -95,8 +95,8 @@ local mil_items = {
   { type = "item", name = "bob-lab-alien" },
   { type = "item", name = "land-mine" },
   { type = "item", name = "bob-laser-rifle-battery-case" },
-  { type = "item", name = "liquid-glycerol-barrel" },
-  { type = "item", name = "liquid-toluene-barrel" },
+  { type = "item", name = "angels-liquid-glycerol-barrel" },
+  { type = "item", name = "angels-liquid-toluene-barrel" },
   { type = "item", name = "bob-magazine" },
   { type = "item", name = "bob-nitroglycerin-barrel" },
   { type = "item", name = "bob-petroleum-jelly" },
@@ -560,7 +560,7 @@ bobmods.lib.tech.remove_recipe_unlock("uranium-ammo", "uranium-cannon-shell")
 bobmods.lib.tech.remove_recipe_unlock("uranium-ammo", "uranium-rounds-magazine")
 bobmods.lib.tech.remove_recipe_unlock("bob-zinc-processing", "bob-gunmetal-alloy")
 
-seablock.lib.substresult("angels-nutrients-refining-2", "liquid-glycerol", "water", nil)
+seablock.lib.substresult("angels-nutrients-refining-2", "angels-liquid-glycerol", "water", nil)
 if data.raw.recipe["angels-nutrients-refining-2"] then
   data.raw.recipe["angels-nutrients-refining-2"].icons = angelsmods.functions.create_liquid_recipe_icon({
     "angels-liquid-fuel-oil",
