@@ -36,8 +36,8 @@ data:extend({
     icon = "__SeaBlock__/graphics/technology/ore.png",
     icon_size = 128,
     effects = {
-      { type = "unlock-recipe", recipe = "angelsore1-crushed-smelting" },
-      { type = "unlock-recipe", recipe = "angelsore3-crushed-smelting" },
+      { type = "unlock-recipe", recipe = "angels-ore1-crushed-smelting" },
+      { type = "unlock-recipe", recipe = "angels-ore3-crushed-smelting" },
       { type = "unlock-recipe", recipe = "copper-cable" },
     },
     research_trigger = {type = "craft-item", item = "angels-ore3-crushed"}
@@ -58,7 +58,7 @@ data:extend({
       { type = "unlock-recipe", recipe = "burner-inserter" },
       { type = "unlock-recipe", recipe = "iron-chest" },
     },
-    prerequisites = { "bio-wood-processing" },
+    prerequisites = { "angels-bio-wood-processing" },
     research_trigger = {type = "craft-item", item = "bob-basic-circuit-board"},
   },
   {
@@ -81,7 +81,7 @@ data:extend({
     icon_size = 128,
     order = "c-a",
     prerequisites = {
-      "bio-processing-red",
+      "angels-bio-processing-red",
       "advanced-circuit",
       "angels-stone-smelting-2",
       "bob-zinc-processing",
@@ -90,7 +90,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "algae-farm-4",
+        recipe = "angels-algae-farm-4",
       },
     },
     unit = {
@@ -98,7 +98,7 @@ data:extend({
       ingredients = {
         { "automation-science-pack", 1 },
         { "logistic-science-pack", 1 },
-        {"token-bio", 1 },
+        { "angels-token-bio", 1 },
         { "chemical-science-pack", 1 },
       },
       time = 30,

@@ -507,10 +507,10 @@ data.raw.tile["sand-4"].autoplace = {probability_expression = "if(elevation >= 0
 
 -- data.raw.tile["sand-5"].autoplace = {probability_expression = "if(elevation >= 0, elevation, -inf)"} -- decided against using this
 
-data.raw.tree["desert-garden"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 1, source = 0.03, amplitude = 0.01}, -inf)"} --, tile_restriction = {"sand-5"}}
-data.raw.tree["temperate-garden"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 2, source = 0.03, amplitude = 0.01}, -inf)"}
-data.raw.tree["swamp-garden"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 3, source = 0.03, amplitude = 0.015}, -inf)"}
+data.raw.tree["angels-desert-garden"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 1, source = 0.03, amplitude = 0.01}, -inf)"} --, tile_restriction = {"sand-5"}}
+data.raw.tree["angels-temperate-garden"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 2, source = 0.03, amplitude = 0.01}, -inf)"}
+data.raw.tree["angels-swamp-garden"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 3, source = 0.03, amplitude = 0.015}, -inf)"}
 
-data.raw.tree["desert-tree"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 4, source = 0.03, amplitude = 0.01}, -inf)"} --, placement_density = 3}
-data.raw.tree["temperate-tree"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 5, source = 0.03, amplitude = 0.01}, -inf)"}
-data.raw.tree["swamp-tree"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 6, source = 0.03, amplitude = 0.015}, -inf)"} 
+data.raw.tree["angels-desert-tree"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 4, source = 0.03, amplitude = 0.01}, -inf)"} --, placement_density = 3}
+data.raw.tree["angels-temperate-tree"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 5, source = 0.03, amplitude = 0.01}, -inf)"}
+data.raw.tree["angels-swamp-tree"].autoplace = {probability_expression = "if(elevation >= 0, random_penalty{x = x, y = y, seed = 6, source = 0.03, amplitude = 0.015}, -inf)"} 

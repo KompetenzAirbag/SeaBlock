@@ -42,8 +42,8 @@ if mods["SpaceMod"] then
 end
 
 if mods["Explosive Excavation"] then
-  move_item("blasting-charge", "petrochem-solids", "b[petrochem-solids-2]-c[blasting-charge]")
-  move_item("blasting-charge", "petrochem-solids-2", "a[explosives]-g", "recipe")
+  move_item("blasting-charge", "angels-petrochem-solids", "b[petrochem-solids-2]-c[blasting-charge]")
+  move_item("blasting-charge", "angels-petrochem-solids-2", "a[explosives]-g", "recipe")
 end
 
-move_item("bob-solid-fuel-from-hydrogen", "petrochem-fuel", "e[bob]-d", "recipe")
+move_item("bob-solid-fuel-from-hydrogen", "angels-petrochem-fuel", "e[bob]-d", "recipe")

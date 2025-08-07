@@ -12,7 +12,7 @@ local knowningredients = {
     { "iron-stick", 22 },
     { "stone-brick", 10 },
   },
-  ["liquifier"] = {
+  ["angels-liquifier"] = {
     { "iron-plate", 10 },
     { "bob-basic-circuit-board", 5 },
     { "pipe-to-ground", 2 },
@@ -23,13 +23,13 @@ local knowningredients = {
     { "pipe", 1 },
     { "iron-gear-wheel", 10 },
   },
-  ["crystallizer"] = {
+  ["angels-crystallizer"] = {
     { "iron-plate", 10 },
     { "bob-basic-circuit-board", 5 },
     { "bob-copper-pipe", 5 },
     { "stone-brick", 10 },
   },
-  ["algae-farm"] = {
+  ["angels-algae-farm"] = {
     { "iron-plate", 10 },
     { "bob-basic-circuit-board", 5 },
     { "iron-stick", 10 },
@@ -41,12 +41,12 @@ local knowningredients = {
     { "pipe", 10 },
     { "stone-brick", 10 },
   },
-  ["seafloor-pump"] = {
+  ["angels-seafloor-pump"] = {
     { "iron-plate", 5 },
     { "bob-basic-circuit-board", 2 },
     { "pipe", 5 },
   },
-  ["washing-plant"] = {
+  ["angels-washing-plant"] = {
     { "iron-plate", 10 },
     { "bob-basic-circuit-board", 5 },
     { "pipe", 10 },
@@ -58,17 +58,17 @@ local knowningredients = {
     { "bob-basic-circuit-board", 5 },
     { "pipe", 5 },
   },
-  ["filtration-unit"] = {
+  ["angels-filtration-unit"] = {
     { "iron-plate", 5 },
     { "bob-basic-circuit-board", 5 },
     { "pipe", 10 },
     { "stone-brick", 10 },
   },
-  ["filter-frame"] = {
+  ["angels-filter-frame"] = {
     { "iron-plate", 1 },
     { "iron-stick", 2 },
   },
-  ["burner-ore-crusher"] = {
+  ["angels-burner-ore-crusher"] = {
     { "stone", 5 },
     { "stone-furnace", 1 },
   },
@@ -220,8 +220,8 @@ for k, v in pairs(seablock.startup_techs) do
 end
 
 -- Make bio-wood-processing a startup tutorial tech
-data.raw.technology["bio-wood-processing"].prerequisites = { "sb-startup1" }
-data.raw.technology["bio-wood-processing"].unit = {
+data.raw.technology["angels-bio-wood-processing"].prerequisites = { "sb-startup1" }
+data.raw.technology["angels-bio-wood-processing"].unit = {
   count = 1,
   ingredients = {},
   time = 1,
@@ -229,6 +229,6 @@ data.raw.technology["bio-wood-processing"].unit = {
 
 -- Remove cycle introduced in the tech tree
 -- Sectoid upgraded angelsbioprocessing by renaming the old prerequisite "basic-automation" into "electronics"
-bobmods.lib.tech.remove_prerequisite("basic-chemistry", "electronics")
-bobmods.lib.tech.remove_prerequisite("bio-processing-brown", "electronics")
-bobmods.lib.tech.add_prerequisite("bio-processing-brown", "automation")
+bobmods.lib.tech.remove_prerequisite("angels-basic-chemistry", "electronics")
+bobmods.lib.tech.remove_prerequisite("angels-bio-processing-brown", "electronics")
+bobmods.lib.tech.add_prerequisite("angels-bio-processing-brown", "automation")

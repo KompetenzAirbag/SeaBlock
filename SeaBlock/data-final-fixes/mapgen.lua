@@ -19,13 +19,13 @@ data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
   },
   entity = {
     settings = {
-      ["desert-garden"] = {},
-      ["temperate-garden"] = {},
-      ["swamp-garden"] = {},
+      ["angels-desert-garden"] = {},
+      ["angels-temperate-garden"] = {},
+      ["angels-swamp-garden"] = {},
       
-      ["desert-tree"] = {},
-      ["temperate-tree"] = {},
-      ["swamp-tree"] = {},
+      ["angels-desert-tree"] = {},
+      ["angels-temperate-tree"] = {},
+      ["angels-swamp-tree"] = {},
     }
   }
 }
@@ -44,12 +44,12 @@ end
 -- No trees
 for k, v in pairs(data.raw.tree) do
   if
-    k ~= "temperate-garden"
-    and k ~= "desert-garden"
-    and k ~= "swamp-garden"
-    and k ~= "temperate-tree"
-    and k ~= "desert-tree"
-    and k ~= "swamp-tree"
+    k ~= "angels-temperate-garden"
+    and k ~= "angels-desert-garden"
+    and k ~= "angels-swamp-garden"
+    and k ~= "angels-temperate-tree"
+    and k ~= "angels-desert-tree"
+    and k ~= "angels-swamp-tree"
     and k ~= "puffer-nest"
   then
     v.autoplace = nil

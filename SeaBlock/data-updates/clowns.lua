@@ -19,13 +19,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore1" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore1", amount = 1 },
@@ -40,13 +40,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore2" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore2", amount = 1 },
@@ -61,13 +61,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore3" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore3", amount = 1 },
@@ -82,13 +82,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore4" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore4", amount = 1 },
@@ -103,13 +103,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore5" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore5", amount = 1 },
@@ -124,13 +124,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore6" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore6", amount = 1 },
@@ -146,13 +146,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore7" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore7", amount = 1 },
@@ -167,13 +167,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore8" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore8", amount = 1 },
@@ -188,13 +188,13 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore9" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "fluid", name = "mineral-sludge", amount = 25 },
+        { type = "fluid", name = "angels-mineral-sludge", amount = 25 },
       },
       results = {
         { type = "item", name = "clowns-ore9", amount = 1 },
@@ -205,13 +205,13 @@ if mods["Clowns-Extended-Minerals"] then
     {
       type = "recipe",
       name = "sb-clowns-resource-1",
-      category = "ore-refining-t1",
+      category = "angels-ore-refining-t1",
       subgroup = "resource-refining-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "item", name = "solid-sand", amount = 1 },
+        { type = "item", name = "angels-solid-sand", amount = 1 },
         { type = "item", name = "stone", amount = 6 },
       },
       results = {
@@ -223,14 +223,14 @@ if mods["Clowns-Extended-Minerals"] then
     {
       type = "recipe",
       name = "sb-clowns-resource-2",
-      category = "ore-refining-t1",
+      category = "angels-ore-refining-t1",
       subgroup = "resource-refining-2",
       enabled = false,
       allow_decomposition = false,
       energy_required = 4,
       ingredients = {
-        { type = "item", name = "solid-sand", amount = 5 },
-        { type = "item", name = "blue-cellulose-fiber", amount = 1 },
+        { type = "item", name = "angels-solid-sand", amount = 5 },
+        { type = "item", name = "angels-blue-cellulose-fiber", amount = 1 },
       },
       results = {
         { type = "item", name = "clowns-resource2", amount = 5 },
@@ -249,6 +249,6 @@ if mods["Clowns-Extended-Minerals"] then
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-3", 7)
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-2", 4)
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-1", 1)
-  seablock.lib.add_recipe_unlock("water-washing-2", "sb-clowns-resource-1")
+  seablock.lib.add_recipe_unlock("angels-water-washing-2", "sb-clowns-resource-1")
   seablock.lib.add_recipe_unlock("angels-oil-processing", "sb-clowns-resource-2")
 end

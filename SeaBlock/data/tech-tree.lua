@@ -1,12 +1,12 @@
 -- Add bio science to techs
 if mods["SpaceMod"] then
-  bobmods.lib.tech.add_new_science_pack("habitation", "token-bio", 1)
-  bobmods.lib.tech.add_new_science_pack("life-support-systems", "token-bio", 1)
+  bobmods.lib.tech.add_new_science_pack("habitation", "angels-token-bio", 1)
+  bobmods.lib.tech.add_new_science_pack("life-support-systems", "angels-token-bio", 1)
 end
 
 -- Remove empty tech Thermal water processing
-bobmods.lib.tech.remove_prerequisite("water-treatment-4", "thermal-water-processing")
-seablock.lib.hide_technology("thermal-water-processing")
+bobmods.lib.tech.remove_prerequisite("angels-water-treatment-4", "angels-thermal-water-processing")
+seablock.lib.hide_technology("angels-thermal-water-processing")
 
 -- Smelting techs don't need to depend on Coal processing 2 as carbon is unlocked earlier
 bobmods.lib.tech.remove_prerequisite("angels-aluminium-smelting-1", "angels-coal-processing-2")
@@ -19,14 +19,14 @@ bobmods.lib.tech.remove_prerequisite("angels-zinc-smelting-2", "angels-coal-proc
 bobmods.lib.tech.remove_prerequisite("angels-chrome-smelting-1", "angels-coal-processing-3")
 bobmods.lib.tech.remove_prerequisite("angels-iron-smelting-2", "angels-coal-processing-2")
 
-bobmods.lib.tech.replace_prerequisite("angels-coal-processing-2", "water-treatment-2", "basic-chemistry-3")
+bobmods.lib.tech.replace_prerequisite("angels-coal-processing-2", "angels-water-treatment-2", "angels-basic-chemistry-3")
 
 -- Add other prerequisites
-bobmods.lib.tech.add_prerequisite("gardens", "bob-electronics")
+bobmods.lib.tech.add_prerequisite("angels-gardens", "bob-electronics")
 if mods["ScienceCostTweakerM"] then
-  bobmods.lib.tech.add_prerequisite("sct-bio-science-pack", "bio-arboretum-1")
+  bobmods.lib.tech.add_prerequisite("sct-bio-science-pack", "angels-bio-arboretum-1")
   bobmods.lib.tech.add_prerequisite("sb-bio-processing-advanced", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("utility-science-pack", "rubber")
+  bobmods.lib.tech.add_prerequisite("utility-science-pack", "angels-rubber")
 end
 bobmods.lib.tech.add_prerequisite("angels-glass-smelting-1", "bob-silicon-processing")
 bobmods.lib.tech.add_prerequisite("angels-stone-smelting-2", "bob-silicon-processing")
@@ -35,25 +35,25 @@ bobmods.lib.tech.add_prerequisite("angels-stone-smelting-2", "bob-silicon-proces
 
 -- Bio
 if mods["ScienceCostTweakerM"] then
-  bobmods.lib.tech.add_prerequisite("bio-desert-farming-1", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-swamp-farming-1", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-temperate-farming-1", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-pressing-1", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-arboretum-2", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-arboretum-desert-1", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-arboretum-swamp-1", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-processing-alien-2", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-refugium-hatchery", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-fermentation", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("bio-processing-crystal-splinter-1", "sct-bio-science-pack")
-  bobmods.lib.tech.add_prerequisite("gardens-3", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-desert-farming-1", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-swamp-farming-1", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-temperate-farming-1", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-pressing-1", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-arboretum-2", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-arboretum-desert-1", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-arboretum-swamp-1", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-processing-alien-2", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-refugium-hatchery", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-fermentation", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-bio-processing-crystal-splinter-1", "sct-bio-science-pack")
+  bobmods.lib.tech.add_prerequisite("angels-gardens-3", "sct-bio-science-pack")
 end
 
 -- Logistics / Green
-bobmods.lib.tech.add_prerequisite("water-washing-2", "logistic-science-pack")
-bobmods.lib.tech.add_prerequisite("advanced-ore-refining-1", "logistic-science-pack")
-bobmods.lib.tech.add_prerequisite("bio-processing-blue", "logistic-science-pack")
-bobmods.lib.tech.add_prerequisite("basic-chemistry-2", "logistic-science-pack")
+bobmods.lib.tech.add_prerequisite("angels-water-washing-2", "logistic-science-pack")
+bobmods.lib.tech.add_prerequisite("angels-advanced-ore-refining-1", "logistic-science-pack")
+bobmods.lib.tech.add_prerequisite("angels-bio-processing-blue", "logistic-science-pack")
+bobmods.lib.tech.add_prerequisite("angels-basic-chemistry-2", "logistic-science-pack")
 
 -- Chemical / Blue
 
@@ -110,7 +110,7 @@ bobmods.lib.tech.remove_prerequisite("automation-science-pack", "electronics")
 seablock.lib.hide_technology("automation-science-pack")
 
 seablock.lib.hide_technology("electronics") --new trigger tech in base game, we don't want it in seablock
--- I think i found a bug: trigger techs still research even if hidden and disabled
+-- I think i found a bug: trigger techs still research even if hidden and disabled --TODO: check this
 -- data.raw["technology"]["electronics"] = nil -- multiple different techs and shortcut will complain if we do that
 data.raw["technology"]["electronics"].research_trigger = nil
 data.raw["technology"]["electronics"].unit = {time = 1, count = 1, ingredients = {}}

@@ -51,10 +51,9 @@ local function milestones_presets()
   }
 
   -- Resources
-  --TODO: rename bob stuff
   grouped_milestones["resorces"] = {
     { type = "group", name = "Resources" },
-    { type = "item", name = "wood-charcoal", quantity = 1 },
+    { type = "item", name = "angels-wood-charcoal", quantity = 1 },
     { type = "item", name = "bob-basic-circuit-board", quantity = 1 },
     { type = "item", name = "electronic-circuit", quantity = 1 },
     { type = "item", name = "advanced-circuit", quantity = 1 },
@@ -87,12 +86,12 @@ local function milestones_presets()
     { type = "item", name = "bob-nitinol-alloy", quantity = 1 },
 
     { type = "item", name = "plastic-bar", quantity = 1 },
-    { type = "fluid", name = "liquid-resin", quantity = 100 },
-    { type = "item", name = "rubber", quantity = 1 },
-    { type = "item", name = "alien-bacteria", quantity = 1 },
+    { type = "fluid", name = "angels-liquid-resin", quantity = 100 },
+    { type = "item", name = "bob-rubber", quantity = 1 },
+    { type = "item", name = "angels-alien-bacteria", quantity = 1 },
     { type = "item", name = "sulfur", quantity = 1 },
-    { type = "fluid", name = "mineral-sludge", quantity = 1 },
-    { type = "fluid", name = "mineral-sludge", quantity = 10000, next = "x10" },
+    { type = "fluid", name = "angels-mineral-sludge", quantity = 1 },
+    { type = "fluid", name = "angels-mineral-sludge", quantity = 10000, next = "x10" },
   }
 
   -- Progress
@@ -114,7 +113,7 @@ local function milestones_presets()
     { type = "fluid", name = "liquid-fuel-oil", quantity = 1 },
     { type = "item", name = "locomotive", quantity = 1 },
     { type = "item", name = "construction-robot", quantity = 1 },
-    { type = "item", name = "logistic-chest-requester", quantity = 1 },
+    { type = "item", name = "requester-chest", quantity = 1 },
   }
 
   if not script.active_mods["bobmodules"] then

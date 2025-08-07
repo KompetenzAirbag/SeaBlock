@@ -49,9 +49,9 @@ local function makeextractorlayers(bottom, top)
   return { layers = layers }
 end
 
-local extractor = data.raw["mining-drill"]["thermal-extractor"]
-data.raw["mining-drill"]["thermal-extractor"] = nil
-data.raw["assembling-machine"]["thermal-extractor"] = extractor
+local extractor = data.raw["mining-drill"]["angels-thermal-extractor"]
+data.raw["mining-drill"]["angels-thermal-extractor"] = nil
+data.raw["assembling-machine"]["angels-thermal-extractor"] = extractor
 extractor.type = "assembling-machine"
 extractor.crafting_speed = 1
 extractor.ingredient_count = 2
@@ -79,16 +79,16 @@ extractor.graphics_set.animation = { -- TODO: fix this animation
   south = makeextractorlayers(false, false),
   west = makeextractorlayers(true, true),
 }
-extractor.crafting_categories = { "thermal-extractor" }
-extractor.fixed_recipe = "thermal-extractor-water"
-bobmods.lib.tech.add_recipe_unlock("thermal-water-extraction-2", "thermal-extractor-water")
-move_item("thermal-extractor", "water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
-bobmods.lib.recipe.add_ingredient("thermal-extractor", { type = "item", name = "thermal-bore", amount = 1 })
+extractor.crafting_categories = { "sb-thermal-extractor" }
+extractor.fixed_recipe = "sb-thermal-extractor-water"
+bobmods.lib.tech.add_recipe_unlock("angels-thermal-water-extraction-2", "sb-thermal-extractor-water")
+move_item("angels-thermal-extractor", "angels-water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
+bobmods.lib.recipe.add_ingredient("angels-thermal-extractor", { type = "item", name = "angels-thermal-bore", amount = 1 })
 extractor.vector_to_place_result = nil -- remove the yellow arrow of the mining drill
 
-local bore = data.raw["mining-drill"]["thermal-bore"]
-data.raw["mining-drill"]["thermal-bore"] = nil
-data.raw["assembling-machine"]["thermal-bore"] = bore
+local bore = data.raw["mining-drill"]["angels-thermal-bore"]
+data.raw["mining-drill"]["angels-thermal-bore"] = nil
+data.raw["assembling-machine"]["angels-thermal-bore"] = bore
 bore.type = "assembling-machine"
 bore.crafting_speed = 1
 bore.ingredient_count = 1
@@ -142,15 +142,15 @@ table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[2
 bore.graphics_set.animation.north.layers[3].repeat_count = 40
 bore.graphics_set.animation.north.layers[4].repeat_count = 40
 
-bore.crafting_categories = { "thermal-bore" }
-bore.fixed_recipe = "thermal-bore-water"
-bobmods.lib.tech.add_recipe_unlock("thermal-water-extraction", "thermal-bore-water")
-move_item("thermal-bore", "water-treatment-building", "f[thermal-extractor]-a[bore]", "item")
+bore.crafting_categories = { "sb-thermal-bore" }
+bore.fixed_recipe = "sb-thermal-bore-water"
+bobmods.lib.tech.add_recipe_unlock("angels-thermal-water-extraction", "sb-thermal-bore-water")
+move_item("angels-thermal-bore", "angels-water-treatment-building", "f[thermal-extractor]-a[bore]", "item")
 
 -- Fish Pressing requires thermal water so add a prerequisite
-if data.raw.technology["bio-pressing-fish"] then
-  bobmods.lib.tech.add_prerequisite("bio-pressing-fish", "thermal-water-extraction")
+if data.raw.technology["angels-bio-pressing-fish"] then
+  bobmods.lib.tech.add_prerequisite("angels-bio-pressing-fish", "angels-thermal-water-extraction")
 else
-  bobmods.lib.tech.add_prerequisite("bio-pressing-fish-1", "thermal-water-extraction")
+  bobmods.lib.tech.add_prerequisite("angels-bio-pressing-fish-1", "angels-thermal-water-extraction")
 end
-bobmods.lib.tech.add_prerequisite("thermal-water-extraction", "bio-processing-brown")
+bobmods.lib.tech.add_prerequisite("angels-thermal-water-extraction", "angels-bio-processing-brown")

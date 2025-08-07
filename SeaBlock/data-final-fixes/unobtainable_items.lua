@@ -1,8 +1,8 @@
 -- Rename internal item names to keep mods like FNEI searching properly
 local itemrename = {
-  ["solid-coke"] = "wood-charcoal",
-  ["filter-coal"] = "filter-charcoal",
-  ["pellet-coke"] = "pellet-charcoal",
+  ["angels-solid-coke"] = "angels-wood-charcoal",
+  ["angels-filter-coal"] = "angels-filter-charcoal",
+  ["angels-pellet-coke"] = "angels-pellet-charcoal",
 }
 
 for k, v in pairs(itemrename) do
@@ -47,53 +47,53 @@ for _, v in ipairs({
   "bob-alien-artifact-purple",
   "bob-alien-artifact-red",
   "bob-alien-artifact-yellow",
-  "angels-chemical-void-gas-natural-1",
-  "angels-chemical-void-liquid-condensates",
-  "angels-water-void-crystal-matrix",
-  "angels-water-void-bob-lithia-water",
-  "angelsore1-crushed-hand",
-  "angelsore3-crushed-hand",
+  "angels-chemical-void-angels-gas-natural-1",
+  "angels-chemical-void-angels-liquid-condensates",
+  "angels-water-void-crystal-matrix", -- TODO: are those two already removed ?
+  --"angels-water-void-bob-lithia-water",
+  "angels-ore1-crushed-hand",
+  "angels-ore3-crushed-hand",
   "big-burner-generator",
-  "bio-tile",
+  "angels-bio-tile",
   "bob-carbon-from-wood",
   "bob-resin-wood",
   "burner-generator",
   "burner-mining-drill",
-  "carbon-from-charcoal",
-  "coal-cracking-1",
-  "coal-cracking-2",
-  "coal-cracking-3",
-  "coal-crushed",
-  "condensates-oil-refining",
-  "condensates-refining",
+  "angels-carbon-from-charcoal",
+  "angels-coal-cracking-1",
+  "angels-coal-cracking-2",
+  "angels-coal-cracking-3",
+  "angels-coal-crushed",
+  "angels-condensates-oil-refining",
+  "angels-condensates-refining",
   "diesel-fuel",
   "electric-mining-drill",
-  "empty-crystal-matrix-barrel",
+  "empty-crystal-matrix-barrel", -- TODO: where does this item come from ? 
   "empty-diesel-fuel-barrel",
-  "empty-gas-natural-1-barrel",
-  "empty-liquid-condensates-barrel",
+  "empty-angels-gas-natural-1-barrel",
+  "empty-angels-liquid-condensates-barrel",
   "empty-bob-lithia-water-barrel",
   "crystal-matrix-barrel",
-  "fill-diesel-fuel-barrel",
-  "gas-natural-1-barrel",
-  "liquid-condensates-barrel",
+  "diesel-fuel-barrel",
+  "angels-gas-natural-1-barrel",
+  "angels-liquid-condensates-barrel",
   "bob-lithia-water-barrel",
-  "gas-fractioning-condensates",
+  "angels-gas-fractioning-condensates",
   "gas-phosgene",
-  "gas-separation",
+  "angels-gas-separation",
   "oil-steam-boiler",
   "petroleum-generator",
   "protection-field-goopless", --comes from spacemod
   "pumpjack",
-  "slag-processing-7",
-  "slag-processing-8",
-  "slag-processing-9",
-  "solid-coke",
-  "solid-coke-sulfur",
-  "thermal-water-filtering-1",
-  "thermal-water-filtering-2",
-  "water-thermal-lithia",
-  "wood-charcoal",
+  "angels-slag-processing-7",
+  "angels-slag-processing-8",
+  "angels-slag-processing-9",
+  "angels-solid-coke",
+  "angels-solid-coke-sulfur",
+  "angels-thermal-water-filtering-1",
+  "angels-thermal-water-filtering-2",
+  "water-thermal-lithia", -- TODO: where does this come from ? 
+  "angels-wood-charcoal",
 }) do
   removerecipes[v] = true
 end
@@ -103,20 +103,20 @@ end
 local unobtainable = {}
 for _, v in ipairs({
   "big-burner-generator",
-  "bio-tile",
+  "angels-bio-tile",
   "burner-generator",
   "burner-mining-drill",
   "coal",
-  "coal-crushed",
-  "diesel-fuel", --doesn't seem to exist anymore ??
+  "angels-coal-crushed",
+  "diesel-fuel",
   "diesel-fuel-barrel",
   "electric-mining-drill",
-  "gas-natural-1",
-  "gas-natural-1-barrel",
-  "gas-phosgene",
+  "angels-gas-natural-1",
+  "angels-gas-natural-1-barrel",
+  "gas-phosgene", -- TODO: what happened to those items ? I can't find them in angels/bob/ks power 
   "gas-phosgene-barrel",
-  "liquid-condensates",
-  "liquid-condensates-barrel",
+  "angels-liquid-condensates",
+  "angels-liquid-condensates-barrel",
   "bob-lithia-water",
   "bob-lithia-water-barrel",
   "oil-steam-boiler",
@@ -270,13 +270,15 @@ bobmods.lib.safe_insert(dummyLab.inputs, "logistic-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "chemical-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "production-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "utility-science-pack")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-science-pack-gold")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-purple")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-blue")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-red")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-green")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-orange")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-yellow")
-bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack")
 
+if mods["bobtech"] then
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-science-pack-gold")
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-purple")
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-blue")
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-red")
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-green")
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-orange")
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-yellow")
+  bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack")
+end
 data:extend({dummyLab})

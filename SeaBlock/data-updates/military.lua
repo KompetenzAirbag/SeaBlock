@@ -318,8 +318,8 @@ local mil_recipes = {
   "bob-alien-science-pack-purple",
   "bob-alien-science-pack-red",
   "bob-alien-science-pack-yellow",
-  "angels-chemical-void-liquid-glycerol",
-  "angels-chemical-void-liquid-toluene",
+  "angels-chemical-void-angels-liquid-glycerol",
+  "angels-chemical-void-angels-liquid-toluene",
   "bob-ap-bullet",
   "bob-ap-bullet-magazine",
   "bob-ap-bullet-projectile",
@@ -378,8 +378,8 @@ local mil_recipes = {
   "empty-bob-alien-explosive-barrel",
   "empty-bob-alien-fire-barrel",
   "empty-bob-alien-poison-barrel",
-  "empty-liquid-glycerol-barrel",
-  "empty-liquid-toluene-barrel",
+  "empty-angels-liquid-glycerol-barrel",
+  "empty-angels-liquid-toluene-barrel",
   "empty-bob-nitroglycerin-barrel",
   "bob-explosive-artillery-shell",
   "explosive-rocket",
@@ -389,8 +389,8 @@ local mil_recipes = {
   "bob-alien-explosive-barrel",
   "bob-alien-fire-barrel",
   "bob-alien-poison-barrel",
-  "liquid-glycerol-barrel",
-  "liquid-toluene-barrel",
+  "angels-liquid-glycerol-barrel",
+  "angels-liquid-toluene-barrel",
   "bob-nitroglycerin-barrel",
   "bob-fire-artillery-shell",
   "bob-fire-capsule",
@@ -401,7 +401,7 @@ local mil_recipes = {
   "flamethrower",
   "flamethrower-ammo",
   "flamethrower-turret",
-  "gas-fractioning-residual",
+  "angels-gas-fractioning-residual",
   "bob-gun-cotton",
   "bob-gunmetal-alloy",
   "bob-he-bullet",
@@ -420,9 +420,9 @@ local mil_recipes = {
   "bob-laser-rifle-battery-ruby",
   "bob-laser-rifle-battery-sapphire",
   "bob-laser-rifle-battery-topaz",
-  "liquid-glycerol",
-  "liquid-toluene-from-benzene",
-  "liquid-toluene-from-naphtha",
+  "angels-liquid-glycerol",
+  "angels-liquid-toluene-from-benzene",
+  "angels-liquid-toluene",
   "bob-magazine",
   "bob-nitroglycerin",
   "bob-petroleum-jelly",
@@ -460,8 +460,8 @@ local mil_recipes = {
   "bob-shotgun-uranium-shell",
   "slowdown-capsule",
   "bob-slowdown-mine",
-  "solid-nitroglycerin",
-  "solid-trinitrotoluene",
+  "angels-solid-nitroglycerin",
+  "angels-solid-trinitrotoluene",
   "bob-uranium-bullet",
   "bob-uranium-bullet-projectile",
   "uranium-cannon-shell",
@@ -531,7 +531,7 @@ bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-liqu
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-bob-nitroglycerin-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "liquid-glycerol-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "liquid-toluene-barrel")
-bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "bob--nitroglycerin-barrel")
+bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "bob-nitroglycerin-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-alien-acid-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-alien-explosive-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-alien-fire-barrel")
@@ -560,10 +560,10 @@ bobmods.lib.tech.remove_recipe_unlock("uranium-ammo", "uranium-cannon-shell")
 bobmods.lib.tech.remove_recipe_unlock("uranium-ammo", "uranium-rounds-magazine")
 bobmods.lib.tech.remove_recipe_unlock("bob-zinc-processing", "bob-gunmetal-alloy")
 
-seablock.lib.substresult("nutrients-refining-2", "liquid-glycerol", "water", nil)
-if data.raw.recipe["nutrients-refining-2"] then
-  data.raw.recipe["nutrients-refining-2"].icons = angelsmods.functions.create_liquid_recipe_icon({
-    "liquid-fuel-oil",
+seablock.lib.substresult("angels-nutrients-refining-2", "liquid-glycerol", "water", nil)
+if data.raw.recipe["angels-nutrients-refining-2"] then
+  data.raw.recipe["angels-nutrients-refining-2"].icons = angelsmods.functions.create_liquid_recipe_icon({
+    "angels-liquid-fuel-oil",
     { "__base__/graphics/icons/fluid/water.png", 64 },
   }, { { 214, 146, 040 }, { 169, 130, 039 }, { 120, 083, 004 } })
 end
@@ -1009,7 +1009,7 @@ if mods["bobwarfare"] then
   bobmods.lib.tech.add_prerequisite("artillery", "bob-cobalt-processing")
   bobmods.lib.tech.add_prerequisite("artillery", "angels-stone-smelting-2")
   seablock.lib.substingredient("artillery-turret", "iron-gear-wheel", "bob-cobalt-steel-gear-wheel", nil)
-  seablock.lib.substingredient("artillery-turret", "concrete", "concrete-brick", nil)
+  seablock.lib.substingredient("artillery-turret", "concrete", "angels-concrete-brick", nil)
   seablock.lib.substingredient("artillery-turret", "steel-plate", "bob-cobalt-steel-alloy", nil)
   seablock.lib.substingredient("artillery-wagon", "iron-gear-wheel", "bob-cobalt-steel-gear-wheel", nil)
   seablock.lib.substingredient("artillery-wagon", "pipe", "bob-brass-pipe", nil)

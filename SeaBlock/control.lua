@@ -22,7 +22,7 @@ function seablock.create_rock_chest(surface, pos)
   end
 
   if has_items then
-    local chest = surface.create_entity({ name = "rock-chest", position = pos, force = game.forces.neutral })
+    local chest = surface.create_entity({ name = "sb-rock-chest", position = pos, force = game.forces.neutral })
     for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         chest.insert({ name = item, count = quantity })
@@ -58,7 +58,7 @@ local function init()
     end
   end
   storage.unlocks = {
-    ["angels-ore3-crushed"] = { "sb-startup1", "bio-wood-processing" },
+    ["angels-ore3-crushed"] = { "sb-startup1", "angels-bio-wood-processing" },
     ["bob-basic-circuit-board"] = { "sb-startup3", "sct-lab-t1" },
   }
   if prototypes.technology["sct-automation-science-pack"] then
