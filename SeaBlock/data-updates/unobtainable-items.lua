@@ -1,9 +1,6 @@
 seablock.lib.hide("mining-drill", "burner-mining-drill")
 seablock.lib.hide("mining-drill", "electric-mining-drill")
 seablock.lib.hide("mining-drill", "pumpjack")
-seablock.lib.hide("storage-tank", "overflow-valve")
-seablock.lib.hide("storage-tank", "valve")
-seablock.lib.hide("storage-tank", "topup-valve")
 
 -- Hide Oil & Gas Separator
 -- Hide Advanced Gas Refinery
