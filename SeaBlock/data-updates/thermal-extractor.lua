@@ -14,7 +14,7 @@ local function makeextractorlayers(bottom, top)
   local layers = {}
   if top then
     table.insert(layers, {
-      stripes = makestripes("__angelsrefining__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
+      stripes = makestripes("__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
       priority = "high",
       width = 288,
       height = 288,
@@ -30,13 +30,13 @@ local function makeextractorlayers(bottom, top)
     height = 288,
     line_length = 4,
     shift = { 0, 0 },
-    filename = "__angelsrefining__/graphics/entity/thermal-extractor/thermal-extractor-animation.png",
+    filename = "__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-animation.png",
     frame_count = 16,
     animation_speed = 0.5,
   })
   if bottom then
     table.insert(layers, {
-      stripes = makestripes("__angelsrefining__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
+      stripes = makestripes("__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
       priority = "high",
       width = 288,
       height = 288,
@@ -137,10 +137,12 @@ end
 --   south = makeborelayers(2),
 --   west = makeborelayers(3),
 -- }
-table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[1]) -- TODO: probably fix this graphic_set
-table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[2])
-bore.graphics_set.animation.north.layers[3].repeat_count = 40
-bore.graphics_set.animation.north.layers[4].repeat_count = 40
+--table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[1]) -- TODO: probably fix this graphic_set
+--table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[2])
+--bore.graphics_set.animation.north.layers[3].repeat_count = 40
+--bore.graphics_set.animation.north.layers[4].repeat_count = 40
+
+table.insert(bore.graphics_set,1,bore.base_picture.sheet)
 
 bore.crafting_categories = { "sb-thermal-bore" }
 bore.fixed_recipe = "sb-thermal-bore-water"
