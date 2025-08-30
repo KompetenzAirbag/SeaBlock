@@ -114,6 +114,8 @@ seablock.lib.hide_technology("electronics") --new trigger tech in base game, we 
 -- data.raw["technology"]["electronics"] = nil -- multiple different techs and shortcut will complain if we do that
 data.raw["technology"]["electronics"].research_trigger = nil
 data.raw["technology"]["electronics"].unit = {time = 1, count = 1, ingredients = {}}
+bobmods.lib.tech.remove_prerequisite("bob-electronics", "electronics")
+bobmods.lib.tech.remove_prerequisite("bob-electronics", "automation-science-pack")
 
 seablock.lib.hide_technology("electric-mining-drill")
 seablock.lib.hide_technology("repair-pack")
