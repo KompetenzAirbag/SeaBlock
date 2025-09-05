@@ -79,6 +79,8 @@ local function init()
   end
 end
 
+
+
 script.on_event(defines.events.on_player_joined_game, function(e)
   seablock.give_research(game.players[e.player_index].force)
 end)
@@ -182,17 +184,6 @@ script.on_load(function()
   set_pvp()
 end)
 
-script.on_event(defines.events.on_player_created, function(e)
-  if storage.starting_items and game.is_multiplayer() then
-    local inv = game.players[e.player_index].get_main_inventory()
-    for item, quantity in pairs(storage.starting_items) do
-      if quantity > 0 then
-        inv.insert({ name = item, count = quantity })
-      end
-    end
-  end
-end)
-
 if script.active_mods["Companion_Drones"] then
   script.on_event(defines.events.on_player_created, function(e)
     local s = game.surfaces["nauvis"]
@@ -222,8 +213,9 @@ script.on_load(function()
 end)
 
 script.on_event(defines.events.on_player_created, function(e)
+    game.get_player(e.player_index).get_main_inventory().clear()
   if storage.starting_items and game.is_multiplayer() then
-    local inv = game.players[e.player_index].get_main_inventory()
+    local inv = game.get_player(e.player_index).get_main_inventory()
     for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         inv.insert({ name = item, count = quantity })
