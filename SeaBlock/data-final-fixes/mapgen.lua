@@ -86,6 +86,7 @@ end
 
 --keepcontrols["angels-fissure"] = true
 
+-- TODO this should be changed as some controls are needed for scenarios which are loaded as background
 local controls = data.raw["autoplace-control"]
 for k, v in pairs(controls) do
   if k ~= "enemy-base" and not keepcontrols[k] then
