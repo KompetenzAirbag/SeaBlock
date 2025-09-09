@@ -72,6 +72,19 @@ data:extend({
             multoctave = "multioctave_noise{x = x, y = y, persistence = 0.75, seed0 = map_seed, seed1 = seed, octaves = 3, input_scale = 1/32, output_scale = 10} * (1+frequency)"
         },
         expression = "if(multoctave >= 20, base, -inf)"
+    },
+    {
+        type = "noise-function",
+        name = "worm_autoplace",
+        parameters = { "other_distance", "probability", "falloff", "seed" },
+        local_expressions = {
+            d = "distance - starting_area_radius",
+            _falloff = "if(falloff == 1, clamp(((other_distance+2)*128-d)/128, 0, 1), 1)",
+            _waterline = "clamp(waterline-elevation, 0, 1)",
+            prob = "clamp((d-other_distance*128)/128, 0, 1) * _falloff * _waterline * probability",
+            pen = "random_penalty(x, y, prob, seed, probability*0.5)"
+        },
+        expression = "pen"
     }
 })
 
@@ -98,7 +111,7 @@ seablock.lib.set_probability_expression("tile", "sand-5", "if(elevation >= 1.2, 
 
 ------- Trees -------
 -- Trees should only spawn on sand-5 which is the middle of each island
-for _, name in pairs({ "angels-desert-garden", "angels-temperate-garden", "angels-swamp-garden", "angels-desert-tree", "angels-temperate-tree", "angels-swamp-tree", "angels-puffer-nest" }) do
+for _, name in pairs({ "angels-desert-garden", "angels-temperate-garden", "angels-swamp-garden", "angels-desert-tree", "angels-temperate-tree", "angels-swamp-tree", }) do
     seablock.lib.set_tile_restriction("tree", name, "sand-5")
 end
 
@@ -111,4 +124,46 @@ seablock.lib.set_probability_expression("tree", "angels-temperate-tree", "random
 seablock.lib.set_probability_expression("tree", "angels-swamp-garden", "random_garden_islands(3, 1, 0.5)")
 seablock.lib.set_probability_expression("tree", "angels-swamp-tree", "random_tree_islands(3, 2, 0.5)")
 
-seablock.lib.set_probability_expression("tree", "angels-puffer-nest", "random_tree_islands(4, 1, 0.35)")
+------- Biters -------
+local enemy_random_seed = 1
+local function new_random_seed()
+    enemy_random_seed = enemy_random_seed + 1
+    return enemy_random_seed
+end
+
+local function worm_autoplace(distance, probability, order, falloff, control_name)
+    return {
+        control = control_name,
+        order = order,
+        force = "enemy",
+        probability_expression = "worm_autoplace("..distance..","..probability..","..falloff..","..new_random_seed()..")",
+        richness_expression = 1,
+    }
+end
+
+data.raw.turret["small-worm-turret"].autoplace = worm_autoplace(0, 1, "z", 1, "enemy-base")
+data.raw.turret["medium-worm-turret"].autoplace = worm_autoplace(1, 1, "y", 1, "enemy-base")
+data.raw.turret["big-worm-turret"].autoplace = worm_autoplace(1.5, 0.5, "v", 0, "enemy-base")
+data.raw.turret["behemoth-worm-turret"].autoplace = worm_autoplace(2, 0.2, "t", 0, "enemy-base")
+
+seablock.lib.set_tile_restriction("tree", "angels-puffer-nest", {}) --clear tile restrictions
+data.raw.tree["angels-puffer-nest"].autoplace = worm_autoplace(0, 0.01, "s", 0)
+
+if data.raw.turret["bob-big-explosive-worm-turret"] then
+    data.raw.turret["bob-big-explosive-worm-turret"].autoplace = worm_autoplace(1.5, 0.5, "v", 0, "enemy-base")
+end
+if data.raw.turret["bob-big-fire-worm-turret"] then
+    data.raw.turret["bob-big-fire-worm-turret"].autoplace = worm_autoplace(1.5, 0.5, "v", 0, "enemy-base")
+end
+if data.raw.turret["bob-big-poison-worm-turret"] then
+    data.raw.turret["bob-big-poison-worm-turret"].autoplace = worm_autoplace(1.5, 0.5, "v", 0, "enemy-base")
+end
+if data.raw.turret["bob-big-piercing-worm-turret"] then
+    data.raw.turret["bob-big-piercing-worm-turret"].autoplace = worm_autoplace(1.5, 0.5, "v", 0, "enemy-base")
+end
+if data.raw.turret["bob-big-electric-worm-turret"] then
+    data.raw.turret["bob-big-electric-worm-turret"].autoplace = worm_autoplace(1.5, 0.5, "v", 0, "enemy-base")
+end
+if data.raw.turret["bob-giant-worm-turret"] then
+    data.raw.turret["bob-giant-worm-turret"].autoplace = worm_autoplace(2, 0.6, "u", 0, "enemy-base")
+end

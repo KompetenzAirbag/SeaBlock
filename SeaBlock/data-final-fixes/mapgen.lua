@@ -28,11 +28,21 @@ data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
       ["angels-swamp-tree"] = {},
 
       ["angels-puffer-nest"] = {},
+      ["small-worm-turret"] = {},
+      ["medium-worm-turret"] = {},
+      ["big-worm-turret"] = {},
+      ["behemoth-worm-turret"] = {}
     }
   }
 }
 data.raw["planet"]["nauvis"].map_gen_settings.autoplace_controls = nil
 
+-- Enemies
+for _,name in pairs({ "bob-big-explosive-worm-turret", "bob-big-fire-worm-turret", "bob-big-poison-worm-turret", "bob-big-piercing-worm-turret", "bob-giant-worm-turret" }) do
+    if (data.raw.turret[name]) then
+        data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings.entity.settings[name] = {}
+    end
+end
 
 -- No spawners
 for k, v in pairs(data.raw["unit-spawner"]) do
@@ -85,6 +95,8 @@ for turret_name, turret in pairs(turrets) do
     keepcontrols[turret.autoplace.control] = true
   end
 end
+
+log(helper.dump(data.raw["turret"]))
 
 --keepcontrols["angels-fissure"] = true
 
