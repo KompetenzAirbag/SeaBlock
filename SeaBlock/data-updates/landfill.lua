@@ -40,3 +40,5 @@ data.raw.technology["landfill"].unit = {
 
 bobmods.lib.tech.remove_prerequisite("angels-water-washing-2", "landfill")
 bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)
+
+data.raw.recipe["landfill"].localised_name = {'sand-3-name.name'}
