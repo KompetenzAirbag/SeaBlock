@@ -1,3 +1,4 @@
+-- See mapgen.md for further information
 data.raw.tile["sand-4"] = table.deepcopy(data.raw.tile["sand-1"])
 data.raw.tile["sand-5"] = table.deepcopy(data.raw.tile["sand-2"])
 data.raw.tile["sand-4"].name = "sand-4"
@@ -55,23 +56,19 @@ data:extend({
     },
     {
         type = "noise-function",
-        name = "random_tree_islands",
-        parameters = { "seed", "noise_seed", "frequency" },
-        local_expressions = {
-            base = "basis_noise{x = x, y = y, seed0 = map_seed, seed1 = noise_seed, input_scale = 1.99995}",
-            multoctave = "multioctave_noise{x = x, y = y, persistence = 0.75, seed0 = map_seed, seed1 = seed, octaves = 3, input_scale = 1/32, output_scale = 10} * (1+frequency)"
-        },
-        expression = "if(multoctave >= 16, base, -inf)"
+        name = "shifted_hyperbolic_rational",
+        parameters = { "amplitude", "offset", "squish" },
+        expression = "(amplitude*4)/(distance*squish-offset*squish) - (amplitude*4)/((distance*squish-offset*squish)^2)"
     },
     {
         type = "noise-function",
-        name = "random_garden_islands",
-        parameters = { "seed", "noise_seed", "frequency" },
+        name = "random_tree_islands",
+        parameters = { "seed", "noise_seed", "frequency", "limit" },
         local_expressions = {
             base = "basis_noise{x = x, y = y, seed0 = map_seed, seed1 = noise_seed, input_scale = 1.99995}",
-            multoctave = "multioctave_noise{x = x, y = y, persistence = 0.75, seed0 = map_seed, seed1 = seed, octaves = 3, input_scale = 1/32, output_scale = 10} * (1+frequency)"
+            multoctave = "multioctave_noise{x = x, y = y, persistence = 0.75, seed0 = map_seed, seed1 = seed, octaves = 3, input_scale = 1/32, output_scale = 10} * (1+frequency+shifted_hyperbolic_rational(20, 1, 0.3))"
         },
-        expression = "if(multoctave >= 20, base, -inf)"
+        expression = "if(multoctave >= limit, base, -inf)"
     },
     {
         type = "noise-function",
@@ -115,16 +112,16 @@ for _, name in pairs({ "angels-desert-garden", "angels-temperate-garden", "angel
     seablock.lib.set_tile_restriction("tree", name, "sand-5")
 end
 
-seablock.lib.set_probability_expression("tree", "angels-desert-garden", "random_garden_islands(1, 1, 0.4)")
-seablock.lib.set_probability_expression("tree", "angels-desert-tree", "random_tree_islands(1, 2, 0.4)")
+seablock.lib.set_probability_expression("tree", "angels-desert-garden", "random_tree_islands(1, 1, 0.4, 20)")
+seablock.lib.set_probability_expression("tree", "angels-desert-tree", "random_tree_islands(1, 2, 0.4, 16)")
 
-seablock.lib.set_probability_expression("tree", "angels-temperate-garden", "random_garden_islands(2, 1, 0.6)")
-seablock.lib.set_probability_expression("tree", "angels-temperate-tree", "random_tree_islands(2, 2, 0.6)")
+seablock.lib.set_probability_expression("tree", "angels-temperate-garden", "random_tree_islands(2, 1, 0.6, 20)")
+seablock.lib.set_probability_expression("tree", "angels-temperate-tree", "random_tree_islands(2, 2, 0.6, 16)")
 
-seablock.lib.set_probability_expression("tree", "angels-swamp-garden", "random_garden_islands(3, 1, 0.5)")
-seablock.lib.set_probability_expression("tree", "angels-swamp-tree", "random_tree_islands(3, 2, 0.5)")
+seablock.lib.set_probability_expression("tree", "angels-swamp-garden", "random_tree_islands(3, 1, 0.5, 20)")
+seablock.lib.set_probability_expression("tree", "angels-swamp-tree", "random_tree_islands(3, 2, 0.5, 16)")
 
-------- Biters -------
+------- Enemies -------
 local enemy_random_seed = 1
 local function new_random_seed()
     enemy_random_seed = enemy_random_seed + 1
