@@ -31,7 +31,11 @@ data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
       ["small-worm-turret"] = {},
       ["medium-worm-turret"] = {},
       ["big-worm-turret"] = {},
-      ["behemoth-worm-turret"] = {}
+      ["behemoth-worm-turret"] = {},
+
+      ["angels-alien-fish-1"] = {},
+      ["angels-alien-fish-2"] = {},
+      ["angels-alien-fish-3"] = {}
     }
   }
 }
@@ -95,10 +99,6 @@ for turret_name, turret in pairs(turrets) do
     keepcontrols[turret.autoplace.control] = true
   end
 end
-
-log(helper.dump(data.raw["turret"]))
-
---keepcontrols["angels-fissure"] = true
 
 -- TODO this should be changed as some controls are needed for scenarios which are loaded as background
 local controls = data.raw["autoplace-control"]
