@@ -42,3 +42,16 @@ bobmods.lib.tech.remove_prerequisite("angels-water-washing-2", "landfill")
 bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)
 
 data.raw.recipe["landfill"].localised_name = {'sand-3-name.name'}
+
+local startup_landfill = "sand-3"
+local setting = settings.startup["sb-default-landfill"]
+
+if setting and type(setting.value) == "string" then
+    local stripped = setting.value:gsub("^landfill%-", "")
+    if data.raw.tile[stripped] then
+        startup_landfill = stripped
+    end
+end
+
+data.raw.tile["water"].default_cover_tile = startup_landfill
+data.raw.tile["deepwater"].default_cover_tile = startup_landfill
