@@ -2,6 +2,35 @@ seablock = seablock or {}
 seablock.lib = {}
 seablock.reskins = {}
 
+---Sets a tile restriction on any specified prototype
+---does not replace existing autoplace dict but creates if it doesnt exist
+---@param ptype string "tile", "entity", ...
+---@param name string name of prototype
+---@param restriction string|table string for singular restrict, table for multiple restrictions
+function seablock.lib.set_tile_restriction(ptype, name, restriction)
+    if (not data.raw[ptype]) then error ("Tried to set tile restriction on "..ptype.." "..name..": type does not exist") end
+    if (not data.raw[ptype][name]) then error("Tried to set tile restriction on "..ptype.." "..name..": "..name.." does not exist") end
+
+    data.raw[ptype][name].autoplace = data.raw[ptype][name].autoplace or {}
+
+    if (type(restriction) == "string") then restriction = { restriction } end
+
+    data.raw[ptype][name].autoplace["tile_restriction"] = restriction
+end
+
+---Sets a probability expression on any specified prototype
+---does not replace existing autoplace dict but creates if it doesnt exist
+---@param ptype string "tile", "entity", ...
+---@param name string name of prototype
+---@param expression string expression
+function seablock.lib.set_probability_expression(ptype, name, expression)
+    if (not data.raw[ptype]) then error ("Tried to set probability expression on "..ptype.." "..name..": type does not exist") end
+    if (not data.raw[ptype][name]) then error("Tried to set probability expression on "..ptype.." "..name..": "..name.." does not exist") end
+
+    data.raw[ptype][name].autoplace = data.raw[ptype][name].autoplace or {}
+    data.raw[ptype][name].autoplace["probability_expression"] = expression
+end
+
 function seablock.lib.findname(t, name)
   for i, v in ipairs(t) do
     if v.name == name then

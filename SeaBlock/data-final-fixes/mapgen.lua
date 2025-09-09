@@ -14,7 +14,7 @@ data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
       deepwater = {},
       water = {},
       ["sand-4"] = {},
-      -- ["sand-5"] = {},
+      ["sand-5"] = {},
     }
   },
   entity = {
@@ -26,6 +26,8 @@ data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
       ["angels-desert-tree"] = {},
       ["angels-temperate-tree"] = {},
       ["angels-swamp-tree"] = {},
+
+      ["angels-puffer-nest"] = {},
     }
   }
 }
@@ -50,7 +52,7 @@ for k, v in pairs(data.raw.tree) do
     and k ~= "angels-temperate-tree"
     and k ~= "angels-desert-tree"
     and k ~= "angels-swamp-tree"
-    and k ~= "puffer-nest"
+    and k ~= "angels-puffer-nest"
   then
     v.autoplace = nil
     seablock.lib.add_flag("tree", v.name, "not-deconstructable")
