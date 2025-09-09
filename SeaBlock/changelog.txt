@@ -5,6 +5,7 @@ Date: 09.09.2025
     - Factorio 2.0 update
     - Changed to new mapgen
     - Renamed Angel's and Bob's items
+    - Removed Artisanal Reskins: Angel's Mods until Angel's is fully updated
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.17
 Date: ??.??.??
