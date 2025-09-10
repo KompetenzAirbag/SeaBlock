@@ -113,12 +113,6 @@ function seablock.lib.add_recipe_unlock(technology, recipe, insertindex)
   then
     add_recipe_unlock(data.raw.technology[technology], recipe, insertindex)
 
-    if data.raw.technology[technology].normal then
-      add_recipe_unlock(data.raw.technology[technology].normal, recipe, insertindex)
-    end
-    if data.raw.technology[technology].expensive then
-      add_recipe_unlock(data.raw.technology[technology].expensive, recipe, insertindex)
-    end
   else
     log(debug.traceback())
     bobmods.lib.error.technology(technology)
