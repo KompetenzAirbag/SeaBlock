@@ -160,18 +160,8 @@ if data.raw.recipe["rocket-part"] then
   -- angelsmods.functions.unhide("rocket-part")
   local r = data.raw.recipe["rocket-part"]
 
-  if r.normal then
-    r.normal.hidden = false
-    r.normal.hide_from_player_crafting = true
-  end
-  if r.expensive then
-    r.expensive.hidden = false
-    r.expensive.hide_from_player_crafting = true
-  end
-  if not r.normal and not r.expensive then
-    r.hidden = false
-    r.hide_from_player_crafting = true
-  end
+  r.hidden = false
+  r.hide_from_player_crafting = true
 end
 
 -- Buff bob's silicon and tungsten recipes

@@ -19,7 +19,7 @@ local function replace_stone(recipe)
       end
     end
   end
-  if recipe.results then
+  if recipe.results then --needed for recipes parameter- which have no results
     for _, result in pairs(recipe.results) do
       if result.name == "stone" then
         result.amount = result.amount * 2
@@ -32,25 +32,12 @@ local function replace_stone(recipe)
       end
     end
   end
-  if recipe.result == "stone" then
-    recipe.result_count = recipe.result_count or 1 * 2
-  elseif recipe.result == "angels-stone-crushed" then
-    recipe.result = "stone"
-  end
   if recipe.main_product == "angels-stone-crushed" then
     recipe.main_product = "stone"
   end
 end
 for _, recipe in pairs(data.raw.recipe) do
-  if recipe.normal then
-    replace_stone(recipe.normal)
-  end
-  if recipe.expensive then
-    replace_stone(recipe.expensive)
-  end
-  if not recipe.normal and not recipe.expensive then
-    replace_stone(recipe)
-  end
+  replace_stone(recipe)
 end
 bobmods.lib.recipe.hide("angels-stone-from-crushed-stone")
 seablock.lib.hide("item", "angels-stone-crushed")

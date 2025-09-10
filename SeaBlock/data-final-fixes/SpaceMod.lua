@@ -88,12 +88,7 @@ local upgrades = {
 }
 
 local function iterateingredients(recipe, func)
-  if recipe.normal then
-    func(recipe.normal.ingredients)
-    func(recipe.expensive.ingredients)
-  else
-    func(recipe.ingredients)
-  end
+  func(recipe.ingredients)
 end
 
 local function doupgrade(ingredients)

@@ -234,15 +234,7 @@ end
 function seablock.lib.unhide_recipe(recipe_name)
   local recipe = data.raw.recipe[recipe_name]
   if recipe then
-    if recipe.normal then
-      recipe.normal.hidden = false
-    end
-    if recipe.expensive then
-      recipe.expensive.hidden = false
-    end
-    if not recipe.normal and not recipe.expensive then
-      recipe.hidden = false
-    end
+    recipe.hidden = false
   else
     log("Warning: seablock.lib.unhide_recipe - can't find recipe : " .. recipe_name)
     log(debug.traceback())
@@ -252,18 +244,8 @@ end
 function seablock.lib.hide_technology(technology_name)
   local technology = data.raw.technology[technology_name]
   if technology then
-    if technology.normal then
-      technology.normal.hidden = true
-      technology.normal.enabled = false
-    end
-    if technology.expensive then
-      technology.expensive.hidden = true
-      technology.expensive.enabled = false
-    end
-    if not technology.normal and not technology.expensive then
-      technology.hidden = true
-      technology.enabled = false
-    end
+    technology.hidden = true
+    technology.enabled = false
   else
     log("Warning: seablock.lib.hide_technology - Hide non existing tech : " .. technology_name)
     log(debug.traceback())

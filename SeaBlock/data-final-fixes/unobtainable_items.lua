@@ -146,14 +146,7 @@ for k, v in pairs(data.raw.technology) do
   end
 end
 
-for k, v in pairs(recipes) do
-  local iset = {}
-  if v.normal then
-    iset = { v.normal, v.expensive }
-  else
-    iset = { v }
-  end
-  for _, recipe in ipairs(iset) do
+for k, recipe in pairs(recipes) do
     local items = {}
     if recipe.ingredients then
       for _, ingredient in pairs(recipe.ingredients) do
@@ -182,7 +175,6 @@ for k, v in pairs(recipes) do
         unobtainable[r] = nil
       end
     end
-  end
 end
 
 local work = true
@@ -210,21 +202,16 @@ end
 
 -- Remove any recipe that uses an unobtainable ingredient
 local function keeprecipe(r)
-  local iset = {}
-  local count = 0
-  table.insert(iset, r.ingredients)
-  table.insert(iset, (r.normal or {}).ingredients)
-  table.insert(iset, (r.expensive or {}).ingredients)
-  for _, ingredients in ipairs(iset) do
-    for _, v in ipairs(ingredients) do
-      local ingredient = v[1] or v.name
-      if ingredient and unobtainable[ingredient] then
-        count = count + 1
-        break
-      end
+  if (not r.ingredients) then
+    return false
+  end
+  for _, v in ipairs(r.ingredients) do
+    local ingredient = v[1] or v.name
+    if ingredient and unobtainable[ingredient] then
+      return false
     end
   end
-  return count < #iset
+  return true
 end
 
 for k, v in pairs(data.raw.recipe) do
