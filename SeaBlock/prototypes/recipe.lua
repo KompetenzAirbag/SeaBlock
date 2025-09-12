@@ -2,6 +2,7 @@ data:extend({
   {
     type = "recipe",
     name = "sb-wood-bricks-charcoal",
+    localised_name = { "item-name.angels-wood-charcoal" },
     category = "smelting",
     enabled = false,
     energy_required = 3.5,

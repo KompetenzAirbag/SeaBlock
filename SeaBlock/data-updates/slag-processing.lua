@@ -6,7 +6,7 @@ seablock.lib.substingredient("angels-stone-crushed-dissolution", "angels-stone-c
 for i = 1, 6 do
   local recipe = data.raw.recipe["angels-slag-processing-" .. i]
   seablock.lib.copy_icon(recipe, {})
-  recipe.localised_name = { "recipe-name.slag-processing", { "item-name.angels-ore" .. i } }
+  recipe.localised_name = { "recipe-name.angels-slag-processing", { "item-name.angels-ore" .. i } }
   recipe.order = "a-a [angels-ore-" .. i .. "]"
 
   recipe.category = "angels-crystallizing"
