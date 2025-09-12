@@ -4,10 +4,14 @@ if not mods["angelsindustries"] then
   -- Move misc sciencey things over to intermediate products tab
   for k, v in pairs(data.raw["item-subgroup"]) do
     if
-      v.group == "bob-resource-products"
-      or v.group == "bob-fluid-products"
-      -- or v.group == "bob-intermediate-products" --should not exist anymore
+      v.name == "bob-gems-crystallization"
+      or v.name == "bob-gems-raw"
+      or v.name == "bob-gems-cut"
+      or v.name == "bob-gems-polished"
     then
+      v.group = "bob-gems"
+    end
+    if (v.name == "bob-nuclear") then
       v.group = "intermediate-products"
     end
   end
