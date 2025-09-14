@@ -43,7 +43,7 @@ bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)
 
 data.raw.recipe["landfill"].localised_name = {'sand-3-name.name'}
 
-local startup_landfill = "sand-3"
+local startup_landfill = "landfill"
 local setting = settings.startup["sb-default-landfill"]
 
 if setting and type(setting.value) == "string" then
