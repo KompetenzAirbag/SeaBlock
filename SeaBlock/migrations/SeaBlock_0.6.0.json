@@ -6,7 +6,9 @@
     "item":
     [
       ["stone-crushed", "stone"],
-      ["catalyst-metal-purple", "sb-catalyst-metal-purple"]
+      ["catalyst-metal-purple", "sb-catalyst-metal-purple"],
+      ["filter-charcoal", "angels-filter-charcoal"],
+      ["pellet-charcoal", "angels-pellet-charcoal"]
     ],
     "recipe":
     [
