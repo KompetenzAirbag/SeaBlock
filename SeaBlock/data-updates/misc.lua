@@ -263,3 +263,5 @@ OV.patch_recipes({
     subgroup = "angels-lead-casting"
   }
 })
+
+bobmods.lib.tech.add_prerequisite("battery", "plastics")
