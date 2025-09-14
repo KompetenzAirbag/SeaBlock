@@ -52,3 +52,6 @@ end
 
 -- Recipe gets changed by bobwarfare to include coal which is unobtainable
 bobmods.lib.recipe.set_ingredients("firearm-magazine", {{ type = "item", name = "iron-plate", amount = 4}}) --this function automatically clears previous ingredients
+
+-- angelspetrochem changes petroleum-gas to angels-gas-methane
+bobmods.lib.recipe.remove_ingredient("sct-t3-flash-fuel", "angels-gas-methane")
