@@ -40,7 +40,9 @@ for _, recipe in pairs(data.raw.recipe) do
   replace_stone(recipe)
 end
 bobmods.lib.recipe.hide("angels-stone-from-crushed-stone")
-seablock.lib.hide("item", "angels-stone-crushed")
+
+-- necessary to force migration
+data.raw.item["angels-stone-crushed"] = nil
 
 if data.raw.recipe["angels-stone-crushed-dissolution"] then
   data.raw.recipe["angels-stone-crushed-dissolution"].icons = angelsmods.functions.create_liquid_recipe_icon(
@@ -55,3 +57,16 @@ bobmods.lib.recipe.set_ingredients("firearm-magazine", {{ type = "item", name = 
 
 -- angelspetrochem changes petroleum-gas to angels-gas-methane
 bobmods.lib.recipe.remove_ingredient("sct-t3-flash-fuel", "angels-gas-methane")
+
+data.raw.recipe["angels-stone-crushed"].icons = angelsmods.functions.add_icon_layer(
+  {
+    {
+      icon = "__angelsrefininggraphics__/graphics/icons/ore-crusher.png",
+      icon_size = 64,
+      scale = 0.5
+    }
+  },
+  angelsmods.functions.get_object_icons("stone"),
+  { 10, 10 },
+  0.5
+)
