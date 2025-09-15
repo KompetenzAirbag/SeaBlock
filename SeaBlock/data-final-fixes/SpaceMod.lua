@@ -87,12 +87,14 @@ local upgrades = {
   ["bob-fission-reactor-equipment-4"] = "bob-fission-reactor-equipment-4", -- for amount adjustment
 }
 
-local function do_upgrade(ingredients)
-  for _, item in pairs(ingredients) do
+local function do_upgrade(recipe)
+  for _, item in pairs(recipe.ingredients) do
     local upgrade = upgrades[item.name]
+
     if upgrade and (data.raw.item[upgrade] or data.raw.module[upgrade]) then
       item.name = upgrade
     end
+    
     if upgrade == "bob-construction-robot-5" then
       item.amount = 1
     elseif upgrade == "bob-fission-reactor-equipment-4" then
