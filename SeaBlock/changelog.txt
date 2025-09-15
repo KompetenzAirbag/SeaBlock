@@ -1,9 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.0
-Date: 09.09.2025
+Date: ??.??.??
   Changes:
     - Factorio 2.0 update
-    - Changed to new mapgen
+      - Removed normal/expensive recipes
+      - Updated map generation
     - Renamed Angel's and Bob's items
     - Removed Artisanal Reskins: Angel's Mods until Angel's is fully updated
     - Replaced crushed stone for regular stone
