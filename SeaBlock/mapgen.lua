@@ -66,7 +66,7 @@ data:extend({
         parameters = { "seed", "noise_seed", "frequency", "limit" },
         local_expressions = {
             base = "basis_noise{x = x, y = y, seed0 = map_seed, seed1 = noise_seed, input_scale = 1.99995}",
-            multoctave = "multioctave_noise{x = x, y = y, persistence = 0.75, seed0 = map_seed, seed1 = seed, octaves = 3, input_scale = 1/32, output_scale = 10} * (1+frequency+shifted_hyperbolic_rational(20, 1, 0.3))"
+            multoctave = "multioctave_noise{x = x, y = y, persistence = 0.75, seed0 = map_seed, seed1 = seed, octaves = 3, input_scale = 1/32, output_scale = 10} * (1+frequency+shifted_hyperbolic_rational(200, 0, 0.7))"
         },
         expression = "if(multoctave >= limit, base, -inf)"
     },
@@ -112,13 +112,13 @@ for _, name in pairs({ "angels-desert-garden", "angels-temperate-garden", "angel
     seablock.lib.set_tile_restriction("tree", name, "sand-5")
 end
 
-seablock.lib.set_probability_expression("tree", "angels-desert-garden", "random_tree_islands(1, 1, 0.4, 20)")
+seablock.lib.set_probability_expression("tree", "angels-desert-garden", "random_tree_islands(1, 1, 0.6, 16)")
 seablock.lib.set_probability_expression("tree", "angels-desert-tree", "random_tree_islands(1, 2, 0.4, 16)")
 
-seablock.lib.set_probability_expression("tree", "angels-temperate-garden", "random_tree_islands(2, 1, 0.6, 20)")
+seablock.lib.set_probability_expression("tree", "angels-temperate-garden", "random_tree_islands(2, 1, 0.6, 16)")
 seablock.lib.set_probability_expression("tree", "angels-temperate-tree", "random_tree_islands(2, 2, 0.6, 16)")
 
-seablock.lib.set_probability_expression("tree", "angels-swamp-garden", "random_tree_islands(3, 1, 0.5, 20)")
+seablock.lib.set_probability_expression("tree", "angels-swamp-garden", "random_tree_islands(3, 1, 0.6, 16)")
 seablock.lib.set_probability_expression("tree", "angels-swamp-tree", "random_tree_islands(3, 2, 0.5, 16)")
 
 ------- Enemies -------
