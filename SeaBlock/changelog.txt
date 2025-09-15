@@ -6,6 +6,7 @@ Date: 09.09.2025
     - Changed to new mapgen
     - Renamed Angel's and Bob's items
     - Removed Artisanal Reskins: Angel's Mods until Angel's is fully updated
+    - Replaced crushed stone for regular stone
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.17
 Date: ??.??.??
