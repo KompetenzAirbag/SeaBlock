@@ -29,6 +29,7 @@ require("data-final-fixes/tech-tree")
 require("data-final-fixes/unobtainable_items")
 require("data-final-fixes/mapgen")
 require("data-final-fixes/SpaceMod")
+require("data-final-fixes/entities")
 
 
 data.raw.recipe["copper-cable"].allow_decomposition = true
