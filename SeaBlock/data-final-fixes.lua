@@ -36,7 +36,8 @@ data.raw.recipe["copper-cable"].allow_decomposition = true
 data.raw.recipe["angels-solid-paper"].allow_decomposition = true
 
 for _, v in pairs(data.raw.character) do
-  if v.crafting_categories then
-    table.insert(v.crafting_categories, "sb-crafting-handonly")
-  end
+  v.crafting_categories = v.crafting_categories or {}
+  
+  table.insert(v.crafting_categories, "sb-crafting-handonly")
+  table.insert(v.crafting_categories, "electronics")
 end

@@ -17,8 +17,6 @@ local function add_category(type, entity_name, category)
 end
 
 -- crafting category "electronics" got removed from assembling machines since it is now part of Flugora
-add_category("character", "character", "electronics")
-
 add_category("assembling-machine", "assembling-machine-1", "electronics")
 
 add_category("assembling-machine", "assembling-machine-2", "electronics")
