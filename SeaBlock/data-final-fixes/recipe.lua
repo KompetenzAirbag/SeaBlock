@@ -70,3 +70,9 @@ data.raw.recipe["angels-stone-crushed"].icons = angelsmods.functions.add_icon_la
   { 10, 10 },
   0.5
 )
+
+if settings.startup["bobmods-plates-batteryupdate"].value == true then
+  bobmods.lib.recipe.replace_ingredient("battery", "steel-plate", "plastic-bar")
+else
+  bobmods.lib.recipe.replace_ingredient("battery", "iron-plate", "plastic-bar")
+end
