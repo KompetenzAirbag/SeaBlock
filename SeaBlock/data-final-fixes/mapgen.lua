@@ -1,13 +1,8 @@
 -- No resource placement
-for k, v in pairs(data.raw.resource) do
-  v.autoplace = nil
-  -- if v.autoplace then
-  --   data.raw.resource[k].autoplace.default_enabled = false
-  -- end
+for k, _ in pairs(data.raw.resource) do
+  data.raw.resource[k].autoplace = nil
 end
 
--- log("HELLO")
--- log(serpent.block(data.raw["planet"]["nauvis"].map_gen_settings))
 data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
   tile = {
     settings = {
@@ -76,35 +71,27 @@ for k, v in pairs(data.raw.tree) do
 end
 
 -- No rocks
-for k, v in pairs(data.raw["simple-entity"]) do
+for _, v in pairs(data.raw["simple-entity"]) do
   v.autoplace = nil
-  -- if v.autoplace then
-  --   v.autoplace.default_enabled = false
-  -- end
   seablock.lib.add_flag("simple-entity", v.name, "not-deconstructable")
 end
 
-for k, v in pairs(data.raw["optimized-decorative"]) do
+for _, v in pairs(data.raw["optimized-decorative"]) do
   v.autoplace = nil
-  -- if v.autoplace then
-  --   v.autoplace.default_enabled = false
-  -- end
   seablock.lib.add_flag("optimized-decorative", v.name, "not-deconstructable")
 end
 
 local keepcontrols = {}
 local turrets = data.raw["turret"]
-for turret_name, turret in pairs(turrets) do
+for _, turret in pairs(turrets) do
   if turret.autoplace and turret.autoplace.control then
     keepcontrols[turret.autoplace.control] = true
   end
 end
 
--- TODO this should be changed as some controls are needed for scenarios which are loaded as background
 local controls = data.raw["autoplace-control"]
-for k, v in pairs(controls) do
+for k, _ in pairs(controls) do
   if k ~= "enemy-base" and not keepcontrols[k] then
-    -- data.raw["autoplace-control"][k].hidden = true
     data.raw["autoplace-control"][k] = nil
   end
 end

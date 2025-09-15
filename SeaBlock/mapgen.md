@@ -1,3 +1,4 @@
+TODO - REMOVE BEFORE RELEASE
 # Mapgen Explanation
 ## Terrain
 Islands and water are based on terrain elevation. Elevation itself uses a basis_noise as a baseline. A scaled sigmoid which is based on the distance is added to make the islands bigger the further you get out while still limiting the maximum size of each island.\
