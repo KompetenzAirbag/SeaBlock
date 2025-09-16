@@ -21,7 +21,7 @@ local function makeextractorlayers(bottom, top)
       shift = { 0, 0 },
       frame_count = 16,
       x = 288 * 2,
-      animation_speed = 0.5,
+      animation_speed = 1,
     })
   end
   table.insert(layers, {
@@ -32,7 +32,7 @@ local function makeextractorlayers(bottom, top)
     shift = { 0, 0 },
     filename = "__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-animation.png",
     frame_count = 16,
-    animation_speed = 0.5,
+    animation_speed = 1,
   })
   if bottom then
     table.insert(layers, {
@@ -43,7 +43,7 @@ local function makeextractorlayers(bottom, top)
       shift = { 0, 0 },
       frame_count = 16,
       x = 0,
-      animation_speed = 0.5,
+      animation_speed = 1,
     })
   end
   return { layers = layers }
@@ -73,11 +73,11 @@ extractor.fluid_boxes = {
     pipe_connections = { { flow_direction = "output", position = { -3, 4 }, direction = defines.direction.south } },
   },
 }
-extractor.graphics_set.animation = { -- TODO: fix this animation
-  north = makeextractorlayers(false, false),
-  east = makeextractorlayers(true, true),
-  south = makeextractorlayers(false, false),
-  west = makeextractorlayers(true, true),
+extractor.graphics_set.animation = {
+  north = makeextractorlayers(true, true),
+  east = makeextractorlayers(false, false),
+  south = makeextractorlayers(true, true),
+  west = makeextractorlayers(false, false),
 }
 extractor.crafting_categories = { "sb-thermal-extractor" }
 extractor.fixed_recipe = "sb-thermal-extractor-water"
