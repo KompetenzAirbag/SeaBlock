@@ -31,3 +31,8 @@ bobmods.lib.tech.remove_prerequisite("bob-chemical-plant", "electronics")
 
 -- repair-pack is now unlocked with military
 bobmods.lib.tech.remove_prerequisite("bob-repair-pack-2", "repair-pack")
+
+bobmods.lib.tech.remove_prerequisite("lubricant", "bob-chemical-plant")
+bobmods.lib.tech.remove_prerequisite("plastics", "bob-chemical-plant")
+
+bobmods.lib.tech.hide("bob-chemical-plant")
