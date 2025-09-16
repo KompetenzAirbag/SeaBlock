@@ -96,53 +96,43 @@ bore.fluid_boxes = {
   {
     production_type = "output",
     base_area = 1,
-    --base_level = 1,
     volume = 500,
-    pipe_covers = pipecoverspictures(),
-    pipe_connections = {
-      {
-        flow_direction = "output",
-        positions = { { 1, -1 }, { 1, -1 }, { -1, 1 }, { -1, 1 } },
-        direction = defines.direction.north,
-      },
-    },
+    pipe_covers = bore.output_fluid_box.pipe_covers,
+    pipe_connections = bore.output_fluid_box.pipe_connections
   },
 }
 bore.vector_to_place_result = nil
 
-local function makesheet(sheet, count, d)
-  local r = table.deepcopy(sheet)
-  r.stripes = makestripes(r.filename, count)
-  r.frame_count = count
-  r.filename = nil
-  r.x = r.width * d
-  if r.hr_version then
-    r.hr_version = makesheet(r.hr_version, count, d)
-  end
-  return r
-end
--- local function makeborelayers(d)
---   return {
---     layers = {
---       makesheet(bore.graphics_set.animation.layers[1], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
---       makesheet(bore.graphics_set.animation.layers[2], bore.wet_mining_graphics_set.animation.north.layers[1].frame_count, d),
---       bore.wet_mining_graphics_set.animation.north.layers[1],
---       bore.wet_mining_graphics_set.animation.north.layers[2],
---     },
---   }
--- end
--- bore.animation = {
---   north = makeborelayers(0),
---   east = makeborelayers(1),
---   south = makeborelayers(2),
---   west = makeborelayers(3),
--- }
---table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[1]) -- TODO: probably fix this graphic_set
---table.insert(bore.graphics_set.animation.north.layers,bore.base_picture.sheets[2])
---bore.graphics_set.animation.north.layers[3].repeat_count = 40
---bore.graphics_set.animation.north.layers[4].repeat_count = 40
+-- This is needed for the animation below
+bore.base_picture.sheet.line_length = 1
+bore.base_picture.sheet.repeat_count = 16
 
-table.insert(bore.graphics_set,1,bore.base_picture.sheet)
+-- Edit animation to include output pipe facing north and south
+local working_animation = table.deepcopy(bore.graphics_set.animation.north)
+
+bore.graphics_set.animation = {
+  north = {
+    layers = {
+      table.deepcopy(bore.base_picture.sheet),
+      working_animation
+    }
+  },
+  east = working_animation,
+  south = {
+    layers = {
+      table.deepcopy(bore.base_picture.sheet),
+      working_animation
+    }
+  },
+  west = working_animation,
+}
+
+-- Shift animation to make other pipe visible 
+bore.graphics_set.animation.south.layers[1].x = 576
+
+-- Reset animation speed for directions without additional layers
+bore.graphics_set.animation.east.animation_speed = 1
+bore.graphics_set.animation.west.animation_speed = 1
 
 bore.crafting_categories = { "sb-thermal-bore" }
 bore.fixed_recipe = "sb-thermal-bore-water"
