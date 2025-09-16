@@ -13,23 +13,20 @@ for k, v in pairs(itemrename) do
     data.raw.item[v] = item
   end
 end
+
 local function updateline(line)
-  local nameidx = "name"
-  if line[nameidx] == nil then
-    nameidx = 1
-  end
-  local item = line[nameidx]
+  local item = line.name
+
   if itemrename[item] then
-    line[nameidx] = itemrename[item]
+    line.name = itemrename[item]
   end
 end
+
 local function updaterecipe(recipe)
   for _, v in pairs(recipe.ingredients) do
     updateline(v)
   end
-  -- if recipe.result and itemrename[recipe.result] then
-  --   recipe.result = itemrename[recipe.result]
-  -- end
+
   for _, v in pairs(recipe.results or {}) do
     updateline(v)
   end

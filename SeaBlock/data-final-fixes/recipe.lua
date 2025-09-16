@@ -71,6 +71,7 @@ data.raw.recipe["angels-stone-crushed"].icons = angelsmods.functions.add_icon_la
   0.5
 )
 
+-- bobmods switched plastic-bar for steel-plate in 2.0
 if settings.startup["bobmods-plates-batteryupdate"].value == true then
   bobmods.lib.recipe.replace_ingredient("battery", "steel-plate", "plastic-bar")
 else

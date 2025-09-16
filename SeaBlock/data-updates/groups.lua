@@ -1,8 +1,8 @@
 local move_item = angelsmods.functions.move_item
 
 if not mods["angelsindustries"] then
-  -- Move misc sciencey things over to intermediate products tab
-  for k, v in pairs(data.raw["item-subgroup"]) do
+  -- Move all the gems to separate gems group 
+  for _, v in pairs(data.raw["item-subgroup"]) do
     if
       v.name == "bob-gems-crystallization"
       or v.name == "bob-gems-raw"
@@ -16,7 +16,6 @@ if not mods["angelsindustries"] then
     end
   end
 
-  --move_item("battery", "intermediate-products", "f-cba[battery]") -- already correctly set in bob2.0
   move_item("iron-gear-wheel", "bob-gears", "aa[iron-gear-wheel]")
   move_item("bob-thorium-processing", "bob-nuclear", "l[thorium-processing]", "recipe")
 end

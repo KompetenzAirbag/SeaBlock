@@ -44,9 +44,8 @@ for _,name in pairs({ "bob-big-explosive-worm-turret", "bob-big-fire-worm-turret
 end
 
 -- No spawners
-for k, v in pairs(data.raw["unit-spawner"]) do
+for _, v in pairs(data.raw["unit-spawner"]) do
   v.autoplace = nil
-  -- v.control = nil
   if v.autoplace then
     v.autoplace.default_enabled = false
   end
