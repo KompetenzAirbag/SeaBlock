@@ -6,9 +6,15 @@ for k, v in pairs(data.raw.item) do
   end
 end
 
+local function strip_landfill_string(name)
+  return name:gsub("^landfill%-", "")
+end
+
 -- Set prefered type for basic landfill crafting
 if settings.startup["sb-default-landfill"] and data.raw.item[settings.startup["sb-default-landfill"].value] then
   data.raw.recipe["landfill"].results[1].name = settings.startup["sb-default-landfill"].value
+
+  data.raw.recipe["landfill"].localised_name = {strip_landfill_string(settings.startup["sb-default-landfill"].value)..'-name.name'}
 end
 
 local function BuffLandfill(recipe)
@@ -41,16 +47,14 @@ data.raw.technology["landfill"].unit = {
 bobmods.lib.tech.remove_prerequisite("angels-water-washing-2", "landfill")
 bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)
 
-data.raw.recipe["landfill"].localised_name = {'sand-3-name.name'}
-
 local startup_landfill = "landfill"
 local setting = settings.startup["sb-default-landfill"]
 
 if setting and type(setting.value) == "string" then
-    local stripped = setting.value:gsub("^landfill%-", "")
-    if data.raw.tile[stripped] then
-        startup_landfill = stripped
-    end
+  local stripped = strip_landfill_string(setting.value)
+  if data.raw.tile[stripped] then
+    startup_landfill = stripped
+  end
 end
 
 data.raw.tile["water"].default_cover_tile = startup_landfill
