@@ -60,6 +60,7 @@ end
 data.raw.tile["water"].default_cover_tile = startup_landfill
 data.raw.tile["deepwater"].default_cover_tile = startup_landfill
 
+-- Adds SeaBlock tiles to tile condition so they can be replaced with landfill when placing 
 if mods["LandfillPainting"] then
   local terrains = {
     "dry-dirt",
