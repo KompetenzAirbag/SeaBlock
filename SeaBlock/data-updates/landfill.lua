@@ -59,3 +59,26 @@ end
 
 data.raw.tile["water"].default_cover_tile = startup_landfill
 data.raw.tile["deepwater"].default_cover_tile = startup_landfill
+
+if mods["LandfillPainting"] then
+  local terrains = {
+    "dry-dirt",
+    "dirt-4",
+    "grass-1",
+    "red-desert-1",
+    "sand-3"
+  }
+
+  for _, name in pairs(terrains) do
+    data.raw.item["landfill-"..name].place_as_tile.tile_condition = data.raw.item["landfill-"..name].place_as_tile.tile_condition or {}
+    local tile_cond = data.raw.item["landfill-"..name].place_as_tile.tile_condition
+
+    table.insert(tile_cond, "sand-4")
+    table.insert(tile_cond, "sand-5")
+  end
+end
+
+local tile_cond = data.raw.item["landfill"].place_as_tile.tile_condition
+
+table.insert(tile_cond, "sand-4")
+table.insert(tile_cond, "sand-5")
