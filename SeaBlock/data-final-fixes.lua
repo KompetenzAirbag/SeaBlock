@@ -39,7 +39,6 @@ for _, v in pairs(data.raw.character) do
   v.crafting_categories = v.crafting_categories or {}
   
   table.insert(v.crafting_categories, "sb-crafting-handonly")
-  table.insert(v.crafting_categories, "sb-hand-electronics")
 end
 
 local function add_recipe_category(recipe_name, category_name)
