@@ -288,6 +288,35 @@ function seablock.lib.hide(type_name, name)
   end
 end
 
+function seablock.lib.unhide(type_name, name)
+  if not data.raw[type_name] then
+    log("Unknown type: " .. type_name)
+  else
+    local item = data.raw[type_name][name]
+    if not item then
+      log("Unknown " .. type_name .. ": " .. name)
+    else
+      if type_name == "fluid" then
+        item.hidden = false
+      else
+        if item.flags then
+          local k = seablock.lib.tablefind(item.flags, "hidden")
+          if k then
+            table.remove(item.flags, k)
+          end
+
+          if type_name == "item" then
+            k = seablock.lib.tablefind(item.flags, "hide-from-bonus-gui")
+            if k then
+              table.remove(item.flags, k)
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
 function seablock.lib.remove_effect(technology_name, effect_type, effect_key, effect_value)
   local tech = data.raw.technology[technology_name]
   if not tech then
