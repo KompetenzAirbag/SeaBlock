@@ -48,7 +48,7 @@ data:extend({
         type = "noise-expression",
         name = "distance_sigmoid", -- sigmoid to gradually increase island size while limiting the maximum size
         local_expressions = {
-            amount = "3.5",
+            amount = "2",
             offset = "500",
             scale = "300"
         },
