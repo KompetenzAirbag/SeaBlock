@@ -583,7 +583,8 @@ function seablock.reskins.clear_icon_specification(name, type)
   end
 end
 
-function seablock.lib.add_category(type, prototype_name, category)
+-- Adds a crafting category to an entity
+function seablock.lib.add_category(type, entity_name, category)
   if (not data.raw["recipe-category"][category]) then
     log("Warning: seablock.lib.add_category - Category \""..category.."\" does not exist")
     return
@@ -594,12 +595,37 @@ function seablock.lib.add_category(type, prototype_name, category)
     return
   end
 
-  if (not data.raw[type][prototype_name]) then
-    log("Warning: seablock.lib.add_category - Prototype \""..prototype_name.."\" does not exist")
+  if (not data.raw[type][entity_name]) then
+    log("Warning: seablock.lib.add_category - Entity \""..entity_name.."\" does not exist")
     return
   end
 
-  data.raw[type][prototype_name].crafting_categories = data.raw[type][prototype_name].crafting_categories or {}
+  data.raw[type][entity_name].crafting_categories = data.raw[type][entity_name].crafting_categories or {}
 
-  table.insert(data.raw[type][prototype_name].crafting_categories, category)
+  table.insert(data.raw[type][entity_name].crafting_categories, category)
+end
+
+--- Adds a crafting category to a recipe.
+--- If no category is set before it will be set to category_name.
+--- Otherwise it will be safely added to additional_categories.
+function seablock.lib.add_recipe_category(recipe_name, category_name)
+  local recipe = data.raw.recipe[recipe_name]
+
+  if (not recipe) then
+    log("Warning: seablock.lib.add_recipe_category - Recipe \""..recipe_name.."\" not found")
+    return
+  end
+
+  if (not data.raw["recipe-category"][category_name]) then
+    log("Warning: seablock.lib.add_recipe_category - Category \""..category_name.."\" does not exist")
+    return
+  end
+
+  if (not recipe.category) then
+    recipe.category = category_name
+  else
+    recipe.additional_categories = recipe.additional_categories or {}
+
+    table.insert(recipe.additional_categories, category_name)
+  end
 end

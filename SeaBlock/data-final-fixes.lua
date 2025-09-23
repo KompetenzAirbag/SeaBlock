@@ -75,9 +75,11 @@ if mods["CircuitProcessing"] then
 end
 
 for _, name in pairs(handcrafting_recipes) do
-  seablock.lib.add_category("recipe", name, "crafting")
+  seablock.lib.add_recipe_category(name, "crafting")
 end
 
--- Recipe was craftable with assembling-machine-1 even though it required a fluid
-data.raw.recipe["bob-phenolic-board"].category = "electronics-with-fluid"
-data.raw.recipe["bob-phenolic-board"].additional_categories = nil
+if mods["bobelectronics"] and mods["bobassembly"] then
+  -- Recipe was craftable with assembling-machine-1 even though it required a fluid
+  data.raw.recipe["bob-phenolic-board"].category = "electronics-with-fluid"
+  data.raw.recipe["bob-phenolic-board"].additional_categories = nil
+end
