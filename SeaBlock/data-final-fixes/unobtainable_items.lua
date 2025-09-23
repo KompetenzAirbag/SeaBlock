@@ -255,7 +255,7 @@ bobmods.lib.safe_insert(dummyLab.inputs, "chemical-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "production-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "utility-science-pack")
 
-if mods["bobtech"] then
+if mods["bobtech"] and mods["bobenemies"] then
   bobmods.lib.safe_insert(dummyLab.inputs, "bob-science-pack-gold")
   bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-purple")
   bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-blue")
