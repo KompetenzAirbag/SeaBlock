@@ -55,18 +55,24 @@ local handcrafting_recipes = {
   "bob-robot-brain-2",
   "bob-robot-brain-3",
   "bob-robot-brain-4",
-  "bob-module-case",
-  "bob-module-contact",
-  "bob-speed-processor",
-  "bob-efficiency-processor",
-  "bob-productivity-processor",
   "angels-wire-gold",
   "angels-wire-platinum",
   "angels-wire-silver",
-  "angels-wire-tin",
-  "cp-electronic-circuit-board",
-  "cp-advanced-circuit-board"
+  "angels-wire-tin"
 }
+
+if mods["bobmodules"] then
+  table.insert(handcrafting_recipes, "bob-module-case")
+  table.insert(handcrafting_recipes, "bob-module-contact")
+  table.insert(handcrafting_recipes, "bob-speed-processor")
+  table.insert(handcrafting_recipes, "bob-efficiency-processor")
+  table.insert(handcrafting_recipes, "bob-productivity-processor")
+end
+
+if mods["CircuitProcessing"] then
+  table.insert(handcrafting_recipes, "cp-electronic-circuit-board")
+  table.insert(handcrafting_recipes, "cp-advanced-circuit-board")
+end
 
 for _, name in pairs(handcrafting_recipes) do
   seablock.lib.add_category("recipe", name, "crafting")

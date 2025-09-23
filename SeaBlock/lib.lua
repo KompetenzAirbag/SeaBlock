@@ -585,17 +585,17 @@ end
 
 function seablock.lib.add_category(type, prototype_name, category)
   if (not data.raw["recipe-category"][category]) then
-    log("WARN: Tried to add category \""..category.."\" to prototype \""..prototype_name.."\" with type \""..type.."\": Category does not exist")
+    log("Warning: seablock.lib.add_category - Category \""..category.."\" does not exist")
     return
   end
 
   if (not data.raw[type]) then
-    log("WARN: Tried to add category \""..category.."\" to prototype \""..prototype_name.."\" with type \""..type.."\": Type does not exist")
+    log("Warning: seablock.lib.add_category - Type \""..type.."\" does not exist")
     return
   end
 
   if (not data.raw[type][prototype_name]) then
-    log("WARN: Tried to add category \""..category.."\" to prototype \""..prototype_name.."\" with type \""..type.."\": Prototype does not exist")
+    log("Warning: seablock.lib.add_category - Prototype \""..prototype_name.."\" does not exist")
     return
   end
 
