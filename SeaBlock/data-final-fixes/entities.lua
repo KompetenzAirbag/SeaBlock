@@ -1,14 +1,14 @@
 local function add_category(type, entity_name, category)
   if (not data.raw["recipe-category"][category]) then
-    error("Tried to add category to entity "..entity_name.." with type "..type..": Category does not exist")
+    error("Tried to add category \""..category.."\" to entity \""..entity_name.."\" with type \""..type.."\": Category does not exist")
   end
 
   if (not data.raw[type]) then
-    error("Tried to add category to entity "..entity_name.." with type "..type..": Type does not exist")
+    error("Tried to add category \""..category.."\" to entity \""..entity_name.."\" with type \""..type.."\": Type does not exist")
   end
 
   if (not data.raw[type][entity_name]) then
-    error("Tried to add category to entity "..entity_name.." with type "..type..": "..entity_name.." does not exist")
+    error("Tried to add category \""..category.."\" to entity \""..entity_name.."\" with type \""..type.."\": \""..entity_name.."\" does not exist")
   end
 
   data.raw[type][entity_name].crafting_categories = data.raw[type][entity_name].crafting_categories or {}
