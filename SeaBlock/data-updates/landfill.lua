@@ -71,11 +71,12 @@ if mods["LandfillPainting"] then
   }
 
   for _, name in pairs(terrains) do
-    data.raw.item["landfill-"..name].place_as_tile.tile_condition = data.raw.item["landfill-"..name].place_as_tile.tile_condition or {}
-    local tile_cond = data.raw.item["landfill-"..name].place_as_tile.tile_condition
+    if (data.raw.item["landfill-"..name].place_as_tile.tile_condition) then
+      local tile_cond = data.raw.item["landfill-"..name].place_as_tile.tile_condition
 
-    table.insert(tile_cond, "sand-4")
-    table.insert(tile_cond, "sand-5")
+      table.insert(tile_cond, "sand-4")
+      table.insert(tile_cond, "sand-5")
+    end
   end
 end
 
