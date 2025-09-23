@@ -22,7 +22,7 @@ function seablock.create_rock_chest(surface, pos)
   end
 
   if has_items then
-    local chest = surface.create_entity({ name = "sb-rock-chest", position = pos, force = game.forces.neutral })
+    local chest = surface.create_entity({ name = "sb-rock-chest", position = pos, force = game.forces.neutral, move_stuck_players = true })
     for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         chest.insert({ name = item, count = quantity })
@@ -213,7 +213,7 @@ script.on_load(function()
 end)
 
 script.on_event(defines.events.on_player_created, function(e)
-    game.get_player(e.player_index).get_main_inventory().clear()
+  game.get_player(e.player_index).get_main_inventory().clear()
   if storage.starting_items and game.is_multiplayer() then
     local inv = game.get_player(e.player_index).get_main_inventory()
     for item, quantity in pairs(storage.starting_items) do
