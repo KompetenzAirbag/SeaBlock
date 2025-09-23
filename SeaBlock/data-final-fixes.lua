@@ -41,15 +41,6 @@ for _, v in pairs(data.raw.character) do
   table.insert(v.crafting_categories, "sb-crafting-handonly")
 end
 
-local function add_recipe_category(recipe_name, category_name)
-  local recipe = data.raw.recipe[recipe_name]
-  if (not recipe) then error("Tried to set recipe category for recipe "..recipe_name..": Recipe not found") end
-
-  recipe.additional_categories = recipe.additional_categories or {}
-
-  table.insert(recipe.additional_categories, category_name)
-end
-
 -- Adds handcrafting recipes because crafting category "electronics" is no longer craftable by hand
 local handcrafting_recipes = {
   "electronic-circuit",
@@ -78,7 +69,7 @@ local handcrafting_recipes = {
 }
 
 for _, name in pairs(handcrafting_recipes) do
-  add_recipe_category(name, "crafting")
+  seablock.lib.add_category("recipe", name, "crafting")
 end
 
 -- Recipe was craftable with assembling-machine-1 even though it required a fluid

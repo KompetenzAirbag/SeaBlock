@@ -582,3 +582,24 @@ function seablock.reskins.clear_icon_specification(name, type)
     entity.icon_mipmaps = nil
   end
 end
+
+function seablock.lib.add_category(type, prototype_name, category)
+  if (not data.raw["recipe-category"][category]) then
+    log("WARN: Tried to add category \""..category.."\" to prototype \""..prototype_name.."\" with type \""..type.."\": Category does not exist")
+    return
+  end
+
+  if (not data.raw[type]) then
+    log("WARN: Tried to add category \""..category.."\" to prototype \""..prototype_name.."\" with type \""..type.."\": Type does not exist")
+    return
+  end
+
+  if (not data.raw[type][prototype_name]) then
+    log("WARN: Tried to add category \""..category.."\" to prototype \""..prototype_name.."\" with type \""..type.."\": Prototype does not exist")
+    return
+  end
+
+  data.raw[type][prototype_name].crafting_categories = data.raw[type][prototype_name].crafting_categories or {}
+
+  table.insert(data.raw[type][prototype_name].crafting_categories, category)
+end
