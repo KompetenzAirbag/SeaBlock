@@ -33,13 +33,13 @@ if mods["jetpack"] then
   bobmods.lib.tech.add_science_pack("jetpack-4", "production-science-pack", 1)
   if mods["bobmodules"] then
     if mods["CircuitProcessing"] then
-      bobmods.lib.recipe.remove_ingredient("jetpack-4", "speed-module-4")
-      bobmods.lib.recipe.remove_ingredient("jetpack-4", "efficiency-module-4")
-      bobmods.lib.recipe.add_new_ingredient("jetpack-4", { type = "item", name = "speed-module-5", amount = 2 })
-      bobmods.lib.recipe.add_new_ingredient("jetpack-4", { type = "item", name = "efficiency-module-5", amount = 2 })
+      bobmods.lib.recipe.remove_ingredient("jetpack-4", "bob-speed-module-4")
+      bobmods.lib.recipe.remove_ingredient("jetpack-4", "bob-efficiency-module-4")
+      bobmods.lib.recipe.add_new_ingredient("jetpack-4", { type = "item", name = "bob-speed-module-5", amount = 2 })
+      bobmods.lib.recipe.add_new_ingredient("jetpack-4", { type = "item", name = "bob-efficiency-module-5", amount = 2 })
     else
-      bobmods.lib.recipe.replace_ingredient("jetpack-4", "speed-module-3", "speed-module-5")
-      bobmods.lib.recipe.replace_ingredient("jetpack-4", "efficiency-module-3", "efficiency-module-5")
+      bobmods.lib.recipe.replace_ingredient("jetpack-4", "speed-module-3", "bob-speed-module-5")
+      bobmods.lib.recipe.replace_ingredient("jetpack-4", "efficiency-module-3", "bob-efficiency-module-5")
     end
   end
 end

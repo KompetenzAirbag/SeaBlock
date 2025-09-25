@@ -1,35 +1,4 @@
 data:extend({
-  --[[{
-    type = "tool",
-    name = "sb-angelsore3-tool",
-    localised_name = { "item-name.angels-ore3-crushed" },
-    icon = "__angelsrefininggraphics__/graphics/icons/angels-ore3-crushed.png",
-    icon_size = 32,
-    hidden = true,
-    stack_size = 100,
-    durability = 1,
-  },
-  {
-    type = "tool",
-    name = "sb-basic-circuit-board-tool",
-    localised_name = { "item-name.basic-circuit-board" },
-    icon = "__bobelectronics__/graphics/icons/basic-circuit-board.png",
-    icon_size = 64,
-    hidden = true,
-    stack_size = 100,
-    durability = 1,
-  },
-  {
-    type = "tool",
-    name = "sb-lab-tool",
-    localised_name = { "item-name.lab" },
-    icon = "__base__/graphics/icons/lab.png",
-    icon_size = 64,
-    icon_mipmaps = 4,
-    hidden = true,
-    stack_size = 100,
-    durability = 1,
-  },]]
   {
     type = "technology",
     name = "sb-startup1",

@@ -35,7 +35,7 @@ seablock.lib.copy_icon(data.raw.technology["angels-ore-crushing"], data.raw.tech
 
 data:extend({
   { -- This was removed with bobs2.0 but is fitting for SeaBlock
-  -- TODO this might break when bio-processing-override-bob.lua gets changed
+  -- TODO this might break when bio-processing-override-bob.lua gets changed because it moves its gems to group bob-gems
     type = "item-group",
     name = "bob-gems",
     order = "d-g",

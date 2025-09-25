@@ -110,6 +110,8 @@ bore.base_picture.sheet.repeat_count = 16
 -- Edit animation to include output pipe facing north and south
 local working_animation = table.deepcopy(bore.graphics_set.animation.north)
 
+--- This animation is a translation of the mining_drill but for an assembling_machine
+--- This is done because an assembling_machine has no base_picture so the northern and southern pipe extentions have to be added via animation
 bore.graphics_set.animation = {
   north = {
     layers = {

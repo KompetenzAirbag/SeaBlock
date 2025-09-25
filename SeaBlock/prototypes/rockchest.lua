@@ -23,9 +23,6 @@ data:extend({
     vehicle_impact_sound = { filename = "__base__/sound/car-stone-impact.ogg", volume = 1.0 },
     picture = {
       filename = "__base__/graphics/decorative/big-rock/big-rock-18.png",
-      -- width = 71, --old non hr version
-      -- height = 64,
-      -- shift = { 0.3125, 0.046875 },
       width = 141, --taken from the old hr version
       height = 128,
       scale = 0.5,

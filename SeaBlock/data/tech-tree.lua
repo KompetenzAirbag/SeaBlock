@@ -110,8 +110,6 @@ bobmods.lib.tech.remove_prerequisite("automation-science-pack", "electronics")
 seablock.lib.hide_technology("automation-science-pack")
 
 seablock.lib.hide_technology("electronics") --new trigger tech in base game, we don't want it in seablock
--- I think i found a bug: trigger techs still research even if hidden and disabled --TODO: check this
--- data.raw["technology"]["electronics"] = nil -- multiple different techs and shortcut will complain if we do that
 data.raw["technology"]["electronics"].research_trigger = nil
 data.raw["technology"]["electronics"].unit = {time = 1, count = 1, ingredients = {}}
 bobmods.lib.tech.remove_prerequisite("bob-electronics", "electronics")

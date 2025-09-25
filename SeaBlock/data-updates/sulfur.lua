@@ -1,5 +1,5 @@
 -- Washing plant sulfur byproduct
-local washing_fluid_box = { --TODO: check correctness of washing plant fluid box
+local washing_fluid_box = {
   production_type = "output",
   pipe_covers = pipecoverspictures(),
   --base_level = 1,

@@ -99,12 +99,8 @@ end
 
 if data.raw.technology["sct-automation-science-pack"] then
   bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "sct-lab-t1")
-  -- data.raw.technology["sct-automation-science-pack"].unit = {
-  --   count = 1,
-  --   ingredients = { { "sb-lab-tool", 1 } },
-  --   time = 1,
-  -- }
-  data.raw.technology["sct-automation-science-pack"].research_trigger = {type = "craft-item", item = "lab"}
+
+  data.raw.technology["sct-automation-science-pack"].research_trigger = { type = "craft-item", item = "lab" }
   data.raw.technology["sct-automation-science-pack"].unit = nil
   data.raw.technology["sct-lab-t1"].unit = {
     count = 1,
