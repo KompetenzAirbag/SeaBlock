@@ -57,6 +57,7 @@ if setting and type(setting.value) == "string" then
   end
 end
 
+-- For blueprint pasting on water
 data.raw.tile["water"].default_cover_tile = startup_landfill
 data.raw.tile["deepwater"].default_cover_tile = startup_landfill
 

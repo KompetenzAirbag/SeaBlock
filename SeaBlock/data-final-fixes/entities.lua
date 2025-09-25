@@ -1,4 +1,4 @@
--- crafting category "electronics" got removed from assembling machines since it is now part of Flugora
+-- crafting category "electronics" got removed from assembling machines since it is now part of Fulgora
 if mods["bobassembly"] then
   seablock.lib.add_category("assembling-machine", "assembling-machine-1", "electronics")
 
