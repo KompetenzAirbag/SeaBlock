@@ -36,18 +36,22 @@ if not seablock.trigger.mining_productivity then
   end
 end
 
+-- Angels-sea-pump-resource is a virtual resource.
+-- When the heavy offshore pump is placed, it is supposed to be replaced by the resource and a mining-drill.
+-- Removing the resource causes placement of heavy pumps to crash new maps.
+-- Crude-oil causes an error because of the trigger techs
+local exclusion_map = {
+  ["angels-sea-pump-resource"] = true,
+  ["crude-oil"] = true
+}
+
 -- Remove resources so mining recipes don't show in FNEI
 -- Have to leave at least one resource or game will not load
-
---TODO: handle this : ressource removal creates bugs
---[[for k, v in pairs(data.raw["resource"]) do
-  -- Sea-pump-resource is a virtual resource.
-  -- When the offshore pump is placed, it is supposed to be replaced by the resource and a mining-drill.
-  -- Removing the resource causes placement of heavy pumps to crash new maps.
-  if k ~= "sea-pump-resource" then
+for k, _ in pairs(data.raw["resource"]) do
+  if (not exclusion_map[k]) then
     data.raw["resource"][k] = nil
   end
-end]]
+end
 
 -- Add prerequisite for Tin and Lead
 if settings.startup["bobmods-logistics-beltoverhaul"].value then
