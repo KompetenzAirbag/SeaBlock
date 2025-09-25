@@ -38,24 +38,6 @@ if settings.startup["SpaceX-ignore-tech-multiplier"] then
   end
 end
 
-local recipes = {
-  "low-density-structure",
-  "rocket-control-unit",
-  "assembly-robot",
-  "satellite",
-  "drydock-assembly",
-  "fusion-reactor",
-  "hull-component",
-  "protection-field",
-  "space-thruster",
-  "fuel-cell",
-  "habitation",
-  "life-support",
-  "command",
-  "astrometrics",
-  "ftl-drive",
-}
-
 local techs = {
   "space-assembly",
   "space-construction",
@@ -76,38 +58,6 @@ local techs = {
   "ftl-theory-D2",
   "ftl-propulsion",
 }
-
-local upgrades = {
-  ["bob-construction-robot-4"] = "bob-construction-robot-5",
-  -- CircuitProcessing replaces module-3 with module-4, so SpaceMod data-final-fixes
-  -- doesn't find the modules it's expecting.
-  ["bob-speed-module-4"] = "bob-speed-module-5",
-  ["bob-efficiency-module-4"] = "bob-efficiency-module-5",
-  ["bob-productivity-module-4"] = "bob-productivity-module-5",
-  ["bob-fission-reactor-equipment-4"] = "bob-fission-reactor-equipment-4", -- for amount adjustment
-}
-
-local function do_upgrade(recipe)
-  for _, item in pairs(recipe.ingredients) do
-    local upgrade = upgrades[item.name]
-
-    if upgrade and (data.raw.item[upgrade] or data.raw.module[upgrade]) then
-      item.name = upgrade
-    end
-    
-    if upgrade == "bob-construction-robot-5" then
-      item.amount = 1
-    elseif upgrade == "bob-fission-reactor-equipment-4" then
-      item.amount = item.amount / 2
-    end
-  end
-end
-
-for _, recipe in pairs(recipes) do
-  if data.raw.recipe[recipe] then
-    do_upgrade(data.raw.recipe[recipe])
-  end
-end
 
 -- ftl-theory-D means SpaceMod bob's mode has activated
 if data.raw.technology["ftl-theory-D"] then
