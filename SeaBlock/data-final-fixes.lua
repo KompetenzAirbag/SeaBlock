@@ -83,3 +83,15 @@ if mods["bobelectronics"] and mods["bobassembly"] then
   data.raw.recipe["bob-phenolic-board"].category = "electronics-with-fluid"
   data.raw.recipe["bob-phenolic-board"].additional_categories = nil
 end
+
+
+--- TODO
+--- This fix is only temporary
+--- Needed because angelspetrochem moved the global_replace_item function to
+--- data-updates stage (was in data-final-fixes stage)
+if mods["bobplates"] and mods["angelspetrochem"] then
+  local OV = angelsmods.functions.OV
+
+  OV.global_replace_item("bob-carbon", "angels-solid-carbon")
+  OV.execute()
+end
