@@ -197,8 +197,25 @@ for k, _ in pairs(unobtainable) do
   seablock.lib.hide_item(k)
 end
 
+local keep_unobtainable_recipes = {
+  ["parameter-0"] = true,
+  ["parameter-1"] = true,
+  ["parameter-2"] = true,
+  ["parameter-3"] = true,
+  ["parameter-4"] = true,
+  ["parameter-5"] = true,
+  ["parameter-6"] = true,
+  ["parameter-7"] = true,
+  ["parameter-8"] = true,
+  ["parameter-9"] = true
+}
+
 -- Remove any recipe that uses an unobtainable ingredient
 local function keeprecipe(r)
+  if (keep_unobtainable_recipes[r.name]) then
+    return true
+  end
+
   if (not r.ingredients) then
     return false
   end
