@@ -30,7 +30,9 @@ data.raw["planet"]["nauvis"].map_gen_settings.autoplace_settings = {
 
       ["angels-alien-fish-1"] = {},
       ["angels-alien-fish-2"] = {},
-      ["angels-alien-fish-3"] = {}
+      ["angels-alien-fish-3"] = {},
+
+      ["fish"] = {}
     }
   }
 }
