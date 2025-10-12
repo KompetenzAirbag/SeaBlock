@@ -65,11 +65,11 @@ seablock.lib.add_recipe_unlock("angels-bio-nutrient-paste", "angels-gas-refinery
 
 bobmods.lib.tech.remove_prerequisite("advanced-material-processing-2", "angels-gas-processing")
 bobmods.lib.tech.remove_prerequisite("angels-advanced-gas-processing", "angels-steam-cracking-2")
-bobmods.lib.tech.remove_prerequisite("angels-oil-processing", "angels-oil-gas-extraction")
+bobmods.lib.tech.remove_prerequisite("angels-oil-processing", "oil-gathering")
 bobmods.lib.tech.remove_prerequisite("angels-sulfur-processing-3", "angels-gas-processing")
 bobmods.lib.tech.remove_prerequisite("angels-bio-nutrient-paste", "angels-gas-processing")
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-paste", "angels-chlorine-processing-2")
-bobmods.lib.tech.remove_prerequisite("angels-gas-processing", "angels-oil-gas-extraction")
+bobmods.lib.tech.remove_prerequisite("angels-gas-processing", "oil-gathering")
 bobmods.lib.tech.remove_prerequisite("angels-steam-cracking-1", "angels-gas-processing")
 bobmods.lib.tech.remove_prerequisite("angels-steam-cracking-2", "angels-advanced-chemistry-2")
 
@@ -81,4 +81,3 @@ bobmods.lib.tech.add_prerequisite("angels-bio-processing-paste", "angels-chlorin
 bobmods.lib.tech.add_prerequisite("angels-steam-cracking-2", "angels-advanced-gas-processing")
 
 bobmods.lib.tech.hide("angels-gas-processing")
-bobmods.lib.tech.hide("angels-oil-gas-extraction")
