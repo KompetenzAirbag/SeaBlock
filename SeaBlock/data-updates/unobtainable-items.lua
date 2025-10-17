@@ -121,6 +121,8 @@ seablock.lib.substingredient("bob-silver-zinc-battery", "bob-zinc-plate", "angel
 
 seablock.lib.unhide_recipe("angels-solid-zinc-oxide")
 bobmods.lib.tech.add_recipe_unlock("angels-zinc-smelting-2", "angels-solid-zinc-oxide")
+data.raw.recipe["angels-solid-zinc-oxide"].localised_name = nil
+
 bobmods.lib.tech.add_prerequisite("bob-battery-3", "angels-zinc-smelting-2")
 if data.raw.recipe["angels-pellet-zinc-smelting"] then
   data.raw.recipe["angels-pellet-zinc-smelting"].icons = angelsmods.functions.add_number_icon_layer(

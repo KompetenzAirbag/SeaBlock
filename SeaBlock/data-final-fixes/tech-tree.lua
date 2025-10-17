@@ -21,6 +21,7 @@ bobmods.lib.tech.remove_prerequisite("angels-rubbers", "circuit-network")
 -- Unhide solid fuel from hydrogen
 seablock.lib.unhide_recipe("bob-solid-fuel-from-hydrogen")
 seablock.lib.add_recipe_unlock("flammables", "bob-solid-fuel-from-hydrogen", 4)
+data.raw.recipe["bob-solid-fuel-from-hydrogen"].localised_name = nil
 
 bobmods.lib.tech.replace_prerequisite("bob-lithium-processing", "angels-chlorine-processing-4", "angels-chlorine-processing-2")
 
