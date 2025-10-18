@@ -37,3 +37,6 @@ bobmods.lib.tech.remove_prerequisite("lubricant", "bob-chemical-plant")
 bobmods.lib.tech.remove_prerequisite("plastics", "bob-chemical-plant")
 
 bobmods.lib.tech.hide("bob-chemical-plant")
+
+bobmods.lib.tech.hide("uranium-mining")
+bobmods.lib.tech.remove_prerequisite("uranium-processing", "uranium-mining")
