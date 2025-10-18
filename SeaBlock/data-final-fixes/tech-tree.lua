@@ -38,5 +38,13 @@ bobmods.lib.tech.remove_prerequisite("plastics", "bob-chemical-plant")
 
 bobmods.lib.tech.hide("bob-chemical-plant")
 
+-- uranium mining only adds fluid inputs to mining drills which is never used
 bobmods.lib.tech.hide("uranium-mining")
 bobmods.lib.tech.remove_prerequisite("uranium-processing", "uranium-mining")
+
+-- needed for bio-module to be researchable
+bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module", "bob-pollution-create-module-1")
+bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-2", "bob-pollution-create-module-2")
+bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-3", "bob-pollution-create-module-3")
+bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-4", "bob-pollution-create-module-4")
+bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-5", "bob-pollution-create-module-5")
