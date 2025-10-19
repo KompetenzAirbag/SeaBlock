@@ -73,17 +73,6 @@ bobmods.lib.tech.hide("bob-chemical-plant")
 bobmods.lib.tech.hide("uranium-mining")
 bobmods.lib.tech.remove_prerequisite("uranium-processing", "uranium-mining")
 
--- needed for bio-module to be researchable
-bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module", "bob-pollution-create-module-1")
-bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-2", "bob-pollution-create-module-2")
-bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-3", "bob-pollution-create-module-3")
-bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-4", "bob-pollution-create-module-4")
-bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-5", "bob-pollution-create-module-5")
-
 -- science pack prerequisites
--- bobmods.lib.tech.add_prerequisite("atomic-bomb", "")
 bobmods.lib.tech.add_prerequisite("bob-battery-equipment-4", "production-science-pack")
 bobmods.lib.tech.add_prerequisite("bob-battery-equipment-6", "utility-science-pack")
--- bobmods.lib.tech.add_prerequisite("", "")
--- bobmods.lib.tech.add_prerequisite("", "")
--- bobmods.lib.tech.add_prerequisite("", "")
