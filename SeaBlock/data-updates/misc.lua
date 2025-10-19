@@ -269,3 +269,5 @@ OV.patch_recipes({
 })
 
 bobmods.lib.tech.add_prerequisite("battery", "plastics")
+
+bobmods.lib.item.hide("bob-alien-acid")

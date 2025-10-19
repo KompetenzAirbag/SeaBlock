@@ -25,9 +25,27 @@ bobmods.lib.tech.remove_prerequisite("bob-fission-reactor-equipment-3", "bob-ali
 bobmods.lib.tech.remove_prerequisite("bob-fission-reactor-equipment-4", "bob-alien-blue-research")
 bobmods.lib.tech.remove_prerequisite("bob-fission-reactor-equipment-4", "bob-alien-red-research")
 
-bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-orange-research")
-bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-blue-research")
-bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-green-research")
+if data.raw.technology["bob-personal-laser-defense-equipment-6"] then
+  local tech = data.raw.technology["bob-personal-laser-defense-equipment-6"]
+
+  tech.unit = {
+    count = 350,
+    time = 30,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "military-science-pack", 1 },
+      { "production-science-pack", 1 },
+      { "utility-science-pack", 1 },
+      { "space-science-pack", 1 },
+    }
+  }
+
+  bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-orange-research")
+  bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-blue-research")
+  bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-green-research")
+end
 
 bobmods.lib.tech.remove_prerequisite("bob-power-armor-3", "bob-alien-research")
 
@@ -61,3 +79,11 @@ bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-2", "bob-pollution
 bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-3", "bob-pollution-create-module-3")
 bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-4", "bob-pollution-create-module-4")
 bobmods.lib.tech.remove_prerequisite("angels-bio-yield-module-5", "bob-pollution-create-module-5")
+
+-- science pack prerequisites
+-- bobmods.lib.tech.add_prerequisite("atomic-bomb", "")
+bobmods.lib.tech.add_prerequisite("bob-battery-equipment-4", "production-science-pack")
+bobmods.lib.tech.add_prerequisite("bob-battery-equipment-6", "utility-science-pack")
+-- bobmods.lib.tech.add_prerequisite("", "")
+-- bobmods.lib.tech.add_prerequisite("", "")
+-- bobmods.lib.tech.add_prerequisite("", "")

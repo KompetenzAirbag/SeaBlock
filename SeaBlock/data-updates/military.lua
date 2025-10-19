@@ -136,6 +136,8 @@ local mil_items = {
   { type = "unit", name = "bob-robot-gun-drone" },
   { type = "unit", name = "bob-robot-laser-drone" },
   { type = "unit", name = "bob-robot-plasma-drone" },
+  { type = "item", name = "bob-explosive-rocket-warhead" },
+  { type = "item", name = "bob-flame-rocket-warhead" },
 }
 
 local mil_tech = {
@@ -290,6 +292,9 @@ local mil_ammo = {
   { type = "ammo", name = "bob-shotgun-uranium-shell" },
   { type = "ammo", name = "bob-uranium-cannon-shell" },
   { type = "ammo", name = "uranium-rounds-magazine" },
+  { type = "ammo", name = "uranium-cannon-shell"},
+  { type = "ammo", name = "explosive-uranium-cannon-shell"},
+  { type = "ammo", name = "bob-explosive-artillery-shell" },
   { type = "capsule", name = "cluster-grenade" },
   { type = "capsule", name = "defender-capsule" },
   { type = "capsule", name = "destroyer-capsule" },

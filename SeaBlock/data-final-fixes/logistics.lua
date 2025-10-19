@@ -58,7 +58,7 @@ local logisticstechs = {
   "logistic-system-2",
   "logistic-system-3",
   "angels-logistic-warehouses",
-  "logistic-silos",
+  "angels-logistic-silos",
 }
 
 for _, v in pairs(logisticstechs) do
@@ -73,8 +73,8 @@ for _, v in pairs(logisticstechs) do
 end
 
 if mods["angelsaddons-storage"] then
-  bobmods.lib.tech.replace_prerequisite("logistic-silos", "logistic-system", "logistic-system-3")
-  bobmods.lib.tech.replace_prerequisite("angels-logistic-warehouses", "logistic-system", "logistic-silos")
+  bobmods.lib.tech.replace_prerequisite("angels-logistic-silos", "logistic-system", "logistic-system-3")
+  bobmods.lib.tech.replace_prerequisite("angels-logistic-warehouses", "logistic-system", "angels-logistic-silos")
 end
 bobmods.lib.tech.add_prerequisite("logistic-system-2", "utility-science-pack")
 
@@ -133,3 +133,6 @@ for i = 2, 5 do
     robot.max_payload_size = 1
   end
 end
+
+seablock.lib.hide_item("angels-silo-coal")
+seablock.lib.hide("container", "angels-silo-coal")
