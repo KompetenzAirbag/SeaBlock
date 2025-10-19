@@ -76,3 +76,23 @@ bobmods.lib.tech.remove_prerequisite("uranium-processing", "uranium-mining")
 -- science pack prerequisites
 bobmods.lib.tech.add_prerequisite("bob-battery-equipment-4", "production-science-pack")
 bobmods.lib.tech.add_prerequisite("bob-battery-equipment-6", "utility-science-pack")
+
+if mods["ScienceCostTweakerM"] then
+  bobmods.lib.tech.remove_prerequisite("lamp", "electronics")
+  bobmods.lib.tech.remove_prerequisite("logistics", "electronics")
+
+  data.raw.technology["sb-startup4"].effects = table.deepcopy(data.raw.technology["sct-lab-t1"].effects)
+
+  bobmods.lib.tech.hide("sct-lab-t1")
+
+  bobmods.lib.tech.remove_prerequisite("automation-science-pack", "sct-lab-t1")
+  bobmods.lib.tech.remove_prerequisite("automation-science-pack", "steam-power")
+
+  bobmods.lib.tech.add_prerequisite("steam-power", "automation-science-pack")
+  bobmods.lib.tech.add_prerequisite("logistics-0", "automation-science-pack")
+  bobmods.lib.tech.add_prerequisite("military", "automation-science-pack")
+
+  bobmods.lib.tech.add_prerequisite("automation-science-pack", "sb-startup4")
+
+  bobmods.lib.tech.add_recipe_unlock("automation-science-pack", "automation-science-pack")
+end
