@@ -231,14 +231,26 @@ function seablock.lib.tablefind(table, item)
   return nil
 end
 
-function seablock.lib.unhide_recipe(recipe_name)
-  local recipe = data.raw.recipe[recipe_name]
-  if recipe then
-    recipe.hidden = false
-  else
-    log("Warning: seablock.lib.unhide_recipe - can't find recipe : " .. recipe_name)
+function seablock.lib.unhide(type_name, name)
+  if not data.raw[type_name] then
+    log("Warning: seablock.lib.unhide - unknown type: " .. type_name)
     log(debug.traceback())
+    return
   end
+
+  local item = data.raw[type_name][name]
+
+  if not item then
+    log("Warning: seablock.lib.unhide - unknown " .. type_name .. ": " .. name)
+    log(debug.traceback())
+    return
+  end
+
+  item.hidden = false
+end
+
+function seablock.lib.unhide_recipe(recipe_name)
+  seablock.lib.unhide("recipe", recipe_name)
 end
 
 function seablock.lib.hide_technology(technology_name)

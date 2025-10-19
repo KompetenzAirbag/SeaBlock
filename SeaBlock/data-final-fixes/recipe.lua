@@ -77,3 +77,14 @@ if settings.startup["bobmods-plates-batteryupdate"].value == true then
 else
   bobmods.lib.recipe.replace_ingredient("battery", "iron-plate", "plastic-bar")
 end
+
+if (mods["blueprint-shotgun"]) then
+  seablock.lib.unhide_recipe("shotgun")
+  seablock.lib.unhide_recipe("shotgun-shell")
+
+  seablock.lib.unhide("gun", "shotgun")
+  seablock.lib.unhide("ammo", "shotgun-shell")
+
+  bobmods.lib.tech.add_recipe_unlock("military", "shotgun")
+  bobmods.lib.tech.add_recipe_unlock("military", "shotgun-shell")
+end
