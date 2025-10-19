@@ -18,6 +18,19 @@ bobmods.lib.tech.remove_prerequisite("circuit-network", "angels-bio-wood-process
 bobmods.lib.tech.add_prerequisite("circuit-network", "angels-bio-paper-1")
 bobmods.lib.tech.remove_prerequisite("angels-rubbers", "circuit-network")
 
+-- alien research is disabled with SeaBlock
+bobmods.lib.tech.remove_prerequisite("bob-exoskeleton-equipment-3", "bob-alien-blue-research")
+
+bobmods.lib.tech.remove_prerequisite("bob-fission-reactor-equipment-3", "bob-alien-research")
+bobmods.lib.tech.remove_prerequisite("bob-fission-reactor-equipment-4", "bob-alien-blue-research")
+bobmods.lib.tech.remove_prerequisite("bob-fission-reactor-equipment-4", "bob-alien-red-research")
+
+bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-orange-research")
+bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-blue-research")
+bobmods.lib.tech.remove_prerequisite("bob-personal-laser-defense-equipment-6", "bob-alien-green-research")
+
+bobmods.lib.tech.remove_prerequisite("bob-power-armor-3", "bob-alien-research")
+
 -- Unhide solid fuel from hydrogen
 seablock.lib.unhide_recipe("bob-solid-fuel-from-hydrogen")
 seablock.lib.add_recipe_unlock("flammables", "bob-solid-fuel-from-hydrogen", 4)
