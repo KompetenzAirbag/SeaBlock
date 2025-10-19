@@ -31,6 +31,7 @@ bobmods.lib.tech.add_recipe_unlock("angels-bio-wood-processing-2", "angels-wood-
 bobmods.lib.tech.add_recipe_unlock("angels-bio-wood-processing-2", "angels-wood-bricks")
 bobmods.lib.tech.add_recipe_unlock("angels-bio-wood-processing-2", "sb-wood-bricks-charcoal")
 bobmods.lib.tech.add_recipe_unlock("angels-bio-wood-processing-2", "angels-gas-carbon-dioxide")
+bobmods.lib.tech.remove_recipe_unlock("angels-basic-chemistry", "angels-gas-carbon-dioxide")
 
 bobmods.lib.tech.remove_prerequisite("angels-bio-wood-processing-3", "angels-coal-processing")
 bobmods.lib.tech.add_prerequisite("angels-bio-wood-processing-3", "angels-bio-arboretum-1")

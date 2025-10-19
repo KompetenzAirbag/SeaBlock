@@ -88,7 +88,6 @@ if mods["KS_Power"] then
 end
 
 -- Add unlocks for starting military techs
-seablock.lib.add_recipe_unlock("military", "pistol", 1)
 seablock.lib.add_recipe_unlock("military", "firearm-magazine", 3)
 seablock.lib.add_recipe_unlock("military", "light-armor", 4)
 seablock.lib.add_recipe_unlock("military", "repair-pack", nil)

@@ -18,6 +18,7 @@ bobmods.lib.tech.add_prerequisite("bob-lithium-processing", "angels-thermal-wate
 bobmods.lib.recipe.set_category("bob-lithium", "angels-petrochem-electrolyser")
 bobmods.lib.recipe.set_category("bob-lithium-water-electrolysis", "angels-petrochem-electrolyser")
 
+bobmods.lib.tech.remove_recipe_unlock("bob-lithium-processing", "angels-solid-lithium")
 bobmods.lib.tech.remove_recipe_unlock("angels-water-treatment-3", "angels-solid-lithium")
 bobmods.lib.recipe.hide("angels-solid-lithium") -- TODO: move angels-solid-lithium to the same group as the recipe or the other way around
 

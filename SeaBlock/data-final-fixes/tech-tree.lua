@@ -96,6 +96,8 @@ if mods["ScienceCostTweakerM"] then
 
   bobmods.lib.tech.add_recipe_unlock("automation-science-pack", "automation-science-pack")
 
+  bobmods.lib.tech.remove_recipe_unlock("sb-startup4", "iron-stick")
+
   data.raw.technology["sb-startup4"].research_trigger = nil
-  data.raw.technology["sb-startup4"].unit = { time = 0, ingredients = {} }
+  data.raw.technology["sb-startup4"].unit = { time = 1, count = 1, ingredients = {} }
 end

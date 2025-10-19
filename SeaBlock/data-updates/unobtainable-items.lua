@@ -70,7 +70,7 @@ bobmods.lib.tech.remove_recipe_unlock("angels-chlorine-processing-2", "angels-ga
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-angels-liquid-multi-phase-oil-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "angels-liquid-multi-phase-oil-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-gas-canisters", "empty-angels-gas-chlor-methane-barrel")
-bobmods.lib.tech.remove_recipe_unlock("bob-gas-canisters", "fill-gas-chlor-methane-barrel")
+bobmods.lib.tech.remove_recipe_unlock("bob-gas-canisters", "angels-gas-chlor-methane-barrel")
 bobmods.lib.tech.remove_recipe_unlock("angels-ore-electro-whinning-cell", "angels-electro-whinning-cell")
 
 bobmods.lib.recipe.replace_ingredient("angels-paste-cellulose", "angels-gas-chlor-methane", "angels-gas-chlorine")

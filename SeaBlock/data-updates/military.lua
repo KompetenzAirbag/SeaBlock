@@ -118,6 +118,7 @@ local mil_items = {
   { type = "item", name = "bob-uranium-bullet-projectile" },
   { type = "item", name = "bob-uranium-bullet" },
   { type = "lab", name = "bob-lab-alien" },
+  { type = "land-mine", name = "land-mine" },
   { type = "land-mine", name = "bob-distractor-mine" },
   { type = "land-mine", name = "bob-land-mine" },
   { type = "land-mine", name = "bob-poison-mine" },
@@ -530,12 +531,12 @@ end
 data.raw["electric-turret"]["laser-turret"].next_upgrade = nil
 
 
-bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "gas-fractioning-residual")
-bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-liquid-glycerol-barrel")
-bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-liquid-toluene-barrel")
+bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "angels-gas-fractioning-residual")
+bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-angels-liquid-glycerol-barrel")
+bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-angels-liquid-toluene-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-bob-nitroglycerin-barrel")
-bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "liquid-glycerol-barrel")
-bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "liquid-toluene-barrel")
+bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "angels-liquid-glycerol-barrel")
+bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "angels-liquid-toluene-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "bob-nitroglycerin-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-alien-acid-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-alien-explosive-barrel")
