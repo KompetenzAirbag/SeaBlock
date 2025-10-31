@@ -88,3 +88,15 @@ if (mods["blueprint-shotgun"]) then
   bobmods.lib.tech.add_recipe_unlock("military", "shotgun")
   bobmods.lib.tech.add_recipe_unlock("military", "shotgun-shell")
 end
+
+bobmods.lib.recipe.replace_ingredient("bob-fission-reactor-equipment-4", "bob-alien-blue-alloy", "bob-cobalt-steel-alloy")
+bobmods.lib.recipe.replace_ingredient("bob-fission-reactor-equipment-4", "bob-alien-fire", "angels-liquid-naphtha")
+
+bobmods.lib.recipe.replace_ingredient("bob-exoskeleton-equipment-3", "bob-alien-blue-alloy", "bob-cobalt-steel-alloy")
+
+bobmods.lib.recipe.replace_ingredient("bob-personal-laser-defense-equipment-6", "bob-alien-blue-alloy", "bob-cobalt-steel-alloy")
+bobmods.lib.recipe.replace_ingredient("bob-personal-laser-defense-equipment-6", "bob-alien-orange-alloy", "bob-gold-plate")
+bobmods.lib.recipe.replace_ingredient("bob-personal-laser-defense-equipment-6", "bob-alien-poison", "angels-liquid-nitric-acid")
+
+bobmods.lib.recipe.hide("bob-rocket-engine")
+bobmods.lib.item.hide("bob-rocket-engine")
