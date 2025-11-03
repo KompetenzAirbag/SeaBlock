@@ -52,7 +52,7 @@ local knowningredients = {
     { "pipe", 10 },
     { "stone-brick", 10 },
   },
-  ["angels-chemical-plant"] = {
+  ["chemical-plant"] = {
     { "iron-plate", 5 },
     { "iron-gear-wheel", 5 },
     { "bob-basic-circuit-board", 5 },
