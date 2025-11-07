@@ -48,7 +48,7 @@ if data.raw.beacon["bob-beacon-3"] then
   data.raw.beacon["bob-beacon-3"].energy_usage = "1920kW"
   data.raw.beacon["bob-beacon-3"].module_slots = 2
   data.raw.beacon["bob-beacon-3"].distribution_effectivity = 1
-  data.raw.beacon["bob-beacon-2"].supply_area_distance = 9
+  data.raw.beacon["bob-beacon-3"].supply_area_distance = 9
 end
 
 -- Undo boblogistcs changes to logistic system research
