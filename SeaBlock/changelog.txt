@@ -6,8 +6,16 @@ Date: ??.??.??
       - Removed normal/expensive recipes
       - Updated map generation
     - Renamed Angel's and Bob's items
-    - Removed Artisanal Reskins: Angel's Mods until Angel's is fully updated
     - Replaced crushed stone for regular stone
+    - Reimplemented (1.1) ore crystallization recipes (This got changed with angelsmods 2.0)
+    - Added extended beacon range to bob beacons (This got removed in bobmods 2.0)
+    - Changed beacon transmission efficiency to closer match 1.1
+    - Added shotgun recipe when the mod "blueprint-shotgun" is loaded
+    - Removed techs:
+      - Uranium mining
+    - Changed several bobs and angels recipes back to their 1.1 version
+      - "battery"
+    - Adjusted volume of "wind-turbine-2"
 ---------------------------------------------------------------------------------------------------
 Version: 0.5.17
 Date: ??.??.??
