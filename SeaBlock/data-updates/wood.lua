@@ -24,7 +24,7 @@ bobmods.lib.tech.remove_prerequisite("angels-bio-wood-processing-2", "angels-bio
 bobmods.lib.tech.remove_prerequisite("angels-bio-wood-processing-2", "angels-bio-wood-processing")
 bobmods.lib.tech.add_prerequisite("angels-bio-wood-processing-2", "angels-bio-processing-brown")
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-2", "angels-wood-charcoal")
-bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-2", "angels-bio-resin-wood-reprocessing")
+bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-3", "angels-bio-resin-wood-reprocessing")
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-2", "bob-rubber")
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-2", "angels-bio-processor")
 bobmods.lib.tech.add_recipe_unlock("angels-bio-wood-processing-2", "angels-wood-pellets")

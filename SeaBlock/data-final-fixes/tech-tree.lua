@@ -76,3 +76,16 @@ bobmods.lib.tech.remove_prerequisite("uranium-processing", "uranium-mining")
 -- science pack prerequisites
 bobmods.lib.tech.add_prerequisite("bob-battery-equipment-4", "production-science-pack")
 bobmods.lib.tech.add_prerequisite("bob-battery-equipment-6", "utility-science-pack")
+
+-- Not needed in SB
+bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "bob-zinc-processing")
+bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "angels-stone-smelting-2")
+bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "angels-aluminium-smelting-1")
+
+bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing", "angels-wood-bricks")
+
+bobmods.lib.tech.remove_prerequisite("angels-bio-wood-processing-2", "angels-coal-processing")
+seablock.lib.add_recipe_unlock("angels-bio-wood-processing-2", "angels-wood-bricks", 3)
+
+bobmods.lib.tech.remove_prerequisite("angels-bio-wood-processing-3", "angels-stone-smelting-1")
+bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-3", "angels-bio-processor")
