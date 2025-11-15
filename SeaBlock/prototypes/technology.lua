@@ -44,8 +44,8 @@ data:extend({
   {
     type = "technology",
     name = "sb-bio-processing-advanced",
-    localised_name = { "technology-name.bio-processing-green" },
-    localised_description = { "technology-description.bio-processing-green" },
+    localised_name = { "technology-name.angels-bio-processing-green" },
+    localised_description = { "technology-description.angels-bio-processing-green" },
     icon = "__angelsbioprocessinggraphics__/graphics/technology/algae-farm-tech.png",
     icon_size = 128,
     order = "c-a",
