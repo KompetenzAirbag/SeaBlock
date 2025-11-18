@@ -160,8 +160,6 @@ seablock.lib.substingredient("angels-ore-pure-mix2-processing", "angels-ore3-pur
 
 -- Unhide rocket part to make it easier to view recipes
 if data.raw.recipe["rocket-part"] then
-  -- angelsmods.functions.remove_flag("rocket-part", "hidden")
-  -- angelsmods.functions.unhide("rocket-part")
   local r = data.raw.recipe["rocket-part"]
 
   r.hidden = false
@@ -241,33 +239,5 @@ bobmods.lib.recipe.replace_ingredient("angels-solid-cement-2", "bob-quartz", "bo
 bobmods.lib.recipe.set_ingredient("angels-solid-cement-2", { type = "item", name = "angels-solid-lime", amount = 4 })
 bobmods.lib.recipe.set_result("angels-solid-cement-2", { type = "item", name = "angels-solid-cement", amount = 4 })
 bobmods.lib.recipe.set_energy_required("angels-solid-cement-2", 16)
-
-local OV = angelsmods.functions.OV
-OV.patch_recipes({
-  {
-    name = "bob-tin-plate",
-    ingredients = {
-      { name = "bob-tin-ore", type = "item", amount = "+3" },
-    },
-    results = {
-      { name = "bob-tin-plate", type = "item", amount = "+2" },
-    },
-    localised_name = { "item-name.bob-tin-plate" },
-    subgroup = "angels-tin-casting"
-  },
-  {
-    name = "bob-lead-plate",
-    ingredients = {
-      { name = "bob-lead-ore", type = "item", amount = "+3" },
-    },
-    results = {
-      { name = "bob-lead-plate", type = "item", amount = "+2" },
-    },
-    localised_name = { "item-name.bob-lead-plate" },
-    subgroup = "angels-lead-casting"
-  }
-})
-
-bobmods.lib.tech.add_prerequisite("battery", "plastics")
 
 bobmods.lib.item.hide("bob-alien-acid")

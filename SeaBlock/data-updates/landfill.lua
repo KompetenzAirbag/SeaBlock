@@ -81,6 +81,7 @@ if mods["LandfillPainting"] then
   end
 end
 
+-- Paste over sand-4 and -5
 local tile_cond = data.raw.item["landfill"].place_as_tile.tile_condition
 
 table.insert(tile_cond, "sand-4")

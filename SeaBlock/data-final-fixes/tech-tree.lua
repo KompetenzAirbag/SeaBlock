@@ -18,7 +18,7 @@ bobmods.lib.tech.remove_prerequisite("circuit-network", "angels-bio-wood-process
 bobmods.lib.tech.add_prerequisite("circuit-network", "angels-bio-paper-1")
 bobmods.lib.tech.remove_prerequisite("angels-rubbers", "circuit-network")
 
--- alien research is disabled with SeaBlock
+-- Alien research is disabled in Sea Block
 bobmods.lib.tech.remove_prerequisite("bob-exoskeleton-equipment-3", "bob-alien-blue-research")
 
 bobmods.lib.tech.remove_prerequisite("bob-fission-reactor-equipment-3", "bob-alien-research")
@@ -64,20 +64,17 @@ bobmods.lib.tech.remove_prerequisite("bob-chemical-plant", "electronics")
 -- repair-pack is now unlocked with military
 bobmods.lib.tech.remove_prerequisite("bob-repair-pack-2", "repair-pack")
 
+-- Empty technology
+bobmods.lib.tech.hide("bob-chemical-plant")
+
 bobmods.lib.tech.remove_prerequisite("lubricant", "bob-chemical-plant")
 bobmods.lib.tech.remove_prerequisite("plastics", "bob-chemical-plant")
 
-bobmods.lib.tech.hide("bob-chemical-plant")
-
--- uranium mining only adds fluid inputs to mining drills which is never used
+-- uranium-mining only adds fluid inputs to mining drills which is never used
 bobmods.lib.tech.hide("uranium-mining")
 bobmods.lib.tech.remove_prerequisite("uranium-processing", "uranium-mining")
 
--- science pack prerequisites
-bobmods.lib.tech.add_prerequisite("bob-battery-equipment-4", "production-science-pack")
-bobmods.lib.tech.add_prerequisite("bob-battery-equipment-6", "utility-science-pack")
-
--- Not needed in SB
+-- Not needed in Sea Block
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "bob-zinc-processing")
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "angels-stone-smelting-2")
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "angels-aluminium-smelting-1")
