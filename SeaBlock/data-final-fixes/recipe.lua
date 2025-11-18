@@ -58,19 +58,6 @@ bobmods.lib.recipe.set_ingredients("firearm-magazine", {{ type = "item", name = 
 -- angelspetrochem changes petroleum-gas to angels-gas-methane
 bobmods.lib.recipe.remove_ingredient("sct-t3-flash-fuel", "angels-gas-methane")
 
-data.raw.recipe["angels-stone-crushed"].icons = angelsmods.functions.add_icon_layer(
-  {
-    {
-      icon = "__angelsrefininggraphics__/graphics/icons/ore-crusher.png",
-      icon_size = 64,
-      scale = 0.5
-    }
-  },
-  angelsmods.functions.get_object_icons("stone"),
-  { 10, 10 },
-  0.5
-)
-
 -- bobmods switched plastic-bar for steel-plate in 2.0
 if settings.startup["bobmods-plates-batteryupdate"].value == true then
   bobmods.lib.recipe.replace_ingredient("battery", "steel-plate", "plastic-bar")
