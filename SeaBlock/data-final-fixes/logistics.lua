@@ -140,6 +140,3 @@ for i = 2, 5 do
     robot.max_payload_size = 1
   end
 end
-
-seablock.lib.hide_item("angels-silo-coal")
-seablock.lib.hide("container", "angels-silo-coal")

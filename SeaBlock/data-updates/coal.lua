@@ -12,8 +12,8 @@ if mods["Transport_Drones"] then
   seablock.lib.substingredient("road", "coal", "angels-wood-charcoal")
 end
 seablock.lib.substingredient("angels-gas-carbon-dioxide", "coal", "angels-wood-charcoal", 1)
-if mods["angelsaddons-storage"] and data.raw.recipe["silo-coal"] then
-  seablock.lib.substingredient("silo-coal", "angels-coal-crushed", "angels-wood-charcoal", 10)
+if mods["angelsaddons-storage"] and data.raw.recipe["angels-silo-coal"] then
+  seablock.lib.substingredient("angels-silo-coal", "angels-coal-crushed", "angels-wood-charcoal", 10)
 end
 
 -- Disable coal cracking technology
