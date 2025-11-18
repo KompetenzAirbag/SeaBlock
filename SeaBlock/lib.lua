@@ -70,6 +70,20 @@ function seablock.lib.findeffectidx(effects, name)
   end
 end
 
+function seablock.lib.insert_effect(recipe_name, tech_name, index)
+  local tech = data.raw.technology[tech_name]
+
+  if not tech then
+    return
+  end
+
+  if index then
+    table.insert(tech.effects, index, { type = "unlock-recipe", recipe = recipe_name })
+  else
+    table.insert(tech.effects, { type = "unlock-recipe", recipe = recipe_name })
+  end
+end
+
 function seablock.lib.moveeffect(name, fromtech, totech, insertindex)
   local effect = seablock.lib.takeeffect(fromtech, name)
   if not effect then

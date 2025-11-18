@@ -26,20 +26,6 @@ for i = 1, 6 do
   angelsmods.functions.allow_productivity("angels-slag-processing-" .. i)
 end
 
-local function insert_effect(recipe_name, tech_name, index)
-  local tech = data.raw.technology[tech_name]
-
-  if not tech then
-    return
-  end
-
-  if index then
-    table.insert(tech.effects, index, { type = "unlock-recipe", recipe = recipe_name })
-  else
-    table.insert(tech.effects, { type = "unlock-recipe", recipe = recipe_name })
-  end
-end
-
 -- Angels ores 1, 3 (Saphirite, Stiratite) available from tutorial tech 1,
 -- Angels ores 5, 6 (Rubyte, Bobmonium) available from Slag processing 1
 -- Angels ores 2, 4 (Jivolite, Crotinnium) available from Advanced mechanical refining
@@ -47,12 +33,12 @@ bobmods.lib.recipe.enabled("angels-ore1-crushed-smelting", false)
 bobmods.lib.recipe.enabled("angels-ore3-crushed-smelting", false)
 seablock.lib.moveeffect("angels-catalysator-brown", "angels-slag-processing-1", "angels-advanced-ore-refining-1", 3)
 local slag1start = seablock.lib.findeffectidx(data.raw.technology["angels-slag-processing-1"].effects, "angels-slag-processing-1")
-insert_effect("angels-slag-processing-5", "angels-slag-processing-1", slag1start+3)
-insert_effect("angels-slag-processing-6", "angels-slag-processing-1", slag1start+4)
+seablock.lib.insert_effect("angels-slag-processing-5", "angels-slag-processing-1", slag1start+3)
+seablock.lib.insert_effect("angels-slag-processing-6", "angels-slag-processing-1", slag1start+4)
 
 local slag2start = 0
 seablock.lib.moveeffect("angels-slag-processing-2", "angels-slag-processing-1", "angels-ore-advanced-crushing", slag2start + 1)
-insert_effect("angels-slag-processing-4", "angels-ore-advanced-crushing", slag2start+2)
+seablock.lib.insert_effect("angels-slag-processing-4", "angels-ore-advanced-crushing", slag2start+2)
 seablock.lib.moveeffect("angels-ore2-crushed", "angels-ore-crushing", "angels-ore-advanced-crushing", slag2start + 3)
 seablock.lib.moveeffect("angels-ore4-crushed", "angels-ore-crushing", "angels-ore-advanced-crushing", slag2start + 4)
 
