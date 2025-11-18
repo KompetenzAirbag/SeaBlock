@@ -70,6 +70,10 @@ function seablock.lib.findeffectidx(effects, name)
   end
 end
 
+---Inserts recipe into tech at index
+---@param recipe_name string
+---@param tech_name string
+---@param index integer
 function seablock.lib.insert_effect(recipe_name, tech_name, index)
   local tech = data.raw.technology[tech_name]
 
@@ -600,7 +604,10 @@ function seablock.reskins.clear_icon_specification(name, type)
   end
 end
 
--- Adds a crafting category to an entity
+---Adds a crafting category to an entity
+---@param type string assembling-machine, ...
+---@param entity_name string
+---@param category string
 function seablock.lib.add_category(type, entity_name, category)
   if (not data.raw["recipe-category"][category]) then
     log("Warning: seablock.lib.add_category - Category \""..category.."\" does not exist")
@@ -625,6 +632,8 @@ end
 --- Adds a crafting category to a recipe.
 --- If no category is set before it will be set to category_name.
 --- Otherwise it will be safely added to additional_categories.
+---@param recipe_name string
+---@param category_name string
 function seablock.lib.add_recipe_category(recipe_name, category_name)
   local recipe = data.raw.recipe[recipe_name]
 

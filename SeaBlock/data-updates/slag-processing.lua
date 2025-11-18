@@ -137,6 +137,7 @@ bobmods.lib.recipe.set_category("angels-ore8-anode-sludge", "sb-petrochem-electr
 bobmods.lib.recipe.set_category("angels-ore9-anode-sludge", "sb-petrochem-electrolyser-4")
 bobmods.lib.tech.add_prerequisite("angels-ore-electro-whinning-cell", "angels-advanced-chemistry-3")
 
+-- This was changed by Angelsmods in 2.0
 local OV = angelsmods.functions.OV
 OV.patch_recipes({
   {
