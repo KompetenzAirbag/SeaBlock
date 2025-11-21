@@ -86,3 +86,6 @@ seablock.lib.add_recipe_unlock("angels-bio-wood-processing-2", "angels-wood-bric
 
 bobmods.lib.tech.remove_prerequisite("angels-bio-wood-processing-3", "angels-stone-smelting-1")
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-3", "angels-bio-processor")
+
+-- Bobs Greenhouse
+bobmods.lib.tech.replace_prerequisite("bob-greenhouse", "automation-science-pack", "sct-automation-science-pack")
