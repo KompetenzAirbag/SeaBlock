@@ -36,8 +36,8 @@ data:extend({
     icon = "__SeaBlock__/graphics/technology/ore.png",
     icon_size = 128,
     effects = {
-      { type = "unlock-recipe", recipe = "angelsore1-crushed-smelting" },
-      { type = "unlock-recipe", recipe = "angelsore3-crushed-smelting" },
+      { type = "unlock-recipe", recipe = "angels-ore1-crushed-smelting" },
+      { type = "unlock-recipe", recipe = "angels-ore3-crushed-smelting" },
       { type = "unlock-recipe", recipe = "copper-cable" },
     },
     unit = {
@@ -87,13 +87,13 @@ data:extend({
   {
     type = "technology",
     name = "sb-bio-processing-advanced",
-    localised_name = { "technology-name.bio-processing-green" },
-    localised_description = { "technology-description.bio-processing-green" },
-    icon = "__angelsbioprocessing__/graphics/technology/algae-farm-tech.png",
+    localised_name = { "technology-name.angels-bio-processing-green" },
+    localised_description = { "technology-description.angels-bio-processing-green" },
+    icon = "__angelsbioprocessinggraphics__/graphics/technology/algae-farm-tech.png",
     icon_size = 128,
     order = "c-a",
     prerequisites = {
-      "bio-processing-red",
+      "angels-bio-processing-red",
       "advanced-electronics",
       "angels-stone-smelting-2",
       "zinc-processing",
@@ -102,7 +102,7 @@ data:extend({
     effects = {
       {
         type = "unlock-recipe",
-        recipe = "algae-farm-4",
+        recipe = "angels-algae-farm-4",
       },
     },
     unit = {
@@ -110,7 +110,7 @@ data:extend({
       ingredients = {
         { type = "item", name = "automation-science-pack", amount = 1 },
         { type = "item", name = "logistic-science-pack", amount = 1 },
-        { type = "item", name = "token-bio", amount = 1 },
+        { "angels-token-bio", 1 },
         { type = "item", name = "chemical-science-pack", amount = 1 },
       },
       time = 30,

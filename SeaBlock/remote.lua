@@ -53,7 +53,7 @@ local function milestones_presets()
   -- Resources
   grouped_milestones["resorces"] = {
     { type = "group", name = "Resources" },
-    { type = "item", name = "wood-charcoal", quantity = 1 },
+    { type = "item", name = "angels-wood-charcoal", quantity = 1 },
     { type = "item", name = "basic-circuit-board", quantity = 1 },
     { type = "item", name = "electronic-circuit", quantity = 1 },
     { type = "item", name = "advanced-circuit", quantity = 1 },
@@ -86,12 +86,12 @@ local function milestones_presets()
     { type = "item", name = "nitinol-alloy", quantity = 1 },
 
     { type = "item", name = "plastic-bar", quantity = 1 },
-    { type = "fluid", name = "liquid-resin", quantity = 100 },
+    { type = "fluid", name = "angels-liquid-resin", quantity = 100 },
     { type = "item", name = "rubber", quantity = 1 },
-    { type = "item", name = "alien-bacteria", quantity = 1 },
+    { type = "item", name = "angels-alien-bacteria", quantity = 1 },
     { type = "item", name = "sulfur", quantity = 1 },
-    { type = "fluid", name = "mineral-sludge", quantity = 1 },
-    { type = "fluid", name = "mineral-sludge", quantity = 10000, next = "x10" },
+    { type = "fluid", name = "angels-mineral-sludge", quantity = 1 },
+    { type = "fluid", name = "angels-mineral-sludge", quantity = 10000, next = "x10" },
   }
 
   -- Progress

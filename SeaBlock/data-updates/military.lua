@@ -318,8 +318,8 @@ local mil_recipes = {
   "alien-science-pack-purple",
   "alien-science-pack-red",
   "alien-science-pack-yellow",
-  "angels-chemical-void-liquid-glycerol",
-  "angels-chemical-void-liquid-toluene",
+  "angels-chemical-void-angels-liquid-glycerol",
+  "angels-chemical-void-angels-liquid-toluene",
   "ap-bullet",
   "ap-bullet-magazine",
   "ap-bullet-projectile",
@@ -380,8 +380,8 @@ local mil_recipes = {
   "empty-alien-explosive-barrel",
   "empty-alien-fire-barrel",
   "empty-alien-poison-barrel",
-  "empty-liquid-glycerol-barrel",
-  "empty-liquid-toluene-barrel",
+  "empty-angels-liquid-glycerol-barrel",
+  "empty-angels-liquid-toluene-barrel",
   "empty-nitroglycerin-barrel",
   "explosive-artillery-shell",
   "explosive-rocket",
@@ -391,8 +391,8 @@ local mil_recipes = {
   "fill-alien-explosive-barrel",
   "fill-alien-fire-barrel",
   "fill-alien-poison-barrel",
-  "fill-liquid-glycerol-barrel",
-  "fill-liquid-toluene-barrel",
+  "angels-liquid-glycerol-barrel",
+  "angels-liquid-toluene-barrel",
   "fill-nitroglycerin-barrel",
   "fire-artillery-shell",
   "fire-capsule",
@@ -403,7 +403,7 @@ local mil_recipes = {
   "flamethrower",
   "flamethrower-ammo",
   "flamethrower-turret",
-  "gas-fractioning-residual",
+  "angels-gas-fractioning-residual",
   "gun-cotton",
   "gunmetal-alloy",
   "he-bullet",
@@ -422,9 +422,9 @@ local mil_recipes = {
   "laser-rifle-battery-ruby",
   "laser-rifle-battery-sapphire",
   "laser-rifle-battery-topaz",
-  "liquid-glycerol",
-  "liquid-toluene-from-benzene",
-  "liquid-toluene-from-naphtha",
+  "angels-liquid-glycerol",
+  "angels-liquid-toluene-from-benzene",
+  "angels-liquid-toluene",
   "magazine",
   "nitroglycerin",
   "petroleum-jelly",
@@ -462,8 +462,8 @@ local mil_recipes = {
   "shotgun-uranium-shell",
   "slowdown-capsule",
   "slowdown-mine",
-  "solid-nitroglycerin",
-  "solid-trinitrotoluene",
+  "angels-solid-nitroglycerin",
+  "angels-solid-trinitrotoluene",
   "uranium-bullet",
   "uranium-bullet-projectile",
   "uranium-cannon-shell",
@@ -528,10 +528,10 @@ bobmods.lib.tech.remove_recipe_unlock("uranium-ammo", "uranium-cannon-shell")
 bobmods.lib.tech.remove_recipe_unlock("uranium-ammo", "uranium-rounds-magazine")
 bobmods.lib.tech.remove_recipe_unlock("zinc-processing", "gunmetal-alloy")
 
-seablock.lib.substresult("nutrients-refining-2", "liquid-glycerol", "water", nil)
-if data.raw.recipe["nutrients-refining-2"] then
-  data.raw.recipe["nutrients-refining-2"].icons = angelsmods.functions.create_liquid_recipe_icon({
-    "liquid-fuel-oil",
+seablock.lib.substresult("angels-nutrients-refining-2", "angels-liquid-glycerol", "water", nil)
+if data.raw.recipe["angels-nutrients-refining-2"] then
+  data.raw.recipe["angels-nutrients-refining-2"].icons = angelsmods.functions.create_liquid_recipe_icon({
+    "angels-liquid-fuel-oil",
     { "__base__/graphics/icons/fluid/water.png", 64 },
   }, { { 214, 146, 040 }, { 169, 130, 039 }, { 120, 083, 004 } })
 end

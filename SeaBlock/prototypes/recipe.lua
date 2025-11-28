@@ -2,19 +2,19 @@ data:extend({
   {
     type = "recipe",
     name = "sb-wood-bricks-charcoal",
+    localised_name = { "item-name.angels-wood-charcoal" },
     category = "smelting",
     enabled = false,
     energy_required = 3.5,
-    ingredients = { { "wood-bricks", 1 } },
-    result = "wood-charcoal",
-    result_count = 5,
-    subgroup = "bio-processing-wood",
+    ingredients = { { type = "item", name = "angels-wood-bricks", amount = 1 } },
+    results = { { type = "item", name = "angels-wood-charcoal", amount = 5 } },
+    subgroup = "angels-bio-processing-wood",
   },
   {
     type = "recipe",
     name = "thermal-bore-water",
     category = "thermal-bore",
-    subgroup = "water-treatment",
+    subgroup = "angels-water-treatment",
     order = "h[thermal-bore-water]",
     energy_required = 10,
     enabled = false,
@@ -29,7 +29,7 @@ data:extend({
     type = "recipe",
     name = "thermal-extractor-water",
     category = "thermal-extractor",
-    subgroup = "water-treatment",
+    subgroup = "angels-water-treatment",
     order = "h[thermal-extractor-water]",
     energy_required = 5,
     enabled = false,
@@ -44,13 +44,13 @@ data:extend({
   {
     type = "recipe",
     name = "sb-water-mineralized-crystallization",
-    category = "crystallizing",
-    subgroup = "slag-processing-1",
+    category = "angels-crystallizing",
+    subgroup = "angels-slag-processing-1",
     order = "z[slag-processing]",
     enabled = true,
     energy_required = 2,
     ingredients = {
-      { type = "fluid", name = "water-mineralized", amount = 200 },
+      { type = "fluid", name = "angels-water-mineralized", amount = 200 },
     },
     results = {
       { type = "item", name = "angels-ore1", amount = 2, probability = 0.55 },
@@ -62,7 +62,7 @@ data:extend({
     name = "sb-wood-foraging",
     localised_name = { "recipe-name.sb-wood-foraging" },
     category = "crafting-handonly",
-    subgroup = "bio-processing-green",
+    subgroup = "angels-bio-processing-green",
     enabled = true,
     energy_required = 4,
     ingredients = {},
@@ -80,7 +80,7 @@ data:extend({
     energy_required = 2,
     enabled = false,
     ingredients = {
-      { type = "item", name = "catalyst-metal-carrier", amount = 10 },
+      { type = "item", name = "angels-catalyst-metal-carrier", amount = 10 },
       { type = "item", name = "gold-ore", amount = 1 },
       { type = "item", name = "rutile-ore", amount = 1 },
     },
@@ -104,26 +104,26 @@ data:extend({
     type = "recipe",
     name = "sb-blue-algae-liquefaction",
     icons = angelsmods.functions.create_liquid_recipe_icon({
-      "blue-cellulose-fiber",
+      "angels-blue-cellulose-fiber",
     }, { { 100, 100, 100 }, { 171, 161, 055 }, { 127, 163, 109 } }),
     category = "oil-processing",
     enabled = false,
     energy_required = 5,
     ingredients = {
-      { type = "item", name = "blue-cellulose-fiber", amount = 20 },
+      { type = "item", name = "angels-blue-cellulose-fiber", amount = 20 },
       { type = "fluid", name = "steam", amount = 100 },
     },
     results = {
       { type = "fluid", name = "crude-oil", amount = 90 },
-      { type = "fluid", name = "water-yellow-waste", amount = 70 },
-      { type = "fluid", name = "gas-carbon-dioxide", amount = 20 },
+      { type = "fluid", name = "angels-water-yellow-waste", amount = 70 },
+      { type = "fluid", name = "angels-gas-carbon-dioxide", amount = 20 },
     },
-    subgroup = "bio-processing-blue",
+    subgroup = "angels-bio-processing-blue",
     order = "d[blue-algae-liquefaction]",
   },
 })
 
-bobmods.lib.tech.add_prerequisite("angels-oil-processing", "bio-processing-blue")
+bobmods.lib.tech.add_prerequisite("angels-oil-processing", "angels-bio-processing-blue")
 bobmods.lib.tech.add_recipe_unlock("angels-oil-processing", "sb-blue-algae-liquefaction")
 
 -- Setup recipe bases

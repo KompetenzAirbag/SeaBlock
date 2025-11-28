@@ -1,6 +1,6 @@
 -- Adjust rubber production amount to how it was in petrochem 0.7.9.
 -- TODO: Revisit this after Angel adds more liquid rubber recipes
-seablock.lib.substresult("liquid-rubber-1", "liquid-rubber", nil, 20)
+seablock.lib.substresult("angels-liquid-rubber", "angels-liquid-rubber", nil, 20)
 
 -- Reduce burner heat source neighbour bonus
 local reactors = {
@@ -31,7 +31,7 @@ require("data-final-fixes/mapgen")
 require("data-final-fixes/SpaceMod")
 
 data.raw.recipe["copper-cable"].allow_decomposition = true
-data.raw.recipe["paper-bleaching-1"].allow_decomposition = true
+data.raw.recipe["angels-solid-paper"].allow_decomposition = true
 
 for _, v in pairs(data.raw.character) do
   if v.crafting_categories then

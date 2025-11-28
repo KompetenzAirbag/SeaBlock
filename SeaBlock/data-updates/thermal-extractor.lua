@@ -14,7 +14,7 @@ local function makeextractorlayers(bottom, top)
   local layers = {}
   if top then
     table.insert(layers, {
-      stripes = makestripes("__angelsrefining__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
+      stripes = makestripes("__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
       priority = "high",
       width = 288,
       height = 288,
@@ -30,13 +30,13 @@ local function makeextractorlayers(bottom, top)
     height = 288,
     line_length = 4,
     shift = { 0, 0 },
-    filename = "__angelsrefining__/graphics/entity/thermal-extractor/thermal-extractor-animation.png",
+    filename = "__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-animation.png",
     frame_count = 16,
     animation_speed = 0.5,
   })
   if bottom then
     table.insert(layers, {
-      stripes = makestripes("__angelsrefining__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
+      stripes = makestripes("__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
       priority = "high",
       width = 288,
       height = 288,
@@ -49,9 +49,9 @@ local function makeextractorlayers(bottom, top)
   return { layers = layers }
 end
 
-local extractor = data.raw["mining-drill"]["thermal-extractor"]
-data.raw["mining-drill"]["thermal-extractor"] = nil
-data.raw["assembling-machine"]["thermal-extractor"] = extractor
+local extractor = data.raw["mining-drill"]["angels-thermal-extractor"]
+data.raw["mining-drill"]["angels-thermal-extractor"] = nil
+data.raw["assembling-machine"]["angels-thermal-extractor"] = extractor
 extractor.type = "assembling-machine"
 extractor.crafting_speed = 1
 extractor.ingredient_count = 2
@@ -77,15 +77,13 @@ extractor.animation = {
   south = makeextractorlayers(false, false),
   west = makeextractorlayers(true, true),
 }
-extractor.crafting_categories = { "thermal-extractor" }
-extractor.fixed_recipe = "thermal-extractor-water"
-bobmods.lib.tech.add_recipe_unlock("thermal-water-extraction-2", "thermal-extractor-water")
-move_item("thermal-extractor", "water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
-bobmods.lib.recipe.add_ingredient("thermal-extractor", { "thermal-bore", 1 })
+bobmods.lib.tech.add_recipe_unlock("angels-thermal-water-extraction-2", "sb-thermal-extractor-water")
+move_item("angels-thermal-extractor", "angels-water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
+bobmods.lib.recipe.add_ingredient("angels-thermal-extractor", { type = "item", name = "angels-thermal-bore", amount = 1 })
 
-local bore = data.raw["mining-drill"]["thermal-bore"]
-data.raw["mining-drill"]["thermal-bore"] = nil
-data.raw["assembling-machine"]["thermal-bore"] = bore
+local bore = data.raw["mining-drill"]["angels-thermal-bore"]
+data.raw["mining-drill"]["angels-thermal-bore"] = nil
+data.raw["assembling-machine"]["angels-thermal-bore"] = bore
 bore.type = "assembling-machine"
 bore.crafting_speed = 1
 bore.ingredient_count = 1
@@ -135,11 +133,12 @@ bore.crafting_categories = { "thermal-bore" }
 bore.fixed_recipe = "thermal-bore-water"
 bobmods.lib.tech.add_recipe_unlock("thermal-water-extraction", "thermal-bore-water")
 move_item("thermal-bore", "water-treatment-building", "f[thermal-extractor]-a[bore]", "item")
+move_item("angels-thermal-bore", "angels-water-treatment-building", "f[thermal-extractor]-a[bore]", "item")
 
 -- Fish Pressing requires thermal water so add a prerequisite
-if data.raw.technology["bio-pressing-fish"] then
-  bobmods.lib.tech.add_prerequisite("bio-pressing-fish", "thermal-water-extraction")
+if data.raw.technology["angels-bio-pressing-fish"] then
+  bobmods.lib.tech.add_prerequisite("angels-bio-pressing-fish", "angels-thermal-water-extraction")
 else
-  bobmods.lib.tech.add_prerequisite("bio-pressing-fish-1", "thermal-water-extraction")
+  bobmods.lib.tech.add_prerequisite("angels-bio-pressing-fish-1", "angels-thermal-water-extraction")
 end
-bobmods.lib.tech.add_prerequisite("thermal-water-extraction", "bio-processing-brown")
+bobmods.lib.tech.add_prerequisite("angels-thermal-water-extraction", "angels-bio-processing-brown")

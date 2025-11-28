@@ -1,11 +1,11 @@
 if mods["early_construction"] then
-  bobmods.lib.recipe.replace_ingredient("early-construction-robot", "coal", "wood-charcoal")
+  bobmods.lib.recipe.replace_ingredient("early-construction-robot", "coal", "angels-wood-charcoal")
   bobmods.lib.tech.add_prerequisite("early-construction-light-armor", "military")
-  bobmods.lib.tech.add_prerequisite("early-construction-light-armor", "bio-wood-processing-2")
+  bobmods.lib.tech.add_prerequisite("early-construction-light-armor", "angels-bio-wood-processing-2")
 end
 
 if mods["grappling-gun"] then
-  bobmods.lib.recipe.replace_ingredient("grappling-gun-ammo", "coal", "wood-charcoal")
+  bobmods.lib.recipe.replace_ingredient("grappling-gun-ammo", "coal", "angels-wood-charcoal")
 end
 
 if mods["jetpack"] then
