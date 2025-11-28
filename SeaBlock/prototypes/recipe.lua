@@ -12,23 +12,23 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "thermal-bore-water",
-    category = "thermal-bore",
+    name = "sb-thermal-bore-water",
+    category = "sb-thermal-bore",
     subgroup = "angels-water-treatment",
     order = "h[thermal-bore-water]",
     energy_required = 10,
     enabled = false,
     ingredients = {
-      { type = "item", name = "lithium-chloride", amount = 1 },
+      { type = "item", name = "bob-lithium-chloride", amount = 1 },
     },
     results = {
-      { type = "fluid", name = "thermal-water", amount = 20 },
+      { type = "fluid", name = "angels-thermal-water", amount = 20 },
     },
   },
   {
     type = "recipe",
-    name = "thermal-extractor-water",
-    category = "thermal-extractor",
+    name = "sb-thermal-extractor-water",
+    category = "sb-thermal-extractor",
     subgroup = "angels-water-treatment",
     order = "h[thermal-extractor-water]",
     energy_required = 5,
@@ -61,7 +61,7 @@ data:extend({
     type = "recipe",
     name = "sb-wood-foraging",
     localised_name = { "recipe-name.sb-wood-foraging" },
-    category = "crafting-handonly",
+    category = "sb-crafting-handonly",
     subgroup = "angels-bio-processing-green",
     enabled = true,
     energy_required = 4,
@@ -75,7 +75,7 @@ data:extend({
   },
   {
     type = "recipe",
-    name = "catalyst-metal-purple",
+    name = "sb-catalyst-metal-purple",
     category = "crafting",
     energy_required = 2,
     enabled = false,
@@ -85,7 +85,7 @@ data:extend({
       { type = "item", name = "bob-rutile-ore", amount = 1 },
     },
     results = {
-      { type = "item", name = "catalyst-metal-purple", amount = 10 },
+      { type = "item", name = "sb-catalyst-metal-purple", amount = 10 },
     },
   },
   {

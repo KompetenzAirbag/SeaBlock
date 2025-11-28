@@ -1,23 +1,23 @@
 require("__core__/lualib/util")
 
 local function get_unlocks()
-  return util.table.deepcopy(global.unlocks)
+  return util.table.deepcopy(storage.unlocks)
 end
 
 local function set_unlock(item, techs)
-  global.unlocks[item] = techs
+  storage.unlocks[item] = techs
 end
 
 local function get_starting_items()
-  return util.table.deepcopy(global.starting_items)
+  return util.table.deepcopy(storage.starting_items)
 end
 
 local function set_starting_item(item, quantity)
-  global.starting_items[item] = quantity
+  storage.starting_items[item] = quantity
 end
 
 local function set_starting_items(items)
-  global.starting_items = items
+  storage.starting_items = items
 end
 
 -- Presets for Milestones mod
@@ -113,7 +113,7 @@ local function milestones_presets()
     { type = "fluid", name = "liquid-fuel-oil", quantity = 1 },
     { type = "item", name = "locomotive", quantity = 1 },
     { type = "item", name = "construction-robot", quantity = 1 },
-    { type = "item", name = "logistic-chest-requester", quantity = 1 },
+    { type = "item", name = "requester-chest", quantity = 1 },
   }
 
   if not script.active_mods["bobmodules"] then

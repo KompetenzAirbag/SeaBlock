@@ -85,16 +85,16 @@ bobmods.lib.tech.add_prerequisite("logistic-system-2", "utility-science-pack")
 -- No logistics chest at green science level.
 local function revertchests(tech)
   local neweffects = {
-    { type = "unlock-recipe", recipe = "logistic-chest-passive-provider" },
-    { type = "unlock-recipe", recipe = "logistic-chest-storage" },
+    { type = "unlock-recipe", recipe = "passive-provider-chest" },
+    { type = "unlock-recipe", recipe = "storage-chest" },
   }
   for k, v in pairs(tech.effects) do
     if
       v.type ~= "unlock-recipe"
       or (
-        v.recipe ~= "logistic-chest-passive-provider"
-        and v.recipe ~= "logistic-chest-storage"
-        and v.recipe ~= "logistic-chest-requester"
+        v.recipe ~= "passive-provider-chest"
+        and v.recipe ~= "storage-chest"
+        and v.recipe ~= "requester-chest"
       )
     then
       table.insert(neweffects, v)
@@ -106,14 +106,14 @@ revertchests(data.raw.technology["logistic-robotics"])
 revertchests(data.raw.technology["construction-robotics"])
 local found = false
 for k, v in pairs(data.raw.technology["logistic-system"].effects) do
-  if v.type == "unlock-recipe" and v.recipe == "logistic-chest-requester" then
+  if v.type == "unlock-recipe" and v.recipe == "requester-chest" then
     found = true
   end
 end
 if not found then
   table.insert(
     data.raw.technology["logistic-system"].effects,
-    { type = "unlock-recipe", recipe = "logistic-chest-requester" }
+    { type = "unlock-recipe", recipe = "requester-chest" }
   )
 end
 

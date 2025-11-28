@@ -6,7 +6,7 @@ end
 
 -- No natural gas, use methane for manganese pellet smelting
 seablock.lib.substingredient("angels-solid-manganese-oxide-2", "angels-gas-natural-1", "angels-gas-methane")
-bobmods.lib.tech.remove_prerequisite("angels-manganese-smelting-3", "oil-gas-extraction")
+bobmods.lib.tech.remove_prerequisite("angels-manganese-smelting-3", "oil-gathering")
 bobmods.lib.tech.add_prerequisite("angels-manganese-smelting-3", "angels-advanced-gas-processing")
 
 -- Remove steel's prerequiste on Chemical processing 1
@@ -25,7 +25,7 @@ seablock.lib.moveeffect("angels-yellow-waste-water-purification", "angels-water-
 bobmods.lib.tech.remove_prerequisite("bob-electronics", "bob-chemical-processing-1")
 
 bobmods.lib.recipe.set_category("angels-liquid-fish-atmosphere", "chemistry")
-seablock.lib.hide_technology("pumpjack")
+seablock.lib.hide_technology("oil-gathering")
 
 if not seablock.trigger.mining_productivity then
   for i = 1, 4, 1 do

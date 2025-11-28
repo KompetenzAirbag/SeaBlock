@@ -12,8 +12,8 @@ end
 function seablock.create_rock_chest(surface, pos)
   local has_items = false
 
-  if global.starting_items and (not game.is_multiplayer()) then
-    for item, quantity in pairs(global.starting_items) do
+  if storage.starting_items and (not game.is_multiplayer()) then
+    for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         has_items = true
         break
@@ -22,8 +22,8 @@ function seablock.create_rock_chest(surface, pos)
   end
 
   if has_items then
-    local chest = surface.create_entity({ name = "rock-chest", position = pos, force = game.forces.neutral })
-    for item, quantity in pairs(global.starting_items) do
+    local chest = surface.create_entity({ name = "sb-rock-chest", position = pos, force = game.forces.neutral, move_stuck_players = true })
+    for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         chest.insert({ name = item, count = quantity })
       end
@@ -51,7 +51,7 @@ end
 
 local function init()
   set_pvp()
-  global.starting_items = seablock.populate_starting_items(game.item_prototypes)
+  storage.starting_items = seablock.populate_starting_items(prototypes.item)
   if remote.interfaces.freeplay then
     if remote.interfaces.freeplay.set_disable_crashsite then
       remote.call("freeplay", "set_disable_crashsite", true)
@@ -61,10 +61,10 @@ local function init()
     ["angels-ore3-crushed"] = { "sb-startup1", "angels-bio-wood-processing" },
     ["bob-basic-circuit-board"] = { "sb-startup3", "sct-lab-t1" },
   }
-  if game.technology_prototypes["sct-automation-science-pack"] then
-    global.unlocks["lab"] = { "sct-automation-science-pack" }
+  if prototypes.technology["sct-automation-science-pack"] then
+    storage.unlocks["lab"] = { "sct-automation-science-pack" }
   else
-    global.unlocks["lab"] = { "sb-startup4" }
+    storage.unlocks["lab"] = { "sb-startup4" }
   end
 
   if remote.interfaces["freeplay"] then
@@ -78,6 +78,8 @@ local function init()
     remote.call("freeplay", "set_created_items", created_items)
   end
 end
+
+
 
 script.on_event(defines.events.on_player_joined_game, function(e)
   seablock.give_research(game.players[e.player_index].force)
@@ -130,7 +132,7 @@ script.on_event(defines.events.on_player_main_inventory_changed, function(e)
   if not inv then -- Compatibility with BlueprintLab_Bud17
     return
   end
-  for k, v in pairs(global.unlocks) do
+  for k, v in pairs(storage.unlocks) do
     for _, v2 in ipairs(v) do
       if
         player.force.technologies[v2]
@@ -153,13 +155,13 @@ script.on_configuration_changed(function(cfg)
     force.reset_recipes()
     for tech_name, tech in pairs(force.technologies) do
       if tech.researched then
-        for tech_name, effect in pairs(tech.effects) do
+        for tech_name, effect in pairs(tech.prototype.effects) do
           if effect.type == "unlock-recipe" then
             force.recipes[effect.recipe].enabled = true
           end
         end
       end
-      if game.technology_prototypes[tech_name].enabled then
+      if prototypes.technology[tech_name].enabled then
         force.technologies[tech_name].enabled = true
       end
     end
@@ -222,9 +224,9 @@ script.on_load(function()
 end)
 
 script.on_event(defines.events.on_player_created, function(e)
-  if global.starting_items and game.is_multiplayer() then
-    local inv = game.players[e.player_index].get_main_inventory()
-    for item, quantity in pairs(global.starting_items) do
+  if storage.starting_items and game.is_multiplayer() then
+    local inv = game.get_player(e.player_index).get_main_inventory()
+    for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         inv.insert({ name = item, count = quantity })
       end

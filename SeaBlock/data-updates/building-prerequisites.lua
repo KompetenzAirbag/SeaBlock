@@ -60,7 +60,7 @@ bobmods.lib.tech.add_prerequisite("angels-ore-processing-5", "bob-tungsten-alloy
 bobmods.lib.tech.add_prerequisite("angels-ore-processing-5", "bob-nitinol-processing")
 
 -- Advanced circuit
-bobmods.lib.tech.add_prerequisite("tank", "advanced-electronics")
+bobmods.lib.tech.add_prerequisite("tank", "advanced-circuit")
 
 -- Processing unit
 bobmods.lib.tech.add_prerequisite("angels-bio-refugium-biter-1", "processing-unit")

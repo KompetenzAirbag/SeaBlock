@@ -7,8 +7,8 @@ if mods["ScienceCostTweakerM"] then
   end
 
   -- Change tech to use lab icon from SCT
-  data.raw.tool["sb-lab-tool"].icon = "__ScienceCostTweakerM__/graphics/sct-lab-t1/icon-64.png"
-  data.raw.tool["sb-lab-tool"].icon_mipmaps = 0
+  data.raw["technology"]["sb-startup4"].icon = "__ScienceCostTweakerM__/graphics/sct-lab-t1/icon-64.png"
+  data.raw["technology"]["sb-startup4"].icon_mipmaps = 0
 
   -- Reduce processing unit cost of S.C.T. high-tech science
   seablock.lib.substingredient("sct-htech-injector", "processing-unit", nil, 3)
@@ -19,9 +19,9 @@ if mods["ScienceCostTweakerM"] then
   -- Yellow science now requires Purple science
   -- Adjust any techs that needed Yellow but not Purple
 
-  bobmods.lib.tech.replace_science_pack("fusion-reactor-equipment", "utility-science-pack", "production-science-pack")
-  bobmods.lib.tech.replace_prerequisite("fusion-reactor-equipment", "utility-science-pack", "production-science-pack")
-  bobmods.lib.tech.add_prerequisite("fusion-reactor-equipment", "low-density-structure")
+  bobmods.lib.tech.replace_science_pack("fission-reactor-equipment", "utility-science-pack", "production-science-pack")
+  bobmods.lib.tech.replace_prerequisite("fission-reactor-equipment", "utility-science-pack", "production-science-pack")
+  bobmods.lib.tech.add_prerequisite("fission-reactor-equipment", "low-density-structure")
   if mods["bobequipment"] then
     bobmods.lib.tech.add_prerequisite("bob-fission-reactor-equipment-3", "utility-science-pack")
   end

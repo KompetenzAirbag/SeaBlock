@@ -94,7 +94,7 @@ data:extend({
     order = "c-a",
     prerequisites = {
       "angels-bio-processing-red",
-      "advanced-electronics",
+      "advanced-circuit",
       "angels-stone-smelting-2",
       "bob-zinc-processing",
       "chemical-science-pack",
