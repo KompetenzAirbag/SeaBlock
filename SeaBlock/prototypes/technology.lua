@@ -55,8 +55,8 @@ data:extend({
       { type = "unlock-recipe", recipe = "inserter" },
       { type = "unlock-recipe", recipe = "pipe" },
       { type = "unlock-recipe", recipe = "pipe-to-ground" },
-      { type = "unlock-recipe", recipe = "copper-pipe" },
-      { type = "unlock-recipe", recipe = "copper-pipe-to-ground" },
+      { type = "unlock-recipe", recipe = "bob-copper-pipe" },
+      { type = "unlock-recipe", recipe = "bob-copper-pipe-to-ground" },
       { type = "unlock-recipe", recipe = "iron-stick" },
       { type = "unlock-recipe", recipe = "iron-gear-wheel" },
       { type = "unlock-recipe", recipe = "burner-inserter" },
@@ -96,7 +96,7 @@ data:extend({
       "angels-bio-processing-red",
       "advanced-electronics",
       "angels-stone-smelting-2",
-      "zinc-processing",
+      "bob-zinc-processing",
       "chemical-science-pack",
     },
     effects = {
@@ -146,11 +146,11 @@ data:extend({
 
 bobmods.lib.recipe.enabled("boiler", false)
 bobmods.lib.recipe.enabled("steam-engine", false)
-bobmods.lib.recipe.enabled("copper-pipe-to-ground", false)
-bobmods.lib.recipe.enabled("basic-circuit-board", false)
+bobmods.lib.recipe.enabled("bob-copper-pipe-to-ground", false)
+bobmods.lib.recipe.enabled("bob-basic-circuit-board", false)
 bobmods.lib.recipe.enabled("automation-science-pack", false)
-if data.raw.recipe["basic-transport-belt"] then
-  bobmods.lib.tech.add_recipe_unlock("sb-startup3", "basic-transport-belt")
+if data.raw.recipe["bob-basic-transport-belt"] then
+  bobmods.lib.tech.add_recipe_unlock("sb-startup3", "bob-basic-transport-belt")
 else
   bobmods.lib.tech.add_recipe_unlock("sb-startup3", "transport-belt")
 end
@@ -160,14 +160,14 @@ if mods["bobwarfare"] then
     {
       type = "technology",
       name = "sb-sniper-rifle",
-      localised_name = { "item-name.sniper-rifle" },
+      localised_name = { "item-name.bob-sniper-rifle" },
       icon_size = 256,
       icon_mipmaps = 4,
       icon = "__base__/graphics/technology/military.png",
       effects = {
         {
           type = "unlock-recipe",
-          recipe = "sniper-rifle",
+          recipe = "bob-sniper-rifle",
         },
       },
       prerequisites = { "military-science-pack" },

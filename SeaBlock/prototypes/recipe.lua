@@ -35,10 +35,10 @@ data:extend({
     enabled = false,
     ingredients = {
       { type = "fluid", name = "steam", amount = 100 },
-      { type = "item", name = "lithium-chloride", amount = 2 },
+      { type = "item", name = "bob-lithium-chloride", amount = 2 },
     },
     results = {
-      { type = "fluid", name = "thermal-water", amount = 100 },
+      { type = "fluid", name = "angels-thermal-water", amount = 100 },
     },
   },
   {
@@ -81,8 +81,8 @@ data:extend({
     enabled = false,
     ingredients = {
       { type = "item", name = "angels-catalyst-metal-carrier", amount = 10 },
-      { type = "item", name = "gold-ore", amount = 1 },
-      { type = "item", name = "rutile-ore", amount = 1 },
+      { type = "item", name = "bob-gold-ore", amount = 1 },
+      { type = "item", name = "bob-rutile-ore", amount = 1 },
     },
     results = {
       { type = "item", name = "catalyst-metal-purple", amount = 10 },

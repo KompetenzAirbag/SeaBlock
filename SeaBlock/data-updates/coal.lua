@@ -23,9 +23,9 @@ angelsmods.functions.move_item("angels-pellet-coke", "angels-bio-processing-wood
 angelsmods.functions.move_item("angels-pellet-coke", "angels-bio-processing-wood", "f[pellet-coke]", "recipe")
 
 -- Clear fuel value so these don't appear in Helmod's fuel picker
-data.raw.item["carbon"].fuel_emissions_multiplier = nil
-data.raw.item["carbon"].fuel_value = nil
-data.raw.item["carbon"].fuel_category = nil
+data.raw.item["bob-carbon"].fuel_emissions_multiplier = nil
+data.raw.item["bob-carbon"].fuel_value = nil
+data.raw.item["bob-carbon"].fuel_category = nil
 data.raw.item["coal"].fuel_emissions_multiplier = nil
 data.raw.item["coal"].fuel_value = nil
 data.raw.item["coal"].fuel_category = nil

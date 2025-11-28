@@ -1,8 +1,8 @@
 -- Swap out concrete for bricks
 
-if data.raw.recipe["burner-reactor-2"] then
+if data.raw.recipe["bob-burner-reactor-2"] then
   seablock.lib.substingredient("bob-burner-reactor-2", "concrete", "angels-concrete-brick", nil)
-  bobmods.lib.tech.remove_prerequisite("burner-reactor-2", "concrete")
+  bobmods.lib.tech.remove_prerequisite("bob-burner-reactor-2", "concrete")
   bobmods.lib.tech.add_prerequisite("bob-burner-reactor-2", "angels-stone-smelting-2")
 end
 seablock.lib.substingredient("centrifuge", "concrete", "angels-concrete-brick", nil)

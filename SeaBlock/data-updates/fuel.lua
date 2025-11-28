@@ -18,8 +18,8 @@ data.raw.fluid["angels-liquid-fuel-oil"].fuel_value = "1MJ"
 data.raw.fluid["angels-liquid-naphtha"].fuel_value = "0.5MJ"
 data.raw.fluid["angels-gas-methane"].fuel_value = "0.5MJ"
 data.raw.fluid["crude-oil"].fuel_value = "0.5MJ"
-data.raw.item["enriched-fuel"].fuel_value = "50MJ"
-data.raw.item["enriched-fuel"].stack_size = 50
+data.raw.item["bob-enriched-fuel"].fuel_value = "50MJ"
+data.raw.item["bob-enriched-fuel"].stack_size = 50
 data.raw.item["angels-solid-carbon"].fuel_value = "2.5MJ"
 
 seablock.lib.substingredient("angels-solid-fuel-methane", "angels-gas-methane", nil, 40)
@@ -27,7 +27,7 @@ seablock.lib.substingredient("angels-solid-fuel-naphtha", "angels-liquid-naphtha
 seablock.lib.substingredient("angels-solid-fuel-fuel-oil", "angels-liquid-fuel-oil", nil, 20)
 
 for _, v in pairs({
-  "hydrogen",
+  "bob-hydrogen",
   "angels-gas-hydrogen",
   "angels-gas-ethane",
   "angels-gas-butane",
@@ -39,8 +39,11 @@ for _, v in pairs({
   "heavy-oil",
   "light-oil",
   "petroleum-gas",
+  "bob-sour-gas",
+  "bob-deuterium",
   "angels-gas-deuterium",
   "angels-gas-hydrazine",
+  "bob-alien-fire",
   "angels-glycerol",
   "diesel-fuel",
 }) do

@@ -29,7 +29,7 @@ seablock.startup_techs = {
   -- Don't reduce the science pack cost of green algae
   ["angels-bio-processing-green"] = { false },
   ["angels-bio-wood-processing-2"] = { true },
-  ["long-inserters-1"] = { true },
+  ["bob-long-inserters-1"] = { true },
   ["military"] = { true },
   ["optics"] = { true },
   ["angels-slag-processing-1"] = { true },
@@ -67,7 +67,7 @@ if
   settings.startup["bobmods-assembly-multipurposefurnaces"]
   and settings.startup["bobmods-assembly-multipurposefurnaces"].value
 then
-  seablock.startup_recipes["stone-mixing-furnace"] = true
+  seablock.startup_recipes["bob-stone-mixing-furnace"] = true
 end
 
 -- seablock.final_scripted_tech

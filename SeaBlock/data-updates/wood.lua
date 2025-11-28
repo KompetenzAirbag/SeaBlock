@@ -1,6 +1,6 @@
 -- Remove wood from basic underground belt and splitter recipes
-seablock.lib.removeingredient("basic-underground-belt", "wood")
-seablock.lib.removeingredient("basic-splitter", "wood")
+seablock.lib.removeingredient("bob-basic-underground-belt", "wood")
+seablock.lib.removeingredient("bob-basic-splitter", "wood")
 
 -- Can always apply productivity modules to furnace recipes, so make it official
 for k, v in pairs(data.raw.module) do
@@ -10,7 +10,7 @@ for k, v in pairs(data.raw.module) do
 end
 
 bobmods.lib.recipe.enabled("wooden-chest", false)
-bobmods.lib.recipe.enabled("wooden-board", false)
+bobmods.lib.recipe.enabled("bob-wooden-board", false)
 bobmods.lib.recipe.enabled("angels-cellulose-fiber-raw-wood", false)
 
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing", "angels-wood-pellets")
@@ -42,5 +42,6 @@ bobmods.lib.tech.remove_prerequisite("angels-bio-wood-processing-2", "angels-bio
 bobmods.lib.tech.remove_recipe_unlock("angels-resins", "angels-solid-resin")
 bobmods.lib.recipe.hide("angels-solid-resin")
 seablock.lib.hide_item("angels-solid-resin")
+seablock.lib.hide_item("bob-resin")
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-arboretum-temperate-1", "angels-bio-resin-resin-liquification")
 bobmods.lib.recipe.hide("angels-bio-resin-resin-liquification")

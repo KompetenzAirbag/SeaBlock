@@ -32,9 +32,9 @@ function seablock.create_rock_chest(surface, pos)
 end
 
 function seablock.have_item(player, itemname, crafted)
-  local unlock = global.unlocks[itemname]
+  local unlock = storage.unlocks[itemname]
   -- Special case for basic-circuit because it is part of starting equipment
-  if unlock and (itemname ~= "basic-circuit-board" or crafted) then
+  if unlock and (itemname ~= "bob-basic-circuit-board" or crafted) then
     for _, v in ipairs(unlock) do
       if player.force.technologies[v] then
         player.force.technologies[v].researched = true
@@ -59,7 +59,7 @@ local function init()
   end
   storage.unlocks = {
     ["angels-ore3-crushed"] = { "sb-startup1", "angels-bio-wood-processing" },
-    ["basic-circuit-board"] = { "sb-startup3", "sct-lab-t1" },
+    ["bob-basic-circuit-board"] = { "sb-startup3", "sct-lab-t1" },
   }
   if game.technology_prototypes["sct-automation-science-pack"] then
     global.unlocks["lab"] = { "sct-automation-science-pack" }

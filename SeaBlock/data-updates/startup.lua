@@ -8,59 +8,59 @@
 local knowningredients = {
   ["angels-electrolyser"] = {
     { "iron-plate", 10 },
-    { "basic-circuit-board", 5 },
+    { "bob-basic-circuit-board", 5 },
     { "iron-stick", 22 },
     { "stone-brick", 10 },
   },
   ["angels-liquifier"] = {
     { "iron-plate", 10 },
-    { "basic-circuit-board", 5 },
+    { "bob-basic-circuit-board", 5 },
     { "pipe-to-ground", 2 },
     { "stone-brick", 10 },
   },
   ["offshore-pump"] = {
-    { "basic-circuit-board", 2 },
+    { "bob-basic-circuit-board", 2 },
     { "pipe", 1 },
     { "iron-gear-wheel", 10 },
   },
   ["angels-crystallizer"] = {
     { "iron-plate", 10 },
-    { "basic-circuit-board", 5 },
-    { "copper-pipe", 5 },
+    { "bob-basic-circuit-board", 5 },
+    { "bob-copper-pipe", 5 },
     { "stone-brick", 10 },
   },
   ["angels-algae-farm"] = {
     { "iron-plate", 10 },
-    { "basic-circuit-board", 5 },
+    { "bob-basic-circuit-board", 5 },
     { "iron-stick", 10 },
     { "stone-brick", 25 },
   },
   ["angels-flare-stack"] = {
     { "iron-plate", 5 },
-    { "basic-circuit-board", 5 },
+    { "bob-basic-circuit-board", 5 },
     { "pipe", 10 },
     { "stone-brick", 10 },
   },
   ["angels-seafloor-pump"] = {
     { "iron-plate", 5 },
-    { "basic-circuit-board", 2 },
+    { "bob-basic-circuit-board", 2 },
     { "pipe", 5 },
   },
   ["angels-washing-plant"] = {
     { "iron-plate", 10 },
-    { "basic-circuit-board", 5 },
+    { "bob-basic-circuit-board", 5 },
     { "pipe", 10 },
     { "stone-brick", 10 },
   },
   ["chemical-plant"] = {
     { "iron-plate", 5 },
     { "iron-gear-wheel", 5 },
-    { "basic-circuit-board", 5 },
+    { "bob-basic-circuit-board", 5 },
     { "pipe", 5 },
   },
   ["angels-filtration-unit"] = {
     { "iron-plate", 5 },
-    { "basic-circuit-board", 5 },
+    { "bob-basic-circuit-board", 5 },
     { "pipe", 10 },
     { "stone-brick", 10 },
   },
@@ -133,7 +133,7 @@ local function ironrecipe(recipe)
     ["iron-stick"] = true,
     ["pipe"] = true,
     ["pipe-to-ground"] = true,
-    ["basic-circuit-board"] = true,
+    ["bob-basic-circuit-board"] = true,
     ["electronic-circuit"] = true,
     ["stone-brick"] = true,
     ["copper-plate"] = true,
@@ -156,6 +156,7 @@ local function ironrecipe(recipe)
   seablock.lib.iteraterecipes(recipe, scaningredients)
   return foundiron
 end
+
 
 -- Disable recipes that shouldn't consume startup items
 for k, v in pairs(data.raw.recipe) do

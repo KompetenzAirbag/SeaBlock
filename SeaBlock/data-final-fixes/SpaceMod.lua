@@ -133,7 +133,7 @@ if data.raw.technology["ftl-theory-D"] then
   end
 
   if mods["bobtech"] then
-    bobmods.lib.tech.add_science_pack("ftl-theory-D2", "advanced-logistic-science-pack", 1)
+    bobmods.lib.tech.add_science_pack("ftl-theory-D2", "bob-advanced-logistic-science-pack", 1)
     bobmods.lib.tech.remove_prerequisite("ftl-theory-D1", "ftl-theory-D")
     bobmods.lib.tech.add_prerequisite("ftl-theory-D1", "ftl-theory-C")
     bobmods.lib.tech.add_prerequisite("ftl-theory-D2", "ftl-theory-D")

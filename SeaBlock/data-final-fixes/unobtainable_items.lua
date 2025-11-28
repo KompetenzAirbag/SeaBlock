@@ -41,12 +41,12 @@ end
 -- Recipes to unconditionally remove
 local removerecipes = {}
 for _, v in ipairs({
-  "alien-artifact-blue-from-basic",
-  "alien-artifact-green-from-basic",
-  "alien-artifact-orange-from-basic",
-  "alien-artifact-purple-from-basic",
-  "alien-artifact-red-from-basic",
-  "alien-artifact-yellow-from-basic",
+  "bob-alien-artifact-blue",
+  "bob-alien-artifact-green",
+  "bob-alien-artifact-orange",
+  "bob-alien-artifact-purple",
+  "bob-alien-artifact-red",
+  "bob-alien-artifact-yellow",
   "angels-chemical-void-angels-gas-natural-1",
   "angels-chemical-void-angels-liquid-condensates",
   "angels-water-void-crystal-matrix", -- TODO: are those two already removed ?
@@ -55,7 +55,7 @@ for _, v in ipairs({
   "angels-ore3-crushed-hand",
   "big-burner-generator",
   "angels-bio-tile",
-  "bob-coal-from-wood",
+  "bob-carbon-from-wood",
   "bob-resin-wood",
   "burner-generator",
   "burner-mining-drill",
@@ -68,22 +68,22 @@ for _, v in ipairs({
   "angels-condensates-refining",
   "diesel-fuel",
   "electric-mining-drill",
-  "empty-crystal-matrix-barrel",
+  "empty-crystal-matrix-barrel", -- TODO: where does this item come from ? 
   "empty-diesel-fuel-barrel",
   "empty-angels-gas-natural-1-barrel",
   "empty-angels-liquid-condensates-barrel",
-  "empty-lithia-water-barrel",
-  "fill-crystal-matrix-barrel",
-  "fill-diesel-fuel-barrel",
+  "empty-bob-lithia-water-barrel",
+  "crystal-matrix-barrel",
+  "diesel-fuel-barrel",
   "angels-gas-natural-1-barrel",
   "angels-liquid-condensates-barrel",
-  "fill-lithia-water-barrel",
+  "bob-lithia-water-barrel",
   "angels-gas-fractioning-condensates",
   "gas-phosgene",
   "angels-gas-separation",
   "oil-steam-boiler",
   "petroleum-generator",
-  "protection-field-goopless",
+  "protection-field-goopless", --comes from spacemod
   "pumpjack",
   "angels-slag-processing-7",
   "angels-slag-processing-8",
@@ -117,8 +117,8 @@ for _, v in ipairs({
   "gas-phosgene-barrel",
   "angels-liquid-condensates",
   "angels-liquid-condensates-barrel",
-  "lithia-water",
-  "lithia-water-barrel",
+  "bob-lithia-water",
+  "bob-lithia-water-barrel",
   "oil-steam-boiler",
   "petroleum-generator",
   "pumpjack",
@@ -252,6 +252,6 @@ end
 
 -- Clear the list of science packs that alien lab can take
 -- This prevents YAFC warning
-if data.raw.lab["lab-alien"] then
-  data.raw.lab["lab-alien"].inputs = {}
+if data.raw.lab["bob-lab-alien"] then
+  data.raw.lab["bob-lab-alien"].inputs = {}
 end

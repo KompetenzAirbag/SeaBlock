@@ -1,9 +1,6 @@
 seablock.lib.hide("mining-drill", "burner-mining-drill")
 seablock.lib.hide("mining-drill", "electric-mining-drill")
 seablock.lib.hide("mining-drill", "pumpjack")
-seablock.lib.hide("storage-tank", "bob-overflow-valve")
-seablock.lib.hide("storage-tank", "bob-valve")
-seablock.lib.hide("storage-tank", "bob-topup-valve")
 
 -- Hide Oil & Gas Separator
 -- Hide Advanced Gas Refinery
@@ -90,32 +87,32 @@ bobmods.lib.tech.remove_recipe_unlock("angels-titanium-casting-3", "angels-liqui
 bobmods.lib.tech.remove_prerequisite("angels-titanium-casting-3", "angels-chrome-smelting-1")
 
 -- Hide steam inserter
-seablock.lib.hide("inserter", "steam-inserter")
-bobmods.lib.recipe.hide("steam-inserter")
-seablock.lib.hide_item("steam-inserter")
-if data.raw.inserter["steam-inserter"] then
-  data.raw.inserter["steam-inserter"].next_upgrade = nil
-  bobmods.lib.recipe.replace_ingredient_in_all("steam-inserter", "burner-inserter")
+seablock.lib.hide("inserter", "bob-steam-inserter")
+bobmods.lib.recipe.hide("bob-steam-inserter")
+seablock.lib.hide_item("bob-steam-inserter")
+if data.raw.inserter["bob-steam-inserter"] then
+  data.raw.inserter["bob-steam-inserter"].next_upgrade = nil
+  bobmods.lib.recipe.replace_ingredient_in_all("bob-steam-inserter", "burner-inserter")
 end
-bobmods.lib.tech.remove_recipe_unlock(seablock.final_scripted_tech, "steam-inserter")
+bobmods.lib.tech.remove_recipe_unlock(seablock.final_scripted_tech, "bob-steam-inserter")
 
 -- Hide Liquid Fuel
-if data.raw.recipe["enriched-fuel-from-liquid-fuel"] then
-  bobmods.lib.recipe.set_ingredients("enriched-fuel-from-liquid-fuel", {
+if data.raw.recipe["bob-enriched-fuel"] then
+  bobmods.lib.recipe.set_ingredients("bob-enriched-fuel", {
     { type = "fluid", name = "angels-liquid-fuel-oil", amount = 80 },
     { type = "fluid", name = "angels-gas-residual", amount = 20 },
   })
-  data.raw.recipe["enriched-fuel-from-liquid-fuel"].icons =
+  data.raw.recipe["bob-enriched-fuel"].icons =
     angelsmods.functions.create_solid_recipe_icon({ "angels-liquid-fuel-oil", "angels-gas-residual" }, "bob-enriched-fuel")
 end
-bobmods.lib.tech.remove_recipe_unlock("fluid-canister-processing", "empty-liquid-fuel-barrel")
-bobmods.lib.tech.remove_recipe_unlock("fluid-canister-processing", "fill-liquid-fuel-barrel")
-bobmods.lib.tech.remove_recipe_unlock("flammables", "liquid-fuel")
-bobmods.lib.recipe.hide("empty-liquid-fuel-barrel")
-bobmods.lib.recipe.hide("fill-liquid-fuel-barrel")
-bobmods.lib.recipe.hide("liquid-fuel")
-seablock.lib.hide("fluid", "liquid-fuel")
-seablock.lib.hide("item", "liquid-fuel-barrel")
+bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-liquid-fuel-barrel")
+bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "bob-liquid-fuel-barrel")
+bobmods.lib.tech.remove_recipe_unlock("flammables", "bob-liquid-fuel")
+bobmods.lib.recipe.hide("empty-bob-liquid-fuel-barrel")
+bobmods.lib.recipe.hide("bob-liquid-fuel-barrel")
+bobmods.lib.recipe.hide("bob-liquid-fuel")
+seablock.lib.hide("fluid", "bob-liquid-fuel")
+seablock.lib.hide("item", "bob-liquid-fuel-barrel")
 
 -- Swap out Nickel and Zinc plates
 seablock.lib.substingredient("bob-roboport-antenna-3", "bob-nickel-plate", "bob-titanium-plate", nil)
@@ -142,10 +139,10 @@ if mods["angelsindustries"] then
   seablock.lib.substingredient("angels-deuterium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
 end
 
-seablock.lib.hide_item("nickel-plate")
-seablock.lib.hide_item("zinc-plate")
+seablock.lib.hide_item("bob-nickel-plate")
+seablock.lib.hide_item("bob-zinc-plate")
 bobmods.lib.recipe.hide("bob-zinc-plate")
-bobmods.lib.tech.remove_recipe_unlock("zinc-processing", "bob-zinc-plate")
+bobmods.lib.tech.remove_recipe_unlock("bob-zinc-processing", "bob-zinc-plate")
 
 if mods["cargo-ships"] then
   seablock.lib.hide_item("oil_rig")

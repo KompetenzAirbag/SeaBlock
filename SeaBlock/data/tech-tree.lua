@@ -28,8 +28,8 @@ if mods["ScienceCostTweakerM"] then
   bobmods.lib.tech.add_prerequisite("sb-bio-processing-advanced", "sct-bio-science-pack")
   bobmods.lib.tech.add_prerequisite("utility-science-pack", "angels-rubber")
 end
-bobmods.lib.tech.add_prerequisite("angels-glass-smelting-1", "silicon-processing")
-bobmods.lib.tech.add_prerequisite("angels-stone-smelting-2", "silicon-processing")
+bobmods.lib.tech.add_prerequisite("angels-glass-smelting-1", "bob-silicon-processing")
+bobmods.lib.tech.add_prerequisite("angels-stone-smelting-2", "bob-silicon-processing")
 
 -- Add missing Science Pack Tech prerequisites
 
@@ -61,12 +61,12 @@ bobmods.lib.tech.add_prerequisite("angels-basic-chemistry-2", "logistic-science-
 bobmods.lib.tech.add_prerequisite("logistic-system", "production-science-pack")
 
 -- Utility / Yellow
-bobmods.lib.tech.add_prerequisite("radars-5", "utility-science-pack")
+bobmods.lib.tech.add_prerequisite("bob-radar-5", "utility-science-pack")
 
 -- Space / White
 if mods["bobequipment"] then
   bobmods.lib.tech.add_prerequisite("bob-energy-shield-equipment-6", "space-science-pack")
-  bobmods.lib.tech.add_prerequisite("fusion-reactor-equipment-4", "space-science-pack")
+  bobmods.lib.tech.add_prerequisite("bob-fission-reactor-equipment-4", "space-science-pack")
 end
 if mods["bobwarfare"] then
   bobmods.lib.tech.add_prerequisite("bob-power-armor-5", "space-science-pack")
@@ -98,9 +98,9 @@ end
 bobmods.lib.tech.add_prerequisite("angels-coal-processing", "steam-power")
 
 -- Gems are needed to make higher tier modules
-if data.raw.technology["gem-processing-3"] then
+if data.raw.technology["bob-gem-processing-3"] then
   --Module with 2 dots has the tech name of 3
-  bobmods.lib.tech.add_prerequisite("speed-module-3", "gem-processing-3")
-  bobmods.lib.tech.add_prerequisite("productivity-module-3", "gem-processing-3")
-  bobmods.lib.tech.add_prerequisite("effectivity-module-3", "gem-processing-3")
+  bobmods.lib.tech.add_prerequisite("speed-module-3", "bob-gem-processing-3")
+  bobmods.lib.tech.add_prerequisite("productivity-module-3", "bob-gem-processing-3")
+  bobmods.lib.tech.add_prerequisite("efficiency-module-3", "bob-gem-processing-3")
 end
