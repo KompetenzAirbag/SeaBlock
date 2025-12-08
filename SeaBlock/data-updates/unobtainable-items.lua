@@ -102,8 +102,10 @@ if data.raw.recipe["bob-enriched-fuel"] then
     { type = "fluid", name = "angels-liquid-fuel-oil", amount = 80 },
     { type = "fluid", name = "angels-gas-residual", amount = 20 },
   })
-  data.raw.recipe["bob-enriched-fuel"].icons =
-    angelsmods.functions.create_solid_recipe_icon({ "angels-liquid-fuel-oil", "angels-gas-residual" }, "bob-enriched-fuel")
+  data.raw.recipe["bob-enriched-fuel"].icons = angelsmods.functions.create_solid_recipe_icon(
+    { "angels-liquid-fuel-oil", "angels-gas-residual" },
+    "bob-enriched-fuel"
+  )
 end
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-liquid-fuel-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "bob-liquid-fuel-barrel")

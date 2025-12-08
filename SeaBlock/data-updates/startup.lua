@@ -155,7 +155,6 @@ local function ironrecipe(recipe)
   return foundiron
 end
 
-
 -- Disable recipes that shouldn't consume startup items
 for k, v in pairs(data.raw.recipe) do
   local r = v.normal or v

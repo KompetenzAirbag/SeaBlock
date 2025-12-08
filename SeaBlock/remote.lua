@@ -33,7 +33,8 @@ local function milestones_presets()
     { type = "item", name = "logistic-science-pack", quantity = 1 },
     { type = "item", name = "military-science-pack", quantity = 1 },
     { type = "item", name = "chemical-science-pack", quantity = 1 },
-    script.active_mods["bobtech"] and { type = "item", name = "bob-advanced-logistic-science-pack", quantity = 1 } or nil,
+    script.active_mods["bobtech"] and { type = "item", name = "bob-advanced-logistic-science-pack", quantity = 1 }
+      or nil,
     { type = "item", name = "production-science-pack", quantity = 1 },
     { type = "item", name = "utility-science-pack", quantity = 1 },
     { type = "item", name = "space-science-pack", quantity = 1 },

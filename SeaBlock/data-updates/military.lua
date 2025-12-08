@@ -289,8 +289,8 @@ local mil_ammo = {
   { type = "ammo", name = "bob-shotgun-uranium-shell" },
   { type = "ammo", name = "bob-uranium-cannon-shell" },
   { type = "ammo", name = "uranium-rounds-magazine" },
-  { type = "ammo", name = "uranium-cannon-shell"},
-  { type = "ammo", name = "explosive-uranium-cannon-shell"},
+  { type = "ammo", name = "uranium-cannon-shell" },
+  { type = "ammo", name = "explosive-uranium-cannon-shell" },
   { type = "ammo", name = "bob-explosive-artillery-shell" },
   { type = "capsule", name = "cluster-grenade" },
   { type = "capsule", name = "defender-capsule" },
@@ -500,7 +500,6 @@ if mods["bobwarfare"] then
   data.raw["artillery-wagon"]["bob-artillery-wagon-2"].next_upgrade = nil
 end
 data.raw["electric-turret"]["laser-turret"].next_upgrade = nil
-
 
 bobmods.lib.tech.remove_recipe_unlock("angels-advanced-gas-processing", "gas-fractioning-residual")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-barrel-processing", "empty-liquid-glycerol-barrel")

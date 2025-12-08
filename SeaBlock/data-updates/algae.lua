@@ -11,7 +11,12 @@ bobmods.lib.tech.add_prerequisite("angels-bio-processing-green", "angels-water-w
 data.raw.technology["angels-bio-processing-green"].localised_name = { "technology-name.sb-bio-processing-green" }
 
 -- Move Lithia Salt to Thermal Water Extraction
-seablock.lib.moveeffect("angels-algae-brown-burning", "angels-bio-processing-green", "angels-thermal-water-extraction", 2)
+seablock.lib.moveeffect(
+  "angels-algae-brown-burning",
+  "angels-bio-processing-green",
+  "angels-thermal-water-extraction",
+  2
+)
 bobmods.lib.tech.add_prerequisite("bob-lithium-processing", "angels-thermal-water-extraction")
 
 -- Change lithium crafting category
@@ -22,17 +27,31 @@ bobmods.lib.tech.remove_recipe_unlock("angels-water-treatment-3", "angels-solid-
 bobmods.lib.recipe.hide("angels-solid-lithium") -- TODO: move angels-solid-lithium to the same group as the recipe or the other way around
 
 -- Move Sodium Carbonate from Brown Algae to Sodium processing 2
-seablock.lib.moveeffect("angels-algae-brown-burning-wash", "angels-bio-processing-green", "angels-sodium-processing-2", nil)
+seablock.lib.moveeffect(
+  "angels-algae-brown-burning-wash",
+  "angels-bio-processing-green",
+  "angels-sodium-processing-2",
+  nil
+)
 
 -- Move Methanol from Cellulose Fibre to Advanced chemistry 1
-seablock.lib.moveeffect("angels-gas-methanol-from-wood", "angels-bio-processing-green", "angels-advanced-chemistry-1", 5)
+seablock.lib.moveeffect(
+  "angels-gas-methanol-from-wood",
+  "angels-bio-processing-green",
+  "angels-advanced-chemistry-1",
+  5
+)
 
 -- Make Red Algae depend on Blue Algae instead of Green Algae
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-red", "angels-bio-processing-green")
 bobmods.lib.tech.add_prerequisite("angels-bio-processing-red", "angels-bio-processing-blue")
 
 -- Blue algae
-bobmods.lib.tech.replace_prerequisite("angels-bio-processing-blue", "angels-bio-processing-red", "angels-bio-processing-green")
+bobmods.lib.tech.replace_prerequisite(
+  "angels-bio-processing-blue",
+  "angels-bio-processing-red",
+  "angels-bio-processing-green"
+)
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "chemical-science-pack")
 bobmods.lib.tech.remove_science_pack("angels-bio-processing-blue", "chemical-science-pack")
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-processing-blue", "angels-algae-farm-4")
@@ -71,6 +90,6 @@ angelsmods.functions.RB.build({
       { type = "item", name = "t0-brick", amount = 11 },
       { type = "item", name = "t0-pipe", amount = 18 },
     },
-    results = {{type = "item", name = "angels-algae-farm-2", amount = 1}}
+    results = { { type = "item", name = "angels-algae-farm-2", amount = 1 } },
   },
 })
