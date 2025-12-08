@@ -20,10 +20,7 @@ for i = 1, 6 do
   recipe.energy_required = 4
   recipe.ingredients = { { type = "fluid", name = "angels-mineral-sludge", amount = 25 } }
   recipe.results = { { type = "item", name = "angels-ore" .. i, amount = 1 } }
-  recipe.enabled = false
   recipe.hidden = false
-
-  angelsmods.functions.allow_productivity("angels-slag-processing-" .. i)
 end
 
 -- Angels ores 1, 3 (Saphirite, Stiratite) available from tutorial tech 1,
@@ -33,12 +30,12 @@ bobmods.lib.recipe.enabled("angels-ore1-crushed-smelting", false)
 bobmods.lib.recipe.enabled("angels-ore3-crushed-smelting", false)
 seablock.lib.moveeffect("angels-catalysator-brown", "angels-slag-processing-1", "angels-advanced-ore-refining-1", 3)
 local slag1start = seablock.lib.findeffectidx(data.raw.technology["angels-slag-processing-1"].effects, "angels-slag-processing-1")
-seablock.lib.insert_effect("angels-slag-processing-5", "angels-slag-processing-1", slag1start+3)
-seablock.lib.insert_effect("angels-slag-processing-6", "angels-slag-processing-1", slag1start+4)
+seablock.lib.insert_effect("angels-slag-processing-5", "angels-slag-processing-1", slag1start + 3)
+seablock.lib.insert_effect("angels-slag-processing-6", "angels-slag-processing-1", slag1start + 4)
 
 local slag2start = 0
 seablock.lib.moveeffect("angels-slag-processing-2", "angels-slag-processing-1", "angels-ore-advanced-crushing", slag2start + 1)
-seablock.lib.insert_effect("angels-slag-processing-4", "angels-ore-advanced-crushing", slag2start+2)
+seablock.lib.insert_effect("angels-slag-processing-4", "angels-ore-advanced-crushing", slag2start + 2)
 seablock.lib.moveeffect("angels-ore2-crushed", "angels-ore-crushing", "angels-ore-advanced-crushing", slag2start + 3)
 seablock.lib.moveeffect("angels-ore4-crushed", "angels-ore-crushing", "angels-ore-advanced-crushing", slag2start + 4)
 
