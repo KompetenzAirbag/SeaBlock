@@ -5,8 +5,6 @@
     ],
     "item":
     [
-      ["stone-crushed", "stone"],
-      ["catalyst-metal-purple", "sb-catalyst-metal-purple"],
       ["filter-charcoal", "angels-filter-charcoal"],
       ["pellet-charcoal", "angels-pellet-charcoal"]
     ],
@@ -14,8 +12,7 @@
     [
       ["thermal-bore-water", "sb-thermal-bore-water"],
       ["thermal-extractor-water", "sb-thermal-extractor-water"],
-      ["crafting-handonly", "sb-crafting-handonly"],
-      ["catalyst-metal-purple", "sb-catalyst-metal-purple"]
+      ["crafting-handonly", "sb-crafting-handonly"]
     ],
     "recipe-category": 
     [
