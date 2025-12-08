@@ -9,4 +9,4 @@ angelsmods.functions.make_void("angels-solid-compost", "bio", 5)
 -- Move recipe Charcoal > Carbon dioxide from Basic chemistry to Wood processing 2
 bobmods.lib.tech.remove_recipe_unlock("angels-bio-wood-processing-2", "angels-gas-carbon-dioxide-from-wood")
 bobmods.lib.recipe.hide("angels-gas-carbon-dioxide-from-wood")
-bobmods.lib.tech.remove_recipe_unlock("angels-basic-chemistry", "angels-carbon-separation-2")
+bobmods.lib.tech.remove_recipe_unlock("angels-basic-chemistry", "angels-gas-carbon-dioxide")
