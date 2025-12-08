@@ -127,7 +127,7 @@ local function milestones_presets()
     -- Bob's Modules
     grouped_milestones["modules"] = {
       { type = "item", name = "productivity-module", quantity = 1 },
-      { type = "item", name = "productivity-module-3", quantity = 1 }
+      { type = "item", name = "productivity-module-3", quantity = 1 },
       { type = "item", name = "bob-productivity-module-5", quantity = 1 },
     }
   end
