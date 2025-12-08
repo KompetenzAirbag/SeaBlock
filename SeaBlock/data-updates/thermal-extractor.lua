@@ -14,7 +14,10 @@ local function makeextractorlayers(bottom, top)
   local layers = {}
   if top then
     table.insert(layers, {
-      stripes = makestripes("__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
+      stripes = makestripes(
+        "__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png",
+        16
+      ),
       priority = "high",
       width = 288,
       height = 288,
@@ -36,7 +39,10 @@ local function makeextractorlayers(bottom, top)
   })
   if bottom then
     table.insert(layers, {
-      stripes = makestripes("__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png", 16),
+      stripes = makestripes(
+        "__angelsrefininggraphics__/graphics/entity/thermal-extractor/thermal-extractor-base.png",
+        16
+      ),
       priority = "high",
       width = 288,
       height = 288,
@@ -79,7 +85,10 @@ extractor.animation = {
 }
 bobmods.lib.tech.add_recipe_unlock("angels-thermal-water-extraction-2", "sb-thermal-extractor-water")
 move_item("angels-thermal-extractor", "angels-water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
-bobmods.lib.recipe.add_ingredient("angels-thermal-extractor", { type = "item", name = "angels-thermal-bore", amount = 1 })
+bobmods.lib.recipe.add_ingredient(
+  "angels-thermal-extractor",
+  { type = "item", name = "angels-thermal-bore", amount = 1 }
+)
 
 local bore = data.raw["mining-drill"]["angels-thermal-bore"]
 data.raw["mining-drill"]["angels-thermal-bore"] = nil

@@ -221,17 +221,35 @@ bobmods.lib.tech.remove_prerequisite("angels-bio-farm-2", "angels-stone-smelting
 
 -- Rebalance glass mixture recipes
 bobmods.lib.recipe.remove_ingredient("angels-solid-glass-mixture", "bob-quartz")
-bobmods.lib.recipe.set_ingredient("angels-solid-glass-mixture", { type = "item", name = "bob-silicon-powder", amount = 1 })
+bobmods.lib.recipe.set_ingredient(
+  "angels-solid-glass-mixture",
+  { type = "item", name = "bob-silicon-powder", amount = 1 }
+)
 
 bobmods.lib.recipe.remove_ingredient("angels-solid-glass-mixture-2", "bob-quartz")
-bobmods.lib.recipe.set_ingredient("angels-solid-glass-mixture-2", { type = "item", name = "bob-silicon-powder", amount = 2 })
-bobmods.lib.recipe.set_result("angels-solid-glass-mixture-2", { type = "item", name = "angels-solid-glass-mixture", amount = 3 })
+bobmods.lib.recipe.set_ingredient(
+  "angels-solid-glass-mixture-2",
+  { type = "item", name = "bob-silicon-powder", amount = 2 }
+)
+bobmods.lib.recipe.set_result(
+  "angels-solid-glass-mixture-2",
+  { type = "item", name = "angels-solid-glass-mixture", amount = 3 }
+)
 bobmods.lib.recipe.set_energy_required("angels-solid-glass-mixture-2", 6)
 
 bobmods.lib.recipe.remove_ingredient("angels-solid-glass-mixture-3", "bob-quartz")
-bobmods.lib.recipe.set_ingredient("angels-solid-glass-mixture-3", { type = "item", name = "bob-silicon-powder", amount = 1 })
-bobmods.lib.recipe.set_ingredient("angels-solid-glass-mixture-3", { type = "item", name = "angels-solid-lime", amount = 2 })
-bobmods.lib.recipe.set_result("angels-solid-glass-mixture-3", { type = "item", name = "angels-solid-glass-mixture", amount = 4 })
+bobmods.lib.recipe.set_ingredient(
+  "angels-solid-glass-mixture-3",
+  { type = "item", name = "bob-silicon-powder", amount = 1 }
+)
+bobmods.lib.recipe.set_ingredient(
+  "angels-solid-glass-mixture-3",
+  { type = "item", name = "angels-solid-lime", amount = 2 }
+)
+bobmods.lib.recipe.set_result(
+  "angels-solid-glass-mixture-3",
+  { type = "item", name = "angels-solid-glass-mixture", amount = 4 }
+)
 bobmods.lib.recipe.set_energy_required("angels-solid-glass-mixture-3", 8)
 
 bobmods.lib.recipe.set_energy_required("angels-solid-glass-mixture-4", 8)

@@ -9,7 +9,12 @@ if data.raw.fluid["angels-gas-hydrazine"] then
   data.raw.fluid["angels-gas-hydrazine"].fuel_value = hydrazinevalue
   if hydrazinevalue:sub(-2) == "kJ" then
     local hydrazinevaluekj = tonumber(hydrazinevalue:sub(1, -3))
-    seablock.lib.substingredient("angels-solid-fuel-hydrazine", "angels-gas-hydrazine", nil, math.floor(24000 / hydrazinevaluekj))
+    seablock.lib.substingredient(
+      "angels-solid-fuel-hydrazine",
+      "angels-gas-hydrazine",
+      nil,
+      math.floor(24000 / hydrazinevaluekj)
+    )
   end
 end
 
