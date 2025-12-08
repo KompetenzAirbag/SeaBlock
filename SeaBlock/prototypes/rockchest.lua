@@ -2,7 +2,6 @@ data:extend({
   {
     type = "container",
     name = "sb-rock-chest",
-    localised_name = { "entity-name.home" },
     icon = "__base__/graphics/icons/stone.png",
     icon_size = 32,
     flags = { "placeable-neutral", "player-creation" },

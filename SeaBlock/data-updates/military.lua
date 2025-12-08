@@ -4,8 +4,6 @@ local mil_items = {
   { type = "ammo-turret", name = "bob-gun-turret-4" },
   { type = "ammo-turret", name = "bob-gun-turret-5" },
   { type = "ammo-turret", name = "bob-sniper-turret-3" },
-  --{ type = "armor", name = "modular-armor" },
-  --{ type = "armor", name = "heavy-armor-3" },
   { type = "artillery-turret", name = "bob-artillery-turret-3" },
   { type = "artillery-wagon", name = "bob-artillery-wagon-3" },
   { type = "car", name = "bob-tank-2" },
@@ -25,7 +23,7 @@ local mil_items = {
   { type = "fluid-turret", name = "flamethrower-turret" },
   { type = "fluid-wagon", name = "bob-armoured-fluid-wagon-2" },
   { type = "fluid-wagon", name = "bob-armoured-fluid-wagon" },
-  { type = "fluid", name = "alien-acid" },
+  { type = "fluid", name = "bob-alien-acid" },
   { type = "fluid", name = "bob-alien-explosive" },
   { type = "fluid", name = "bob-alien-fire" },
   { type = "fluid", name = "bob-alien-poison" },
@@ -76,17 +74,16 @@ local mil_items = {
   { type = "item", name = "bob-bullet-casing" },
   { type = "item", name = "bob-bullet-projectile" },
   { type = "item", name = "bob-bullet" },
-  { type = "item", name = "combat-robot-dispenser-equipment" },
   { type = "item", name = "bob-cordite" },
   { type = "item", name = "discharge-defense-equipment" },
   { type = "item", name = "bob-distractor-mine" },
   { type = "item", name = "bob-electric-bullet-projectile" },
   { type = "item", name = "bob-electric-bullet" },
   { type = "item", name = "bob-electric-rocket-warhead" },
-  { type = "item", name = "explosive-rocket-warhead" },
+  { type = "item", name = "bob-explosive-rocket-warhead" },
   { type = "item", name = "bob-flame-bullet-projectile" },
   { type = "item", name = "bob-flame-bullet" },
-  { type = "item", name = "flame-rocket-warhead" },
+  { type = "item", name = "bob-flame-rocket-warhead" },
   { type = "item", name = "flamethrower-turret" },
   { type = "item", name = "bob-gun-cotton" },
   { type = "item", name = "bob-gunmetal-alloy" },
@@ -264,7 +261,7 @@ local mil_ammo = {
   { type = "ammo", name = "bob-electric-bullet-magazine" },
   { type = "ammo", name = "explosive-artillery-shell" },
   { type = "ammo", name = "explosive-rocket" },
-  { type = "ammo", name = "bob-explosive-uranium-cannon-shell" },
+  { type = "ammo", name = "explosive-uranium-cannon-shell" },
   { type = "ammo", name = "bob-fire-artillery-shell" },
   { type = "ammo", name = "bob-flame-bullet-magazine" },
   { type = "ammo", name = "flamethrower-ammo" },
@@ -412,8 +409,6 @@ local mil_recipes = {
   "bob-he-bullet",
   "bob-he-bullet-magazine",
   "bob-he-bullet-projectile",
-  --"modular-armor",
-  --"heavy-armor-3",
   "bob-lab-alien",
   "land-mine",
   "bob-laser-rifle",
@@ -486,32 +481,9 @@ for _, v in pairs(mil_ammo) do
   end
 end
 
--- except = {
---   ["follower-robot-count-1"] = true,
---   ["follower-robot-count-2"] = true,
---   ["follower-robot-count-3"] = true,
---   ["follower-robot-count-4"] = true,
---   ["follower-robot-count-5"] = true,
---   ["follower-robot-count-6"] = true,
---   ["follower-robot-count-7"] = true,
---   ["energy-weapons-damage-7"] = true,
---   ["physical-projectile-damage-7"] = true,
---   ["refined-flammables-1"] = true,
---   ["refined-flammables-2"] = true,
---   ["refined-flammables-3"] = true,
---   ["refined-flammables-4"] = true,
---   ["refined-flammables-5"] = true,
---   ["refined-flammables-6"] = true,
---   ["refined-flammables-7"] = true,
---   ["stronger-explosives-7"] = true,
---   ["laser-shooting-speed-7"] = true,
--- }
 for _, v in pairs(mil_tech) do
   if data.raw.technology[v] then
     seablock.lib.hide_technology(v)
-    -- if not except[v] then
-    --   data.raw.technology[v].unit.ingredients = {} --remove 
-    -- end
   end
 end
 
@@ -739,7 +711,7 @@ local mil_techswap = {
   },
   -- 150 Red, Green, Blue, Purple
   {
-    tech_name = "vehicle-battery-equipment-4",
+    tech_name = "bob-vehicle-battery-equipment-4",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -749,7 +721,7 @@ local mil_techswap = {
   },
   -- 200 Red, Green, Blue, Purple, Pink
   {
-    tech_name = "vehicle-battery-equipment-5",
+    tech_name = "bob-vehicle-battery-equipment-5",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -760,7 +732,7 @@ local mil_techswap = {
   },
   -- 250 Red, Green, Blue, Purple, Pink, Yellow
   {
-    tech_name = "vehicle-battery-equipment-6",
+    tech_name = "bob-vehicle-battery-equipment-6",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -772,7 +744,7 @@ local mil_techswap = {
   },
   -- 200 Red, Green, Military, Blue, Purple, Pink
   {
-    tech_name = "vehicle-energy-shield-equipment-4",
+    tech_name = "bob-vehicle-energy-shield-equipment-4",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -784,7 +756,7 @@ local mil_techswap = {
   },
   -- 250 Red, Green, Military, Blue, Purple, Pink, Yellow
   {
-    tech_name = "vehicle-energy-shield-equipment-5",
+    tech_name = "bob-vehicle-energy-shield-equipment-5",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -797,7 +769,7 @@ local mil_techswap = {
   },
   -- 300 Red, Green, Military, Blue, Purple, Pink, Yellow, White
   {
-    tech_name = "vehicle-energy-shield-equipment-6",
+    tech_name = "bob-vehicle-energy-shield-equipment-6",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -811,7 +783,7 @@ local mil_techswap = {
   },
   -- 200 Red, Green, Blue, Purple, Yellow
   {
-    tech_name = "vehicle-fusion-cell-equipment-4",
+    tech_name = "bob-vehicle-fusion-cell-equipment-4",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -822,7 +794,7 @@ local mil_techswap = {
   },
   -- 250 Red, Green, Blue, Purple, Pink, Yellow
   {
-    tech_name = "vehicle-fusion-cell-equipment-5",
+    tech_name = "bob-vehicle-fusion-cell-equipment-5",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -834,7 +806,7 @@ local mil_techswap = {
   },
   -- 300 Red, Green, Blue, Purple, Pink, Yellow, White
   {
-    tech_name = "vehicle-fusion-cell-equipment-6",
+    tech_name = "bob-vehicle-fusion-cell-equipment-6",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -847,7 +819,7 @@ local mil_techswap = {
   },
   -- 250 Red, Green, Military, Blue, Purple
   {
-    tech_name = "vehicle-big-turret-equipment-3",
+    tech_name = "bob-vehicle-big-turret-equipment-3",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -858,7 +830,7 @@ local mil_techswap = {
   },
   -- 300 Red, Green, Military, Blue, Purple
   {
-    tech_name = "vehicle-big-turret-equipment-4",
+    tech_name = "bob-vehicle-big-turret-equipment-4",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -869,7 +841,7 @@ local mil_techswap = {
   },
   -- 350 Red, Green, Military, Blue, Purple, Pink
   {
-    tech_name = "vehicle-big-turret-equipment-5",
+    tech_name = "bob-vehicle-big-turret-equipment-5",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -881,7 +853,7 @@ local mil_techswap = {
   },
   -- 400 Red, Green, Military, Blue, Purple, Pink, Yellow
   {
-    tech_name = "vehicle-big-turret-equipment-6",
+    tech_name = "bob-vehicle-big-turret-equipment-6",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -930,7 +902,7 @@ local mil_techswap = {
   },
   -- 400 Red, Green, Military, Blue, Purple, Pink, Yellow, White
   {
-    tech_name = "personal-laser-defense-equipment-6",
+    tech_name = "bob-personal-laser-defense-equipment-6",
     science_packs = {
       { "automation-science-pack", 1 },
       { "logistic-science-pack", 1 },
@@ -1023,9 +995,6 @@ if mods["bobwarfare"] then
   bobmods.lib.tech.add_prerequisite("artillery", "bob-radar-3")
 
   bobmods.lib.tech.add_prerequisite("spidertron", "bob-radar-5")
-
-  -- Remove dependencies on Alien Research
-  --bobmods.lib.tech.remove_prerequisite("bob-power-armor-3", "alien-research")
 
   -- Adjust Power Armor
   bobmods.lib.tech.remove_science_pack("power-armor", "chemical-science-pack")
