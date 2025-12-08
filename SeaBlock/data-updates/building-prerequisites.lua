@@ -1,3 +1,5 @@
+-- TODO: Remove this file. Changes should now be in Angel's
+
 -- Bronze prerequisites
 bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-1", "bob-alloy-processing")
 bobmods.lib.tech.add_prerequisite("angels-cooling", "bob-alloy-processing")
