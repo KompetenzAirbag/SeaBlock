@@ -1,15 +1,7 @@
 -- Decrease amount of crushed stone for slag-slurry so it's still better than mineralized water crystallization
 seablock.lib.substingredient("angels-stone-crushed-dissolution", "angels-stone-crushed", "stone", 20)
 
--- Update results of ore processing since Angel's changed that to be less convenient
-data.raw.recipe["angels-ore-chunk-mix3-processing"].results = {{ type = "item", name = "bob-bauxite-ore", amount = 4 }}
-
-data.raw.recipe["angels-ore-crushed-mix3-processing"].results = {{ type = "item", name = "bob-lead-ore", amount = 4 }}
-
-data.raw.recipe["angels-ore-pure-mix2-processing"].results = {{ type = "item", name = "angels-platinum-ore", amount = 2 }}
-
--- Angels sludge crystalization usually gives normal smeltable ores. This would be far too easy,
--- so change recipes to give the weird ores that need extra processing steps.
+-- Angels sludge crystalization usually gives multiple ores. Change so we have one recipe per ore.
 for i = 1, 6 do
   local recipe = data.raw.recipe["angels-slag-processing-" .. i]
   seablock.lib.copy_icon(recipe, {})
