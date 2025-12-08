@@ -1,8 +1,8 @@
 -- Rename internal item names to keep mods like FNEI searching properly
 local itemrename = {
-  ["solid-coke"] = "wood-charcoal",
-  ["filter-coal"] = "filter-charcoal",
-  ["pellet-coke"] = "pellet-charcoal",
+  ["angels-solid-coke"] = "angels-wood-charcoal",
+  ["angels-filter-coal"] = "angels-filter-charcoal",
+  ["angels-pellet-coke"] = "angels-pellet-charcoal",
 }
 
 for k, v in pairs(itemrename) do
@@ -41,59 +41,53 @@ end
 -- Recipes to unconditionally remove
 local removerecipes = {}
 for _, v in ipairs({
-  "alien-artifact-blue-from-basic",
-  "alien-artifact-green-from-basic",
-  "alien-artifact-orange-from-basic",
-  "alien-artifact-purple-from-basic",
-  "alien-artifact-red-from-basic",
-  "alien-artifact-yellow-from-basic",
-  "angels-chemical-void-gas-natural-1",
-  "angels-chemical-void-liquid-condensates",
-  "angels-water-void-crystal-matrix",
-  "angels-water-void-lithia-water",
-  "angelsore1-crushed-hand",
-  "angelsore3-crushed-hand",
+  "bob-alien-artifact-blue",
+  "bob-alien-artifact-green",
+  "bob-alien-artifact-orange",
+  "bob-alien-artifact-purple",
+  "bob-alien-artifact-red",
+  "bob-alien-artifact-yellow",
+  "angels-chemical-void-angels-gas-natural-1",
+  "angels-chemical-void-angels-liquid-condensates",
+  "angels-ore1-crushed-hand",
+  "angels-ore3-crushed-hand",
   "big-burner-generator",
-  "bio-tile",
-  "bob-coal-from-wood",
+  "angels-bio-tile",
+  "bob-carbon-from-wood",
   "bob-resin-wood",
   "burner-generator",
   "burner-mining-drill",
-  "carbon-from-charcoal",
-  "coal-cracking-1",
-  "coal-cracking-2",
-  "coal-cracking-3",
-  "coal-crushed",
-  "condensates-oil-refining",
-  "condensates-refining",
+  "angels-carbon-from-charcoal",
+  "angels-coal-cracking-1",
+  "angels-coal-cracking-2",
+  "angels-coal-cracking-3",
+  "angels-coal-crushed",
+  "angels-condensates-oil-refining",
+  "angels-condensates-refining",
   "diesel-fuel",
   "electric-mining-drill",
-  "empty-crystal-matrix-barrel",
   "empty-diesel-fuel-barrel",
-  "empty-gas-natural-1-barrel",
-  "empty-liquid-condensates-barrel",
-  "empty-lithia-water-barrel",
-  "fill-crystal-matrix-barrel",
-  "fill-diesel-fuel-barrel",
-  "fill-gas-natural-1-barrel",
-  "fill-liquid-condensates-barrel",
-  "fill-lithia-water-barrel",
-  "gas-fractioning-condensates",
-  "gas-phosgene",
-  "gas-separation",
+  "empty-angels-gas-natural-1-barrel",
+  "empty-angels-liquid-condensates-barrel",
+  "empty-bob-lithia-water-barrel",
+  "diesel-fuel-barrel",
+  "angels-gas-natural-1-barrel",
+  "angels-liquid-condensates-barrel",
+  "bob-lithia-water-barrel",
+  "angels-gas-fractioning-condensates",
+  "angels-gas-separation",
   "oil-steam-boiler",
   "petroleum-generator",
-  "protection-field-goopless",
+  "protection-field-goopless", --comes from spacemod
   "pumpjack",
-  "slag-processing-7",
-  "slag-processing-8",
-  "slag-processing-9",
-  "solid-coke",
-  "solid-coke-sulfur",
-  "thermal-water-filtering-1",
-  "thermal-water-filtering-2",
-  "water-thermal-lithia",
-  "wood-charcoal",
+  "angels-slag-processing-7",
+  "angels-slag-processing-8",
+  "angels-slag-processing-9",
+  "angels-solid-coke",
+  "angels-solid-coke-sulfur",
+  "angels-thermal-water-filtering-1",
+  "angels-thermal-water-filtering-2",
+  "angels-wood-charcoal",
 }) do
   removerecipes[v] = true
 end
@@ -103,22 +97,20 @@ end
 local unobtainable = {}
 for _, v in ipairs({
   "big-burner-generator",
-  "bio-tile",
+  "angels-bio-tile",
   "burner-generator",
   "burner-mining-drill",
   "coal",
-  "coal-crushed",
+  "angels-coal-crushed",
   "diesel-fuel",
   "diesel-fuel-barrel",
   "electric-mining-drill",
-  "gas-natural-1",
-  "gas-natural-1-barrel",
-  "gas-phosgene",
-  "gas-phosgene-barrel",
-  "liquid-condensates",
-  "liquid-condensates-barrel",
-  "lithia-water",
-  "lithia-water-barrel",
+  "angels-gas-natural-1",
+  "angels-gas-natural-1-barrel",
+  "angels-liquid-condensates",
+  "angels-liquid-condensates-barrel",
+  "bob-lithia-water",
+  "bob-lithia-water-barrel",
   "oil-steam-boiler",
   "petroleum-generator",
   "pumpjack",
@@ -147,13 +139,7 @@ for k, v in pairs(data.raw.technology) do
 end
 
 for k, v in pairs(recipes) do
-  local iset = {}
-  if v.normal then
-    iset = { v.normal, v.expensive }
-  else
-    iset = { v }
-  end
-  for _, recipe in ipairs(iset) do
+  for _, recipe in pairs(v) do
     local items = {}
     if recipe.ingredients then
       for _, ingredient in pairs(recipe.ingredients) do
@@ -252,6 +238,6 @@ end
 
 -- Clear the list of science packs that alien lab can take
 -- This prevents YAFC warning
-if data.raw.lab["lab-alien"] then
-  data.raw.lab["lab-alien"].inputs = {}
+if data.raw.lab["bob-lab-alien"] then
+  data.raw.lab["bob-lab-alien"].inputs = {}
 end

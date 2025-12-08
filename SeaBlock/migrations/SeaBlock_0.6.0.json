@@ -1,0 +1,24 @@
+{
+    "entity": 
+    [
+      ["rock-chest", "sb-rock-chest"]
+    ],
+    "item":
+    [
+      ["filter-charcoal", "angels-filter-charcoal"],
+      ["pellet-charcoal", "angels-pellet-charcoal"]
+    ],
+    "recipe":
+    [
+      ["thermal-bore-water", "sb-thermal-bore-water"],
+      ["thermal-extractor-water", "sb-thermal-extractor-water"],
+      ["crafting-handonly", "sb-crafting-handonly"]
+    ],
+    "recipe-category": 
+    [
+      ["crafting-handonly", "sb-crafting-handonly"],
+      ["thermal-bore", "sb-thermal-bore"],
+      ["thermal-extractor", "sb-thermal-extractor"],
+      ["petrochem-electrolyser-4", "sb-petrochem-electrolyser-4"]
+    ]
+}

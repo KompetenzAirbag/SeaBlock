@@ -7,9 +7,9 @@ local function set_speed(type, name, speed)
   end
 end
 
-set_speed("transport-belt", "basic-transport-belt", 7.5)
-set_speed("underground-belt", "basic-underground-belt", 7.5)
-set_speed("splitter", "basic-splitter", 7.5)
+set_speed("transport-belt", "bob-basic-transport-belt", 7.5)
+set_speed("underground-belt", "bob-basic-underground-belt", 7.5)
+set_speed("splitter", "bob-basic-splitter", 7.5)
 
 set_speed("transport-belt", "transport-belt", 15)
 set_speed("underground-belt", "underground-belt", 15)
@@ -23,31 +23,35 @@ set_speed("transport-belt", "express-transport-belt", 45)
 set_speed("underground-belt", "express-underground-belt", 45)
 set_speed("splitter", "express-splitter", 45)
 
-set_speed("transport-belt", "turbo-transport-belt", 60)
-set_speed("underground-belt", "turbo-underground-belt", 60)
-set_speed("splitter", "turbo-splitter", 60)
+set_speed("transport-belt", "bob-turbo-transport-belt", 60)
+set_speed("underground-belt", "bob-turbo-underground-belt", 60)
+set_speed("splitter", "bob-turbo-splitter", 60)
 
-set_speed("transport-belt", "ultimate-transport-belt", 75)
-set_speed("underground-belt", "ultimate-underground-belt", 75)
-set_speed("splitter", "ultimate-splitter", 75)
+set_speed("transport-belt", "bob-ultimate-transport-belt", 75)
+set_speed("underground-belt", "bob-ultimate-underground-belt", 75)
+set_speed("splitter", "bob-ultimate-splitter", 75)
 
 -- Increase energy consumption of bob's extra beacons
 -- Also reduce module slots and effectivity
-if data.raw.beacon["beacon-2"] then
-  data.raw.beacon["beacon-2"].energy_usage = "960kW"
-  data.raw.beacon["beacon-2"].module_specification.module_slots = 2
-  data.raw.beacon["beacon-2"].distribution_effectivity = 0.5
+if data.raw.beacon["bob-beacon-2"] then
+  data.raw.beacon["bob-beacon-2"].energy_usage = "960kW"
+  data.raw.beacon["bob-beacon-2"].module_slots = 2
+  data.raw.beacon["bob-beacon-2"].distribution_effectivity = 1
+
+  --TODO this got changed with bobs 2.0 - this replicates 1.1 behavior
+  data.raw.beacon["bob-beacon-2"].supply_area_distance = 6
 end
-if data.raw.beacon["beacon-3"] then
-  data.raw.beacon["beacon-3"].energy_usage = "1920kW"
-  data.raw.beacon["beacon-3"].module_specification.module_slots = 2
-  data.raw.beacon["beacon-3"].distribution_effectivity = 0.5
+if data.raw.beacon["bob-beacon-3"] then
+  data.raw.beacon["bob-beacon-3"].energy_usage = "1920kW"
+  data.raw.beacon["bob-beacon-3"].module_slots = 2
+  data.raw.beacon["bob-beacon-3"].distribution_effectivity = 1
+  data.raw.beacon["bob-beacon-3"].supply_area_distance = 9
 end
 
 -- Undo boblogistcs changes to logistic system research
 bobmods.lib.tech.add_new_science_pack("logistic-system", "production-science-pack", 1)
-if data.raw.tool["advanced-logistic-science-pack"] then
-  bobmods.lib.tech.add_new_science_pack("logistic-system", "advanced-logistic-science-pack", 1)
+if data.raw.tool["bob-advanced-logistic-science-pack"] then
+  bobmods.lib.tech.add_new_science_pack("logistic-system", "bob-advanced-logistic-science-pack", 1)
 else
   bobmods.lib.tech.add_new_science_pack("logistic-system", "utility-science-pack", 1)
 end
@@ -58,7 +62,7 @@ local logisticstechs = {
   "logistic-system-2",
   "logistic-system-3",
   "angels-logistic-warehouses",
-  "logistic-silos",
+  "angels-logistic-silos",
 }
 
 for _, v in pairs(logisticstechs) do
@@ -66,32 +70,28 @@ for _, v in pairs(logisticstechs) do
     bobmods.lib.tech.add_new_science_pack(v, "production-science-pack", 1)
     bobmods.lib.tech.add_new_science_pack(v, "utility-science-pack", 1)
 
-    if data.raw.tool["advanced-logistic-science-pack"] then
-      bobmods.lib.tech.add_new_science_pack(v, "advanced-logistic-science-pack", 1)
+    if data.raw.tool["bob-advanced-logistic-science-pack"] then
+      bobmods.lib.tech.add_new_science_pack(v, "bob-advanced-logistic-science-pack", 1)
     end
   end
 end
 
 if mods["angelsaddons-storage"] then
-  bobmods.lib.tech.replace_prerequisite("logistic-silos", "logistic-system", "logistic-system-3")
-  bobmods.lib.tech.replace_prerequisite("angels-logistic-warehouses", "logistic-system", "logistic-silos")
+  bobmods.lib.tech.replace_prerequisite("angels-logistic-silos", "logistic-system", "logistic-system-3")
+  bobmods.lib.tech.replace_prerequisite("angels-logistic-warehouses", "logistic-system", "angels-logistic-silos")
 end
 bobmods.lib.tech.add_prerequisite("logistic-system-2", "utility-science-pack")
 
 -- No logistics chest at green science level.
 local function revertchests(tech)
   local neweffects = {
-    { type = "unlock-recipe", recipe = "logistic-chest-passive-provider" },
-    { type = "unlock-recipe", recipe = "logistic-chest-storage" },
+    { type = "unlock-recipe", recipe = "passive-provider-chest" },
+    { type = "unlock-recipe", recipe = "storage-chest" },
   }
   for k, v in pairs(tech.effects) do
     if
       v.type ~= "unlock-recipe"
-      or (
-        v.recipe ~= "logistic-chest-passive-provider"
-        and v.recipe ~= "logistic-chest-storage"
-        and v.recipe ~= "logistic-chest-requester"
-      )
+      or (v.recipe ~= "passive-provider-chest" and v.recipe ~= "storage-chest" and v.recipe ~= "requester-chest")
     then
       table.insert(neweffects, v)
     end
@@ -102,15 +102,12 @@ revertchests(data.raw.technology["logistic-robotics"])
 revertchests(data.raw.technology["construction-robotics"])
 local found = false
 for k, v in pairs(data.raw.technology["logistic-system"].effects) do
-  if v.type == "unlock-recipe" and v.recipe == "logistic-chest-requester" then
+  if v.type == "unlock-recipe" and v.recipe == "requester-chest" then
     found = true
   end
 end
 if not found then
-  table.insert(
-    data.raw.technology["logistic-system"].effects,
-    { type = "unlock-recipe", recipe = "logistic-chest-requester" }
-  )
+  table.insert(data.raw.technology["logistic-system"].effects, { type = "unlock-recipe", recipe = "requester-chest" })
 end
 
 if mods["angelsindustries"] then

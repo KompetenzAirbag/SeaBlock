@@ -19,7 +19,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore1" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -51,7 +51,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore2" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -83,7 +83,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore3" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -115,7 +115,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore4" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -147,7 +147,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore5" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -179,7 +179,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore6" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -211,7 +211,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore7" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -243,7 +243,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore8" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -275,7 +275,7 @@ if mods["Clowns-Extended-Minerals"] then
         "recipe-name.slag-processing",
         { "item-name.clown-mat", { "entity-name.clowns-ore9" }, "Ore" },
       },
-      category = "crystallizing",
+      category = "angels-crystallizing",
       subgroup = "slag-processing-2",
       enabled = false,
       allow_decomposition = false,
@@ -303,7 +303,7 @@ if mods["Clowns-Extended-Minerals"] then
     {
       type = "recipe",
       name = "sb-clowns-resource-1",
-      category = "ore-refining-t1",
+      category = "angels-ore-refining-t1",
       subgroup = "resource-refining-2",
       enabled = false,
       allow_decomposition = false,
@@ -333,7 +333,7 @@ if mods["Clowns-Extended-Minerals"] then
     {
       type = "recipe",
       name = "sb-clowns-resource-2",
-      category = "ore-refining-t1",
+      category = "angels-ore-refining-t1",
       subgroup = "resource-refining-2",
       enabled = false,
       allow_decomposition = false,
@@ -371,6 +371,6 @@ if mods["Clowns-Extended-Minerals"] then
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-3", 7)
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-2", 4)
   seablock.lib.add_recipe_unlock("clowns-ore-crushing", "sb-slag-processing-clowns-1", 1)
-  seablock.lib.add_recipe_unlock("water-washing-2", "sb-clowns-resource-1")
+  seablock.lib.add_recipe_unlock("angels-water-washing-2", "sb-clowns-resource-1")
   seablock.lib.add_recipe_unlock("angels-oil-processing", "sb-clowns-resource-2")
 end
