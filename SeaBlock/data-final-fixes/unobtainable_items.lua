@@ -49,8 +49,6 @@ for _, v in ipairs({
   "bob-alien-artifact-yellow",
   "angels-chemical-void-angels-gas-natural-1",
   "angels-chemical-void-angels-liquid-condensates",
-  "angels-water-void-crystal-matrix", -- TODO: are those two already removed ?
-  --"angels-water-void-bob-lithia-water",
   "angels-ore1-crushed-hand",
   "angels-ore3-crushed-hand",
   "big-burner-generator",
@@ -68,18 +66,15 @@ for _, v in ipairs({
   "angels-condensates-refining",
   "diesel-fuel",
   "electric-mining-drill",
-  "empty-crystal-matrix-barrel", -- TODO: where does this item come from ? 
   "empty-diesel-fuel-barrel",
   "empty-angels-gas-natural-1-barrel",
   "empty-angels-liquid-condensates-barrel",
   "empty-bob-lithia-water-barrel",
-  "crystal-matrix-barrel",
   "diesel-fuel-barrel",
   "angels-gas-natural-1-barrel",
   "angels-liquid-condensates-barrel",
   "bob-lithia-water-barrel",
   "angels-gas-fractioning-condensates",
-  "gas-phosgene",
   "angels-gas-separation",
   "oil-steam-boiler",
   "petroleum-generator",
@@ -92,7 +87,6 @@ for _, v in ipairs({
   "angels-solid-coke-sulfur",
   "angels-thermal-water-filtering-1",
   "angels-thermal-water-filtering-2",
-  "water-thermal-lithia", -- TODO: where does this come from ? 
   "angels-wood-charcoal",
 }) do
   removerecipes[v] = true
@@ -113,8 +107,6 @@ for _, v in ipairs({
   "electric-mining-drill",
   "angels-gas-natural-1",
   "angels-gas-natural-1-barrel",
-  "gas-phosgene", -- TODO: what happened to those items ? I can't find them in angels/bob/ks power 
-  "gas-phosgene-barrel",
   "angels-liquid-condensates",
   "angels-liquid-condensates-barrel",
   "bob-lithia-water",
@@ -147,13 +139,7 @@ for k, v in pairs(data.raw.technology) do
 end
 
 for k, v in pairs(recipes) do
-  local iset = {}
-  if v.normal then
-    iset = { v.normal, v.expensive }
-  else
-    iset = { v }
-  end
-  for _, recipe in ipairs(iset) do
+  for _, recipe in pairs(v) do
     local items = {}
     if recipe.ingredients then
       for _, ingredient in pairs(recipe.ingredients) do
