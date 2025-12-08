@@ -134,10 +134,8 @@ if data.raw.recipe["angels-pellet-zinc-smelting"] then
   )
 end
 
-if mods["angelsindustries"] then
-  seablock.lib.substingredient("angels-thorium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
-  seablock.lib.substingredient("angels-deuterium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
-end
+seablock.lib.substingredient("angels-thorium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
+seablock.lib.substingredient("angels-deuterium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
 
 seablock.lib.hide_item("bob-nickel-plate")
 seablock.lib.hide_item("bob-zinc-plate")
