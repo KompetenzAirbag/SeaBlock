@@ -77,6 +77,8 @@ extractor.animation = {
   south = makeextractorlayers(false, false),
   west = makeextractorlayers(true, true),
 }
+extractor.crafting_categories = { "sb-thermal-extractor" }
+extractor.fixed_recipe = "sb-thermal-extractor-water"
 bobmods.lib.tech.add_recipe_unlock("angels-thermal-water-extraction-2", "sb-thermal-extractor-water")
 move_item("angels-thermal-extractor", "angels-water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
 bobmods.lib.recipe.add_ingredient("angels-thermal-extractor", { type = "item", name = "angels-thermal-bore", amount = 1 })
@@ -96,11 +98,19 @@ bore.fluid_boxes = {
     pipe_connections = {
       {
         type = "output",
-        positions = { { 1, -2 }, { 2, -1 }, { -1, 2 }, { -2, 1 } },
+        position = { -5, -3 },
       },
     },
   },
 }
+bore.animation = {
+  north = makeextractorlayers(false, false),
+  east = makeextractorlayers(true, true),
+  south = makeextractorlayers(false, false),
+  west = makeextractorlayers(true, true),
+}
+bore.crafting_categories = { "sb-thermal-bore" }
+bore.fixed_recipe = "sb-thermal-bore-water"
 
 local function makesheet(sheet, count, d)
   local r = table.deepcopy(sheet)
