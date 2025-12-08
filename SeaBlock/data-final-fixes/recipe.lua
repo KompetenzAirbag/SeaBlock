@@ -12,10 +12,6 @@ local function replace_stone(recipe)
         ingredient.amount = ingredient.amount * 2
       elseif ingredient.name == "angels-stone-crushed" then
         ingredient.name = "stone"
-      elseif ingredient[1] == "stone" then
-        ingredient[2] = ingredient[2] * 2
-      elseif ingredient[1] == "angels-stone-crushed" then
-        ingredient[1] = "stone"
       end
     end
   end
@@ -25,10 +21,6 @@ local function replace_stone(recipe)
         result.amount = result.amount * 2
       elseif result.name == "angels-stone-crushed" then
         result.name = "stone"
-      elseif result[1] == "stone" then
-        result[2] = result[2] * 2
-      elseif result[1] == "angels-stone-crushed" then
-        result[1] = "stone"
       end
     end
   end
@@ -48,8 +40,7 @@ for _, recipe in pairs(data.raw.recipe) do
   end
 end
 bobmods.lib.recipe.hide("angels-stone-from-crushed-stone")
-
-data.raw.item["angels-stone-crushed"] = nil
+seablock.lib.hide("item", "angels-stone-crushed")
 
 if data.raw.recipe["angels-stone-crushed-dissolution"] then
   data.raw.recipe["angels-stone-crushed-dissolution"].icons = angelsmods.functions.create_liquid_recipe_icon(
