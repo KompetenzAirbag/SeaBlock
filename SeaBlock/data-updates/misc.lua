@@ -85,19 +85,6 @@ if data.raw.technology["logistics-0"] then
   bobmods.lib.tech.replace_prerequisite("bob-long-inserters-1", "logistics", "logistics-0")
 end
 
--- Adjust for handcrafting boards
-
--- Divide by 2
-seablock.lib.substingredient("angels-solid-alginic-acid", "angels-algae-brown", nil, 5)
-seablock.lib.substresult("angels-solid-alginic-acid", "angels-solid-alginic-acid", nil, 1)
-data.raw.recipe["angels-solid-alginic-acid"].energy_required = 5
-
--- Divide by 5
-seablock.lib.substingredient("angels-solid-wood-pulp", "angels-cellulose-fiber", nil, 4)
-seablock.lib.substingredient("angels-solid-wood-pulp", "angels-solid-alginic-acid", nil, 1)
-seablock.lib.substresult("angels-solid-wood-pulp", "angels-solid-wood-pulp", nil, 4)
-data.raw.recipe["angels-solid-wood-pulp"].energy_required = 0.8
-
 -- Tidy up ore silo prerequisites
 if mods["angelsaddons-storage"] then
   bobmods.lib.tech.remove_prerequisite("ore-silos", "angels-coal-processing")
