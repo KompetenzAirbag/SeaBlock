@@ -14,16 +14,12 @@ for k, v in pairs(itemrename) do
   end
 end
 local function updateline(line)
-  local nameidx = "name"
-  if line[nameidx] == nil then
-    nameidx = 1
-  end
-  local item = line[nameidx]
+  local item = line.name
   if itemrename[item] then
-    line[nameidx] = itemrename[item]
+    line.name = itemrename[item]
   end
 end
-local function updaterecipe(recipe)
+for _, recipe in pairs(data.raw.recipe) do
   for _, v in pairs(recipe.ingredients) do
     updateline(v)
   end
@@ -33,9 +29,6 @@ local function updaterecipe(recipe)
   for _, v in pairs(recipe.results or {}) do
     updateline(v)
   end
-end
-for _, v in pairs(data.raw.recipe) do
-  seablock.lib.iteraterecipes(v, updaterecipe)
 end
 
 -- Recipes to unconditionally remove
@@ -143,7 +136,7 @@ for k, v in pairs(recipes) do
     local items = {}
     if recipe.ingredients then
       for _, ingredient in pairs(recipe.ingredients) do
-        local item = ingredient[1] or ingredient.name
+        local item = ingredient.name
         if unobtainable[item] then
           items[item] = true
         end
@@ -195,27 +188,18 @@ for k, _ in pairs(unobtainable) do
 end
 
 -- Remove any recipe that uses an unobtainable ingredient
-local function keeprecipe(r)
-  local iset = {}
-  local count = 0
-  table.insert(iset, r.ingredients)
-  table.insert(iset, (r.normal or {}).ingredients)
-  table.insert(iset, (r.expensive or {}).ingredients)
-  for _, ingredients in ipairs(iset) do
-    for _, v in ipairs(ingredients) do
-      local ingredient = v[1] or v.name
-      if ingredient and unobtainable[ingredient] then
-        count = count + 1
+for recipe_name, recipe in pairs(data.raw.recipe) do
+  local keep = true
+  if recipe.ingredients then
+    for _, ingredient in pairs(recipe.ingredients) do
+      if unobtainable[ingredient.name] then
+        keep = false
         break
       end
     end
   end
-  return count < #iset
-end
-
-for k, v in pairs(data.raw.recipe) do
-  if not keeprecipe(v) then
-    removerecipes[k] = true
+  if not keep then
+    removerecipes[recipe_name] = true
   end
 end
 

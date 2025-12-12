@@ -5,7 +5,7 @@ seablock.lib.substingredient("bob-insulated-cable", "bob-rubber", nil, 8)
 bobmods.lib.recipe.set_result("bob-insulated-cable", { type = "item", name = "bob-insulated-cable", amount = 8 })
 
 -- Combine Stone and Crushed Stone
-local function replace_stone(recipe)
+for _, recipe in pairs(data.raw.recipe) do
   if recipe.ingredients then
     for _, ingredient in pairs(recipe.ingredients) do
       if ingredient.name == "stone" then
@@ -26,17 +26,6 @@ local function replace_stone(recipe)
   end
   if recipe.main_product == "angels-stone-crushed" then
     recipe.main_product = "stone"
-  end
-end
-for _, recipe in pairs(data.raw.recipe) do
-  if recipe.normal then
-    replace_stone(recipe.normal)
-  end
-  if recipe.expensive then
-    replace_stone(recipe.expensive)
-  end
-  if not recipe.normal and not recipe.expensive then
-    replace_stone(recipe)
   end
 end
 bobmods.lib.recipe.hide("angels-stone-from-crushed-stone")

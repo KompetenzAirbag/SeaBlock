@@ -148,22 +148,15 @@ for name, base_icons in pairs(slag_processing_list) do
   -- Check the recipe exists
   local recipe = data.raw.recipe[name]
   if recipe then
-    local recipe_results
-    if recipe.normal then
-      recipe_results = recipe.normal.results
-    else
-      recipe_results = recipe.results
-    end
-
     -- Build icon overlays based on recipe ingredients
-    if recipe_results[1].name ~= "angels-void" then
+    if recipe.results[1].name ~= "angels-void" then
       local shift_index = 1
 
       -- Setup base layer
       composite_recipes[name] = { ["base"] = { icons = base_icons } }
 
       -- Build icon overlays based on recipe products
-      for _, product in pairs(recipe_results) do
+      for _, product in pairs(recipe.results) do
         composite_recipes[name][product.name] = { shift = slag_recipe_shifts[shift_index], scale = 0.5 }
         shift_index = shift_index + 1
       end

@@ -87,40 +87,20 @@ local upgrades = {
   ["fusion-reactor-equipment-4"] = "fusion-reactor-equipment-4", -- for amount adjustment
 }
 
-local function iterateingredients(recipe, func)
-  if recipe.normal then
-    func(recipe.normal.ingredients)
-    func(recipe.expensive.ingredients)
-  else
-    func(recipe.ingredients)
-  end
-end
-
-local function doupgrade(ingredients)
-  for _, item in pairs(ingredients) do
-    local nameidx = 1
-    local amountidx = 2
-    if item.name then
-      nameidx = "name"
+for _, recipe_name in pairs(recipes) do
+  local recipe = data.raw.recipe[recipe_name]
+  if recipe and recipe.ingredients then
+    for _, item in pairs(recipe.ingredients) do
+      local upgrade = upgrades[item.name]
+      if upgrade and (data.raw.item[upgrade] or data.raw.module[upgrade]) then
+        item.name = upgrade
+      end
+      if upgrade == "bob-construction-robot-5" then
+        item.amount = 1
+      elseif upgrade == "fusion-reactor-equipment-4" then
+        item.amount = item.amount / 2
+      end
     end
-    if item.amount then
-      amountidx = "amount"
-    end
-    local upgrade = upgrades[item[nameidx]]
-    if upgrade and (data.raw.item[upgrade] or data.raw.module[upgrade]) then
-      item[nameidx] = upgrade
-    end
-    if upgrade == "bob-construction-robot-5" then
-      item[amountidx] = 1
-    elseif upgrade == "fusion-reactor-equipment-4" then
-      item[amountidx] = item[amountidx] / 2
-    end
-  end
-end
-
-for _, recipe in pairs(recipes) do
-  if data.raw.recipe[recipe] then
-    iterateingredients(data.raw.recipe[recipe], doupgrade)
   end
 end
 

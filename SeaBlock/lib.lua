@@ -80,13 +80,6 @@ function seablock.lib.add_recipe_unlock(technology, recipe, insertindex)
     and data.raw.recipe[recipe]
   then
     add_recipe_unlock(data.raw.technology[technology], recipe, insertindex)
-
-    if data.raw.technology[technology].normal then
-      add_recipe_unlock(data.raw.technology[technology].normal, recipe, insertindex)
-    end
-    if data.raw.technology[technology].expensive then
-      add_recipe_unlock(data.raw.technology[technology].expensive, recipe, insertindex)
-    end
   else
     log(debug.traceback())
     bobmods.lib.error.technology(technology)
@@ -94,91 +87,57 @@ function seablock.lib.add_recipe_unlock(technology, recipe, insertindex)
   end
 end
 
-function seablock.lib.iteraterecipes(recipe, func)
-  if recipe.normal then
-    func(recipe.normal)
-  end
-  if recipe.expensive then
-    func(recipe.expensive)
-  end
-  if recipe.ingredients then
-    func(recipe)
-  end
-end
-
-function seablock.lib.recipeforeach(recipename, itemname, func, tablename)
-  local doline = function(recipe)
-    for _, line in pairs(recipe[tablename]) do
-      local nameidx = 1
-      local amountidx = 2
-      if line.name then
-        nameidx = "name"
-      end
-      if line.amount then
-        amountidx = "amount"
-      end
-      if line[nameidx] == itemname then
-        func(line, nameidx, amountidx)
-      end
-    end
-  end
-  seablock.lib.iteraterecipes(data.raw.recipe[recipename], doline)
-end
-
 function seablock.lib.substingredient(name, from, to, count)
-  local t = data.raw.recipe[name]
-  if t then
-    local dosubst = function(ingredient, nameidx, amountidx)
-      if to ~= nil then
-        ingredient[nameidx] = to
-      end
-      if count ~= nil then
-        ingredient[amountidx] = count
+  local recipe = data.raw.recipe[name]
+  if recipe then
+    for _, ingredient in pairs(recipe.ingredients) do
+      if ingredient.name == from then
+        if to ~= nil then
+          ingredient.name = to
+        end
+        if count ~= nil then
+          ingredient.amount = count
+        end
       end
     end
-    seablock.lib.recipeforeach(name, from, dosubst, "ingredients")
   else
     log(debug.traceback())
   end
 end
 
 function seablock.lib.removeingredient(name, ingredient)
-  local t = data.raw.recipe[name]
-  if t then
-    local doremove = function(recipe)
-      for k, v in pairs(recipe.ingredients) do
-        if v[1] == ingredient or v.name == ingredient then
-          table.remove(recipe.ingredients, k)
-          return
-        end
+  local recipe = data.raw.recipe[name]
+  if recipe then
+    for k, v in pairs(recipe.ingredients) do
+      if v.name == ingredient then
+        table.remove(recipe.ingredients, k)
+        return
       end
     end
-    seablock.lib.iteraterecipes(t, doremove)
   end
 end
 
 function seablock.lib.substresult(name, from, to, count)
-  local t = data.raw.recipe[name]
-  if t then
-    local dosubst = function(result, nameidx, amountidx)
-      if to ~= nil then
-        result[nameidx] = to
-      end
-      if count ~= nil then
-        result[amountidx] = count
+  local recipe = data.raw.recipe[name]
+  if recipe then
+    for _, result in pairs(recipe.results) do
+      if result.name == from then
+        if to ~= nil then
+          result.name = to
+        end
+        if count ~= nil then
+          result.amount = count
+        end
       end
     end
-    seablock.lib.recipeforeach(name, from, dosubst, "results")
   end
 end
 
 function seablock.lib.addresult(name, resulttable)
-  local t = data.raw.recipe[name]
-  if t then
-    local doadd = function(recipe)
-      table.insert(recipe.results, resulttable)
-    end
-    seablock.lib.iteraterecipes(t, doadd)
+  local recipe = data.raw.recipe[name]
+  if recipe then
+    recipe.results = recipe.results or {}
+    table.insert(recipe.results, resulttable)
   end
 end
 
@@ -204,33 +163,15 @@ end
 function seablock.lib.unhide_recipe(recipe_name)
   local recipe = data.raw.recipe[recipe_name]
   if recipe then
-    if recipe.normal then
-      recipe.normal.hidden = false
-    end
-    if recipe.expensive then
-      recipe.expensive.hidden = false
-    end
-    if not recipe.normal and not recipe.expensive then
-      recipe.hidden = false
-    end
+    recipe.hidden = false
   end
 end
 
 function seablock.lib.hide_technology(technology_name)
   local technology = data.raw.technology[technology_name]
   if technology then
-    if technology.normal then
-      technology.normal.hidden = true
-      technology.normal.enabled = false
-    end
-    if technology.expensive then
-      technology.expensive.hidden = true
-      technology.expensive.enabled = false
-    end
-    if not technology.normal and not technology.expensive then
-      technology.hidden = true
-      technology.enabled = false
-    end
+    technology.hidden = true
+    technology.enabled = false
   end
 end
 
