@@ -211,9 +211,6 @@ local function milestones_presets()
   }
 end
 
-local function get_jetpack_fuels()
-  return { ["bob-enriched-fuel"] = 0.7 }
-end
 
 ---@param winning_force LuaForce
 ---@param forces LuaForce[] list of forces that GUI will be show to
@@ -250,6 +247,5 @@ remote.add_interface("SeaBlock", {
   set_starting_item = set_starting_item,
   set_starting_items = set_starting_items,
   milestones_presets = milestones_presets,
-  jetpack_fuels = get_jetpack_fuels,
   ["better-victory-screen-statistics"] = better_victory_screen_statistics,
 })
