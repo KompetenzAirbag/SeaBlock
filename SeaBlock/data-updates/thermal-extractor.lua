@@ -89,10 +89,8 @@ extractor.crafting_categories = { "sb-thermal-extractor" }
 extractor.fixed_recipe = "sb-thermal-extractor-water"
 bobmods.lib.tech.add_recipe_unlock("angels-thermal-water-extraction-2", "sb-thermal-extractor-water")
 move_item("angels-thermal-extractor", "angels-water-treatment-building", "f[thermal-extractor]-b[extractor]", "item")
-bobmods.lib.recipe.add_ingredient(
-  "angels-thermal-extractor",
-  { type = "item", name = "angels-thermal-bore", amount = 1 }
-)
+bobmods.lib.recipe.add_ingredient("angels-thermal-extractor", { type = "item", name = "angels-thermal-bore", amount = 1 })
+extractor.vector_to_place_result = nil -- remove the yellow arrow of the mining drill
 
 local bore = data.raw["mining-drill"]["angels-thermal-bore"]
 data.raw["mining-drill"]["angels-thermal-bore"] = nil
@@ -104,56 +102,49 @@ bore.fluid_boxes = {
   {
     production_type = "output",
     base_area = 1,
-    base_level = 1,
-    pipe_covers = pipecoverspictures(),
-    pipe_connections = {
-      {
-        type = "output",
-        position = { -5, -3 },
-      },
-    },
+    volume = 500,
+    pipe_covers = bore.output_fluid_box.pipe_covers,
+    pipe_connections = bore.output_fluid_box.pipe_connections
   },
 }
-bore.animation = {
-  north = makeextractorlayers(false, false),
-  east = makeextractorlayers(true, true),
-  south = makeextractorlayers(false, false),
-  west = makeextractorlayers(true, true),
+bore.vector_to_place_result = nil
+
+-- This is needed for the animation below
+bore.base_picture.sheet.line_length = 1
+bore.base_picture.sheet.repeat_count = 16
+
+-- Edit animation to include output pipe facing north and south
+local working_animation = table.deepcopy(bore.graphics_set.animation.north)
+
+--- This animation is a translation of the mining_drill but for an assembling_machine
+--- This is done because an assembling_machine has no base_picture so the northern and southern pipe extentions have to be added via animation
+bore.graphics_set.animation = {
+  north = {
+    layers = {
+      table.deepcopy(bore.base_picture.sheet),
+      working_animation
+    }
+  },
+  east = working_animation,
+  south = {
+    layers = {
+      table.deepcopy(bore.base_picture.sheet),
+      working_animation
+    }
+  },
+  west = working_animation,
 }
+
+-- Shift animation to make other pipe visible 
+bore.graphics_set.animation.south.layers[1].x = 576
+
+-- Reset animation speed for directions without additional layers
+bore.graphics_set.animation.east.animation_speed = 1
+bore.graphics_set.animation.west.animation_speed = 1
+
 bore.crafting_categories = { "sb-thermal-bore" }
 bore.fixed_recipe = "sb-thermal-bore-water"
-
-local function makesheet(sheet, count, d)
-  local r = table.deepcopy(sheet)
-  r.stripes = makestripes(r.filename, count)
-  r.frame_count = count
-  r.filename = nil
-  r.x = r.width * d
-  if r.hr_version then
-    r.hr_version = makesheet(r.hr_version, count, d)
-  end
-  return r
-end
-local function makeborelayers(d)
-  return {
-    layers = {
-      makesheet(bore.base_picture.sheets[1], bore.animations.north.layers[1].frame_count, d),
-      makesheet(bore.base_picture.sheets[2], bore.animations.north.layers[1].frame_count, d),
-      bore.animations.north.layers[1],
-      bore.animations.north.layers[2],
-    },
-  }
-end
-bore.animation = {
-  north = makeborelayers(0),
-  east = makeborelayers(1),
-  south = makeborelayers(2),
-  west = makeborelayers(3),
-}
-bore.crafting_categories = { "thermal-bore" }
-bore.fixed_recipe = "thermal-bore-water"
-bobmods.lib.tech.add_recipe_unlock("thermal-water-extraction", "thermal-bore-water")
-move_item("thermal-bore", "water-treatment-building", "f[thermal-extractor]-a[bore]", "item")
+bobmods.lib.tech.add_recipe_unlock("angels-thermal-water-extraction", "sb-thermal-bore-water")
 move_item("angels-thermal-bore", "angels-water-treatment-building", "f[thermal-extractor]-a[bore]", "item")
 
 -- Fish Pressing requires thermal water so add a prerequisite

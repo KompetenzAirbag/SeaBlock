@@ -209,7 +209,6 @@ function seablock.lib.substresult(name, from, to, count)
         end
       end
     end
-    seablock.lib.recipeforeach(name, from, dosubst, "results")
   else
     log("Warning : seablock.lib.substresult - can't find recipe : " .. name)
     log(debug.traceback())

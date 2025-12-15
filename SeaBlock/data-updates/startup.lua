@@ -133,7 +133,7 @@ local function consumes_startup_item(recipe)
     ["copper-cable"] = true,
     ["stone-furnace"] = true,
   }
-  for k, v in pairs(recipe.ingredients) do
+  for k, v in pairs(recipe.ingredients or {}) do
     if ironnames[v.name] then
       found = true
       break

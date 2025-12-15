@@ -38,6 +38,24 @@ if settings.startup["SpaceX-ignore-tech-multiplier"] then
   end
 end
 
+local recipes = {
+  "low-density-structure",
+  "rocket-control-unit",
+  "assembly-robot",
+  "satellite",
+  "drydock-assembly",
+  "fusion-reactor",
+  "hull-component",
+  "protection-field",
+  "space-thruster",
+  "fuel-cell",
+  "habitation",
+  "life-support",
+  "command",
+  "astrometrics",
+  "ftl-drive",
+}
+
 local techs = {
   "space-assembly",
   "space-construction",

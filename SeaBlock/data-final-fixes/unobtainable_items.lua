@@ -22,7 +22,7 @@ local function updateline(line)
 
 end
 for _, recipe in pairs(data.raw.recipe) do
-  for _, v in pairs(recipe.ingredients) do
+  for _, v in pairs(recipe.ingredients or {}) do
     updateline(v)
   end
 
