@@ -211,7 +211,6 @@ local function milestones_presets()
   }
 end
 
-
 ---@param winning_force LuaForce
 ---@param forces LuaForce[] list of forces that GUI will be show to
 local function better_victory_screen_statistics(winning_force, forces)
