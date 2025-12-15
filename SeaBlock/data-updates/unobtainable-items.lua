@@ -102,8 +102,10 @@ if data.raw.recipe["bob-enriched-fuel"] then
     { type = "fluid", name = "angels-liquid-fuel-oil", amount = 80 },
     { type = "fluid", name = "angels-gas-residual", amount = 20 },
   })
-  data.raw.recipe["bob-enriched-fuel"].icons =
-    angelsmods.functions.create_solid_recipe_icon({ "angels-liquid-fuel-oil", "angels-gas-residual" }, "bob-enriched-fuel")
+  data.raw.recipe["bob-enriched-fuel"].icons = angelsmods.functions.create_solid_recipe_icon(
+    { "angels-liquid-fuel-oil", "angels-gas-residual" },
+    "bob-enriched-fuel"
+  )
 end
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "empty-bob-liquid-fuel-barrel")
 bobmods.lib.tech.remove_recipe_unlock("bob-fluid-canister-processing", "bob-liquid-fuel-barrel")
@@ -134,10 +136,8 @@ if data.raw.recipe["angels-pellet-zinc-smelting"] then
   )
 end
 
-if mods["angelsindustries"] then
-  seablock.lib.substingredient("angels-thorium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
-  seablock.lib.substingredient("angels-deuterium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
-end
+seablock.lib.substingredient("angels-thorium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
+seablock.lib.substingredient("angels-deuterium-fuel-cell", "angels-plate-zinc", "bob-lead-plate", nil)
 
 seablock.lib.hide_item("bob-nickel-plate")
 seablock.lib.hide_item("bob-zinc-plate")

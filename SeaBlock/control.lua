@@ -22,7 +22,12 @@ function seablock.create_rock_chest(surface, pos)
   end
 
   if has_items then
-    local chest = surface.create_entity({ name = "sb-rock-chest", position = pos, force = game.forces.neutral, move_stuck_players = true })
+    local chest = surface.create_entity({
+      name = "sb-rock-chest",
+      position = pos,
+      force = game.forces.neutral,
+      move_stuck_players = true,
+    })
     for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         chest.insert({ name = item, count = quantity })

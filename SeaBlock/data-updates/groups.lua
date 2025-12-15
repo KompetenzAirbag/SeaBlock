@@ -17,7 +17,6 @@ if not mods["angelsindustries"] then
   end
 
   move_item("iron-gear-wheel", "bob-gears", "aa[iron-gear-wheel]")
-  move_item("bob-thorium-processing", "bob-nuclear", "l[thorium-processing]", "recipe")
 end
 
 if mods["SpaceMod"] then

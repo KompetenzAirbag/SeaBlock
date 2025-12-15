@@ -5,7 +5,8 @@ Date: ??.??.??
     - Factorio 2.0 update
       - Removed normal/expensive recipes
       - Updated map generation
-    - Renamed Angel's and Bob's items
+    - Added "angels-" prefix to all AngelsMods related prototypes
+    - Added "bob-" prefix to all BobsMods related prototypes
     - Replaced crushed stone for regular stone
     - Reimplemented (1.1) ore crystallization recipes (This got changed with angelsmods 2.0)
     - Added extended beacon range to bob beacons (This got removed in bobmods 2.0)

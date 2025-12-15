@@ -6,8 +6,8 @@ if data.raw.recipe["bob-burner-reactor-2"] then
   bobmods.lib.tech.add_prerequisite("bob-burner-reactor-2", "angels-stone-smelting-2")
 end
 seablock.lib.substingredient("centrifuge", "concrete", "angels-concrete-brick", nil)
-if data.raw.recipe["fluid-reactor-2"] then
-  seablock.lib.substingredient("fluid-reactor-2", "concrete", "angels-concrete-brick", nil)
+if data.raw.recipe["bob-fluid-reactor-2"] then
+  seablock.lib.substingredient("bob-fluid-reactor-2", "concrete", "angels-concrete-brick", nil)
 end
 seablock.lib.substingredient("nuclear-reactor", "concrete", "angels-concrete-brick", nil)
 seablock.lib.substingredient("rocket-silo", "concrete", "angels-reinforced-concrete-brick", nil)

@@ -14,9 +14,9 @@ seablock.lib.hide_technology("bob-electrolysis-2")
 seablock.lib.hide_technology("bob-chemical-processing-1")
 seablock.lib.hide_technology("bob-chemical-processing-2")
 
-bobmods.lib.tech.remove_prerequisite("circuit-network", "angels-bio-wood-processing-2")
-bobmods.lib.tech.add_prerequisite("circuit-network", "angels-bio-paper-1")
-bobmods.lib.tech.remove_prerequisite("angels-rubbers", "circuit-network")
+bobmods.lib.tech.remove_prerequisite("circuit-network", "angels-angels-bio-wood-processing-2")
+bobmods.lib.tech.add_prerequisite("circuit-network", "angels-angels-bio-paper-1")
+bobmods.lib.tech.remove_prerequisite("angels-angels-rubbers", "circuit-network")
 
 -- Alien research is disabled in Sea Block
 bobmods.lib.tech.remove_prerequisite("bob-exoskeleton-equipment-3", "bob-alien-blue-research")
@@ -54,7 +54,11 @@ seablock.lib.unhide_recipe("bob-solid-fuel-from-hydrogen")
 seablock.lib.add_recipe_unlock("flammables", "bob-solid-fuel-from-hydrogen", 4)
 data.raw.recipe["bob-solid-fuel-from-hydrogen"].localised_name = nil
 
-bobmods.lib.tech.replace_prerequisite("bob-lithium-processing", "angels-chlorine-processing-4", "angels-chlorine-processing-2")
+bobmods.lib.tech.replace_prerequisite(
+  "bob-lithium-processing",
+  "angels-chlorine-processing-4",
+  "angels-chlorine-processing-2"
+)
 
 -- electronics is hidden since it is a trigger tech and is replaced by bob-electronics
 bobmods.lib.tech.remove_prerequisite("automation-2", "electronics")

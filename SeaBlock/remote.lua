@@ -33,7 +33,8 @@ local function milestones_presets()
     { type = "item", name = "logistic-science-pack", quantity = 1 },
     { type = "item", name = "military-science-pack", quantity = 1 },
     { type = "item", name = "chemical-science-pack", quantity = 1 },
-    script.active_mods["bobtech"] and { type = "item", name = "bob-advanced-logistic-science-pack", quantity = 1 } or nil,
+    script.active_mods["bobtech"] and { type = "item", name = "bob-advanced-logistic-science-pack", quantity = 1 }
+      or nil,
     { type = "item", name = "production-science-pack", quantity = 1 },
     { type = "item", name = "utility-science-pack", quantity = 1 },
     { type = "item", name = "space-science-pack", quantity = 1 },
@@ -216,10 +217,6 @@ local function milestones_presets()
   }
 end
 
-local function get_jetpack_fuels()
-  return { ["bob-enriched-fuel"] = 0.7 }
-end
-
 ---@param winning_force LuaForce
 ---@param forces LuaForce[] list of forces that GUI will be show to
 local function better_victory_screen_statistics(winning_force, forces)
@@ -255,6 +252,5 @@ remote.add_interface("SeaBlock", {
   set_starting_item = set_starting_item,
   set_starting_items = set_starting_items,
   milestones_presets = milestones_presets,
-  jetpack_fuels = get_jetpack_fuels,
   ["better-victory-screen-statistics"] = better_victory_screen_statistics,
 })

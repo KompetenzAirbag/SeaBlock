@@ -19,7 +19,11 @@ bobmods.lib.tech.remove_prerequisite("angels-zinc-smelting-2", "angels-coal-proc
 bobmods.lib.tech.remove_prerequisite("angels-chrome-smelting-1", "angels-coal-processing-3")
 bobmods.lib.tech.remove_prerequisite("angels-iron-smelting-2", "angels-coal-processing-2")
 
-bobmods.lib.tech.replace_prerequisite("angels-coal-processing-2", "angels-water-treatment-2", "angels-basic-chemistry-3")
+bobmods.lib.tech.replace_prerequisite(
+  "angels-coal-processing-2",
+  "angels-water-treatment-2",
+  "angels-basic-chemistry-3"
+)
 
 -- Add other prerequisites
 bobmods.lib.tech.add_prerequisite("angels-gardens", "bob-electronics")

@@ -135,7 +135,6 @@ if mods["Clowns-Extended-Minerals"] then
       results = {
         { type = "item", name = "clowns-ore6", amount = 1 },
       },
-
       icon_size = 32,
       order = "f",
     },

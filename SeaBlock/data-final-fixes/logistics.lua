@@ -41,7 +41,7 @@ if data.raw.beacon["bob-beacon-2"] then
   data.raw.beacon["bob-beacon-2"].module_slots = 2
   data.raw.beacon["bob-beacon-2"].distribution_effectivity = 1
 
-  --TODO this got changed with bobs 2.0 - this replicates 1.1 behavior 
+  --TODO this got changed with bobs 2.0 - this replicates 1.1 behavior
   data.raw.beacon["bob-beacon-2"].supply_area_distance = 6
 end
 if data.raw.beacon["bob-beacon-3"] then
@@ -94,11 +94,7 @@ local function revertchests(tech)
   for k, v in pairs(tech.effects) do
     if
       v.type ~= "unlock-recipe"
-      or (
-        v.recipe ~= "passive-provider-chest"
-        and v.recipe ~= "storage-chest"
-        and v.recipe ~= "requester-chest"
-      )
+      or (v.recipe ~= "passive-provider-chest" and v.recipe ~= "storage-chest" and v.recipe ~= "requester-chest")
     then
       table.insert(neweffects, v)
     end
@@ -114,10 +110,7 @@ for k, v in pairs(data.raw.technology["logistic-system"].effects) do
   end
 end
 if not found then
-  table.insert(
-    data.raw.technology["logistic-system"].effects,
-    { type = "unlock-recipe", recipe = "requester-chest" }
-  )
+  table.insert(data.raw.technology["logistic-system"].effects, { type = "unlock-recipe", recipe = "requester-chest" })
 end
 
 if mods["angelsindustries"] then

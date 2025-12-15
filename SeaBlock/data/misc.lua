@@ -31,7 +31,10 @@ angelsmods.trigger.smelting_products["gunmetal"].plate = false
 angelsmods.trigger.early_sulfuric_acid = true
 
 -- Copy Ore Processing Machine tech icon to Mechanical Refining
-seablock.lib.copy_icon(data.raw.technology["angels-ore-crushing"], data.raw.technology["angels-advanced-ore-refining-1"])
+seablock.lib.copy_icon(
+  data.raw.technology["angels-ore-crushing"],
+  data.raw.technology["angels-advanced-ore-refining-1"]
+)
 
 data:extend({
   { -- This was removed with bobs2.0 but is fitting for SeaBlock

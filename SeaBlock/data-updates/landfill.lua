@@ -43,7 +43,6 @@ data.raw.technology["landfill"].unit = {
   ingredients = { { "automation-science-pack", 1 } },
   time = 15,
 }
-
 bobmods.lib.tech.remove_prerequisite("angels-water-washing-2", "landfill")
 bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)
 

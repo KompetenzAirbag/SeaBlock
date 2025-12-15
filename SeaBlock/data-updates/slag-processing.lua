@@ -1,15 +1,7 @@
 -- Decrease amount of crushed stone for slag-slurry so it's still better than mineralized water crystallization
 seablock.lib.substingredient("angels-stone-crushed-dissolution", "angels-stone-crushed", "stone", 20)
 
--- Update results of ore processing since Angel's changed that to be less convenient
-data.raw.recipe["angels-ore-chunk-mix3-processing"].results = {{ type = "item", name = "bob-bauxite-ore", amount = 4 }}
-
-data.raw.recipe["angels-ore-crushed-mix3-processing"].results = {{ type = "item", name = "bob-lead-ore", amount = 4 }}
-
-data.raw.recipe["angels-ore-pure-mix2-processing"].results = {{ type = "item", name = "angels-platinum-ore", amount = 2 }}
-
--- Angels sludge crystalization usually gives normal smeltable ores. This would be far too easy,
--- so change recipes to give the weird ores that need extra processing steps.
+-- Angels sludge crystalization usually gives multiple ores. Change so we have one recipe per ore.
 for i = 1, 6 do
   local recipe = data.raw.recipe["angels-slag-processing-" .. i]
   seablock.lib.copy_icon(recipe, {})
@@ -20,10 +12,7 @@ for i = 1, 6 do
   recipe.energy_required = 4
   recipe.ingredients = { { type = "fluid", name = "angels-mineral-sludge", amount = 25 } }
   recipe.results = { { type = "item", name = "angels-ore" .. i, amount = 1 } }
-  recipe.enabled = false
   recipe.hidden = false
-
-  angelsmods.functions.allow_productivity("angels-slag-processing-" .. i)
 end
 
 -- Angels ores 1, 3 (Saphirite, Stiratite) available from tutorial tech 1,
@@ -32,16 +21,21 @@ end
 bobmods.lib.recipe.enabled("angels-ore1-crushed-smelting", false)
 bobmods.lib.recipe.enabled("angels-ore3-crushed-smelting", false)
 seablock.lib.moveeffect("angels-catalysator-brown", "angels-slag-processing-1", "angels-advanced-ore-refining-1", 3)
-local slag1start = seablock.lib.findeffectidx(data.raw.technology["angels-slag-processing-1"].effects, "angels-slag-processing-1")
-seablock.lib.insert_effect("angels-slag-processing-5", "angels-slag-processing-1", slag1start+3)
-seablock.lib.insert_effect("angels-slag-processing-6", "angels-slag-processing-1", slag1start+4)
+local slag1start =
+  seablock.lib.findeffectidx(data.raw.technology["angels-slag-processing-1"].effects, "angels-slag-processing-1")
+seablock.lib.insert_effect("angels-slag-processing-5", "angels-slag-processing-1", slag1start + 3)
+seablock.lib.insert_effect("angels-slag-processing-6", "angels-slag-processing-1", slag1start + 4)
 
 local slag2start = 0
-seablock.lib.moveeffect("angels-slag-processing-2", "angels-slag-processing-1", "angels-ore-advanced-crushing", slag2start + 1)
-seablock.lib.insert_effect("angels-slag-processing-4", "angels-ore-advanced-crushing", slag2start+2)
+seablock.lib.moveeffect(
+  "angels-slag-processing-2",
+  "angels-slag-processing-1",
+  "angels-ore-advanced-crushing",
+  slag2start + 1
+)
+seablock.lib.insert_effect("angels-slag-processing-4", "angels-ore-advanced-crushing", slag2start + 2)
 seablock.lib.moveeffect("angels-ore2-crushed", "angels-ore-crushing", "angels-ore-advanced-crushing", slag2start + 3)
 seablock.lib.moveeffect("angels-ore4-crushed", "angels-ore-crushing", "angels-ore-advanced-crushing", slag2start + 4)
-
 
 seablock.lib.add_recipe_unlock("angels-ore-crushing", "angels-ore5-crushed", 3)
 seablock.lib.add_recipe_unlock("angels-ore-crushing", "angels-ore6-crushed", 4)

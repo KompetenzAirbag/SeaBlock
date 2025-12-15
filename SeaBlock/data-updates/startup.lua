@@ -78,11 +78,6 @@ bobmods.lib.recipe.enabled("angels-flare-stack", true)
 seablock.lib.hide_technology("angels-flare-stack")
 for k, v in pairs(knowningredients) do
   local recipe = data.raw.recipe[k]
-  for ek, ev in pairs(recipe.normal or {}) do
-    recipe[ek] = ev
-  end
-  recipe.normal = nil
-  recipe.expensive = nil
   recipe.ingredients = {}
   for _, line in pairs(v) do
     table.insert(recipe.ingredients, { type = "item", name = line[1], amount = line[2] })
@@ -123,8 +118,8 @@ local disabledrecipes = {}
 
 -- Don't want any recipes available that consume our carefully
 -- selected starting items until the self-sufficient startup is complete
-local function ironrecipe(recipe)
-  local foundiron = false
+local function consumes_startup_item(recipe)
+  local found = false
   local ironnames = {
     ["iron-plate"] = true,
     ["iron-gear-wheel"] = true,
@@ -138,28 +133,19 @@ local function ironrecipe(recipe)
     ["copper-cable"] = true,
     ["stone-furnace"] = true,
   }
-  local function scaningredients(recipe)
-    local haveiron = false
-    for k, v in pairs(recipe.ingredients) do
-      local nameidx = 1
-      if v.name then
-        nameidx = "name"
-      end
-      if ironnames[v[nameidx]] then
-        haveiron = true
-      end
+  for k, v in pairs(recipe.ingredients) do
+    if ironnames[v.name] then
+      found = true
+      break
     end
-    foundiron = foundiron or haveiron
   end
-  seablock.lib.iteraterecipes(recipe, scaningredients)
-  return foundiron
+  return found
 end
 
 
 -- Disable recipes that shouldn't consume startup items
 for k, v in pairs(data.raw.recipe) do
-  local r = v.normal or v
-  if (r.enabled == nil or r.enabled == true or r.enabled == "true") and ironrecipe(v) and not v.hidden then
+  if (v.enabled == nil or v.enabled == true) and consumes_startup_item(v) and not v.hidden then
     if not movedrecipes[k] then
       table.insert(disabledrecipes, k)
     end

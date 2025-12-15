@@ -59,6 +59,33 @@ local techs = {
   "ftl-propulsion",
 }
 
+local upgrades = {
+  ["bob-construction-robot-4"] = "bob-construction-robot-5",
+  -- CircuitProcessing replaces module-3 with module-4, so SpaceMod data-final-fixes
+  -- doesn't find the modules it's expecting.
+  ["speed-module-4"] = "speed-module-8",
+  ["effectivity-module-4"] = "effectivity-module-8",
+  ["productivity-module-4"] = "productivity-module-8",
+  ["fusion-reactor-equipment-4"] = "fusion-reactor-equipment-4", -- for amount adjustment
+}
+
+for _, recipe_name in pairs(recipes) do
+  local recipe = data.raw.recipe[recipe_name]
+  if recipe and recipe.ingredients then
+    for _, item in pairs(recipe.ingredients) do
+      local upgrade = upgrades[item.name]
+      if upgrade and (data.raw.item[upgrade] or data.raw.module[upgrade]) then
+        item.name = upgrade
+      end
+      if upgrade == "bob-construction-robot-5" then
+        item.amount = 1
+      elseif upgrade == "fusion-reactor-equipment-4" then
+        item.amount = item.amount / 2
+      end
+    end
+  end
+end
+
 -- ftl-theory-D means SpaceMod bob's mode has activated
 if data.raw.technology["ftl-theory-D"] then
   for _, tech in pairs(techs) do

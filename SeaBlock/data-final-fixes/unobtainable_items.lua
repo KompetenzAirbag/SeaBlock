@@ -16,13 +16,12 @@ end
 
 local function updateline(line)
   local item = line.name
-
   if itemrename[item] then
     line.name = itemrename[item]
   end
-end
 
-local function updaterecipe(recipe)
+end
+for _, recipe in pairs(data.raw.recipe) do
   for _, v in pairs(recipe.ingredients) do
     updateline(v)
   end
@@ -30,9 +29,6 @@ local function updaterecipe(recipe)
   for _, v in pairs(recipe.results or {}) do
     updateline(v)
   end
-end
-for _, v in pairs(data.raw.recipe) do
-  seablock.lib.iteraterecipes(v, updaterecipe)
 end
 
 -- Recipes to unconditionally remove
@@ -46,8 +42,6 @@ for _, v in ipairs({
   "bob-alien-artifact-yellow",
   "angels-chemical-void-angels-gas-natural-1",
   "angels-chemical-void-angels-liquid-condensates",
-  "angels-water-void-crystal-matrix", -- TODO: are those two already removed ?
-  --"angels-water-void-bob-lithia-water",
   "angels-ore1-crushed-hand",
   "angels-ore3-crushed-hand",
   "big-burner-generator",
@@ -65,18 +59,15 @@ for _, v in ipairs({
   "angels-condensates-refining",
   "diesel-fuel",
   "electric-mining-drill",
-  "empty-crystal-matrix-barrel", -- TODO: where does this item come from ? 
   "empty-diesel-fuel-barrel",
   "empty-angels-gas-natural-1-barrel",
   "empty-angels-liquid-condensates-barrel",
   "empty-bob-lithia-water-barrel",
-  "crystal-matrix-barrel",
   "diesel-fuel-barrel",
   "angels-gas-natural-1-barrel",
   "angels-liquid-condensates-barrel",
   "bob-lithia-water-barrel",
   "angels-gas-fractioning-condensates",
-  "gas-phosgene",
   "angels-gas-separation",
   "oil-steam-boiler",
   "petroleum-generator",
@@ -89,7 +80,6 @@ for _, v in ipairs({
   "angels-solid-coke-sulfur",
   "angels-thermal-water-filtering-1",
   "angels-thermal-water-filtering-2",
-  "water-thermal-lithia", -- TODO: where does this come from ? 
   "angels-wood-charcoal",
 }) do
   removerecipes[v] = true
@@ -110,8 +100,6 @@ for _, v in ipairs({
   "electric-mining-drill",
   "angels-gas-natural-1",
   "angels-gas-natural-1-barrel",
-  "gas-phosgene", -- TODO: what happened to those items ? I can't find them in angels/bob/ks power 
-  "gas-phosgene-barrel",
   "angels-liquid-condensates",
   "angels-liquid-condensates-barrel",
   "bob-lithia-water",
@@ -147,7 +135,7 @@ for k, recipe in pairs(recipes) do
     local items = {}
     if recipe.ingredients then
       for _, ingredient in pairs(recipe.ingredients) do
-        local item = ingredient[1] or ingredient.name
+        local item = ingredient.name
         if unobtainable[item] then
           items[item] = true
         end
@@ -211,26 +199,18 @@ local keep_unobtainable_recipes = {
 }
 
 -- Remove any recipe that uses an unobtainable ingredient
-local function keeprecipe(r)
-  if (keep_unobtainable_recipes[r.name]) then
-    return true
-  end
-
-  if (not r.ingredients) then
-    return false
-  end
-  for _, v in ipairs(r.ingredients) do
-    local ingredient = v[1] or v.name
-    if ingredient and unobtainable[ingredient] then
-      return false
+for recipe_name, recipe in pairs(data.raw.recipe) do
+  local keep = true
+  if recipe.ingredients then
+    for _, ingredient in pairs(recipe.ingredients) do
+      if unobtainable[ingredient.name] then
+        keep = false
+        break
+      end
     end
   end
-  return true
-end
-
-for k, v in pairs(data.raw.recipe) do
-  if not keeprecipe(v) then
-    removerecipes[k] = true
+  if not keep then
+    removerecipes[recipe_name] = true
   end
 end
 
