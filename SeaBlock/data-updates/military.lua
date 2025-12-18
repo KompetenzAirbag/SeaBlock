@@ -481,32 +481,9 @@ for _, v in pairs(mil_ammo) do
   end
 end
 
--- except = {
---   ["follower-robot-count-1"] = true,
---   ["follower-robot-count-2"] = true,
---   ["follower-robot-count-3"] = true,
---   ["follower-robot-count-4"] = true,
---   ["follower-robot-count-5"] = true,
---   ["follower-robot-count-6"] = true,
---   ["follower-robot-count-7"] = true,
---   ["energy-weapons-damage-7"] = true,
---   ["physical-projectile-damage-7"] = true,
---   ["refined-flammables-1"] = true,
---   ["refined-flammables-2"] = true,
---   ["refined-flammables-3"] = true,
---   ["refined-flammables-4"] = true,
---   ["refined-flammables-5"] = true,
---   ["refined-flammables-6"] = true,
---   ["refined-flammables-7"] = true,
---   ["stronger-explosives-7"] = true,
---   ["laser-shooting-speed-7"] = true,
--- }
 for _, v in pairs(mil_tech) do
   if data.raw.technology[v] then
     seablock.lib.hide_technology(v)
-    -- if not except[v] then
-    --   data.raw.technology[v].unit.ingredients = {} --remove 
-    -- end
   end
 end
 

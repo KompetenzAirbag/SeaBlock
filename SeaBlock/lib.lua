@@ -287,21 +287,6 @@ function seablock.lib.copy_icon(to, from)
   end
 end
 
-function seablock.lib.hide_item(item_name)
-  local item = data.raw.item[item_name]
-  if item then
-    item.hidden = true
-  else
-    item = data.raw.fluid[item_name]
-    if item then
-      item.hidden = true
-    else
-      log("Warning: seablock.lib.hide_item - can't find item or fluid : " .. item_name)
-      log(debug.traceback())
-    end
-  end
-end
-
 function seablock.lib.hide(type_name, name)
   if not data.raw[type_name] then
     log("Warning: seablock.lib.hide - Unknown type: " .. type_name)
@@ -315,18 +300,27 @@ function seablock.lib.hide(type_name, name)
       if type_name == "fluid" then
         item.hidden = true
       else
-        if not item.flags then
-          item.flags = {}
-        end
         item.hidden = true
 
         if type_name == "item" then
+          if not item.flags then
+            item.flags = {}
+          end
+          
           table.insert(item.flags, "hide-from-bonus-gui")
         end
 
         item.next_upgrade = nil
       end
     end
+  end
+end
+
+function seablock.lib.hide_item(item_name)
+  if data.raw.item[item_name] then
+    seablock.lib.hide("item", item_name)
+  else
+    seablock.lib.hide("fluid", item_name)
   end
 end
 

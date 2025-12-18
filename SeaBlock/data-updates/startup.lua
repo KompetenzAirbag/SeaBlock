@@ -142,7 +142,6 @@ local function consumes_startup_item(recipe)
   return found
 end
 
-
 -- Disable recipes that shouldn't consume startup items
 for k, v in pairs(data.raw.recipe) do
   if (v.enabled == nil or v.enabled == true) and consumes_startup_item(v) and not v.hidden then

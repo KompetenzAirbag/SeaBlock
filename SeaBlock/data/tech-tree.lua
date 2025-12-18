@@ -109,7 +109,6 @@ if data.raw.technology["bob-gem-processing-3"] then
   bobmods.lib.tech.add_prerequisite("efficiency-module-3", "bob-gem-processing-3")
 end
 
-
 bobmods.lib.tech.remove_prerequisite("automation-science-pack", "electronics")
 seablock.lib.hide_technology("automation-science-pack")
 
@@ -128,7 +127,6 @@ bobmods.lib.tech.remove_prerequisite("gun-turret", "automation-science-pack")
 bobmods.lib.tech.remove_prerequisite("stone-wall", "automation-science-pack")
 bobmods.lib.tech.remove_prerequisite("radar", "automation-science-pack")
 bobmods.lib.tech.remove_prerequisite("automation", "automation-science-pack")
-
 
 -- Change order for esthetics of the tech tree 
 data.raw["technology"]["military"].order = "z-[military]"

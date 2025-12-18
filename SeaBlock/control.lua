@@ -84,8 +84,6 @@ local function init()
   end
 end
 
-
-
 script.on_event(defines.events.on_player_joined_game, function(e)
   seablock.give_research(game.players[e.player_index].force)
 end)
@@ -184,34 +182,6 @@ script.on_configuration_changed(function(cfg)
     end
   end
 end)
-
-script.on_load(function()
-  set_pvp()
-end)
-
-if script.active_mods["Companion_Drones"] then
-  script.on_event(defines.events.on_player_created, function(e)
-    local s = game.surfaces["nauvis"]
-    if s then
-      local companions = s.find_entities_filtered({ name = "companion" })
-      for _, companion in pairs(companions) do
-        local inventory = companion.get_main_inventory()
-        local i = companion.remove_item("coal")
-        -- Only do drone inventory cleanup if coal is found
-        -- Else players will get free wood pellets any time a new player joins
-        if i > 0 then
-          companion.insert("wood-pellets")
-          local grid = companion.grid
-          for _, item in pairs(grid.equipment) do
-            if (item.name == "companion-defense-equipment") or (item.name == "companion-shield-equipment") then
-              grid.take({ equipment = item })
-            end
-          end
-        end
-      end
-    end
-  end)
-end
 
 script.on_load(function()
   set_pvp()

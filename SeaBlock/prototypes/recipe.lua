@@ -4,6 +4,7 @@ data:extend({
     name = "sb-wood-bricks-charcoal",
     localised_name = { "item-name.angels-wood-charcoal" },
     category = "smelting",
+    allow_productivity = true,
     enabled = false,
     energy_required = 3.5,
     ingredients = { { type = "item", name = "angels-wood-bricks", amount = 1 } },

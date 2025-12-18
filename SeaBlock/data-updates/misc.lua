@@ -244,5 +244,3 @@ bobmods.lib.recipe.replace_ingredient("angels-solid-cement-2", "bob-quartz", "bo
 bobmods.lib.recipe.set_ingredient("angels-solid-cement-2", { type = "item", name = "angels-solid-lime", amount = 4 })
 bobmods.lib.recipe.set_result("angels-solid-cement-2", { type = "item", name = "angels-solid-cement", amount = 4 })
 bobmods.lib.recipe.set_energy_required("angels-solid-cement-2", 16)
-
-bobmods.lib.item.hide("bob-alien-acid")
