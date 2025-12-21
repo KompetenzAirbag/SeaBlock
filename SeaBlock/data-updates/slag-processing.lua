@@ -41,14 +41,6 @@ seablock.lib.add_recipe_unlock("angels-ore-crushing", "angels-ore5-crushed", 3)
 seablock.lib.add_recipe_unlock("angels-ore-crushing", "angels-ore6-crushed", 4)
 seablock.lib.add_recipe_unlock("angels-ore-crushing", "iron-plate")
 seablock.lib.add_recipe_unlock("angels-ore-crushing", "copper-plate")
-seablock.lib.add_recipe_unlock("angels-ore-crushing", "bob-lead-plate")
-seablock.lib.add_recipe_unlock("angels-ore-crushing", "bob-tin-plate")
-seablock.lib.add_recipe_unlock("angels-ore-crushing", "bob-glass")
-
-seablock.lib.unhide_recipe("iron-plate")
-seablock.lib.unhide_recipe("copper-plate")
-seablock.lib.unhide_recipe("bob-lead-plate")
-seablock.lib.unhide_recipe("bob-tin-plate")
 
 -- Hide unwanted recipes
 bobmods.lib.recipe.hide("bob-silver-plate")

@@ -19,10 +19,6 @@ seablock.lib.moveeffect(
 )
 bobmods.lib.tech.add_prerequisite("bob-lithium-processing", "angels-thermal-water-extraction")
 
--- Change lithium crafting category
-bobmods.lib.recipe.set_category("bob-lithium", "angels-petrochem-electrolyser")
-bobmods.lib.recipe.set_category("bob-lithium-water-electrolysis", "angels-petrochem-electrolyser")
-
 bobmods.lib.tech.remove_recipe_unlock("angels-water-treatment-3", "angels-solid-lithium")
 bobmods.lib.recipe.hide("angels-solid-lithium") -- TODO: move angels-solid-lithium to the same group as the recipe or the other way around
 
@@ -62,9 +58,6 @@ bobmods.lib.recipe.set_category("angels-solid-calcium-carbonate", "advanced-craf
 
 -- Alien bacteria
 bobmods.lib.recipe.set_category("angels-alien-bacteria", "angels-bio-processing-3")
-
--- Make these craftable by hand
-bobmods.lib.recipe.set_category("angels-solid-alginic-acid", "crafting")
 
 -- Fix handcrafting trying to use wrong crafting path
 data.raw.recipe["angels-cellulose-fiber-raw-wood"].allow_as_intermediate = false
