@@ -18,8 +18,8 @@ end
 -- Angels ores 1, 3 (Saphirite, Stiratite) available from tutorial tech 1,
 -- Angels ores 5, 6 (Rubyte, Bobmonium) available from Slag processing 1
 -- Angels ores 2, 4 (Jivolite, Crotinnium) available from Advanced mechanical refining
-bobmods.lib.recipe.enabled("angels-ore1-crushed-smelting", false)
-bobmods.lib.recipe.enabled("angels-ore3-crushed-smelting", false)
+bobmods.lib.recipe.enabled("iron-plate", false)
+bobmods.lib.recipe.enabled("copper-plate", false)
 seablock.lib.moveeffect("angels-catalysator-brown", "angels-slag-processing-1", "angels-advanced-ore-refining-1", 3)
 local slag1start =
   seablock.lib.findeffectidx(data.raw.technology["angels-slag-processing-1"].effects, "angels-slag-processing-1")

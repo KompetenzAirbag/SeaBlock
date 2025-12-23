@@ -5,8 +5,8 @@ data:extend({
     icon = "__SeaBlock__/graphics/technology/ore.png",
     icon_size = 128,
     effects = {
-      { type = "unlock-recipe", recipe = "angels-ore1-crushed-smelting" },
-      { type = "unlock-recipe", recipe = "angels-ore3-crushed-smelting" },
+      { type = "unlock-recipe", recipe = "iron-plate" },
+      { type = "unlock-recipe", recipe = "copper-plate" },
       { type = "unlock-recipe", recipe = "copper-cable" },
     },
     research_trigger = {type = "craft-item", item = "angels-ore3-crushed"}
