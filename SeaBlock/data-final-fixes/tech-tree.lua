@@ -70,6 +70,7 @@ bobmods.lib.tech.remove_prerequisite("bob-repair-pack-2", "repair-pack")
 
 -- Empty technology
 bobmods.lib.tech.hide("bob-chemical-plant")
+bobmods.lib.tech.hide("bob-artifact-processing")
 
 bobmods.lib.tech.remove_prerequisite("lubricant", "bob-chemical-plant")
 bobmods.lib.tech.remove_prerequisite("plastics", "bob-chemical-plant")
