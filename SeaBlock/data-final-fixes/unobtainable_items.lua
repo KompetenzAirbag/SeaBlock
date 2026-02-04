@@ -251,6 +251,7 @@ bobmods.lib.safe_insert(dummyLab.inputs, "logistic-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "chemical-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "production-science-pack")
 bobmods.lib.safe_insert(dummyLab.inputs, "utility-science-pack")
+bobmods.lib.safe_insert(dummyLab.inputs, "military-science-pack")
 
 if mods["bobtech"] and mods["bobenemies"] then
   bobmods.lib.safe_insert(dummyLab.inputs, "bob-science-pack-gold")
@@ -261,5 +262,8 @@ if mods["bobtech"] and mods["bobenemies"] then
   bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-orange")
   bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack-yellow")
   bobmods.lib.safe_insert(dummyLab.inputs, "bob-alien-science-pack")
+  if bobmods.tech and bobmods.tech.advanced_logistic_science then
+    bobmods.lib.safe_insert(dummyLab.inputs, "bob-advanced-logistic-science-pack")
+  end
 end
 data:extend({dummyLab})
