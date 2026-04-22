@@ -99,6 +99,7 @@ if data.raw.technology["bob-greenhouse"] then
   bobmods.lib.tech.add_prerequisite("bob-greenhouse", "steam-power")
 end
 bobmods.lib.tech.add_prerequisite("angels-coal-processing", "steam-power")
+bobmods.lib.tech.remove_prerequisite("sct-lab-t1", "steam-power")
 
 -- Gems are needed to make higher tier modules
 if data.raw.technology["gem-processing-3"] then
