@@ -97,9 +97,9 @@ else
   bobmods.lib.recipe.enabled("lab", false)
 end
 
-if data.raw.technology["sct-automation-science-pack"] then
-  bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "sct-lab-t1")
-  data.raw.technology["sct-automation-science-pack"].unit = {
+if data.raw.technology["automation-science-pack"] then
+  bobmods.lib.tech.add_prerequisite("automation-science-pack", "sct-lab-t1")
+  data.raw.technology["automation-science-pack"].unit = {
     count = 1,
     ingredients = { { "sb-lab-tool", 1 } },
     time = 1,
