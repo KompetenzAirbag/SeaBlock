@@ -12,8 +12,8 @@ seablock.scripted_techs = {
 if data.raw.technology["sct-lab-t1"] then
   seablock.scripted_techs["sct-lab-t1"] = true
 end
-if data.raw.technology["sct-automation-science-pack"] then
-  seablock.scripted_techs["sct-automation-science-pack"] = true
+if data.raw.technology["automation-science-pack"] then
+  seablock.scripted_techs["automation-science-pack"] = true
 end
 
 -- seablock.startup_techs
@@ -73,8 +73,8 @@ end
 -- seablock.final_scripted_tech
 -- Startup techs will depend on this tech
 seablock.final_scripted_tech = "sb-startup4"
-if data.raw.technology["sct-automation-science-pack"] then
-  seablock.final_scripted_tech = "sct-automation-science-pack"
+if data.raw.technology["automation-science-pack"] then
+  seablock.final_scripted_tech = "automation-science-pack"
 end
 
 seablock.final_startup_tech = "slag-processing-1"
