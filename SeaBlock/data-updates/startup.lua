@@ -92,11 +92,11 @@ else
   bobmods.lib.recipe.enabled("lab", false)
 end
 
-if data.raw.technology["sct-automation-science-pack"] then
-  bobmods.lib.tech.add_prerequisite("sct-automation-science-pack", "sct-lab-t1")
+if data.raw.technology["automation-science-pack"] then
+  bobmods.lib.tech.add_prerequisite("automation-science-pack", "sct-lab-t1")
 
-  data.raw.technology["sct-automation-science-pack"].research_trigger = { type = "craft-item", item = "lab" }
-  data.raw.technology["sct-automation-science-pack"].unit = nil
+  data.raw.technology["automation-science-pack"].research_trigger = { type = "craft-item", item = "lab" }
+  data.raw.technology["automation-science-pack"].unit = nil
   data.raw.technology["sct-lab-t1"].unit = {
     count = 1,
     ingredients = {},
@@ -104,6 +104,8 @@ if data.raw.technology["sct-automation-science-pack"] then
   }
   seablock.lib.hide_technology("sb-startup4")
 end
+
+bobmods.lib.tech.remove_prerequisite("sct-lab-t1", "steam-power")
 
 local movedrecipes = table.deepcopy(seablock.startup_recipes)
 for k, v in pairs(seablock.scripted_techs) do

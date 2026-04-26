@@ -24,7 +24,6 @@ Date: ??.??.??
     - Miscellaneous 2.0 changes
       - control.lua cleanup
       - data-final-fixes.lua cleanup
-      - SCT 2.0 has replaced "automation-science-pack" with "sct-automation-science-pack"
       - Added "shotgun" recipe if "blueprint-shotgun" is enabled
       - Changed the volume of the "wind-turbine-2" as it is way too loud
 ---------------------------------------------------------------------------------------------------

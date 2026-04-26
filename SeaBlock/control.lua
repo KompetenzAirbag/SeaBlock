@@ -66,8 +66,8 @@ local function init()
     ["angels-ore3-crushed"] = { "sb-startup1", "angels-bio-wood-processing" },
     ["bob-basic-circuit-board"] = { "sb-startup3", "sct-lab-t1" },
   }
-  if prototypes.technology["sct-automation-science-pack"] then
-    storage.unlocks["lab"] = { "sct-automation-science-pack" }
+  if prototypes.technology["automation-science-pack"] then
+    storage.unlocks["lab"] = { "automation-science-pack" }
   else
     storage.unlocks["lab"] = { "sb-startup4" }
   end
@@ -173,12 +173,12 @@ script.on_configuration_changed(function(cfg)
     end
 
     if
-      force.technologies["sct-automation-science-pack"]
+      force.technologies["automation-science-pack"]
       and force.technologies["sb-startup4"]
       and force.technologies["sb-startup4"].researched
     then
       force.technologies["sct-lab-t1"].researched = true
-      force.technologies["sct-automation-science-pack"].researched = true
+      force.technologies["automation-science-pack"].researched = true
     end
   end
 end)
