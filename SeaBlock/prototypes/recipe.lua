@@ -122,6 +122,25 @@ data:extend({
     subgroup = "angels-bio-processing-blue",
     order = "d[blue-algae-liquefaction]",
   },
+  {
+    type = "recipe",
+    name = "sb-stone-pipe",
+    enabled = true,
+    ingredients = {
+      { type = "item", name = "stone-brick", amount = 1 },
+    },
+    results = { { type = "item", name = "sb-stone-pipe", amount = 1 } },
+  },
+  {
+    type = "recipe",
+    name = "sb-stone-pipe-to-ground",
+    enabled = true,
+    ingredients = {
+      { type = "item", name = "sb-stone-pipe", amount = 10 },
+      { type = "item", name = "stone-brick", amount = 5 },
+    },
+    results = { { type = "item", name = "sb-stone-pipe-to-ground", amount = 2 } },
+  }
 })
 
 bobmods.lib.tech.add_prerequisite("angels-oil-processing", "angels-bio-processing-blue")
