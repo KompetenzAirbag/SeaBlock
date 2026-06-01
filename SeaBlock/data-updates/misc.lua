@@ -155,7 +155,7 @@ end
 
 -- Buff bob's silicon and tungsten recipes
 seablock.lib.substingredient("bob-silicon-carbide", "bob-silicon-powder", nil, 10)
-seablock.lib.substingredient("bob-silicon-carbide", "bob-carbon", nil, 10)
+seablock.lib.substingredient("bob-silicon-carbide", "carbon", nil, 10)
 data.raw.recipe["bob-silicon-carbide"].results[1].amount = 20
 
 seablock.lib.substingredient("bob-silicon-nitride", "bob-silicon-powder", nil, 10)
@@ -163,12 +163,12 @@ seablock.lib.substingredient("bob-silicon-nitride", "angels-gas-nitrogen", nil, 
 data.raw.recipe["bob-silicon-nitride"].results[1].amount = 10
 
 seablock.lib.substingredient("bob-tungsten-carbide", "bob-tungsten-oxide", nil, 10)
-seablock.lib.substingredient("bob-tungsten-carbide", "bob-carbon", nil, 10)
+seablock.lib.substingredient("bob-tungsten-carbide", "carbon", nil, 10)
 seablock.lib.substresult("bob-tungsten-carbide", "bob-tungsten-carbide", nil, 20)
 bobmods.lib.recipe.set_energy_required("bob-tungsten-carbide", 6)
 
 seablock.lib.substingredient("bob-tungsten-carbide-2", "bob-powdered-tungsten", nil, 10)
-seablock.lib.substingredient("bob-tungsten-carbide-2", "bob-carbon", nil, 10)
+seablock.lib.substingredient("bob-tungsten-carbide-2", "carbon", nil, 10)
 seablock.lib.substresult("bob-tungsten-carbide-2", "bob-tungsten-carbide", nil, 20)
 bobmods.lib.recipe.set_energy_required("bob-tungsten-carbide-2", 6)
 
