@@ -13,7 +13,7 @@ function seablock.create_rock_chest(surface, pos)
   local has_items = false
 
   if storage.starting_items and (not game.is_multiplayer()) then
-    for item, quantity in pairs(storage.starting_items) do
+    for _, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         has_items = true
         break
@@ -62,9 +62,18 @@ local function init()
       remote.call("freeplay", "set_disable_crashsite", true)
     end
   end
+  -- The 2.0 branch is moving these startup steps to research triggers.  Until
+  -- that conversion removes this runtime table entirely, only include the
+  -- optional SCT lab technology when it actually exists so the no-SCT target
+  -- does not advertise an impossible scripted unlock.
+  local circuit_board_unlocks = { "sb-startup3" }
+  if prototypes.technology["sct-lab-t1"] then
+    table.insert(circuit_board_unlocks, "sct-lab-t1")
+  end
+
   storage.unlocks = {
     ["angels-ore3-crushed"] = { "sb-startup1", "angels-bio-wood-processing" },
-    ["bob-basic-circuit-board"] = { "sb-startup3", "sct-lab-t1" },
+    ["bob-basic-circuit-board"] = circuit_board_unlocks,
   }
   if prototypes.technology["automation-science-pack"] then
     storage.unlocks["lab"] = { "automation-science-pack" }
@@ -150,7 +159,7 @@ end)
 
 script.on_init(init)
 
-script.on_configuration_changed(function(cfg)
+script.on_configuration_changed(function(_cfg)
   init()
   -- Heavy handed fix for mods that forget migration scripts
   for _, force in pairs(game.forces) do
@@ -158,7 +167,7 @@ script.on_configuration_changed(function(cfg)
     force.reset_recipes()
     for tech_name, tech in pairs(force.technologies) do
       if tech.researched then
-        for tech_name, effect in pairs(tech.prototype.effects) do
+        for _, effect in pairs(tech.prototype.effects) do
           if effect.type == "unlock-recipe" then
             force.recipes[effect.recipe].enabled = true
           end
@@ -177,7 +186,9 @@ script.on_configuration_changed(function(cfg)
       and force.technologies["sb-startup4"]
       and force.technologies["sb-startup4"].researched
     then
-      force.technologies["sct-lab-t1"].researched = true
+      if force.technologies["sct-lab-t1"] then
+        force.technologies["sct-lab-t1"].researched = true
+      end
       force.technologies["automation-science-pack"].researched = true
     end
   end

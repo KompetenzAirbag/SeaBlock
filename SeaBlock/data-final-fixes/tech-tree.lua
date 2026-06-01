@@ -14,6 +14,32 @@ seablock.lib.hide_technology("bob-electrolysis-2")
 seablock.lib.hide_technology("bob-chemical-processing-1")
 seablock.lib.hide_technology("bob-chemical-processing-2")
 
+-- Bob dev still leaves some visible progression technologies pointing at old
+-- Bob metal-processing gates that Sea Block hides or empties in favour of
+-- Angel's smelting chains.  Replace those prerequisite leaks with reachable
+-- Angel material milestones so later science tiers do not depend on hidden,
+-- disabled Bob technologies that the player can never research directly.
+local zinc_prerequisite_replacements = {
+  "angels-advanced-chemistry-2",
+  "angels-bio-desert-farm",
+  "angels-bio-refugium-puffer-1",
+  "angels-bio-swamp-farm",
+  "angels-bio-temperate-farm",
+  "angels-metallurgy-3",
+  "angels-slag-processing-2",
+  "angels-water-treatment-3",
+  "automation-3",
+  "bob-electronics-machine-2",
+  "military-3",
+  "sb-bio-processing-advanced",
+}
+
+for _, tech_name in pairs(zinc_prerequisite_replacements) do
+  if data.raw.technology[tech_name] and data.raw.technology["angels-zinc-smelting-1"] then
+    bobmods.lib.tech.replace_prerequisite(tech_name, "bob-zinc-processing", "angels-zinc-smelting-1")
+  end
+end
+
 bobmods.lib.tech.remove_prerequisite("circuit-network", "angels-bio-wood-processing-2")
 bobmods.lib.tech.add_prerequisite("circuit-network", "angels-bio-paper-1")
 bobmods.lib.tech.remove_prerequisite("angels-rubbers", "circuit-network")

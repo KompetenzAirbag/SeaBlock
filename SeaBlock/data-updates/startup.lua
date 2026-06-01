@@ -5,6 +5,8 @@
 -- Offshore pump  2              1                     10
 -- Crystallizer   5                                                           5
 
+-- luacheck: globals table.deepcopy
+
 local knowningredients = {
   ["angels-electrolyser"] = {
     { "iron-plate", 10 },
@@ -85,30 +87,47 @@ for k, v in pairs(knowningredients) do
 end
 
 -- unlock lab and optional components with Basic Circuit Board
-if data.raw.technology["sct-lab-t1"] then
+local sct_lab_tech = data.raw.technology["sct-lab-t1"]
+if sct_lab_tech then
   bobmods.lib.tech.add_prerequisite("sct-lab-t1", "sb-startup3")
 else
+  -- Without Science Cost Tweaker there is no intermediate lab technology.
+  -- Unlock the vanilla lab from Sea Block's circuit-board startup milestone so
+  -- the later automation-science trigger can still be driven by crafting a lab.
   bobmods.lib.tech.add_recipe_unlock("sb-startup3", "lab")
   bobmods.lib.recipe.enabled("lab", false)
 end
 
 if data.raw.technology["automation-science-pack"] then
-  bobmods.lib.tech.add_prerequisite("automation-science-pack", "sct-lab-t1")
+  -- Science Cost Tweaker inserts "sct-lab-t1" between basic circuits and red
+  -- science.  The non-SCT target set used for the Factorio 2.0 port does not
+  -- have that technology, so wire red science to the startup milestone that
+  -- unlocks the lab recipe instead of indexing a missing SCT prototype.
+  local lab_prerequisite = sct_lab_tech and "sct-lab-t1" or "sb-startup3"
+  -- This trigger technology is part of Sea Block's startup chain.  Keep its
+  -- prerequisite list to the single lab milestone selected above so the
+  -- no-SCT branch behaves like the SCT branch without adding a removed
+  -- optional technology.
+  data.raw.technology["automation-science-pack"].prerequisites = { lab_prerequisite }
 
   data.raw.technology["automation-science-pack"].research_trigger = { type = "craft-item", item = "lab" }
   data.raw.technology["automation-science-pack"].unit = nil
-  data.raw.technology["sct-lab-t1"].unit = {
-    count = 1,
-    ingredients = {},
-    time = 1,
-  }
+  if sct_lab_tech then
+    sct_lab_tech.unit = {
+      count = 1,
+      ingredients = {},
+      time = 1,
+    }
+  end
   seablock.lib.hide_technology("sb-startup4")
 end
 
-bobmods.lib.tech.remove_prerequisite("sct-lab-t1", "steam-power")
+if sct_lab_tech then
+  bobmods.lib.tech.remove_prerequisite("sct-lab-t1", "steam-power")
+end
 
 local movedrecipes = table.deepcopy(seablock.startup_recipes)
-for k, v in pairs(seablock.scripted_techs) do
+for k in pairs(seablock.scripted_techs) do
   if data.raw.technology[k] then
     for _, effect in pairs(data.raw.technology[k].effects or {}) do
       movedrecipes[effect.recipe] = true
@@ -135,7 +154,7 @@ local function consumes_startup_item(recipe)
     ["copper-cable"] = true,
     ["stone-furnace"] = true,
   }
-  for k, v in pairs(recipe.ingredients or {}) do
+  for _, v in pairs(recipe.ingredients or {}) do
     if ironnames[v.name] then
       found = true
       break

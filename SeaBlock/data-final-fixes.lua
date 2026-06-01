@@ -87,6 +87,11 @@ end
 if mods["bobplates"] and mods["angelspetrochem"] then
   local OV = angelsmods.functions.OV
 
-  OV.global_replace_item("bob-carbon", "angels-solid-carbon")
+  -- Angel's carbon replacement now happens in data-updates, but recipes from
+  -- Sea Block or optional mods can still be edited afterward.  Bob's current
+  -- dev branch uses "carbon" rather than the legacy "bob-carbon" name, so keep
+  -- this final pass aligned with the new prototype while preserving the intent:
+  -- Sea Block should expose Angel's carbon solid, not Bob's standalone carbon.
+  OV.global_replace_item("carbon", "angels-solid-carbon")
   OV.execute()
 end

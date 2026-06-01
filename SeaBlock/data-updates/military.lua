@@ -982,14 +982,17 @@ if mods["bobwarfare"] then
   bobmods.lib.tech.add_new_science_pack("bob-artillery-turret-2", "production-science-pack", 1)
   bobmods.lib.tech.add_new_science_pack("bob-artillery-wagon-2", "production-science-pack", 1)
   bobmods.lib.tech.add_prerequisite("artillery", "military-3")
-  bobmods.lib.tech.add_prerequisite("artillery", "bob-cobalt-processing")
   bobmods.lib.tech.add_prerequisite("artillery", "angels-stone-smelting-2")
-  seablock.lib.substingredient("artillery-turret", "iron-gear-wheel", "bob-cobalt-steel-gear-wheel", nil)
+  -- Angel's Smelting 2.0.4 migrates old cobalt-steel gears/bearings to brass
+  -- and its Bob override swaps artillery's cobalt-steel plates to invar.  Write
+  -- the same final ingredients here so Sea Block does not reintroduce hidden
+  -- cobalt-steel intermediates after Angel's override pass.
+  seablock.lib.substingredient("artillery-turret", "iron-gear-wheel", "bob-brass-gear-wheel", nil)
   seablock.lib.substingredient("artillery-turret", "concrete", "angels-concrete-brick", nil)
-  seablock.lib.substingredient("artillery-turret", "steel-plate", "bob-cobalt-steel-alloy", nil)
-  seablock.lib.substingredient("artillery-wagon", "iron-gear-wheel", "bob-cobalt-steel-gear-wheel", nil)
+  seablock.lib.substingredient("artillery-turret", "steel-plate", "bob-invar-alloy", nil)
+  seablock.lib.substingredient("artillery-wagon", "iron-gear-wheel", "bob-brass-gear-wheel", nil)
   seablock.lib.substingredient("artillery-wagon", "pipe", "bob-brass-pipe", nil)
-  seablock.lib.substingredient("artillery-wagon", "steel-plate", "bob-cobalt-steel-alloy", nil)
+  seablock.lib.substingredient("artillery-wagon", "steel-plate", "bob-invar-alloy", nil)
 
   bobmods.lib.tech.add_prerequisite("artillery", "bob-radar-3")
 

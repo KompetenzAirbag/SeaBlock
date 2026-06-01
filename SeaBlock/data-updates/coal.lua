@@ -7,7 +7,11 @@ if mods["bobenemies"] then
   seablock.lib.substingredient("bob-alien-explosive", "coal", "angels-wood-charcoal")
 end
 seablock.lib.substingredient("angels-filter-coal", "coal", "angels-wood-charcoal")
-seablock.lib.substingredient("bob-carbon", "coal", "angels-wood-charcoal")
+-- Bob's dev branch renamed the carbon item/recipe from "bob-carbon" to the
+-- Factorio 2.0-style "carbon".  Angel's petrochem override will later replace
+-- the recipe result with "angels-solid-carbon"; Sea Block still needs to swap
+-- the coal ingredient here so carbon production fits the no-natural-coal start.
+seablock.lib.substingredient("carbon", "coal", "angels-wood-charcoal")
 if mods["Transport_Drones"] then
   seablock.lib.substingredient("road", "coal", "angels-wood-charcoal")
 end
@@ -24,9 +28,15 @@ angelsmods.functions.move_item("angels-pellet-coke", "angels-bio-processing-wood
 data.raw.recipe["angels-pellet-coke"].localised_name = { "item-name.angels-pellet-charcoal" }
 
 -- Clear fuel value so these don't appear in Helmod's fuel picker
-data.raw.item["bob-carbon"].fuel_emissions_multiplier = nil
-data.raw.item["bob-carbon"].fuel_value = nil
-data.raw.item["bob-carbon"].fuel_category = nil
+-- The hidden Bob carbon item can remain present as "carbon" even when Angel's
+-- recipes prefer "angels-solid-carbon".  Guard the lookup so future Bob/Angel
+-- load-order changes do not turn an optional hidden item into a startup crash.
+local bob_carbon_item = data.raw.item["carbon"]
+if bob_carbon_item then
+  bob_carbon_item.fuel_emissions_multiplier = nil
+  bob_carbon_item.fuel_value = nil
+  bob_carbon_item.fuel_category = nil
+end
 data.raw.item["coal"].fuel_emissions_multiplier = nil
 data.raw.item["coal"].fuel_value = nil
 data.raw.item["coal"].fuel_category = nil
