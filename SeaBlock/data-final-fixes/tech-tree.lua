@@ -64,6 +64,28 @@ bobmods.lib.tech.replace_prerequisite(
 bobmods.lib.tech.remove_prerequisite("automation-2", "electronics")
 bobmods.lib.tech.remove_prerequisite("logistics-2", "electronics")
 bobmods.lib.tech.remove_prerequisite("bob-chemical-plant", "electronics")
+for _, tech in pairs(data.raw.technology) do
+  local prerequisites = tech.prerequisites
+  if prerequisites then
+    local has_bob_electronics = false
+    for _, prerequisite in pairs(prerequisites) do
+      if prerequisite == "bob-electronics" then
+        has_bob_electronics = true
+        break
+      end
+    end
+    for i = #prerequisites, 1, -1 do
+      if prerequisites[i] == "electronics" then
+        if tech.name == "bob-electronics" or has_bob_electronics then
+          table.remove(prerequisites, i)
+        else
+          prerequisites[i] = "bob-electronics"
+          has_bob_electronics = true
+        end
+      end
+    end
+  end
+end
 
 -- repair-pack is now unlocked with military
 bobmods.lib.tech.remove_prerequisite("bob-repair-pack-2", "repair-pack")
