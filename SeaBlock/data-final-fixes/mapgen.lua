@@ -65,7 +65,6 @@ for k, v in pairs(data.raw.tree) do
     and k ~= "angels-puffer-nest"
   then
     v.autoplace = nil
-    seablock.lib.add_flag("tree", v.name, "not-deconstructable")
   else
     v.autoplace.control = nil
   end
@@ -74,12 +73,10 @@ end
 -- No rocks
 for _, v in pairs(data.raw["simple-entity"]) do
   v.autoplace = nil
-  seablock.lib.add_flag("simple-entity", v.name, "not-deconstructable")
 end
 
 for _, v in pairs(data.raw["optimized-decorative"]) do
   v.autoplace = nil
-  seablock.lib.add_flag("optimized-decorative", v.name, "not-deconstructable")
 end
 
 local keepcontrols = {}
