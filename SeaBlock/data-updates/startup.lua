@@ -87,25 +87,26 @@ end
 -- unlock lab and optional components with Basic Circuit Board
 if data.raw.technology["sct-lab-t1"] then
   bobmods.lib.tech.add_prerequisite("sct-lab-t1", "sb-startup3")
+  bobmods.lib.tech.remove_prerequisite("sct-lab-t1", "steam-power")
 else
   bobmods.lib.tech.add_recipe_unlock("sb-startup3", "lab")
   bobmods.lib.recipe.enabled("lab", false)
 end
 
 if data.raw.technology["automation-science-pack"] then
-  bobmods.lib.tech.add_prerequisite("automation-science-pack", "sct-lab-t1")
-
+  bobmods.lib.tech.remove_prerequisite("automation-science-pack", "steam-power")
   data.raw.technology["automation-science-pack"].research_trigger = { type = "craft-item", item = "lab" }
   data.raw.technology["automation-science-pack"].unit = nil
-  data.raw.technology["sct-lab-t1"].unit = {
-    count = 1,
-    ingredients = {},
-    time = 1,
-  }
-  seablock.lib.hide_technology("sb-startup4")
+  if data.raw.technology["sct-lab-t1"] then
+    bobmods.lib.tech.add_prerequisite("automation-science-pack", "sct-lab-t1")
+    data.raw.technology["sct-lab-t1"].unit = {
+      count = 1,
+      ingredients = {},
+      time = 1,
+    }
+    seablock.lib.hide_technology("sb-startup4")
+  end
 end
-
-bobmods.lib.tech.remove_prerequisite("sct-lab-t1", "steam-power")
 
 local movedrecipes = table.deepcopy(seablock.startup_recipes)
 for k, v in pairs(seablock.scripted_techs) do
