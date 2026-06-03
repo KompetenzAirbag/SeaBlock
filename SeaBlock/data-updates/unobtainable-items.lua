@@ -122,6 +122,13 @@ bobmods.lib.recipe.remove_ingredient("bob-roboport-antenna-4", "bob-nickel-plate
 seablock.lib.substingredient("bob-silver-zinc-battery", "bob-zinc-plate", "angels-solid-zinc-oxide", nil)
 seablock.lib.substingredient("angels-thorium-fuel-cell", "bob-zinc-plate", "steel-plate", nil)
 seablock.lib.substingredient("angels-deuterium-fuel-cell", "bob-zinc-plate", "steel-plate", nil)
+seablock.lib.substingredient("bob-heat-pipe-2", "bob-nickel-plate", "bob-titanium-plate", nil)
+seablock.lib.substingredient("bob-boiler-3", "bob-nickel-plate", "bob-titanium-plate", nil)
+seablock.lib.substingredient("bob-heat-exchanger-2", "bob-nickel-plate", "bob-titanium-plate", nil)
+seablock.lib.substingredient("bob-oil-boiler-2", "bob-nickel-plate", "bob-titanium-plate", nil)
+seablock.lib.substingredient("bob-burner-reactor-2", "bob-nickel-plate", "bob-titanium-plate", nil)
+seablock.lib.substingredient("bob-fluid-reactor-2", "bob-nickel-plate", "bob-titanium-plate", nil)
+seablock.lib.substingredient("bob-fluid-generator-2", "bob-nickel-plate", "bob-titanium-plate", nil)
 
 seablock.lib.unhide_recipe("angels-solid-zinc-oxide")
 bobmods.lib.tech.add_recipe_unlock("angels-zinc-smelting-2", "angels-solid-zinc-oxide")
