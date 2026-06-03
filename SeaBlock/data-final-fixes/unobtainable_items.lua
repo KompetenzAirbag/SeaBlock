@@ -218,6 +218,34 @@ for k, _ in pairs(removerecipes) do
   bobmods.lib.recipe.hide(k)
 end
 
+local function remove_hardened_bile_effects(value)
+  if type(value) ~= "table" then
+    return false
+  end
+
+  for index = #value, 1, -1 do
+    if remove_hardened_bile_effects(value[index]) then
+      table.remove(value, index)
+    end
+  end
+  for key, child in pairs(value) do
+    if type(key) ~= "number" and remove_hardened_bile_effects(child) then
+      value[key] = nil
+    end
+  end
+
+  return value.type == "create-entity" and value.entity_name == "bob-hardened-bile"
+end
+
+if mods["bobenemies"] then
+  for _, type_name in pairs({ "stream", "turret" }) do
+    for _, prototype in pairs(data.raw[type_name] or {}) do
+      remove_hardened_bile_effects(prototype)
+    end
+  end
+  data.raw["simple-entity"]["bob-hardened-bile"].minable = nil
+end
+
 -- Remove disabled recipes from technology unlock
 for k, v in pairs(data.raw.technology) do
   if v.effects then
