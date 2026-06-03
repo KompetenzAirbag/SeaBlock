@@ -6,13 +6,17 @@
     "item":
     [
       ["filter-charcoal", "angels-filter-charcoal"],
-      ["pellet-charcoal", "angels-pellet-charcoal"]
+      ["pellet-charcoal", "angels-pellet-charcoal"],
+      ["wood-pellets", "angels-wood-pellets"],
+      ["bob-wood-pellets", "angels-wood-pellets"]
     ],
     "recipe":
     [
       ["thermal-bore-water", "sb-thermal-bore-water"],
       ["thermal-extractor-water", "sb-thermal-extractor-water"],
-      ["crafting-handonly", "sb-crafting-handonly"]
+      ["crafting-handonly", "sb-crafting-handonly"],
+      ["wood-pellets", "angels-wood-pellets"],
+      ["bob-wood-pellets", "angels-wood-pellets"]
     ],
     "recipe-category": 
     [
