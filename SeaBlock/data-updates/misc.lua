@@ -162,21 +162,16 @@ seablock.lib.substingredient("bob-silicon-nitride", "bob-silicon-powder", nil, 1
 seablock.lib.substingredient("bob-silicon-nitride", "angels-gas-nitrogen", nil, 130)
 data.raw.recipe["bob-silicon-nitride"].results[1].amount = 10
 
-seablock.lib.substingredient("bob-tungsten-carbide", "bob-tungsten-oxide", nil, 10)
-seablock.lib.substingredient("bob-tungsten-carbide", "carbon", nil, 10)
-seablock.lib.substresult("bob-tungsten-carbide", "bob-tungsten-carbide", nil, 20)
-bobmods.lib.recipe.set_energy_required("bob-tungsten-carbide", 6)
-
-seablock.lib.substingredient("bob-tungsten-carbide-2", "bob-powdered-tungsten", nil, 10)
-seablock.lib.substingredient("bob-tungsten-carbide-2", "carbon", nil, 10)
-seablock.lib.substresult("bob-tungsten-carbide-2", "bob-tungsten-carbide", nil, 20)
-bobmods.lib.recipe.set_energy_required("bob-tungsten-carbide-2", 6)
+seablock.lib.substingredient("tungsten-carbide", "bob-tungsten-oxide", nil, 10)
+seablock.lib.substingredient("tungsten-carbide", "carbon", nil, 10)
+seablock.lib.substresult("tungsten-carbide", "tungsten-carbide", nil, 20)
+bobmods.lib.recipe.set_energy_required("tungsten-carbide", 6)
 
 seablock.lib.substingredient("bob-copper-tungsten-alloy", "bob-powdered-tungsten", nil, 15)
 seablock.lib.substingredient("bob-copper-tungsten-alloy", "copper-plate", "angels-powder-copper", 10)
 seablock.lib.substresult("bob-copper-tungsten-alloy", "bob-copper-tungsten-alloy", nil, 25)
 bobmods.lib.recipe.set_energy_required("bob-copper-tungsten-alloy", 8)
-bobmods.lib.tech.add_prerequisite("bob-tungsten-alloy-processing", "angels-copper-smelting-2")
+bobmods.lib.tech.add_prerequisite("bob-tungsten-processing", "angels-copper-smelting-2")
 
 -- Other prerequisites
 if data.raw.technology["bob-electronics-machine-1"] then
