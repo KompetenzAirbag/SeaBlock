@@ -188,9 +188,11 @@ script.on_load(function()
 end)
 
 script.on_event(defines.events.on_player_created, function(e)
-  game.get_player(e.player_index).get_main_inventory().clear()
+  local player = game.get_player(e.player_index)
+  local inv = player.get_main_inventory()
+  inv.remove("angels-burner-ore-crusher")
+
   if storage.starting_items and game.is_multiplayer() then
-    local inv = game.get_player(e.player_index).get_main_inventory()
     for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
         inv.insert({ name = item, count = quantity })
