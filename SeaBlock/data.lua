@@ -1,10 +1,6 @@
 seablock = seablock or {}
 seablock.trigger = seablock.trigger or {}
 
-if mods["seablock-mining"] then
-  seablock.trigger.mining_productivity = true
-end
-
 require("lib")
 require("prototypes/item")
 require("prototypes/recipe")
