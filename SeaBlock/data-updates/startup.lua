@@ -87,6 +87,7 @@ end
 -- unlock lab and optional components with Basic Circuit Board
 if data.raw.technology["sct-lab-t1"] then
   bobmods.lib.tech.add_prerequisite("sct-lab-t1", "sb-startup3")
+  bobmods.lib.tech.remove_prerequisite("sct-lab-t1", "electronics")
 else
   bobmods.lib.tech.add_recipe_unlock("sb-startup3", "lab")
   bobmods.lib.recipe.enabled("lab", false)
