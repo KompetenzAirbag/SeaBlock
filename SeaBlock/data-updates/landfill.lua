@@ -28,10 +28,10 @@ BuffLandfill("angels-solid-mud-landfill")
 
 if mods["LandfillPainting"] then
   BuffLandfill("landfill-dry-dirt")
-  BuffLandfill("landfill-dirt-4")
-  BuffLandfill("landfill-grass-1")
-  BuffLandfill("landfill-red-desert-1")
-  BuffLandfill("landfill-sand-3")
+  BuffLandfill("landfill-dirt")
+  BuffLandfill("landfill-grass")
+  BuffLandfill("landfill-red-desert")
+  BuffLandfill("landfill-sand")
 else
   bobmods.lib.tech.remove_recipe_unlock("angels-water-washing-2", "angels-solid-mud-landfill")
 end
@@ -64,10 +64,10 @@ data.raw.tile["deepwater"].default_cover_tile = startup_landfill
 if mods["LandfillPainting"] then
   local terrains = {
     "dry-dirt",
-    "dirt-4",
-    "grass-1",
-    "red-desert-1",
-    "sand-3"
+    "dirt",
+    "grass",
+    "red-desert",
+    "sand"
   }
 
   for _, name in pairs(terrains) do
@@ -85,3 +85,6 @@ local tile_cond = data.raw.item["landfill"].place_as_tile.tile_condition
 
 table.insert(tile_cond, "sand-4")
 table.insert(tile_cond, "sand-5")
+
+-- Default landfill recipe with stone
+data.raw.recipe["landfill"].hidden = true
