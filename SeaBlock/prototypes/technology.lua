@@ -53,7 +53,7 @@ data:extend({
       "angels-bio-processing-red",
       "advanced-circuit",
       "angels-stone-smelting-2",
-      "bob-zinc-processing",
+      "bob-brass-processing",
       "chemical-science-pack",
     },
     effects = {

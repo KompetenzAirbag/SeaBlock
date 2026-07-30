@@ -79,6 +79,9 @@ bobmods.lib.tech.remove_prerequisite("plastics", "bob-chemical-plant")
 bobmods.lib.tech.hide("uranium-mining")
 bobmods.lib.tech.remove_prerequisite("uranium-processing", "uranium-mining")
 
+-- Remove production science pack dependency on gas processing
+bobmods.lib.tech.remove_prerequisite("production-science-pack", "angels-gas-processing")
+
 -- Not needed in Sea Block
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "bob-zinc-processing")
 bobmods.lib.tech.remove_prerequisite("angels-bio-processing-blue", "angels-stone-smelting-2")
