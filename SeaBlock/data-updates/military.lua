@@ -982,7 +982,7 @@ if mods["bobwarfare"] then
   bobmods.lib.tech.add_new_science_pack("bob-artillery-turret-2", "production-science-pack", 1)
   bobmods.lib.tech.add_new_science_pack("bob-artillery-wagon-2", "production-science-pack", 1)
   bobmods.lib.tech.add_prerequisite("artillery", "military-3")
-  bobmods.lib.tech.add_prerequisite("artillery", "bob-cobalt-processing")
+  bobmods.lib.tech.add_prerequisite("artillery", "angels-invar-smelting-1")
   bobmods.lib.tech.add_prerequisite("artillery", "angels-stone-smelting-2")
   seablock.lib.substingredient("artillery-turret", "iron-gear-wheel", "bob-cobalt-steel-gear-wheel", nil)
   seablock.lib.substingredient("artillery-turret", "concrete", "angels-concrete-brick", nil)
@@ -994,6 +994,8 @@ if mods["bobwarfare"] then
   bobmods.lib.tech.add_prerequisite("artillery", "bob-radar-3")
 
   bobmods.lib.tech.add_prerequisite("spidertron", "bob-radar-5")
+
+  bobmods.lib.tech.remove_prerequisite("military-3", "bob-zinc-processing")
 
   -- Adjust Power Armor
   bobmods.lib.tech.remove_science_pack("power-armor", "chemical-science-pack")

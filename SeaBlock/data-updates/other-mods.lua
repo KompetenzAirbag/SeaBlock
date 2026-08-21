@@ -16,7 +16,7 @@ if mods["jetpack"] then
   bobmods.lib.tech.add_prerequisite("jetpack-1", "modular-armor")
   bobmods.lib.tech.add_prerequisite("jetpack-1", "angels-rocket-booster-1")
   bobmods.lib.tech.add_prerequisite("jetpack-1", "military-science-pack")
-  bobmods.lib.tech.add_prerequisite("jetpack-1", "bob-zinc-processing")
+  bobmods.lib.tech.add_prerequisite("jetpack-1", "bob-brass-processing")
   bobmods.lib.recipe.replace_ingredient("jetpack-1", "electronic-circuit", "advanced-circuit")
   bobmods.lib.recipe.replace_ingredient("jetpack-1", "pipe", "bob-brass-pipe")
   bobmods.lib.recipe.replace_ingredient("jetpack-1", "steel-plate", "bob-invar-alloy")

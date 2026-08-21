@@ -18,18 +18,6 @@ bobmods.lib.tech.add_prerequisite("angels-metallurgy-2", "angels-stone-smelting-
 bobmods.lib.tech.add_prerequisite("fluid-handling", "angels-stone-smelting-1")
 bobmods.lib.tech.add_prerequisite("angels-gardens", "angels-stone-smelting-1")
 
--- Brass prerequisites
-bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-2", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("angels-metallurgy-3", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("automation-3", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("angels-bio-desert-farm", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("angels-bio-refugium-puffer-1", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("angels-bio-swamp-farm", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("angels-bio-temperate-farm", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("bob-electronics-machine-2", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("angels-slag-processing-2", "bob-zinc-processing")
-bobmods.lib.tech.add_prerequisite("angels-water-treatment-3", "bob-zinc-processing")
-
 -- Concrete Brick prerequisites
 bobmods.lib.tech.add_prerequisite("angels-advanced-chemistry-2", "angels-stone-smelting-2")
 bobmods.lib.tech.add_prerequisite("angels-metallurgy-3", "angels-stone-smelting-2")
@@ -63,6 +51,3 @@ bobmods.lib.tech.add_prerequisite("angels-ore-processing-5", "bob-nitinol-proces
 
 -- Advanced circuit
 bobmods.lib.tech.add_prerequisite("tank", "advanced-circuit")
-
--- Processing unit
-bobmods.lib.tech.add_prerequisite("angels-bio-refugium-biter-1", "processing-unit")
