@@ -87,4 +87,7 @@ table.insert(tile_cond, "sand-4")
 table.insert(tile_cond, "sand-5")
 
 -- Default landfill recipe with stone
-data.raw.recipe["landfill"].hidden = true
+local startup_landfill_no_num = startup_landfill:gsub("%-%d+$", "")
+
+data.raw.recipe["landfill"].results[1].name = "landfill-"..startup_landfill_no_num
+data.raw.recipe["landfill"].localised_name = { "item-name.landfill-"..startup_landfill_no_num }
