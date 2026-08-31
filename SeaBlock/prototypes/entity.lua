@@ -71,7 +71,7 @@ data:extend({
           position = { 0, 0 },
           direction = defines.direction.south,
           connection_type = "underground",
-          max_underground_distance = 10,
+          max_underground_distance = 11,
         },
       },
       hide_connection_info = true,
