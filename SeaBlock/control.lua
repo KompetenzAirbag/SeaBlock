@@ -27,6 +27,7 @@ function seablock.create_rock_chest(surface, pos)
       position = pos,
       force = game.forces.neutral,
       move_stuck_players = true,
+      raise_built = true,
     })
     for item, quantity in pairs(storage.starting_items) do
       if quantity > 0 then
