@@ -49,11 +49,17 @@ bobmods.lib.tech.ignore_tech_cost_multiplier("landfill", true)
 local startup_landfill = "landfill"
 local setting = settings.startup["sb-default-landfill"]
 
+local item_tile_map = {
+  ["landfill-dry-dirt"] = "dry-dirt",
+  ["landfill-dirt"] = "dirt-4",
+  ["landfill-grass"] = "grass-1",
+  ["landfill-red-desert"] = "red-desert-1",
+  ["landfill-sand"] = "sand-3",
+  ["landfill"] = "landfill",
+}
+
 if setting and type(setting.value) == "string" then
-  local stripped = strip_landfill_string(setting.value)
-  if data.raw.tile[stripped] then
-    startup_landfill = stripped
-  end
+  startup_landfill = item_tile_map[setting.value]
 end
 
 -- For blueprint pasting on water
@@ -70,14 +76,24 @@ if mods["LandfillPainting"] then
     "sand"
   }
 
+  local function get_landfill_name(name) do if name == "landfill" then return "landfill" else return "landfill-"..name end end end
+
   for _, name in pairs(terrains) do
-    if (data.raw.item["landfill-"..name].place_as_tile.tile_condition) then
-      local tile_cond = data.raw.item["landfill-"..name].place_as_tile.tile_condition
+    local landfill_name = get_landfill_name(name)
+
+    if (data.raw.item[landfill_name].place_as_tile.tile_condition) then
+      local tile_cond = data.raw.item[landfill_name].place_as_tile.tile_condition
 
       table.insert(tile_cond, "sand-4")
       table.insert(tile_cond, "sand-5")
     end
   end
+
+  -- Default landfill recipe with stone
+  local startup_landfill_no_num = get_landfill_name(startup_landfill):gsub("%-%d+$", "")
+
+  data.raw.recipe["landfill"].results[1].name = startup_landfill_no_num
+  data.raw.recipe["landfill"].localised_name = { "item-name."..startup_landfill_no_num }
 end
 
 -- Paste over sand-4 and -5
@@ -85,9 +101,3 @@ local tile_cond = data.raw.item["landfill"].place_as_tile.tile_condition
 
 table.insert(tile_cond, "sand-4")
 table.insert(tile_cond, "sand-5")
-
--- Default landfill recipe with stone
-local startup_landfill_no_num = startup_landfill:gsub("%-%d+$", "")
-
-data.raw.recipe["landfill"].results[1].name = "landfill-"..startup_landfill_no_num
-data.raw.recipe["landfill"].localised_name = { "item-name.landfill-"..startup_landfill_no_num }
