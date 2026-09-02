@@ -64,6 +64,7 @@ bobmods.lib.tech.replace_prerequisite(
 bobmods.lib.tech.remove_prerequisite("automation-2", "electronics")
 bobmods.lib.tech.remove_prerequisite("logistics-2", "electronics")
 bobmods.lib.tech.remove_prerequisite("bob-chemical-plant", "electronics")
+data.raw.shortcut["give-copper-wire"].technology_to_unlock = "bob-electronics"
 
 -- repair-pack is now unlocked with military
 bobmods.lib.tech.remove_prerequisite("bob-repair-pack-2", "repair-pack")
