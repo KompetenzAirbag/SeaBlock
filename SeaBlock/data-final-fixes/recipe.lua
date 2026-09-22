@@ -77,3 +77,9 @@ bobmods.lib.recipe.replace_ingredient("bob-personal-laser-defense-equipment-6", 
 -- No longer needed for rockets
 bobmods.lib.recipe.hide("bob-rocket-engine")
 bobmods.lib.item.hide("bob-rocket-engine")
+
+seablock.lib.unhide("recipe", "bob-alien-artifact")
+for _, color in ipairs({"red", "yellow", "orange", "blue", "purple", "green"}) do
+  seablock.lib.unhide("recipe", "bob-alien-artifact-"..color.."-from-small")
+  seablock.lib.unhide("item", "bob-small-alien-artifact-"..color)
+end
