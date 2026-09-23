@@ -204,11 +204,12 @@ for k, v in pairs(seablock.startup_techs) do
 end
 
 -- Make bio-wood-processing a startup tutorial tech
-data.raw.technology["angels-bio-wood-processing"].prerequisites = { "sb-startup1" }
-data.raw.technology["angels-bio-wood-processing"].unit = {
-  count = 1,
-  ingredients = {},
-  time = 1,
+local wood_tech = data.raw.technology["angels-bio-wood-processing"]
+wood_tech.prerequisites = { "sb-startup1" }
+wood_tech.unit = nil
+wood_tech.research_trigger = {
+  type = "craft-item",
+  item = "wood"
 }
 
 -- Remove cycle introduced in the tech tree
