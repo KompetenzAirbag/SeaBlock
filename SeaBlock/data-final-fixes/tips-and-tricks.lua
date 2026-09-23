@@ -90,3 +90,30 @@ if low_power then
     ]],
   }
 end
+
+-- Removing bob-resin and angels-natural-gas from tips and tricks
+local function make_petrochem_description()
+    local description = { "tips-and-tricks-description.sb-angels-petrochem" }
+
+    local function get_item_from_name(item_name, item_type, before)
+      before = before or "- "
+      item_type = item_type or "item"
+      return {
+        "",
+        before .. "[" .. "img=" .. item_type .. "/" .. item_name .. "] ",
+        { item_type .. "-name." .. item_name },
+        "\n",
+      }
+    end
+    local one = { "" }
+    table.insert(one, get_item_from_name("plastic-bar"))
+    table.insert(one, get_item_from_name("explosives"))
+    table.insert(one, get_item_from_name(data.raw.item["bob-rubber"] and "bob-rubber" or "angels-solid-rubber"))
+    table.insert(one, get_item_from_name("sulfuric-acid", "fluid"))
+    table.insert(one, { "", "- [img=item/solid-fuel]", " and various fuels", "\n" })
+    table.insert(description, one)
+
+    return description
+end
+
+data.raw["tips-and-tricks-item"]["angels-petrochem"].localised_description = make_petrochem_description()
