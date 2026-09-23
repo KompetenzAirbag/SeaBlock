@@ -81,9 +81,9 @@ local function milestones_presets()
     { type = "item", name = "angels-plate-chrome", quantity = 1 },
     { type = "item", name = "angels-plate-platinum", quantity = 1 },
 
-    { type = "item", name = "bob-tungsten-plate", quantity = 1 },
+    { type = "item", name = "tungsten-plate", quantity = 1 },
     { type = "item", name = "bob-copper-tungsten-alloy", quantity = 1 },
-    { type = "item", name = "bob-tungsten-carbide", quantity = 1 },
+    { type = "item", name = "tungsten-carbide", quantity = 1 },
     { type = "item", name = "bob-nitinol-alloy", quantity = 1 },
 
     { type = "item", name = "plastic-bar", quantity = 1 },
@@ -111,7 +111,7 @@ local function milestones_presets()
     { type = "alias", name = "landfill-red-desert-1", equals = seablock_default_landfill, quantity = 1 },
     { type = "alias", name = "landfill-sand-3", equals = seablock_default_landfill, quantity = 1 },
     { type = "alias", name = "landfill", equals = seablock_default_landfill, quantity = 1 },
-    { type = "fluid", name = "liquid-fuel-oil", quantity = 1 },
+    { type = "fluid", name = "angels-liquid-fuel-oil", quantity = 1 },
     { type = "item", name = "locomotive", quantity = 1 },
     { type = "item", name = "construction-robot", quantity = 1 },
     { type = "item", name = "requester-chest", quantity = 1 },
