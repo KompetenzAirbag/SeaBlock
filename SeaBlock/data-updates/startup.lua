@@ -205,11 +205,11 @@ end
 
 -- Make bio-wood-processing a startup tutorial tech
 data.raw.technology["angels-bio-wood-processing"].prerequisites = { "sb-startup1" }
-data.raw.technology["angels-bio-wood-processing"].unit = {
-  count = 1,
-  ingredients = {},
-  time = 1,
+data.raw.technology["angels-bio-wood-processing"].research_trigger = {
+  type = "craft-item",
+  item = "angels-ore3-crushed",
 }
+data.raw.technology["angels-bio-wood-processing"].unit = nil
 
 -- Remove cycle introduced in the tech tree
 -- Sectoid upgraded angelsbioprocessing by renaming the old prerequisite "basic-automation" into "electronics"
