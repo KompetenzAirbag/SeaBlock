@@ -46,3 +46,25 @@ if mods["jetpack"] then
     end
   end
 end
+
+if mods["bobenemies"] then
+  local turrets = data.raw.turret
+  turrets["bob-huge-worm-turret"].created_effect = nil
+  turrets["bob-giant-worm-turret"].created_effect = nil
+  turrets["bob-titan-worm-turret"].created_effect = nil
+  turrets["behemoth-worm-turret"].created_effect = nil
+  turrets["bob-leviathan-worm-turret"].created_effect = nil
+
+  local function remove_bile_gen(_table)
+    for key, value in pairs(_table) do
+      if value and value.entity_name == "bob-hardened-bile" then
+        _table[key] = nil
+      end
+    end
+  end
+
+  remove_bile_gen(data.raw.stream["acid-stream-worm-giant"].initial_action[1].action_delivery.target_effects)
+  remove_bile_gen(data.raw.stream["acid-stream-worm-titan"].initial_action[1].action_delivery.target_effects)
+  remove_bile_gen(data.raw.stream["acid-stream-worm-behemoth"].initial_action[1].action_delivery.target_effects)
+  remove_bile_gen(data.raw.stream["acid-stream-worm-leviathan"].initial_action[1].action_delivery.target_effects)
+end
