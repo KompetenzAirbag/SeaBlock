@@ -182,7 +182,9 @@ end
 
 -- Add hidden flag to disabled items so they don't show up in circuit menu/item filter/FNEI etc.
 for k, _ in pairs(unobtainable) do
-  seablock.lib.hide_item(k)
+  if data.raw.item[k] or data.raw.fluid[k] then
+    seablock.lib.hide_item(k)
+  end
 end
 
 local keep_unobtainable_recipes = {
@@ -215,7 +217,9 @@ for recipe_name, recipe in pairs(data.raw.recipe) do
 end
 
 for k, _ in pairs(removerecipes) do
-  bobmods.lib.recipe.hide(k)
+  if data.raw.recipe[k] then
+    bobmods.lib.recipe.hide(k)
+  end
 end
 
 -- Remove disabled recipes from technology unlock
