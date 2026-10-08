@@ -117,3 +117,34 @@ local function make_petrochem_description()
 end
 
 data.raw["tips-and-tricks-item"]["angels-petrochem"].localised_description = make_petrochem_description()
+
+-- Angel's says the special trees and gardens are found in different biomes by moisture level,
+-- but Sea Block places them on islands (mapgen.lua)
+local tree_tip = data.raw["tips-and-tricks-item"]["angels-bio-nauvis-1b"]
+if tree_tip then
+  local function tree(name, kind)
+    return {
+      "",
+      "- [img=item/" .. name .. "] ",
+      { "item-name." .. name },
+      "\n",
+      { "tips-and-tricks-sub.sb-angels-trees-" .. kind },
+    }
+  end
+  tree_tip.localised_description = {
+    "",
+    { "tips-and-tricks-description.sb-angels-nauvis-trees" },
+    {
+      "",
+      tree("angels-desert-tree", "desert"),
+      tree("angels-temperate-tree", "temperate"),
+      tree("angels-swamp-tree", "swamp"),
+      { "tips-and-tricks-description.sb-angels-nauvis-notes-trees" },
+    },
+  }
+end
+
+local vegetables_tip = data.raw["tips-and-tricks-item"]["angels-bio-vegetables-1"]
+if vegetables_tip then
+  vegetables_tip.localised_description = { "tips-and-tricks-description.sb-angels-bioprocessing-vegetables" }
+end
