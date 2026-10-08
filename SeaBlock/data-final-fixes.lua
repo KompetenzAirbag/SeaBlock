@@ -4,16 +4,16 @@ seablock.lib.substresult("angels-liquid-rubber", "angels-liquid-rubber", nil, 20
 
 -- Reduce burner heat source neighbour bonus
 local reactors = {
-  "burner-reactor",
-  "burner-reactor-2",
-  "fluid-reactor",
-  "fluid-reactor-2",
+  "bob-burner-reactor",
+  "bob-burner-reactor-2",
+  "bob-fluid-reactor",
+  "bob-fluid-reactor-2",
 }
 
 for _, v in pairs(reactors) do
   local r = data.raw.reactor[v]
   if r then
-    r.neighbour_bonus = 0.125
+    r.neighbour_bonus = math.min(r.neighbour_bonus or 1, 0.125)
   end
 end
 
