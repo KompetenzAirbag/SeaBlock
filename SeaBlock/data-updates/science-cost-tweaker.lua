@@ -8,6 +8,7 @@ if mods["ScienceCostTweakerM"] then
 
   -- Change tech to use lab icon from SCT
   data.raw["technology"]["sb-startup4"].icon = "__ScienceCostTweakerM__/graphics/sct-lab-t1/icon-64.png"
+  data.raw["technology"]["sb-startup4"].icon_size = 64
   data.raw["technology"]["sb-startup4"].icon_mipmaps = 0
 
   -- Reduce processing unit cost of S.C.T. high-tech science
