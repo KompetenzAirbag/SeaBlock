@@ -76,8 +76,7 @@ end
 
 if mods["bobelectronics"] and mods["bobassembly"] then
   -- Recipe was craftable with assembling-machine-1 even though it required a fluid
-  data.raw.recipe["bob-phenolic-board"].category = "electronics-with-fluid"
-  data.raw.recipe["bob-phenolic-board"].additional_categories = nil
+  data.raw.recipe["bob-phenolic-board"].categories = { "electronics-with-fluid" }
 end
 
 --- TODO

@@ -53,7 +53,7 @@ end
 
 -- Undo boblogistcs changes to logistic system research
 bobmods.lib.tech.add_new_science_pack("logistic-system", "production-science-pack", 1)
-if data.raw.tool["bob-advanced-logistic-science-pack"] then
+if data.raw.item["bob-advanced-logistic-science-pack"] then
   bobmods.lib.tech.add_new_science_pack("logistic-system", "bob-advanced-logistic-science-pack", 1)
 else
   bobmods.lib.tech.add_new_science_pack("logistic-system", "utility-science-pack", 1)
@@ -73,7 +73,7 @@ for _, v in pairs(logisticstechs) do
     bobmods.lib.tech.add_new_science_pack(v, "production-science-pack", 1)
     bobmods.lib.tech.add_new_science_pack(v, "utility-science-pack", 1)
 
-    if data.raw.tool["bob-advanced-logistic-science-pack"] then
+    if data.raw.item["bob-advanced-logistic-science-pack"] then
       bobmods.lib.tech.add_new_science_pack(v, "bob-advanced-logistic-science-pack", 1)
     end
   end

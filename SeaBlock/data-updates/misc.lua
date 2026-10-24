@@ -70,7 +70,7 @@ if mods["angelsaddons-storage"] then
 end
 
 -- Logistic System prerequisite of Pink Science
-if not data.raw.tool["bob-advanced-logistic-science-pack"] then
+if not data.raw.item["bob-advanced-logistic-science-pack"] then
   bobmods.lib.tech.add_prerequisite("logistic-system", "utility-science-pack")
 end
 

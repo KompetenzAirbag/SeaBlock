@@ -620,8 +620,6 @@ function seablock.lib.add_category(type, entity_name, category)
 end
 
 --- Adds a crafting category to a recipe.
---- If no category is set before it will be set to category_name.
---- Otherwise it will be safely added to additional_categories.
 ---@param recipe_name string
 ---@param category_name string
 function seablock.lib.add_recipe_category(recipe_name, category_name)
@@ -637,11 +635,8 @@ function seablock.lib.add_recipe_category(recipe_name, category_name)
     return
   end
 
-  if (not recipe.category) then
-    recipe.category = category_name
-  else
-    recipe.additional_categories = recipe.additional_categories or {}
+  local categories = recipe.categories or {}
+  table.insert(categories, category_name)
 
-    table.insert(recipe.additional_categories, category_name)
-  end
+  recipe.categories = categories
 end

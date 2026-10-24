@@ -241,7 +241,7 @@ dummyLab.name = "dummy-lab"
 dummyLab.hidden = true
 --dummyLab.hidden_in_factoriopedia = true
 bobmods.lib.safe_insert(dummyLab.inputs, "space-science-pack")
-if data.raw.tool["sct-bio-science-pack"] then
+if data.raw.item["sct-bio-science-pack"] then
   bobmods.lib.safe_insert(dummyLab.inputs, "sct-bio-science-pack")
 end
 bobmods.lib.safe_insert(dummyLab.inputs, "automation-science-pack")
