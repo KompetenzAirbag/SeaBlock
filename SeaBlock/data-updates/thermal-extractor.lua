@@ -92,6 +92,8 @@ move_item("angels-thermal-extractor", "angels-water-treatment-building", "f[ther
 bobmods.lib.recipe.add_ingredient("angels-thermal-extractor", { type = "item", name = "angels-thermal-bore", amount = 1 })
 extractor.vector_to_place_result = nil -- remove the yellow arrow of the mining drill
 
+-- TODO Is this needed in 2.1? I dont think so...
+-- FIXME Thermal water bore doesn't show pipe connections correctly when rotated
 local bore = data.raw["mining-drill"]["angels-thermal-bore"]
 data.raw["mining-drill"]["angels-thermal-bore"] = nil
 data.raw["assembling-machine"]["angels-thermal-bore"] = bore
@@ -126,9 +128,6 @@ bore.graphics_set.animation = {
   },
   west = working_animation,
 }
-
--- Shift animation to make other pipe visible 
-bore.graphics_set.animation.south.layers[1].x = 576
 
 -- Reset animation speed for directions without additional layers
 bore.graphics_set.animation.east.animation_speed = 1
