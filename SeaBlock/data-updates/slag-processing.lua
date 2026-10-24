@@ -8,7 +8,7 @@ for i = 1, 6 do
   recipe.localised_name = { "recipe-name.angels-slag-processing", { "item-name.angels-ore" .. i } }
   recipe.order = "a-a [angels-ore-" .. i .. "]"
 
-  recipe.category = "angels-crystallizing"
+  recipe.categories = { "angels-crystallizing" }
   recipe.energy_required = 4
   recipe.ingredients = { { type = "fluid", name = "angels-mineral-sludge", amount = 25 } }
   recipe.results = { { type = "item", name = "angels-ore" .. i, amount = 1 } }

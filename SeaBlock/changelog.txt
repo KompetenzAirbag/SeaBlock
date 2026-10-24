@@ -5,8 +5,9 @@ Date: ??.??.??
     - Basegame 2.1 compatibility
       - "Tool" no longer exist as a prototype for science
       - MiningDrillPrototype no longer uses base_picture and instead implements idle_animation like crafting machines
+      - "category" and "additional_categories" have been merged to "categories"
     - Switching SpaceMod -> SpaceModFeorasFork
-    - Adding recommended mods from SeaBlockMetaPack
+    - Adding recommended mods from SeaBlockMetaPack making it obsolete
 ---------------------------------------------------------------------------------------------------
 Version: 0.6.0
 Date: ??.??.??

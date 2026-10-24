@@ -3,7 +3,7 @@ data:extend({
     type = "recipe",
     name = "sb-wood-bricks-charcoal",
     localised_name = { "item-name.angels-wood-charcoal" },
-    category = "smelting",
+    categories = { "smelting" },
     allow_productivity = true,
     enabled = false,
     energy_required = 3.5,
@@ -14,7 +14,7 @@ data:extend({
   {
     type = "recipe",
     name = "sb-thermal-bore-water",
-    category = "sb-thermal-bore",
+    categories = { "sb-thermal-bore" },
     subgroup = "angels-water-treatment",
     order = "h[thermal-bore-water]",
     energy_required = 10,
@@ -29,7 +29,7 @@ data:extend({
   {
     type = "recipe",
     name = "sb-thermal-extractor-water",
-    category = "sb-thermal-extractor",
+    categories = { "sb-thermal-extractor" },
     subgroup = "angels-water-treatment",
     order = "h[thermal-extractor-water]",
     energy_required = 5,
@@ -45,7 +45,7 @@ data:extend({
   {
     type = "recipe",
     name = "sb-water-mineralized-crystallization",
-    category = "angels-crystallizing",
+    categories = { "angels-crystallizing" },
     subgroup = "angels-slag-processing-1",
     order = "z[slag-processing]",
     enabled = true,
@@ -62,7 +62,7 @@ data:extend({
     type = "recipe",
     name = "sb-wood-foraging",
     localised_name = { "recipe-name.sb-wood-foraging" },
-    category = "sb-crafting-handonly",
+    categories = { "sb-crafting-handonly" },
     subgroup = "angels-bio-processing-green",
     enabled = true,
     energy_required = 4,
@@ -77,7 +77,7 @@ data:extend({
   {
     type = "recipe",
     name = "sb-catalyst-metal-purple",
-    category = "crafting",
+    categories = { "crafting" },
     energy_required = 2,
     enabled = false,
     ingredients = {
@@ -107,7 +107,7 @@ data:extend({
     icons = angelsmods.functions.create_liquid_recipe_icon({
       "angels-blue-cellulose-fiber",
     }, { { 100, 100, 100 }, { 171, 161, 055 }, { 127, 163, 109 } }),
-    category = "oil-processing",
+    categories = { "oil-processing" },
     enabled = false,
     energy_required = 5,
     ingredients = {

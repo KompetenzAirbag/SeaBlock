@@ -21,7 +21,7 @@ data:extend({
     ingredients = {{ type = "item", name = "iron-ore", amount = 4 }},
     results = {{ type = "item", name = "iron-plate", amount = 3 }},
     energy_required = 10.5,
-    category = "smelting",
+    categories = { "smelting" },
     subgroup = "angels-iron-casting",
     main_product = "iron-plate"
   },
@@ -31,7 +31,7 @@ data:extend({
     ingredients = {{ type = "item", name = "copper-ore", amount = 4 }},
     results = {{ type = "item", name = "copper-plate", amount = 3 }},
     energy_required = 10.5,
-    category = "smelting",
+    categories = { "smelting" },
     subgroup = "angels-copper-casting",
     main_product = "copper-plate"
   },
@@ -41,7 +41,7 @@ data:extend({
     ingredients = {{ type = "item", name = "bob-lead-ore", amount = 4 }},
     results = {{ type = "item", name = "bob-lead-plate", amount = 3 }},
     energy_required = 10.5,
-    category = "smelting",
+    categories = { "smelting" },
     subgroup = "angels-lead-casting",
     main_product = "bob-lead-plate"
   },
@@ -51,7 +51,7 @@ data:extend({
     ingredients = {{ type = "item", name = "bob-tin-ore", amount = 4 }},
     results = {{ type = "item", name = "bob-tin-plate", amount = 3 }},
     energy_required = 10.5,
-    category = "smelting",
+    categories = { "smelting" },
     subgroup = "angels-tin-casting",
     main_product = "bob-tin-plate"
   },
@@ -61,7 +61,7 @@ data:extend({
     ingredients = {{ type = "item", name = "bob-quartz", amount = 10 }},
     results = {{ type = "item", name = "bob-glass", amount = 1 }},
     energy_required = 10.5,
-    category = "smelting",
+    categories = { "smelting" },
     subgroup = "angels-glass-casting",
     main_product = "bob-glass"
   }
