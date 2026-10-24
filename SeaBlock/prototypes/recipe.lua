@@ -54,8 +54,8 @@ data:extend({
       { type = "fluid", name = "angels-water-mineralized", amount = 200 },
     },
     results = {
-      { type = "item", name = "angels-ore1", amount = 2, probability = 0.55 },
-      { type = "item", name = "angels-ore3", amount = 1, probability = 0.7 },
+      { type = "item", name = "angels-ore1", amount = 2, independent_probability = 0.55 },
+      { type = "item", name = "angels-ore3", amount = 1, independent_probability = 0.7 },
     },
   },
   {

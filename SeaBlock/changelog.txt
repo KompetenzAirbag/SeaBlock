@@ -6,6 +6,7 @@ Date: ??.??.??
       - "Tool" no longer exist as a prototype for science
       - MiningDrillPrototype no longer uses base_picture and instead implements idle_animation like crafting machines
       - "category" and "additional_categories" have been merged to "categories"
+      - "probability" is now "independent_probability"
     - Switching SpaceMod -> SpaceModFeorasFork
     - Adding recommended mods from SeaBlockMetaPack making it obsolete
 ---------------------------------------------------------------------------------------------------
