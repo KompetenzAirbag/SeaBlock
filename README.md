@@ -3,8 +3,6 @@ The following github repositories are needed externally:
 ```{bash}
 https://github.com/kompetenzairbag/seablock dev2.1
 https://github.com/kompetenzairbag/landfillpainting dev2.1
-https://github.com/mexmer/ScienceCostTweakerM dev2.1
-https://github.com/modded-factorio/circuitprocessing dev2.1
 ```
 Any mod not listed shall be taken from the official mod portal.
 
