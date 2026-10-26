@@ -15,7 +15,6 @@ bobmods.lib.tech.remove_prerequisite("steel-processing", "bob-chemical-processin
 -- Move Water Treatment from Electronics to Slag Processing 1. Hydro Plant no longer requires Green Circuits
 -- Slag Processing 1 is first source of Sulfuric Waste Water
 bobmods.lib.tech.remove_prerequisite("angels-water-treatment", "angels-fluid-control")
-bobmods.lib.tech.add_prerequisite("angels-water-treatment", "angels-slag-processing-1")
 
 -- Allow skipping of waste water recycling
 bobmods.lib.tech.remove_prerequisite("angels-water-washing-1", "angels-water-treatment")

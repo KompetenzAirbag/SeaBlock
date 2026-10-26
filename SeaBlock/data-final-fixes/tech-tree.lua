@@ -145,10 +145,10 @@ bobmods.lib.tech.add_recipe_unlock("angels-ore-crushing", "sb-bob-lead-plate-fro
 bobmods.lib.tech.add_recipe_unlock("angels-ore-crushing", "sb-bob-tin-plate-from-ore")
 bobmods.lib.tech.add_recipe_unlock("angels-ore-crushing", "sb-glass-from-ore")
 
-bobmods.lib.tech.remove_prerequisite("angels-basic-chemistry-2", "angels-water-treatment")
-bobmods.lib.tech.remove_prerequisite("angels-iron-smelting-1", "angels-metallurgy-1")
-bobmods.lib.tech.remove_prerequisite("angels-tin-smelting-1", "angels-metallurgy-1")
-bobmods.lib.tech.remove_prerequisite("angels-lead-smelting-1", "angels-metallurgy-1")
-bobmods.lib.tech.remove_prerequisite("angels-stone-smelting-1", "angels-metallurgy-1")
 bobmods.lib.tech.remove_prerequisite("angels-metallurgy-2", "angels-metallurgy-1")
-bobmods.lib.tech.remove_prerequisite("sct-lab-t2", "logistics")
+
+data.raw["technology"]["sulfur-processing"].prerequisites = { "angels-basic-chemistry", "angels-water-washing-1" }
+data.raw["technology"]["angels-iron-smelting-1"].prerequisites = { "angels-metallurgy-1" }
+data.raw["technology"]["angels-tin-smelting-1"].prerequisites = { "angels-metallurgy-1" }
+data.raw["technology"]["angels-lead-smelting-1"].prerequisites = { "angels-metallurgy-1" }
+data.raw["technology"]["angels-stone-smelting-1"].prerequisites = { "angels-metallurgy-1" }
