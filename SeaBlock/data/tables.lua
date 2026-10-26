@@ -23,7 +23,7 @@ end
 -- Any other tech with no prerequisites will depend on Slag Processing 1
 seablock.startup_techs = {
   ["angels-fluid-control"] = { true },
-  ["angels-sulfur-processing-1"] = { true },
+  ["sulfur-processing"] = { true },
   ["automation"] = { true },
   ["angels-basic-chemistry"] = { true },
   -- Don't reduce the science pack cost of green algae
