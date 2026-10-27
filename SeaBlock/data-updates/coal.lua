@@ -26,12 +26,12 @@ data.raw.recipe["angels-pellet-coke"].localised_name = { "item-name.angels-pelle
 -- Clear fuel value so these don't appear in Helmod's fuel picker
 data.raw.item["carbon"].fuel_emissions_multiplier = nil
 data.raw.item["carbon"].fuel_value = nil
-data.raw.item["carbon"].fuel_category = nil
+data.raw.item["carbon"].fuel_categories = nil
 data.raw.item["coal"].fuel_emissions_multiplier = nil
 data.raw.item["coal"].fuel_value = nil
-data.raw.item["coal"].fuel_category = nil
+data.raw.item["coal"].fuel_categories = nil
 data.raw.item["angels-coal-crushed"].fuel_value = nil
-data.raw.item["angels-coal-crushed"].fuel_category = nil
+data.raw.item["angels-coal-crushed"].fuel_categories = nil
 
 -- Move charcoal processing 3 to purple science
 -- Sodium carbonate is unusable before then
