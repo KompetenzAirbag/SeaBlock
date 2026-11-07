@@ -20,72 +20,99 @@ bobmods.lib.recipe.replace_ingredient(
   "angels-catalyst-metal-red",
   "angels-catalyst-metal-green"
 )
+seablock.lib.replace_result("angels-liquid-acetic-acid-catalyst", "angels-catalyst-metal-red", "angels-catalyst-metal-green")
+
 bobmods.lib.recipe.replace_ingredient("angels-gas-ammonia", "angels-catalyst-metal-red", "angels-catalyst-metal-green")
+seablock.lib.replace_result("angels-gas-ammonia", "angels-catalyst-metal-red", "angels-catalyst-metal-green")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-catalyst-steam-cracking-naphtha",
   "angels-catalyst-metal-red",
   "angels-catalyst-metal-green"
 )
+seablock.lib.replace_result("angels-catalyst-steam-cracking-naphtha", "angels-catalyst-metal-red", "angels-catalyst-metal-green")
 
 bobmods.lib.recipe.replace_ingredient(
   "angels-gas-synthesis-methanol",
   "angels-catalyst-metal-green",
   "angels-catalyst-metal-blue"
 )
+seablock.lib.replace_result("angels-gas-synthesis-methanol", "angels-catalyst-metal-green", "angels-catalyst-metal-blue")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-gas-acid-catalyst",
   "angels-catalyst-metal-green",
   "angels-catalyst-metal-blue"
 )
+seablock.lib.replace_result("angels-gas-acid-catalyst", "angels-catalyst-metal-green", "angels-catalyst-metal-blue")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-liquid-styrene",
   "angels-catalyst-metal-green",
   "angels-catalyst-metal-blue"
 )
+seablock.lib.replace_result("angels-liquid-styrene", "angels-catalyst-metal-green", "angels-catalyst-metal-blue")
+
 bobmods.lib.recipe.replace_ingredient("angels-gas-benzene", "angels-catalyst-metal-green", "angels-catalyst-metal-blue")
+seablock.lib.replace_result("angels-gas-benzene", "angels-catalyst-metal-green", "angels-catalyst-metal-blue")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-liquid-propionic-acid",
   "angels-catalyst-metal-green",
   "angels-catalyst-metal-blue"
 )
+seablock.lib.replace_result("angels-liquid-propionic-acid", "angels-catalyst-metal-green", "angels-catalyst-metal-blue")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-gas-butadiene",
   "angels-catalyst-metal-green",
   "angels-catalyst-metal-blue"
 )
+seablock.lib.replace_result("angels-gas-butadiene", "angels-catalyst-metal-green", "angels-catalyst-metal-blue")
 
 bobmods.lib.recipe.replace_ingredient(
   "angels-liquid-naphtha-catalyst",
   "angels-catalyst-metal-red",
   "sb-catalyst-metal-purple"
 )
+seablock.lib.replace_result("angels-liquid-naphtha-catalyst", "angels-catalyst-metal-red", "sb-catalyst-metal-purple")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-solid-sodium-cyanide",
   "angels-catalyst-metal-green",
   "sb-catalyst-metal-purple"
 )
+seablock.lib.replace_result("angels-solid-sodium-cyanide", "angels-catalyst-metal-green", "sb-catalyst-metal-purple")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-gas-synthesis-methanation",
   "angels-catalyst-metal-blue",
   "sb-catalyst-metal-purple"
 )
+seablock.lib.replace_result("angels-gas-synthesis-methanation", "angels-catalyst-metal-blue", "sb-catalyst-metal-purple")
+
 bobmods.lib.recipe.replace_ingredient("angels-gas-hydrazine", "angels-catalyst-metal-blue", "sb-catalyst-metal-purple")
+seablock.lib.replace_result("angels-gas-hydrazine", "angels-catalyst-metal-blue", "sb-catalyst-metal-purple")
+
 bobmods.lib.recipe.replace_ingredient(
   "angels-gas-synthesis-methanol",
   "angels-catalyst-metal-blue",
   "sb-catalyst-metal-purple"
 )
+seablock.lib.replace_result("angels-gas-synthesis-methanol", "angels-catalyst-metal-blue", "sb-catalyst-metal-purple")
 
 bobmods.lib.recipe.replace_ingredient(
   "angels-cumene-process",
   "angels-catalyst-metal-blue",
   "angels-catalyst-metal-yellow"
 )
+seablock.lib.replace_result("angels-cumene-process", "angels-catalyst-metal-blue", "angels-catalyst-metal-yellow")
 
 bobmods.lib.recipe.add_new_ingredient(
   "angels-liquid-mineral-oil-catalyst",
   { type = "item", name = "sb-catalyst-metal-purple", amount = 1 }
 )
+
 bobmods.lib.recipe.add_result(
   "angels-liquid-mineral-oil-catalyst",
   { type = "item", name = "angels-catalyst-metal-carrier", amount = 1 }

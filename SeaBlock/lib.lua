@@ -18,6 +18,34 @@ function seablock.lib.set_tile_restriction(ptype, name, restriction)
     data.raw[ptype][name].autoplace["tile_restriction"] = restriction
 end
 
+function seablock.lib.replace_result(recipe, old_result_name, new_result_name)
+  local _recipe_str
+  if type(recipe) == "string" then
+    _recipe_str = recipe
+    recipe = data.raw.recipe[recipe]
+  end
+  if not recipe then
+    if _recipe_str then
+      error("Could not find recipe to replace result in ".._recipe_str)
+    else
+      error("Did not provide recipe")
+    end
+  end
+
+  -- if not data.raw.item[old_result_name] or not data.raw.fluid[old_result_name] then error("Result "..old_result_name.." is not a prototype") end
+  -- if not data.raw.item[new_result_name] or not data.raw.fluid[new_result_name] then error("Result "..new_result_name.." is not a prototype") end
+
+  local found = 0
+  for i, v in ipairs(recipe.results or {}) do
+    if v.name == old_result_name then
+      found = 1
+      v.name = new_result_name
+    end
+  end
+
+  if found == 0 then error("Did not find "..old_result_name.." in recipe") end
+end
+
 ---Sets a probability expression on any specified prototype
 ---does not replace existing autoplace dict but creates if it doesnt exist
 ---@param ptype string "tile", "entity", ...
