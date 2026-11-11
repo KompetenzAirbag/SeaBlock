@@ -8,11 +8,13 @@ bobmods.lib.recipe.set_ingredients("angels-catalyst-metal-green", {
   { type = "item", name = "copper-ore", amount = 1 },
   { type = "item", name = "iron-ore", amount = 1 },
 })
+seablock.lib.replace_result("angels-catalyst-metal-green", "angels-catalyst-metal-green", "angels-catalyst-metal-green", 10)
 bobmods.lib.recipe.set_ingredients("angels-catalyst-metal-blue", {
   { type = "item", name = "angels-catalyst-metal-carrier", amount = 10 },
   { type = "item", name = "bob-bauxite-ore", amount = 1 },
   { type = "item", name = "bob-silver-ore", amount = 1 },
 })
+seablock.lib.replace_result("angels-catalyst-metal-blue", "angels-catalyst-metal-blue", "angels-catalyst-metal-blue", 10)
 bobmods.lib.tech.add_recipe_unlock("angels-advanced-chemistry-4", "sb-catalyst-metal-purple")
 
 bobmods.lib.recipe.replace_ingredient(
