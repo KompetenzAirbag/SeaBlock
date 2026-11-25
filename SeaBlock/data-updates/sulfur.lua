@@ -43,3 +43,12 @@ seablock.lib.add_recipe_unlock("angels-sulfur-processing-3", "angels-filter-lime
 bobmods.lib.tech.hide("angels-sulfur-processing-4")
 bobmods.lib.tech.add_new_science_pack("angels-sulfur-processing-3", "chemical-science-pack", 1)
 bobmods.lib.tech.add_prerequisite("angels-sulfur-processing-3", "angels-advanced-chemistry-2")
+
+-- Move stuff from Sulfur 3 to 2
+bobmods.lib.tech.add_recipe_unlock("angels-sulfur-processing-2", "angels-gas-sulfur-dioxide-calcium-sulfate", 1)
+bobmods.lib.tech.add_recipe_unlock("angels-sulfur-processing-2", "angels-liquid-hydrofluoric-acid", 2)
+bobmods.lib.tech.add_recipe_unlock("angels-sulfur-processing-2", "angels-gas-hydrogen-fluoride", 3)
+
+bobmods.lib.tech.remove_recipe_unlock("angels-sulfur-processing-3", "angels-gas-sulfur-dioxide-calcium-sulfate")
+bobmods.lib.tech.remove_recipe_unlock("angels-sulfur-processing-3", "angels-liquid-hydrofluoric-acid")
+bobmods.lib.tech.remove_recipe_unlock("angels-sulfur-processing-3", "angels-gas-hydrogen-fluoride")
